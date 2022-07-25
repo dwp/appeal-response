@@ -1,0 +1,295 @@
+
+{% extends "layout.html" %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/public/javascripts/filter.js">
+  </script>
+{% endblock %}
+
+{% block pageTitle %}
+  Manage an Appeal : Design evolution
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Appeal response designs evolution
+      </h1>
+      <p>
+        <span class="inlineSpacer"><a href="#" ><strong>The latest version of prototype</strong></a></span>
+      </p>
+    </div>
+  </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-m">
+          Previous iterations
+        </h2>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="sort">
+            Filter by user need
+          </label>
+          <select class="govuk-select" id="filter" name="filter" onchange="filterExperiment()">
+            <option value="published" selected>All</option>
+            <option value="1" >Match an appellant</option>
+            <option value="2">Review decision</option>
+            <option value="3">Find a template</option>
+          </select>
+        </div>
+      <table class="govuk-table" id="designIterations">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Experiment / Hypotheses</th>
+            <th scope="col" class="govuk-table__header ">What's changed</th>
+            <th scope="col" class="govuk-table__header ">Decisions</th>
+            <th scope="col" class="govuk-table__header ">Evidence</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><p><a href="sample-iteration"><strong>Integrate with SearchLite</strong></a></p> <p>2022-07-01</p> <span class="govuk-tag govuk-tag--grey">Match an appellant</span></td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We will carry forward the designs and evolve them further
+                </li>
+                <li>
+                  May be show the source data from the legacy system side by side
+                </li>
+                <li>
+                  Conduct a workshop to figure out the data they would like to see
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><p><a href="sample-iteration"><strong>Automatically match the appellant</strong></a></p><br>2022-07-01 <br> <span class="govuk-tag govuk-tag--grey">Match an appellant</span></td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We will carry forward the designs and evolve them further
+                </li>
+                <li>
+                  May be show the source data from the legacy system side by side
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><p><a href="sample-iteration"><strong>Show the original appeal from HMCTS</strong></a></p><br>2022-07-01 <br> <span class="govuk-tag govuk-tag--grey">Review decision</span></td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We will carry forward the designs and evolve them further
+                </li>
+                <li>
+                  May be show the source data from the legacy system side by side
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><p><a href="sample-iteration"><strong>Show the original appeal from HMCTS</strong></a></p><br>2022-07-01 <br> <span class="govuk-tag govuk-tag--grey">Match an appellant</span></td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We will carry forward the designs and evolve them further
+                </li>
+                <li>
+                  May be show the source data from the legacy system side by side
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><p><a href="sample-iteration"><strong>Show the original appeal from HMCTS</strong></a></p><br>2022-07-01 <br> <span class="govuk-tag govuk-tag--grey">Review decision</span></td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We will carry forward the designs and evolve them further
+                </li>
+                <li>
+                  May be show the source data from the legacy system side by side
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><p><a href="sample-iteration"><strong>Show the original appeal from HMCTS</strong></a></p><br>2022-07-01 <br> <span class="govuk-tag govuk-tag--grey">Find a template</span></td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We tested the designs with 7 users
+                </li>
+                <li>
+                  Most users found the integration very helpful and avoided accessing multle systems
+                </li>
+                <li>
+                  However, there was't enough trust in the systems match
+                </li>
+              </ul>
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  We will carry forward the designs and evolve them further
+                </li>
+                <li>
+                  May be show the source data from the legacy system side by side
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+<div>
+
+{% endblock %}

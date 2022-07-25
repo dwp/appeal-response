@@ -1,0 +1,76 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back to iterations",
+  href: "index"
+}) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Integration with SearchLite
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Experiment
+      </h2>
+      <p>
+        We believe that integration of SearchLite and Manage and Appeal Service will help Appeal Writers to match appellants quicker and avoid manual errors.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        What's changed from previous iteration?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          We tested the designs with 7 users
+        </li>
+        <li>
+          Most users found the integration very helpful and avoided accessing multle systems
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Decisions
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          We tested the designs with 7 users
+        </li>
+        <li>
+          Most users found the integration very helpful and avoided accessing multle systems
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Evidence
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          We tested the designs with 7 users
+        </li>
+        <li>
+          Most users found the integration very helpful and avoided accessing multle systems
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Screenshots
+      </h2>
+      <p>
+        This is what we came up with in our design and other awesome stuff about our design.
+      </p>
+      <img class="govuk-grid-column-full" src="/public/images/sample/design-iterations.png" alt="screenshot">
+    </div>
+  </div>
+
+{% endblock %}
