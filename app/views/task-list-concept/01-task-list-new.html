@@ -15,25 +15,45 @@
 
 {% block content %}
 <a href="../index" class="govuk-back-link">Back to home page</a>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <section class="dwp-key-details-bar govuk-!-margin-bottom-9" aria-label="Key details">
+    <div class="dwp-key-details-bar__key-details">
+    <dl class="dwp-key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dd class="dwp-key-details-bar__primary">Abraham Jacob</dd>
+        <dt class="govuk-visually-hidden">Nino:</dt>
+        <dd class="dwp-key-details-bar__secondary">3219-2349-1235-2872</dd>
+        <dt class="govuk-visually-hidden">Claim status:</dt>
+        <dd class="govuk-table__cell dwp-key-details-bar__status">
+            <strong class="govuk-tag govuk-tag--grey">
+                draft (saved)
+            </strong>
+        </dd>
+    </dl>
+    <dl class="dwp-key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+        <dt>Language:</dt>
+        <dd>English speaker</dd>
+    </dl>
+    </div>
+    </section>
+  </div>
+</div>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">
-          Jacob Sunshine
-        </h1>
-        <span class="govuk-caption-l govuk-!-margin-bottom-3">8345-0598-2385-0831</span>
-        <strong class="govuk-tag govuk-tag--grey govuk-!-margin-bottom-8">
-          Draft (saved)
-        </strong>
 
         <ol class="app-task-list">
           <li>
             <h2 class="app-task-list__section">
-              <span class="app-task-list__section-number">1. </span> Check the appeal details
+              <span class="app-task-list__section-number">1. </span> Appeal
             </h2>
             <ul class="app-task-list__items">
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="#" aria-describedby="eligibility-status">
+                  <a href="02-appeallant-details" aria-describedby="eligibility-status">
                     Appeallant details
                   </a>
                 </span>
@@ -41,7 +61,7 @@
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="#" aria-describedby="read-declaration-status">
+                  <a href="03-representative-details" aria-describedby="read-declaration-status">
                     Representative details
                   </a>
                 </span>
@@ -49,23 +69,23 @@
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="#" aria-describedby="read-declaration-status">
+                  <a href="04-appeal-details" aria-describedby="read-declaration-status">
                     Appeal details
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
               </li>
             </ul>
           </li>
 
           <li>
             <h2 class="app-task-list__section">
-              <span class="app-task-list__section-number">2. </span> Review case details
+              <span class="app-task-list__section-number">2. </span> Case history
             </h2>
             <ul class="app-task-list__items">
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="#" aria-describedby="company-information-status">
+                  <a href="05-schedule-of-events" aria-describedby="company-information-status">
                     Schedule of events
                   </a>
                 </span>

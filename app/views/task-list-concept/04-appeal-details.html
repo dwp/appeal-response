@@ -1,0 +1,129 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <section class="dwp-key-details-bar govuk-!-margin-bottom-9" aria-label="Key details">
+    <div class="dwp-key-details-bar__key-details">
+    <dl class="dwp-key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dd class="dwp-key-details-bar__primary">Abraham Jacob</dd>
+        <dt class="govuk-visually-hidden">Nino:</dt>
+        <dd class="dwp-key-details-bar__secondary">3219-2349-1235-2872</dd>
+        <dt class="govuk-visually-hidden">Claim status:</dt>
+        <dd class="govuk-table__cell dwp-key-details-bar__status">
+            <strong class="govuk-tag govuk-tag--grey">
+                draft (saved)
+            </strong>
+        </dd>
+    </dl>
+    <dl class="dwp-key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+        <dt>Language:</dt>
+        <dd>English speaker</dd>
+    </dl>
+    </div>
+    </section>
+  </div>
+</div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <h2 class="govuk-heading-l">Appeal details</h2>
+        <p>These details were copied from HMCTS's CCD system.</p>
+        <h2 class="govuk-heading-m">MRN and appeal submission</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              MRN originating office
+            </dt>
+            <dd class="govuk-summary-list__value">
+              DWP PIP (1)
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of decision
+            </dt>
+            <dd class="govuk-summary-list__value">
+              10 February 2022
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date appeal submitted
+            </dt>
+            <dd class="govuk-summary-list__value">
+              11 March 2022
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Why appeal is late
+            </dt>
+            <dd class="govuk-summary-list__value">
+              My appeal is late as my partner died in January and I have been struggling to cope with his death on top of my health problems. We were only able to hold his funeral this week and I was not able to deal with the appeal until after that. In the circumstances, I would be grateful if my late appeal would be accepted.
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              No MRN
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Not applicable
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Reason for appealing</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              What you disagree with
+            </dt>
+            <dd class="govuk-summary-list__value">
+              I disagree with the DWP’s decision not to award me Personal Independence Payment.
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Why you disagree with it
+            </dt>
+            <dd class="govuk-summary-list__value">
+              I suffer from anxiety and depression. I also have arthritis that affects my knees, feet, hips and hands. I also suffer from bladder incontinence. I was not awarded any points despite having difficulties with most of the activities of daily living and mobility. I struggle to prepare and cook myself a meal due to the pain I experience. I cannot stand for long enough to make myself something and I also have problems with my hands – I cannot hold things and find opening packets and tins really hard. I even struggle to light the hob because I haven’t got the grip in my hands. I only eat soft foods because I do not have many teeth and if I eat anything else I start to choke. I also need help to cut my food up because I do not have the grip in my hands. I cannot get my tablets out of the packets so my son has to do that for me. He also has to prompt me to take my medication as I often do not want to. I have a walk in shower with a seat. I have to use the seat as I cannot stand for long enough to wash myself due to the pain in my hips and knees. I find it really difficult to bend to wash and dry my feet. I have to wear pads all of the time because I cannot control my bladder, I wet myself several times a day. My daughter has to help me get dressed. She helps me put on knickers, trousers, socks because bending is so painful. I have had to buy shoes that are slip on because I cannot do laces anymore. Any fastenings like buttons and zips is difficult for me to do because of my hands. People often tell me they cannot understand me – they say that I talk too fast and they cannot work out what I am saying. This upsets me as I feel I cannot get across what I need to say. I don’t always understand what is said to me either and that causes problems. I wear glasses but even with them on I find it hard to read small print and have to use a magnifying glass. I get very nervous around people I do not know to the point that I end up shaking.
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Anything else you want to tell the tribunal
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Not provided
+            </dd>
+          </div>
+
+        </dl>
+
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

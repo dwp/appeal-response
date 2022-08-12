@@ -1,0 +1,102 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <section class="dwp-key-details-bar govuk-!-margin-bottom-9" aria-label="Key details">
+    <div class="dwp-key-details-bar__key-details">
+    <dl class="dwp-key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dd class="dwp-key-details-bar__primary">Abraham Jacob</dd>
+        <dt class="govuk-visually-hidden">Nino:</dt>
+        <dd class="dwp-key-details-bar__secondary">3219-2349-1235-2872</dd>
+        <dt class="govuk-visually-hidden">Claim status:</dt>
+        <dd class="govuk-table__cell dwp-key-details-bar__status">
+            <strong class="govuk-tag govuk-tag--grey">
+                draft (saved)
+            </strong>
+        </dd>
+    </dl>
+    <dl class="dwp-key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+        <dt>Language:</dt>
+        <dd>English speaker</dd>
+    </dl>
+    </div>
+    </section>
+  </div>
+</div>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">Schedule of events</h2>
+        <p>These details were copied from UC Build.</p>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Date of event</th>
+              <th scope="col" class="govuk-table__header">Event</th>
+              <th scope="col" class="govuk-table__header">Date of document</th>
+              <th scope="col" class="govuk-table__header">Pages</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">07/04/2021</td>
+              <td class="govuk-table__cell">Valid claim recieved by phone</td>
+              <td class="govuk-table__cell">N/A</td>
+              <td class="govuk-table__cell">N/A</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">11/11/2021</td>
+              <td class="govuk-table__cell">AP assessment report</td>
+              <td class="govuk-table__cell">11/11/2021</td>
+              <td class="govuk-table__cell">6-26</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">30/11/2021</td>
+              <td class="govuk-table__cell">PIP .7039 Enhnaced Disallowance letter</td>
+              <td class="govuk-table__cell">30/11/2021</td>
+              <td class="govuk-table__cell">27-33</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">10/02/2022</td>
+              <td class="govuk-table__cell">PIP .7039 REconsideration - Disallowance letter</td>
+              <td class="govuk-table__cell">10/02/2022</td>
+              <td class="govuk-table__cell">34-41</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">11/03/2022</td>
+              <td class="govuk-table__cell">Appeal request and supporting documents recieved from HMCTS</td>
+              <td class="govuk-table__cell">11/03/2022</td>
+              <td class="govuk-table__cell">2-5</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Edit events
+        </button>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

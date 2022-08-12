@@ -1,0 +1,97 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <section class="dwp-key-details-bar govuk-!-margin-bottom-9" aria-label="Key details">
+    <div class="dwp-key-details-bar__key-details">
+    <dl class="dwp-key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dd class="dwp-key-details-bar__primary">Abraham Jacob</dd>
+        <dt class="govuk-visually-hidden">Nino:</dt>
+        <dd class="dwp-key-details-bar__secondary">3219-2349-1235-2872</dd>
+        <dt class="govuk-visually-hidden">Claim status:</dt>
+        <dd class="govuk-table__cell dwp-key-details-bar__status">
+            <strong class="govuk-tag govuk-tag--grey">
+                draft (saved)
+            </strong>
+        </dd>
+    </dl>
+    <dl class="dwp-key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+        <dt>Language:</dt>
+        <dd>English speaker</dd>
+    </dl>
+    </div>
+    </section>
+  </div>
+</div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        
+        <h2 class="govuk-heading-l">Appellant details</h2>
+
+        <p>These details were copied from HMCTS's CCD system.</p>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sarah Philips
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              5 January 1978
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact information
+            </dt>
+            <dd class="govuk-summary-list__value">
+              72 Guild Street
+              <br>London
+              <br>SE23 6FH
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>07700 900457</p>
+              <p>sarah.phillips@example.com</p>
+            </dd>
+          </div>
+        </dl>
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Edit appeallant details
+        </button>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
