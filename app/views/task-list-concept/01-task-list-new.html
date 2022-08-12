@@ -1,0 +1,127 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+<a href="index" class="govuk-back-link">Back to home page</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">
+          Jacob Sunshine
+        </h1>
+        <span class="govuk-caption-l govuk-!-margin-bottom-3">8345-0598-2385-0831</span>
+        <strong class="govuk-tag govuk-tag--grey govuk-!-margin-bottom-8">
+          Draft (saved)
+        </strong>
+
+        <ol class="app-task-list">
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">1. </span> Check the appeal details
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="eligibility-status">
+                    Appeallant details
+                  </a>
+                </span>
+                <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="read-declaration-status">
+                    Representative details
+                  </a>
+                </span>
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="read-declaration-status">
+                    Appeal details
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">2. </span> Review case details
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="company-information-status">
+                    Schedule of events
+                  </a>
+                </span>
+                <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="company-information-status">
+                    Evidence
+                  </a>
+                </span>
+                <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">3. </span> Prepare response
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="company-information-status">
+                    List the points appellant has raised
+                  </a>
+                </span>
+                <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="#" aria-describedby="company-information-status">
+                    Write the response
+                  </a>
+                </span>
+                <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">4. </span> Send response
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  Review and send
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+              </li>
+            </ul>
+          </li>
+        </ol>
+
+    </div>
+  </div>
+
+{% endblock %}
