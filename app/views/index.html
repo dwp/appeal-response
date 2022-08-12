@@ -1,20 +1,103 @@
 
-{% extends "layout.html" %}
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
 
 {% block pageTitle %}
   Home – GOV.UK Prototype Kit
 {% endblock %}
 
+
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">
-        The future home of something awesome
-      </h1>
-      <h2 class="govuk-heading-m">
-        Watch this space !
+      <div class="cHeader">
+        <h1 class="govuk-heading-xl">
+          Appeal response creator
+        </h1>
+        <p>Use this service to create an appeal response. The service automatically populates relevant details from HMCTS's CCD system and UC build. All standard paragraphs needed are inbuilt into this system.</p>
+        {{ govukButton({
+          text: "Create new response",
+          href: "new-response"
+        }) }}
+      </div>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l">
+        Previous responses created by me
       </h2>
+
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Appellant name</th>
+            <th scope="col" class="govuk-table__header">HMCTS reference number</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Jane Doe</a></td>
+            <td class="govuk-table__cell">1238-0935-8327-1283</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">draft</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Abraham Jacob</a></td>
+            <td class="govuk-table__cell">9731-8352-4581-4376</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">draft</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Kate Rose</a></td>
+            <td class="govuk-table__cell">9822-9421-9846-2831</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">sent</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Jake Shepard</a></td>
+            <td class="govuk-table__cell">4213-4618-9456-3746</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">sent</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">John Lock</a></td>
+            <td class="govuk-table__cell">1238-0935-8327-1283</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">sent</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Kate Rose</a></td>
+            <td class="govuk-table__cell">9822-9421-9846-2831</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">sent</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Jake Shepard</a></td>
+            <td class="govuk-table__cell">4213-4618-9456-3746</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">sent</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">John Lock</a></td>
+            <td class="govuk-table__cell">1238-0935-8327-1283</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">sent</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Kate Rose</a></td>
+            <td class="govuk-table__cell">9822-9421-9846-2831</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">sent</strong></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Jake Shepard</a></td>
+            <td class="govuk-table__cell">4213-4618-9456-3746</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">sent</strong></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 

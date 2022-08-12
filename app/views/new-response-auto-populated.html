@@ -1,0 +1,166 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+<a href="index" class="govuk-back-link">Back to home page</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">
+          Jacob Sunshine
+        </h1>
+        <span class="govuk-caption-l govuk-!-margin-bottom-3">8345-0598-2385-0831</span>
+        <strong class="govuk-tag govuk-tag--grey govuk-!-margin-bottom-8">
+          Draft (saved)
+        </strong>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <h2 class="govuk-heading-m">Appellant</h2>
+          </div>
+          <div class="govuk-grid-column-one-third align-right">
+            <a href="#" class="govuk-link">Update</a>
+          </div>
+        </div>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sarah Philips
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              5 January 1978
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact information
+            </dt>
+            <dd class="govuk-summary-list__value">
+              72 Guild Street
+              <br>London
+              <br>SE23 6FH
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>07700 900457</p>
+              <p>sarah.phillips@example.com</p>
+            </dd>
+          </div>
+        </dl>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <h2 class="govuk-heading-m">Representative</h2>
+          </div>
+          <div class="govuk-grid-column-one-third align-right">
+            <a href="#" class="govuk-link">Update</a>
+          </div>
+        </div>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Jane Philips
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Relation with the appellant
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sister
+            </dd>
+          </div>
+        </dl>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <h2 class="govuk-heading-m">Schedule of events</h2>
+          </div>
+          <div class="govuk-grid-column-one-third align-right">
+            <a href="#" class="govuk-link">Update</a>
+          </div>
+        </div>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              01/01/2019
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Claim recieved
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              13/09/2019
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Claim denied
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              24/11/2019
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Mandatory reconsideration raised
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              13/01/2020
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Mandatory reconsideration notice sent
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              19/03/2020
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Appeal raised
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              27/05/2020
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Additional evidence recieved
+            </dd>
+          </div>
+        </dl>
+
+    </div>
+  </div>
+
+{% endblock %}

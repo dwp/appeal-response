@@ -1,0 +1,42 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+<a href="index" class="govuk-back-link">Back to home page</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="cHeader">
+        <h1 class="govuk-heading-xl">
+          New appeal response
+        </h1>
+        <p>Once you enter the HMCTS's reference number, the system will automatically populates relevant details from HMCTS's CCD system and UC build. All standard paragraphs needed are inbuilt into this system.</p>
+        <div class="govuk-form-group">
+          <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="event-name">
+              HMCTS appeal reference number
+            </label>
+          </h3>
+          <input class="govuk-input" id="event-name" name="event-name" type="text">
+        </div>
+        {{ govukButton({
+          text: "Create new response",
+          href: "new-response-auto-populated"
+        }) }}
+        <br>
+        <a href="index" class="govuk-link">Cancel and go back to home page</a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

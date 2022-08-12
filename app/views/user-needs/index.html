@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Manage an Appeal : Design evolution
+{% endblock %}
+
+{% block content %}
+<a href="/" class="govuk-back-link">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">Create an appeal response</span>
+      <h1 class="govuk-heading-xl">
+        User needs
+      </h1>
+      <div class="user-need">
+        <div class="user-need-title">
+          <a href="#">Match the appellant on the appeal to the DWP benefit systems</a>
+        </div>
+          <strong class="govuk-tag">
+            Validated
+          </strong>
+      </div>
+      <ol class="govuk-list govuk-list--number user-needs-list">
+        <li><a href="#">Match the appellant on the appeal to the DWP benefit systems</a></li>
+        <li><a href="#">Gather personal details of the appellant</a></li>
+        <li><a href="#">Gather evidence produced by the appellant</a></li>
+        <li><a href="#">Gather schedule of events</a></li>
+        <li><a href="#">Articulate the reasoning for the decision</a></li>
+
+      </ol>
+    </div>
+  </div>
+
+
+{% endblock %}
