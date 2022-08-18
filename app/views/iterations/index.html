@@ -1,5 +1,5 @@
 
-{% extends "layout.html" %}
+{% extends "dwp-layout.html" %}
 
 {% block head %}
   {% include "includes/head.html" %}
@@ -19,15 +19,12 @@
       <h1 class="govuk-heading-xl">
         Appeal response designs evolution
       </h1>
-      <p>
-        <span class="inlineSpacer"><a href="#" ><strong>The latest version of prototype</strong></a></span>
-      </p>
     </div>
   </div>
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <h2 class="govuk-heading-m">
-          Previous iterations
+      <div class="govuk-grid-column-three-quarters">
+        <h2 class="govuk-heading-l">
+          Iterations
         </h2>
         <div class="govuk-form-group">
           <label class="govuk-label" for="sort">
@@ -35,7 +32,7 @@
           </label>
           <select class="govuk-select" id="filter" name="filter" onchange="filterExperiment()">
             <option value="published" selected>All</option>
-            <option value="1" >Match an appellant</option>
+            <option value="1" >Pause and resume</option>
             <option value="2">Review decision</option>
             <option value="3">Find a template</option>
           </select>
@@ -44,8 +41,8 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Experiment / Hypotheses</th>
-            <th scope="col" class="govuk-table__header ">What's changed</th>
-            <th scope="col" class="govuk-table__header ">Decisions</th>
+            <th scope="col" class="govuk-table__header ">What's changed or new</th>
+            <th scope="col" class="govuk-table__header ">Decisions / Next steps</th>
             <th scope="col" class="govuk-table__header ">Evidence</th>
           </tr>
         </thead>
@@ -53,61 +50,65 @@
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
               <p>
-                <a href="./sample-iteration">
-                  <strong>Integrate with SearchLite</strong>
+                <a href="./home-page">
+                  <strong>Home page</strong>
                 </a>
               </p>
-              <p>2022-07-01</p>
+              <p>Sprint 07</p>
+              <p>PrepareAnAppealResponse_v1.0</p>
               <p>
-                <span class="govuk-tag govuk-tag--grey">Match an appellant</span>
-              </p>
-              <p>
-                <span class="govuk-tag govuk-tag--grey">Review decision</span>
+                <span class="govuk-tag govuk-tag--grey">Pause and resume</span>
               </p>
             </td>
             <td class="govuk-table__cell">
               <ul class="govuk-list govuk-list--bullet">
                 <li>
-                  We tested the designs with 7 users
+                  A home page to start the journey
                 </li>
                 <li>
-                  Most users found the integration very helpful and avoided accessing multle systems
-                </li>
-                <li>
-                  However, there was't enough trust in the systems match
+                  A list of previously created appeal responses
                 </li>
               </ul>
             </td>
             <td class="govuk-table__cell">
               <ul class="govuk-list govuk-list--bullet">
                 <li>
-                  We tested the designs with 7 users
+                  Users found it valuable to see the things they have worked on and they can re-visit there in progress work
                 </li>
                 <li>
-                  Most users found the integration very helpful and avoided accessing multle systems
-                </li>
-                <li>
-                  However, there was't enough trust in the systems match
+                  We will continue to include this page in the future iterations
                 </li>
               </ul>
             </td>
             <td class="govuk-table__cell">
               <ul class="govuk-list govuk-list--bullet">
                 <li>
-                  We will carry forward the designs and evolve them further
+                  Tested with 2 users
                 </li>
                 <li>
-                  May be show the source data from the legacy system side by side
+                    List-based presentation of work items was familiar to both Ps.
                 </li>
                 <li>
-                  Conduct a workshop to figure out the data they would like to see
+                  Positive feedback as they are already used to something similar for their current workflow.
                 </li>
               </ul>
             </td>
           </tr>
-          
+
         </tbody>
       </table>
+  </div>
+
+  <div class="govuk-grid-column-one-quarter">
+    <h3 class="govuk-heading-m">
+      Important links
+    </h3>
+    <p>
+      <a href="../" >The latest version of prototype</a>
+    </p>
+    <p>
+      <a href="../user-needs/" >User needs</a>
+    </p>
   </div>
 <div>
 

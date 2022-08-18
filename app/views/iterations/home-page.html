@@ -1,0 +1,108 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back to iterations",
+  href: "index"
+}) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Home page
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        Hypothesis / Experiment
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <strong>We have seen that </strong> the appeal writing process can take a long time
+        </li>
+        <li>
+          <strong>We think this is because </strong> taking decisions requires them to go through the entire case history in different systems
+        </li>
+        <li>
+          <strong>So if we </strong> allow AWs to save their responses
+        </li>
+        <li>
+          <strong>We will see </strong> that the AWs can edit the same response over different sessions
+        </li>
+        <li>
+          <strong>We'll know this is true when </strong> the appeal writers will be able to pause and resume writing an appeal.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        User need(s)
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          I need to be able to pause writing an appeal response, and continue working on it later. <a href="../user-needs/"> More about this need.</a>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What's new or changed?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          A home page to start the journey
+        </li>
+        <li>
+          A list of previously created appeal responses
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What did we learn?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          So far this seems to be a strong concept.
+        </li>
+        <li>
+          Neither participant raised any objections to the layout or content.
+        </li>
+        <li>
+          List-based presentation of work items was familiar to both Ps.
+        </li>
+        <li>
+          One P referenced having something similar currently – but which lets you do more.
+        </li>
+        <li>
+          One P mentioned inclusion of filters.
+        </li>
+        <li>
+          One P asked about access management – e.g. what if someone off sick and doing someone else’s cases?
+        </li>
+        <li>
+          “I could potentially see myself using this. It gives you a breakdown of where you need to go.”
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        Next steps
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          TBD
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Screenshots
+      </h2>
+      <img class="govuk-grid-column-full" src="/public/images/design-evolution/PrepareAnAppealResponse_v1_0/home-page.png" alt="home page screenshot">
+    </div>
+  </div>
+
+{% endblock %}
