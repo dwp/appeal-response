@@ -12,39 +12,54 @@
   Home – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block header %}
+<header class="govuk-header dwp-header" data-module="govuk-header">
+<div class=" govuk-width-container ">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="../" class="govuk-header__link govuk-header__link--service-name">
+            {{serviceName}}
+        </a>
+    </div>
+    <div class="govuk-grid-column-one-third dwp-header__container--action">
+        <a href="#" class="govuk-header__link action">
+            John Doe
+        </a>
+    </div>
+</div>
+</div>
+<section class="dwp-key-details-bar " aria-label="Key details">
+<div class="dwp-key-details-bar__key-details">
+<dl class="dwp-key-details-bar__top-block">
+    <dt class="govuk-visually-hidden">Name:</dt>
+    <dd class="dwp-key-details-bar__primary">Jacob Abraham</dd>
+    <dt class="govuk-visually-hidden">Nino:</dt>
+    <dd class="dwp-key-details-bar__secondary">3219-2349-1235-2872</dd>
+    <dt class="govuk-visually-hidden">Claim status:</dt>
+    <dd class="govuk-table__cell dwp-key-details-bar__status">
+        <strong class="govuk-tag govuk-tag--grey">
+            draft (saved)
+        </strong>
+    </dd>
+</dl>
+<dl class="dwp-key-details-bar__bottom-block">
+    <dt>Date of birth:</dt>
+    <dd>4 June 1972</dd>
+    <dt>Language:</dt>
+    <dd>Welsh speaker</dd>
+</dl>
+</div>
+</section>
+</header>
+{% endblock %}
 
 {% block content %}
 <a href="../index" class="govuk-back-link">Back to home page</a>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <section class="dwp-key-details-bar govuk-!-margin-bottom-9" aria-label="Key details">
-    <div class="dwp-key-details-bar__key-details">
-    <dl class="dwp-key-details-bar__top-block">
-        <dt class="govuk-visually-hidden">Name:</dt>
-        <dd class="dwp-key-details-bar__primary">Abraham Jacob</dd>
-        <dt class="govuk-visually-hidden">Nino:</dt>
-        <dd class="dwp-key-details-bar__secondary">3219-2349-1235-2872</dd>
-        <dt class="govuk-visually-hidden">Claim status:</dt>
-        <dd class="govuk-table__cell dwp-key-details-bar__status">
-            <strong class="govuk-tag govuk-tag--grey">
-                draft (saved)
-            </strong>
-        </dd>
-    </dl>
-    <dl class="dwp-key-details-bar__bottom-block">
-        <dt>Date of birth:</dt>
-        <dd>4 June 1972</dd>
-        <dt>Language:</dt>
-        <dd>English speaker</dd>
-    </dl>
-    </div>
-    </section>
-  </div>
-</div>
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+        <h1 class="govuk-heading-xl">
+          Appeal response
+        </h1>
         <ol class="app-task-list">
           <li>
             <h2 class="app-task-list__section">
@@ -151,6 +166,34 @@
           </li>
         </ol>
 
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Guidance</h2>
+      <div class=" right-side-bar">
+        <h4 class="govuk-heading-s">
+          Help section
+        </h4>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            This section could include some help text
+          </li>
+          <li>
+            That could help the appeal writers with the context and guidance
+          </li>
+        </ul>
+
+        <h4 class="govuk-heading-s">
+          May be links to examples
+        </h4>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            This section could include some help text
+          </li>
+          <li>
+            That could help the appeal writers with the context and guidance
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 
