@@ -11,3 +11,8 @@
 .align-right {
   text-align: right;
 }
+
+.right-side-bar {
+  background-color: #eeefef;
+  padding-top: 1rem;
+}
