@@ -12,10 +12,23 @@
   Home – GOV.UK Prototype Kit
 {% endblock %}
 
-
-{% block content %}
-<a href="../index" class="govuk-back-link">Back to home</a>
-<section class="dwp-key-details-bar govuk-!-margin-bottom-9" aria-label="Key details">
+{% block header %}
+<header class="govuk-header dwp-header" data-module="govuk-header">
+<div class=" govuk-width-container ">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="#" class="govuk-header__link govuk-header__link--service-name">
+            {{serviceName}}
+        </a>
+    </div>
+    <div class="govuk-grid-column-one-third dwp-header__container--action">
+        <a href="#" class="govuk-header__link action">
+            John Doe
+        </a>
+    </div>
+</div>
+</div>
+<section class="dwp-key-details-bar " aria-label="Key details">
 <div class="dwp-key-details-bar__key-details">
 <dl class="dwp-key-details-bar__top-block">
     <dt class="govuk-visually-hidden">Name:</dt>
@@ -37,9 +50,14 @@
 </dl>
 </div>
 </section>
+</header>
+{% endblock %}
+
+{% block content %}
+<a href="../index" class="govuk-back-link">Back to home</a>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-
+      <h1 class="govuk-heading-xl">Appeal response</h1>
       <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
         <div class="govuk-accordion__section ">
           <div class="govuk-accordion__section-header">
@@ -468,8 +486,8 @@
                     Point appellant has raised and responses
                   </div>
                   <div class="govuk-grid-column-one-third align-right">
-                    <strong class="govuk-tag govuk-tag--grey">
-                      Not started
+                    <strong class="govuk-tag govuk-tag--blue">
+                      In progress
                     </strong>
                   </div>
                 </div>
@@ -488,7 +506,7 @@
                     </dt>
                     <dd class="govuk-summary-list__value">
                       <h3 class="govuk-heading-s">Point raised by the appellant</h3>
-                        <strong class="govuk-tag">
+                        <strong class="govuk-tag govuk-!-margin-bottom-3">
                           Responded
                         </strong>
                       <p>
@@ -514,7 +532,7 @@
                     </dt>
                     <dd class="govuk-summary-list__value">
                       <h3 class="govuk-heading-s">Point raised by the appellant</h3>
-                        <strong class="govuk-tag govuk-tag--grey">
+                        <strong class="govuk-tag govuk-tag--grey govuk-!-margin-bottom-3">
                           Not responded
                         </strong>
                       <p class="govuk-!-padding-bottom-5">
@@ -536,7 +554,7 @@
                     </dt>
                     <dd class="govuk-summary-list__value">
                       <h3 class="govuk-heading-s">Point raised by the appellant</h3>
-                        <strong class="govuk-tag govuk-tag--grey">
+                        <strong class="govuk-tag govuk-tag--grey govuk-!-margin-bottom-3">
                           Not responded
                         </strong>
                       <p class="govuk-!-padding-bottom-5">
@@ -565,15 +583,6 @@
                     </dd>
                   </div>
                 </dl>
-
-                <div class="govuk-button-group">
-                  <button class="govuk-button" data-module="govuk-button">
-                    Send response
-                  </button>
-                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                    Preview response
-                  </button>
-                </div>
               </div>
             </div>
           </div>
