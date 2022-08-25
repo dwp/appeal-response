@@ -1,0 +1,100 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+<header class="govuk-header dwp-header" data-module="govuk-header">
+<div class=" govuk-width-container ">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="../" class="govuk-header__link govuk-header__link--service-name">
+            {{serviceName}}
+        </a>
+    </div>
+    <div class="govuk-grid-column-one-third dwp-header__container--action">
+        <a href="#" class="govuk-header__link action">
+            John Doe
+        </a>
+    </div>
+</div>
+</div>
+<section class="dwp-key-details-bar " aria-label="Key details">
+<div class="dwp-key-details-bar__key-details">
+<dl class="dwp-key-details-bar__top-block">
+    <dt class="govuk-visually-hidden">Name:</dt>
+    <dd class="dwp-key-details-bar__primary">Sarah Phillips</dd>
+    <dt class="govuk-visually-hidden">Nino:</dt>
+    <dd class="dwp-key-details-bar__secondary">3219-2349-1235-2872</dd>
+    <dt class="govuk-visually-hidden">Claim status:</dt>
+    <dd class="govuk-table__cell dwp-key-details-bar__status">
+        <strong class="govuk-tag govuk-tag--grey">
+            draft (saved)
+        </strong>
+    </dd>
+</dl>
+<dl class="dwp-key-details-bar__bottom-block">
+    <dt>Date of birth:</dt>
+    <dd>4 June 1972</dd>
+    <dt>Language:</dt>
+    <dd>Welsh speaker</dd>
+</dl>
+</div>
+</section>
+</header>
+{% endblock %}
+
+{% block content %}
+<a href="index" class="govuk-back-link">Back to appeal response</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">Construct your response</h2>
+        <h3 class="govuk-heading-m">The point appellant has raised</h3>
+        <p class="govuk-!-margin-bottom-9">
+          A rose is either a woody perennial flowering plant of the genus Rosa, in the family Rosaceae, or the flower it bears. There are over three hundred species and tens of thousands of cultivars.[citation needed] They form a group of plants that can be erect shrubs, climbing, or trailing, with stems that are often armed with sharp prickles.[citation needed] Their flowers vary in size and shape and are usually large and showy, in colours ranging from white through yellows and reds. Most species are native to Asia, with smaller numbers native to Europe, North America, and northwestern Africa.
+        </p>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Do you agree with this point the appellant has raised?
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+                <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+                <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="govuk-button-group">
+          <a class="govuk-button" href="08-02-response">
+            Continue
+          </a>
+        </div>
+        <p><a href="index">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
