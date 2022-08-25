@@ -57,59 +57,39 @@
 <a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-xl">The facts of the case</h2>
+        <h3 class="govuk-heading-l">Legacy claims</h3>
 
-
-        <h2 class="govuk-heading-l">Representative</h2>
-        <div class="govuk-inset-text">
-          <p>
-            <strong class="govuk-tag govuk-tag--green">
-              Verified
-            </strong>
-          </p>
-          <p>These details were copied from HMCTS's CCD system and verified with SeachLight.</p>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Does the appellant have any legacy claim?
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                    No
+                  </label>
+              </div>
+          </fieldset>
         </div>
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Jane Philips
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Relation with the appellant
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Sister
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Contact details
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <p>07700 900457</p>
-              <p>jane.phillips@example.com</p>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Address
-            </dt>
-            <dd class="govuk-summary-list__value">
-              72 Guild Street
-              <br>London
-              <br>SE23 6FH
-            </dd>
-          </div>
-        </dl>
 
-        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-          Edit representative details
-        </button>
+
+        <div class="govuk-button-group">
+          <a class="govuk-button" href="13-09-facts">
+            Continue
+          </a>
+        </div>
         <p><a href="01-task-list-new">Back to appeal response</a></p>
 
     </div>

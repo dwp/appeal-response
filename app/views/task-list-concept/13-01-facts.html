@@ -1,0 +1,126 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+<header class="govuk-header dwp-header" data-module="govuk-header">
+<div class=" govuk-width-container ">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="../" class="govuk-header__link govuk-header__link--service-name">
+            {{serviceName}}
+        </a>
+    </div>
+    <div class="govuk-grid-column-one-third dwp-header__container--action">
+        <a href="#" class="govuk-header__link action">
+            John Doe
+        </a>
+    </div>
+</div>
+</div>
+<section class="dwp-key-details-bar " aria-label="Key details">
+<div class="dwp-key-details-bar__key-details">
+<dl class="dwp-key-details-bar__top-block">
+    <dt class="govuk-visually-hidden">Name:</dt>
+    <dd class="dwp-key-details-bar__primary">Jacob Abraham</dd>
+    <dt class="govuk-visually-hidden">Nino:</dt>
+    <dd class="dwp-key-details-bar__secondary">3219-2349-1235-2872</dd>
+    <dt class="govuk-visually-hidden">Claim status:</dt>
+    <dd class="govuk-table__cell dwp-key-details-bar__status">
+        <strong class="govuk-tag govuk-tag--grey">
+            draft (saved)
+        </strong>
+    </dd>
+</dl>
+<dl class="dwp-key-details-bar__bottom-block">
+    <dt>Date of birth:</dt>
+    <dd>4 June 1972</dd>
+    <dt>Language:</dt>
+    <dd>Welsh speaker</dd>
+</dl>
+</div>
+</section>
+</header>
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-xl">The facts of the case</h2>
+        <h3 class="govuk-heading-l">Introduction</h3>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                What conditions did the appellant report in the initial declaration?
+              </h1>
+            </legend>
+            <div id="condition-hint" class="govuk-hint">
+              Select all that apply.
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  Arthritis
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                  High blood pressure
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Anxiety
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                  Depression
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="event-name">
+              Other conditions
+            </label>
+          </h1>
+
+          <div id="condition-hint" class="govuk-hint">
+            Separate each condition by a comma (,)
+          </div>
+          <input class="govuk-input" id="event-name" name="event-name" type="text">
+        </div>
+
+
+        <div class="govuk-button-group">
+          <a class="govuk-button" href="13-02-facts">
+            Continue
+          </a>
+        </div>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
