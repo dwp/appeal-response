@@ -2,6 +2,7 @@
 {% extends "dwp-layout.html" %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
 
 {% block head %}
   {% include "includes/head.html" %}
@@ -9,50 +10,11 @@
 {% endblock %}
 
 {% block pageTitle %}
-  Home – GOV.UK Prototype Kit
+  Home – Prepare an appeal response
 {% endblock %}
 
 {% block header %}
-<header class="govuk-header dwp-header" data-module="govuk-header">
-<div class=" govuk-width-container ">
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <a href="../" class="govuk-header__link govuk-header__link--service-name">
-            {{serviceName}}
-        </a>
-    </div>
-    <div class="govuk-grid-column-one-third dwp-header__container--action">
-        <a href="#" class="govuk-header__link action">
-            John Doe
-        </a>
-    </div>
-</div>
-</div>
-<section class="dwp-key-details-bar " aria-label="Key details">
-<div class="dwp-key-details-bar__key-details">
-<dl class="dwp-key-details-bar__top-block">
-    <dt class="govuk-visually-hidden">Name:</dt>
-    <dd class="dwp-key-details-bar__primary">Kate Rose</dd>
-    <dt class="govuk-visually-hidden">Nino:</dt>
-    <dd class="dwp-key-details-bar__secondary">3219-2349-1235-2872</dd>
-    <dt class="govuk-visually-hidden">Claim status:</dt>
-    <dd class="govuk-table__cell dwp-key-details-bar__status">
-        <strong class="govuk-tag govuk-tag--grey">
-            draft (saved)
-        </strong>
-    </dd>
-</dl>
-<dl class="dwp-key-details-bar__bottom-block">
-    <dt>NINO:</dt>
-    <dd>NI NO 12 34 45</dd>
-    <dt>Date of birth:</dt>
-    <dd>4 June 1972</dd>
-    <dt>Language:</dt>
-    <dd>Welsh speaker</dd>
-</dl>
-</div>
-</section>
-</header>
+{{header.header(serviceName, 'Kate Rose')}}
 {% endblock %}
 
 {% block content %}
@@ -66,10 +28,10 @@
             <h2 class="govuk-accordion__section-heading">
               <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
                 <div class="govuk-grid-row">
-                  <div class="govuk-grid-column-two-thirds">
+                  <div class="govuk-grid-column-one-half">
                     Appellant details
                   </div>
-                  <div class="govuk-grid-column-one-third align-right">
+                  <div class="govuk-grid-column-one-half align-right">
                     <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Auto populated</strong>
                     <strong class="govuk-tag govuk-tag--green app-task-list__tag govuk-!-margin-right-1" id="eligibility-status">Verified</strong>
                   </div>
@@ -157,10 +119,10 @@
             <h2 class="govuk-accordion__section-heading">
               <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
                 <div class="govuk-grid-row">
-                  <div class="govuk-grid-column-two-thirds">
+                  <div class="govuk-grid-column-one-half">
                     Representative details
                   </div>
-                  <div class="govuk-grid-column-one-third align-right">
+                  <div class="govuk-grid-column-one-half align-right">
                   <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Auto populated</strong>
                   <strong class="govuk-tag govuk-tag--green app-task-list__tag govuk-!-margin-right-1" id="eligibility-status">Verified</strong>
                   </div>
@@ -221,12 +183,12 @@
             <h2 class="govuk-accordion__section-heading">
               <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
                 <div class="govuk-grid-row">
-                  <div class="govuk-grid-column-two-thirds">
+                  <div class="govuk-grid-column-one-half">
                     Appeal details
                   </div>
-                  <div class="govuk-grid-column-one-third align-right">
-                  <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Auto populated</strong>
-                  <strong class="govuk-tag govuk-tag--green app-task-list__tag govuk-!-margin-right-1" id="eligibility-status">Verified</strong>
+                  <div class="govuk-grid-column-one-half align-right">
+                    <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Auto populated</strong>
+                    <strong class="govuk-tag govuk-tag--green app-task-list__tag govuk-!-margin-right-1" id="eligibility-status">Verified</strong>
                   </div>
                 </div>
               </span>
@@ -348,10 +310,10 @@
             <h2 class="govuk-accordion__section-heading">
               <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
                 <div class="govuk-grid-row">
-                  <div class="govuk-grid-column-two-thirds">
+                  <div class="govuk-grid-column-one-half">
                     Schedule of evidence
                   </div>
-                  <div class="govuk-grid-column-one-third align-right">
+                  <div class="govuk-grid-column-one-half align-right">
                   <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Auto populated</strong>
                   <strong class="govuk-tag govuk-tag--green app-task-list__tag govuk-!-margin-right-1" id="eligibility-status">Verified</strong>
                   </div>
@@ -424,10 +386,10 @@
             <h2 class="govuk-accordion__section-heading">
               <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
                 <div class="govuk-grid-row">
-                  <div class="govuk-grid-column-two-thirds">
+                  <div class="govuk-grid-column-one-half">
                     Facts of the case
                   </div>
-                  <div class="govuk-grid-column-one-third align-right">
+                  <div class="govuk-grid-column-one-half align-right">
                     <strong class="govuk-tag govuk-tag--grey">
                       not started
                     </strong>
@@ -507,10 +469,10 @@
             <h2 class="govuk-accordion__section-heading">
               <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
                 <div class="govuk-grid-row">
-                  <div class="govuk-grid-column-two-thirds">
+                  <div class="govuk-grid-column-one-half">
                     Points appellant has raised and responses
                   </div>
-                  <div class="govuk-grid-column-one-third align-right">
+                  <div class="govuk-grid-column-one-half align-right">
                     <strong class="govuk-tag govuk-tag--blue">
                       In progress
                     </strong>
