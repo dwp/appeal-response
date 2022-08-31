@@ -25,37 +25,35 @@
         <h2 class="govuk-heading-xl">The facts of the case</h2>
         <h3 class="govuk-heading-l">Legacy claims</h3>
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h1 class="govuk-fieldset__heading">
-                Does the appellant have any legacy claim?
-              </h1>
-            </legend>
-            <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
-                  <label class="govuk-label govuk-radios__label" for="where-do-you-live">
-                    Yes
-                  </label>
+        <form action="13-09-facts" method="post" class="form">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                  Does the appellant have any legacy claim?
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="tl-13-08-legacy-claim-yes" name="tl-13-08-legacy-claim" type="radio" value="Yes" {{ checked("tl-13-08-legacy-claim", "Yes") }}>
+                    <label class="govuk-label govuk-radios__label" for="tl-13-08-legacy-claim-yes">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="tl-13-08-legacy-claim-no" name="tl-13-08-legacy-claim" type="radio" value="No" {{ checked("tl-13-08-legacy-claim", "No") }}>
+                    <label class="govuk-label govuk-radios__label" for="tl-13-08-legacy-claim-no">
+                      No
+                    </label>
                 </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
-                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
-                    No
-                  </label>
-              </div>
-          </fieldset>
-        </div>
+            </fieldset>
+          </div>
 
-
-        <div class="govuk-button-group">
-          <a class="govuk-button" href="13-09-facts">
-            Continue
-          </a>
-        </div>
-        <p><a href="01-task-list-new">Back to appeal response</a></p>
-
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+          </div>
+          <p><a href="01-task-list-new">Back to appeal response</a></p>
+        </form>
     </div>
   </div>
 

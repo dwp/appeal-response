@@ -24,28 +24,26 @@
     <div class="govuk-grid-column-two-thirds">
         <h2 class="govuk-heading-xl">The facts of the case</h2>
         <h3 class="govuk-heading-l">Introduction</h3>
+        <form action="13-06-facts" method="post" class="form">
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--m" for="conditions-declared">
+                What were the conditions declared that impacted the appellant's ability to work?
+              </label>
+            </h1>
 
-        <div class="govuk-form-group">
-          <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--m" for="event-name">
-              What were the conditions declared that impacted the appellant's ability to work?
-            </label>
-          </h1>
-
-          <div id="condition-hint" class="govuk-hint">
-            Separate each condition by a comma (,)
+            <div id="condition-hint" class="govuk-hint">
+              Separate each condition by a comma (,)
+            </div>
+            <input class="govuk-input" id="conditions-declared" name="conditions-declared" type="text" value="{{ data['conditions-declared'] }}">
           </div>
-          <input class="govuk-input" id="event-name" name="event-name" type="text">
-        </div>
 
 
-        <div class="govuk-button-group">
-          <a class="govuk-button" href="13-06-facts">
-            Continue
-          </a>
-        </div>
-        <p><a href="01-task-list-new">Back to appeal response</a></p>
-
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+          </div>
+          <p><a href="01-task-list-new">Back to appeal response</a></p>
+        <form>
     </div>
   </div>
 

@@ -25,38 +25,36 @@
         <h2 class="govuk-heading-xl">The facts of the case</h2>
         <h3 class="govuk-heading-l">Introduction</h3>
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h1 class="govuk-fieldset__heading">
-                Did the appellant subsequently declare any health conditions that impacted their work?
-              </h1>
-            </legend>
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
-                <label class="govuk-label govuk-radios__label" for="where-do-you-live">
-                  Yes
-                </label>
+        <form action="13-04-facts" method="post" class="form">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                  Did the appellant subsequently declare any health conditions that impacted their work?
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="subsequent-conditions-1" name="subsequent-conditions" type="radio" value="yes" {{ checked("subsequent-conditions", "yes") }} >
+                  <label class="govuk-label govuk-radios__label" for="subsequent-conditions-1">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="subsequent-condition-2" name="subsequent-conditions" type="radio" value="no" {{ checked("subsequent-conditions", "no") }} >
+                  <label class="govuk-label govuk-radios__label" for="subsequent-condition-2">
+                    No health conditions were declared that impact their work
+                  </label>
+                </div>
               </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
-                <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
-                  No health conditions were declared that impact their work
-                </label>
-              </div>
-            </div>
+            </fieldset>
+          </div>
 
-          </fieldset>
-        </div>
-
-
-        <div class="govuk-button-group">
-          <a class="govuk-button" href="13-04-facts">
-            Continue
-          </a>
-        </div>
-        <p><a href="01-task-list-new">Back to appeal response</a></p>
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+          </div>
+          <p><a href="01-task-list-new">Back to appeal response</a></p>
+        </form>
 
     </div>
   </div>

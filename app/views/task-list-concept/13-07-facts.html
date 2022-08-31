@@ -30,11 +30,46 @@
         </p>
 
         <p>
-          On his initial declaration, he reported the following health conditions – Arthritis and High blood pressure which restricted her ability to work or to look for work. A verified fit note confirming these conditions was provided on 12 December 2021.
+          On his initial declaration, he reported the following health conditions –
+          {% for condtion in data['init-declaration'] %}
+            {{ condtion }},
+          {% endfor %}
+           which restricted his ability to work or to look for work. A verified fit note confirming these conditions was provided on 12 December 2021.
         </p>
 
         <p>
-          On his initial declaration Jacob Abraham stated he suffered from the following health conditions: Back pain and Depression but stated they did not impact on his ability to work or to look for work. Subsequently on 27 March 2022, he provided a verified fit note recording the following health conditions: Back pain which restricted his ability to work or to look for work.
+          On his initial declaration Jacob Abraham stated he suffered from the following health conditions:
+          {% for condtion in data['init-declaration'] %}
+            {{ condtion }},
+          {% endfor %}
+           but stated they did not impact on his ability to work or to look for work. Subsequently on {{ data['declaration-date-day'] }}
+           {% if data['declaration-date-month'] == '01' %}
+              January
+            {% elseif data['declaration-date-month'] == '02'%}
+              February
+            {% elseif data['declaration-date-month'] == '03'%}
+              March
+            {% elseif data['declaration-date-month'] == '04'%}
+              April
+            {% elseif data['declaration-date-month'] == '05'%}
+              May
+            {% elseif data['declaration-date-month'] == '06'%}
+              June
+            {% elseif data['declaration-date-month'] == '07'%}
+              July
+            {% elseif data['declaration-date-month'] == '08'%}
+              August
+            {% elseif data['declaration-date-month'] == '09'%}
+              September
+            {% elseif data['declaration-date-month'] == '10'%}
+              October
+            {% elseif data['declaration-date-month'] == '11'%}
+              November
+            {% elseif data['declaration-date-month'] == '12'%}
+              December
+            {% endif %}
+            {{ data['declaration-date-year'] }}, he provided a verified fit note recording the following health conditions: {{ data['conditions-declared'] }}
+           which restricted his ability to work or to look for work.
         </p>
     </div>
   </div>
