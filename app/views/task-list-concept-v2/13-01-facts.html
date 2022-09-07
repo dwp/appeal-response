@@ -1,0 +1,128 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">The facts of the case</h1>
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Introduction</h2>
+          <p class="govuk-body" id="introContainer">
+          </p>
+          <a class="govuk-body govuk-link" href="13-02-intro">+ Add introduction</a>
+        </div>
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Legacy claims</h2>
+          <div class="" id="legacy-claims-container">
+
+          </div>
+          <p class="govuk-body">
+            <a class="govuk-link" href="#">+ Add claim details</a>
+          </p>
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">UC50 self-assessment medical questionnaire form</h2>
+          <div class="" id="uc50-container">
+
+          </div>
+          <p class="govuk-body">
+            <a class="govuk-link" href="#">+ Add UC50 self-assessment medical questionnaire form details</a>
+          </p>
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Other assessments</h2>
+          <div class="" id="other-assessment-container">
+
+          </div>
+          <p class="govuk-body">
+            <a class="govuk-link" href="#">+ Add other assessment details</a>
+          </p>
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Points scored</h2>
+          <div class="" id="points-container">
+
+          </div>
+          <p class="govuk-body">
+            <a class="govuk-link" href="#">+ Add points scored</a>
+          </p>
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Mandatory reconsideration details</h2>
+          <div class="" id="points-container">
+
+          </div>
+          <p class="govuk-body">
+            <a class="govuk-link" href="#">+ Add mandatory reconsideration details</a>
+          </p>
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m">Grounds of appeal</h2>
+          <div class="" id="points-container">
+
+          </div>
+          <p class="govuk-body">
+            <a class="govuk-link" href="#">+ Add grounds of appeal</a>
+          </p>
+        </div>
+
+        <div class="govuk-button-group">
+          <a class="govuk-button" href="08-02-response">
+            Continue
+          </a>
+        </div>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+    var introText = "";
+    if(sessionStorage.getItem("introComplete")=="1"){
+      if(sessionStorage.getItem("conditionAtIDOC") == "yes"){
+        introText = "On his initial declaration, <strong>Jacob Abraham</strong> did not disclose any health conditions that would affect his capacity for work but subsequently on "
+        + sessionStorage.getItem("condition-declared-day") + sessionStorage.getItem("condition-declared-month") + sessionStorage.getItem("condition-declared-year")
+        + " he declared the following health conditions "
+        + sessionStorage.getItem("conditionsDeclared")
+        + " which restricted his ability to work or to look for work.";
+      }
+      else{
+        introText = "On his initial declaration, <strong>Jacob Abraham</strong> did not disclose any health conditions that would affect his capacity for work but subsequently on "
+        + sessionStorage.getItem("condition-declared-day") + " / " + sessionStorage.getItem("condition-declared-month") + " / " + sessionStorage.getItem("condition-declared-year")
+        + " he declared the following health conditions "
+        + sessionStorage.getItem("conditionsDeclared")
+        + " which restricted his ability to work or to look for work.";
+      }
+
+      document.getElementById("introContainer").innerHTML = introText;
+    }
+  });
+</script>
+{% endblock %}
