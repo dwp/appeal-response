@@ -21,17 +21,23 @@
         <h1 class="govuk-heading-xl">
           New appeal response
         </h1>
-        <p>Once you enter the HMCTS's reference number, the system will automatically populates relevant details from HMCTS's CCD system and UC build. All standard paragraphs needed are inbuilt into this system.</p>
+        <p>
+          This service automatically populates relevant details from the bundle into the appeal response. All standard paragraphs needed are inbuilt into this system
+        </p>
         <div class="govuk-form-group">
-          <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="event-name">
-              HMCTS appeal reference number
+          <h3 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="event-name">
+              Upload the bundle
             </label>
           </h3>
-          <input class="govuk-input" id="event-name" name="event-name" type="text">
+          <div id="account-number-hint" class="govuk-hint">
+            Upload the bundle that you will have created using the bundle builder.
+          </div>
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
         </div>
         {{ govukButton({
           text: "Create new response",
-          href: "task-list-concept/01-task-list-new.html"
+          href: "task-list-concept-v2/01-task-list-new.html"
         }) }}
         <br>
         <a href="index" class="govuk-link">Cancel and go back to home page</a>
