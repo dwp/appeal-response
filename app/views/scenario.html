@@ -1,0 +1,39 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName)}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l"> Background (Fictitious case – no details here relate to a specific individual or case) </h1>
+
+      <p>J applied for Universal Credit. It's the first time the J has made a claim to DWP.
+      On the UC application, J declared arthritis and high blood pressure, although these conditions did not affect his ability to work.</p>
+      <p>Subsequent to the original application, J also declared that he suffered from depression and provided a fit note to support this.</p>
+      <p>J has had a face-to-face work capability assessment to support his claim. The UC50 questionnaire was returned and is in the evidence bundle; it suggested difficulty dealing with other people.</p>
+      <p>The benefit was not awarded, and J requested a Mandatory Reconsideration. DWP contacted J by phone and established there was no more information needing to be added to the claim. The Mandatory Reconsideration decision remained the same and the benefit was not awarded. J has now raised an appeal.</p>
+      <h3 class="govuk-heading-m">Scenario</h3>
+      <p>Imagine you’re producing an appeal response for J's appeal and you now need to put together the “facts of the case” section.
+      Please use this system to produce the “facts of the case” for this appeal. Any dates required can be made up.</p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
