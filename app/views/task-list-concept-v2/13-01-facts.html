@@ -95,10 +95,8 @@
           </a>
         </div>
         <p><a href="01-task-list-new">Back to appeal response</a></p>
-
     </div>
   </div>
-
 {% endblock %}
 
 {% block pageScripts %}
@@ -109,18 +107,18 @@
     if(sessionStorage.getItem("introComplete")=="1"){
       introText = "<p>On <strong>21 December 2021</strong>, <strong>Jacob Abraham</strong> made a claim to Universal Credit (UC). On his initial declaration, he reported the following health conditions <strong>Arthritis, High blood pressure and Depression </strong> which restricted his ability to work or to look for work. A verified fit note confirming these conditions was provided on <strong>21 December 2021</strong>.</p>";
       if(sessionStorage.getItem("conditionAtIDOC") == "yes"){
-        introText += "On his initial declaration, <strong>Jacob Abraham</strong> did not disclose any health conditions that would affect his capacity for work but subsequently on "
-        + sessionStorage.getItem("condition-declared-day") + sessionStorage.getItem("condition-declared-month") + sessionStorage.getItem("condition-declared-year")
-        + " he declared the following health conditions "
+        introText += "On his initial declaration, <strong>Jacob Abraham</strong> did not disclose any health conditions that would affect his capacity for work but subsequently on <strong>"
+        + sessionStorage.getItem("condition-declared-day") + " / "  + sessionStorage.getItem("condition-declared-month") + " / "  + sessionStorage.getItem("condition-declared-year")
+        + "</strong> he declared the following health conditions <strong>"
         + sessionStorage.getItem("conditionsDeclared")
-        + " which restricted his ability to work or to look for work.";
+        + "</strong> which restricted his ability to work or to look for work.";
       }
       else{
-        introText += "On his initial declaration, <strong>Jacob Abraham</strong> did not disclose any health conditions that would affect his capacity for work but subsequently on "
+        introText += "On his initial declaration, <strong>Jacob Abraham</strong> did not disclose any health conditions that would affect his capacity for work but subsequently on <strong>"
         + sessionStorage.getItem("condition-declared-day") + " / " + sessionStorage.getItem("condition-declared-month") + " / " + sessionStorage.getItem("condition-declared-year")
-        + " he declared the following health conditions "
+        + "</strong> he declared the following health conditions <strong>"
         + sessionStorage.getItem("conditionsDeclared")
-        + " which restricted his ability to work or to look for work.";
+        + "</strong> which restricted his ability to work or to look for work.";
       }
       introLink = "Edit introduction";
       document.getElementById("introContainer").innerHTML = introText;

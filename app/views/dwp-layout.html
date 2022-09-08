@@ -56,28 +56,17 @@
 
 {% if useAutoStoreData %}
   {% block footer %}
-<!--
-{{ dwpFooter({
-                meta: {
-                visuallyHiddenTitle: "Meta links",
-                  items: [
-                          {
-                          href: "#1",
-                          text: "Item 1"
-                          },
-                          {
-                          href: "#2",
-                          text: "Item 2"
-                          },
-                          {
-                          href: "#3",
-                          text: "Item 3"
-                          }
-                  ]
-                }
-}) }}
+  <footer class="govuk-footer ">
+    <div class="govuk-width-container ">
+    <h2 class="govuk-visually-hidden">Meta links</h2>
+      <ul class="govuk-footer__inline-list">
+          <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="#1" onclick="clearStorage()">Clear data</a>
+          </li>
+      </ul>
+    </div>
+  </footer>
   {% endblock %}
-  -->
 {% endif %}
 
 {% block bodyEnd %}
