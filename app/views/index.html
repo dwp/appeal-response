@@ -22,31 +22,29 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="cHeader govuk-!-margin-bottom-9">
-        <h1 class="govuk-heading-xl">
-          Prepare an appeal response
-        </h1>
 
         <!-- Tab links -->
         <div class="tab">
-          <button class="tablinks active govuk-body govuk-!-margin-bottom-0" onclick="openTab(event, 'New')">New</button>
-          <button class="tablinks govuk-body govuk-!-margin-bottom-0" onclick="openTab(event, 'Search')">Search</button>
+          <button class="tablinks active govuk-body govuk-!-margin-bottom-0" onclick="openTab(event, 'New')">Start a new response</button>
+          <button class="tablinks govuk-body govuk-!-margin-bottom-0" onclick="openTab(event, 'Search')">Find a response</button>
         </div>
 
         <!-- Tab content -->
         <div id="New" class="tabcontent govuk-!-padding-top-7" style="display:block">
           <div class="govuk-form-group">
+
+              <h1 class="govuk-heading-xl">
+                Start a new response
+              </h1>
             <h3 class="govuk-label-wrapper">
               <label class="govuk-label govuk-label--m" for="event-name">
-                Upload the bundle to create a new response
+                Add appeal bundle
               </label>
             </h3>
-            <div id="account-number-hint" class="govuk-hint">
-              Upload the bundle that you will have created using the bundle builder.
-            </div>
             <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
           </div>
           {{ govukButton({
-            text: "Create new response",
+            text: "Start now",
             href: "task-list-concept-v2/01-task-list-new.html"
           }) }}
           <br>
@@ -54,9 +52,12 @@
 
         <div id="Search" class="tabcontent govuk-!-padding-top-7">
           <div class="govuk-form-group">
+            <h1 class="govuk-heading-xl">
+              Find a response
+            </h1>
             <h3 class="govuk-label-wrapper">
-              <label class="govuk-label govuk-label--m" for="event-name">
-                HMCTS appeal reference number
+              <label class="govuk-label govuk-label--s" for="event-name">
+                Enter the HMCTS reference number
               </label>
             </h3>
             <div id="account-number-hint" class="govuk-hint">
