@@ -91,7 +91,7 @@
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="uc50Activities-stairs" name="uc50Activities" type="checkbox" value="Using Stairs">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-stairs">
-                  Using Stairs
+                  Using stairs
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
@@ -209,7 +209,7 @@
 
         <div class="govuk-button-group">
           <button class="govuk-button" id="addButton" onclick="saveData()">
-            Save and continue
+            Continue
           </button>
         </div>
         <p><a href="01-task-list-new">Back to appeal response</a></p>
@@ -225,7 +225,7 @@
 
     if(sessionStorage.getItem("uc50")=="returned-included")
     {
-      document.getElementById("selectedTemplate").innerHTML += "On &lt;date&gt;, Jacob completed a UC50 self-assessment medical questionnaire form. It asked about his capability to perform activities in order to assess whether he has LCW. Jacob stated that he had varying degrees of difficulty with: &lt;list of activities&gt;";
+      document.getElementById("selectedTemplate").innerHTML += "On &lt;date&gt;, Jacob completed a UC50 self-assessment medical questionnaire form. It asked about his capability to perform activities in order to assess whether he has LCW. </p><p>Jacob stated that he had varying degrees of difficulty with: &lt;list of activities&gt;";
     }
     else {
       document.getElementById("selectedTemplate").innerHTML += "<p>Yet to be desinged</p>";
