@@ -45,7 +45,7 @@
 
           </div>
           <p class="govuk-body">
-            <a class="govuk-link" href="#">+ Add UC50 self-assessment medical questionnaire form details</a>
+            <a class="govuk-link" href="13-06-uc50">+ Add UC50 self-assessment medical questionnaire form details</a>
           </p>
         </div>
 
@@ -109,7 +109,7 @@
 
     //Introduction
     if(sessionStorage.getItem("introComplete")=="1"){
-      introText = "<p>On <strong>21 December 2021</strong>, <strong>Jacob Abraham</strong> made a claim to Universal Credit (UC). On his initial declaration, he reported the following health conditions <strong>Arthritis, High blood pressure and Depression </strong> which restricted his ability to work or to look for work. A verified fit note confirming these conditions was provided on <strong>21 December 2021</strong>.</p>";
+      introText = "<p>On <strong>21 December 2021</strong>, <strong>Jacob Abraham</strong> made a claim to Universal Credit (UC).</p><p>On his initial claim, Jacob said he suffered from <strong>arthritis and high blood pressure</strong> but they did not affect his ability to work or look for work.</p>";
       if(sessionStorage.getItem("conditionAtIDOC") == "yes"){
         introText += "On his initial declaration, <strong>Jacob Abraham</strong> did not disclose any health conditions that would affect his capacity for work but subsequently on <strong>"
         + sessionStorage.getItem("condition-declared-day") + " / "  + sessionStorage.getItem("condition-declared-month") + " / "  + sessionStorage.getItem("condition-declared-year")
@@ -118,11 +118,11 @@
         + "</strong> which restricted his ability to work or to look for work.";
       }
       else{
-        introText += "On his initial declaration, <strong>Jacob Abraham</strong> did not disclose any health conditions that would affect his capacity for work but subsequently on <strong>"
+        introText += "<p>Jacob’s circumstances changed. On <strong>"
         + sessionStorage.getItem("condition-declared-day") + " / " + sessionStorage.getItem("condition-declared-month") + " / " + sessionStorage.getItem("condition-declared-year")
-        + "</strong> he declared the following health conditions <strong>"
+        + "</strong> he provided a fit note declaring he had <strong>"
         + sessionStorage.getItem("conditionsDeclared")
-        + "</strong> which restricted his ability to work or to look for work.";
+        + "</strong> which restricted his ability to work or look for work.</p><p>Receipt of the fit note was accepted as an application for the LCW/LCWRA element of UC. As a result, Jacob was referred for a Work Capability Assessment (WCA).</p>";
       }
       introLink = "Edit introduction";
       document.getElementById("introContainer").innerHTML = introText;
