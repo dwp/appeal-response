@@ -74,6 +74,15 @@
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--s" for="event-name">
+              Name of assessment centre
+            </label>
+          </h1>
+          <input class="govuk-input govuk-!-width-one-quarter" id="wcaAssessmentCenter" name="event-name" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="event-name">
               Conditions identified
             </label>
           </h1>
@@ -228,6 +237,7 @@
 
   function saveData(){
     sessionStorage.setItem("wcaComplete","1");
+    sessionStorage.setItem("wcaAssessmentCenter",document.getElementById('wcaAssessmentCenter').value);
     sessionStorage.setItem("wcaAssessment-day",document.getElementById('wcaAssessment-day').value);
     sessionStorage.setItem("wcaAssessment-month",document.getElementById('wcaAssessment-month').value);
     sessionStorage.setItem("wcaAssessment-year",document.getElementById('wcaAssessment-year').value);

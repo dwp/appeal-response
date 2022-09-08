@@ -165,7 +165,19 @@
       if(sessionStorage.getItem("wca")=="f2f"){
         wcaText += "Considering all of the paper evidence, a health care professional (HCP) decided an assessment was needed to understand Jacob’s level of functional ability. </p><p>On <strong>"
         + sessionStorage.getItem("wcaAssessment-day") + " / "  + sessionStorage.getItem("wcaAssessment-month") + " / "  + sessionStorage.getItem("wcaAssessment-year")
-        + "</strong> , Jacob completed a UC50 self-assessment medical questionnaire form. It asked about his capability to perform activities in order to assess whether he has LCW. </p><p>Jacob stated that he had varying degrees of difficulty with:<ul class=\"govuk-list govuk-list--bullet\">";
+        + "</strong> , Jacob attended <strong>"
+        + sessionStorage.getItem("wcaAssessmentCenter")
+        +"</strong> Assessment Centre for a Work Capability Assessment(WCA). An assessment was undertaken by an approved health care professional. At the medical examination, his health conditions were medically identified as <strong> "
+        + sessionStorage.getItem("wcaConditionsIdentified")
+        + "</strong> .</p><p> On <strong>"
+        + sessionStorage.getItem("wcaInit-day") + " / " + sessionStorage.getItem("wcaInit-month") +" / "+ sessionStorage.getItem("wcaInit-year")
+        + "</strong>, the initial Decision Maker carried out an assessment of Jacob’s capability for work considering all of the available evidence. They decided he scored <strong> "
+        + sessionStorage.getItem("wcaPhysicalPoints")
+        +"</strong> points on the physical descriptors and <strong>"
+        + sessionStorage.getItem("wcaMentalPoints")
+        +"</strong> points on the mental descriptors. Notification of this decision was put on Jacob’s UC journal on <strong>"
+        + sessionStorage.getItem("wcaJournal-day") + " / " + sessionStorage.getItem("wcaJournal-month") +" / "+ sessionStorage.getItem("wcaJournal-year")
+        + "</strong>";
       }
       else{
         wcaText += "<i>Not applicable as there are no legacy claims</i>";
