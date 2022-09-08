@@ -23,7 +23,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">The facts of the case</h1>
-        <h2 class="govuk-heading-l">WCA assessment</h2>
+        <h2 class="govuk-heading-l">Mandatory reconsideration</h2>
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="Select a template">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -33,15 +33,21 @@
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="f2f" name="wca" type="radio" value="f2f" aria-describedby="Select this template with legacy claims">
+                <input class="govuk-radios__input" id="callMadeNoInfo" name="mr" type="radio" value="callMadeNoInfo" aria-describedby="Select this template with legacy claims">
                 <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="f2f">
-                  Face to face asessment
+                  Outbound call made– no more information to add
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="phone" name="wca" type="radio" value="phone" aria-describedby="Select this template for no legacy claims">
+                <input class="govuk-radios__input" id="callMadeExtraInfo" name="mr" type="radio" value="callMadeExtraInfo" aria-describedby="Select this template for no legacy claims">
                 <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="phone">
-                  Telephone assessment
+                  Outbound call made – gave extra information to consider
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="noCall" name="mr" type="radio" value="noCall" aria-describedby="Select this template for no legacy claims">
+                <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="phone">
+                  No call conducted
                 </label>
               </div>
             </div>
@@ -63,24 +69,24 @@
 {% block pageScripts %}
 <script type="text/javascript">
   window.addEventListener('load', (event) => {
-    const radioButtons = document.querySelectorAll('input[name="wca"]');
+    const radioButtons = document.querySelectorAll('input[name="mr"]');
     for(const radioButton of radioButtons){
-      if(radioButton.value == sessionStorage.getItem("wca")){
+      if(radioButton.value == sessionStorage.getItem("mr")){
         radioButton.checked = true;
       }
     }
   });
 
   function saveData(){
-    const radioButtons = document.querySelectorAll('input[name="wca"]');
+    const radioButtons = document.querySelectorAll('input[name="mr"]');
     for(const radioButton of radioButtons){
       if(radioButton.checked){
-        sessionStorage.setItem("wca",radioButton.value);
+        sessionStorage.setItem("mr",radioButton.value);
       }
     }
     //sessionStorage.setItem("wcaComplete","1");
-    if(sessionStorage.getItem("wca")=="f2f")
-      window.location.href = "13-09-wca.html";
+    if(sessionStorage.getItem("mr")=="callMadeNoInfo")
+      window.location.href = "13-11-mr.html";
     else
       window.location.href = "13-01-facts.html";
   }

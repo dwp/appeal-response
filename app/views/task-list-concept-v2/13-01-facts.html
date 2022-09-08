@@ -61,11 +61,11 @@
 
         <div class="govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m">Mandatory reconsideration details</h2>
-          <p class="" id="MRContainer">
+          <p class="" id="mrContainer">
 
           </p>
           <p class="govuk-body">
-            <a class="govuk-link" href="13-10-mr" id="MRLink">+ Add mandatory reconsideration details</a>
+            <a class="govuk-link" href="13-10-mr" id="mrLink">+ Add mandatory reconsideration details</a>
           </p>
         </div>
 
@@ -90,6 +90,8 @@
     var uc50Link = "";
     var wcaText = "";
     var wcaLink = "";
+    var mrText = "";
+    var mrLink = "";
 
     //Introduction
     if(sessionStorage.getItem("introComplete")=="1"){
@@ -189,6 +191,27 @@
       wcaLink = "+ Add WCA assessment details";
     }
     document.getElementById("wcaLink").innerHTML = wcaLink;
+
+
+    //MR
+    if(sessionStorage.getItem("mrComplete")=="1"){
+      if(sessionStorage.getItem("mr")=="callMadeNoInfo"){
+        mrText += "On 5 February 2022, Jacob asked for a Mandatory Reconsideration of the decision that a Limited Capability for Work and Work-Related Activity element could not be added to the award amounts of UC.</p><p> Jacob was contacted by telephone on <strong>"
+          + sessionStorage.getItem("mrCall-day") + " / " + sessionStorage.getItem("mrCall-month") +" / "+ sessionStorage.getItem("mrCall-year")
+          +"</strong> to explain how and why the decision was made and to ask for any further information he wished to be considered. However, he had nothing more to add.</p><p> On 25 February, a Decision Maker completed a Mandatory Reconsideration. They considered all of the available evidence but found no grounds to revise the original decision/ and although they revised the decision in part, insufficient points were awarded to revise the original decision.</p><p> Jacob was notified of the decision on <strong>"
+          + sessionStorage.getItem("mrJournal-day") + " / " + sessionStorage.getItem("mrJournal-month") +" / "+ sessionStorage.getItem("mrJournal-year")
+          +"</strong> via his UC Journal.";
+      }
+      else{
+        mrText += "<i>Not applicable as there are no legacy claims</i>";
+      }
+      mrLink = "Edit WCA assessment details";
+      document.getElementById("mrContainer").innerHTML = mrText;
+    }
+    else{
+      mrLink = "+ Add WCA assessment details";
+    }
+    document.getElementById("mrLink").innerHTML = mrLink;
 
   });
 </script>
