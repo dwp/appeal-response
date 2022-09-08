@@ -88,6 +88,8 @@
     var legacyClaimLink = "";
     var uc50Text = "";
     var uc50Link = "";
+    var wcaText = "";
+    var wcaLink = "";
 
     //Introduction
     if(sessionStorage.getItem("introComplete")=="1"){
@@ -157,6 +159,31 @@
       uc50Link = "+ Add legacy claim";
     }
     document.getElementById("uc50Link").innerHTML = uc50Link;
+
+    //WCA
+    if(sessionStorage.getItem("uc50Complete")=="1"){
+      if(sessionStorage.getItem("uc50")=="returned-included"){
+        wcaText += "Considering all of the paper evidence, a health care professional (HCP) decided an assessment was needed to understand Jacob’s level of functional ability. </p><p>On <strong>"
+        + sessionStorage.getItem("uc50-declared-day") + " / "  + sessionStorage.getItem("uc50-declared-month") + " / "  + sessionStorage.getItem("uc50-declared-year")
+        + "</strong> , Jacob completed a UC50 self-assessment medical questionnaire form. It asked about his capability to perform activities in order to assess whether he has LCW. </p><p>Jacob stated that he had varying degrees of difficulty with:<ul class=\"govuk-list govuk-list--bullet\">";
+        var activities = sessionStorage.getItem("uc50-activities").split("#");
+        for(activity of activities)
+        {
+          if(activity != "")
+            wcaText += "<li>"+activity+"</li>";
+        }
+        wcaText += "</ul>";
+      }
+      else{
+        wcaText += "<i>Not applicable as there are no legacy claims</i>";
+      }
+      wcaLink = "Edit WCA assessment details";
+      document.getElementById("wcaContainer").innerHTML = wcaText;
+    }
+    else{
+      wcaLink = "+ Add WCA assessment details";
+    }
+    document.getElementById("wcaLink").innerHTML = wcaLink;
 
   });
 </script>
