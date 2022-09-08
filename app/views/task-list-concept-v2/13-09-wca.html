@@ -1,0 +1,253 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">The facts of the case</h1>
+        <h2 class="govuk-heading-l">WCA assessment</h2>
+        <div class="govuk-inset-text">
+          <h4 class="govuk-heading-s">Selected template</h4>
+          <p id="selectedTemplate"></p>
+        </div>
+
+        <h3 class="govuk-heading-m">Add the following details</h3>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h1 class="govuk-fieldset__heading">
+                Date of assessment
+              </h1>
+            </legend>
+            <div id="passport-issued-hint" class="govuk-hint">
+              For example, 27 3 2007
+            </div>
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50-declared-day" name="passport-issued-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50-declared-month" name="passport-issued-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="uc50-declared-year" name="passport-issued-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="event-name">
+              Conditions identified
+            </label>
+          </h1>
+          <div id="account-number-hint" class="govuk-hint">
+            Separate each conditon by a comma (,)
+          </div>
+          <input class="govuk-input" id="conditionsDeclared" name="event-name" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h1 class="govuk-fieldset__heading">
+                Date initial Decision Maker carried our assessment
+              </h1>
+            </legend>
+            <div id="passport-issued-hint" class="govuk-hint">
+              For example, 27 3 2007
+            </div>
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50-declared-day" name="passport-issued-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50-declared-month" name="passport-issued-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="uc50-declared-year" name="passport-issued-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="event-name">
+              Points for physical descriptors
+            </label>
+          </h1>
+          <input class="govuk-input govuk-!-width-one-quarter" id="conditionsDeclared" name="event-name" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="event-name">
+              Points for mental descriptors
+            </label>
+          </h1>
+          <input class="govuk-input govuk-!-width-one-quarter" id="conditionsDeclared" name="event-name" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h1 class="govuk-fieldset__heading">
+                Date decision was entered in UC journal
+              </h1>
+            </legend>
+            <div id="passport-issued-hint" class="govuk-hint">
+              For example, 27 3 2007
+            </div>
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50-declared-day" name="passport-issued-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50-declared-month" name="passport-issued-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="uc50-declared-year" name="passport-issued-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" id="addButton" onclick="saveData()">
+            Save and continue
+          </button>
+        </div>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+
+    if(sessionStorage.getItem("wca")=="f2f")
+    {
+      document.getElementById("selectedTemplate").innerHTML += "Considering all of the paper evidence, a health care professional (HCP) decided an assessment was needed to understand Jacob’s level of functional ability.</p><p> On &lt;date&gt;, Jacob attended &lt;name&gt; Assessment Centre for a Work Capability Assessment (WCA). An assessment was undertaken by an approved health care professional. At the medical examination, his health conditions were medically identified as &lt;list of conditions&gt;.On &lt;date&gt;, the initial Decision Maker carried out an assessment of Jacob’s capability for work considering all of the available evidence. They decided he scored &lt;number&gt; points on the physical descriptors and &lt;number&gt; points on the mental descriptors. Notification of this decision was put on Jacob’s UC journal on &lt;date&gt;";
+    }
+    else {
+      document.getElementById("selectedTemplate").innerHTML += "<p>Yet to be desinged</p>";
+    }
+    if(sessionStorage.getItem("uc50Complete") == "1")
+    {
+      var activities = sessionStorage.getItem("uc50-activities").split("#");
+      const checkBoxes = document.querySelectorAll('input[name="uc50Activities"]');
+      for(checkBox of checkBoxes){
+        if(checkIfSelected(checkBox.value,activities)){
+        checkBox.checked = true;
+        }
+      }
+    }
+
+    /*
+    if(sessionStorage.getItem("conditionAtIDOC") == "yes")
+    {
+      document.getElementById("selectedTemplate").innerHTML = "On his initial declaration, <strong>Jacob Abraham</strong> did not disclose any health conditions that would affect his capacity for work but subsequently on <=== DATE OF DECLARATION ===> he declared the following health conditions <=== LIST OF CONDITIONS ===> which restricted his ability to work or to look for work.";
+    }
+    else {
+      document.getElementById("selectedTemplate").innerHTML = "On his initial declaration <strong>Jacob Abraham</strong> stated he suffered from the following health conditions: <strong>Arthritis, High blood pressure and Depression </strong> but stated they did not impact on her ability to work or to look for work. Subsequently on <=== DATE OF DECLARATION ===>, (fit note date) she provided a verified fit note recording the following health conditions: <=== LIST OF CONDITIONS ===> which restricted her ability to work or to look for work ";
+    }
+    */
+  });
+
+  function checkIfSelected(checkBoxValue,activities){
+    for(activity of activities){
+      if(checkBoxValue == activity)
+        return true;
+    }
+    return false;
+  }
+
+  function saveData(){
+    sessionStorage.setItem("uc50Complete","1");
+    var activities = "";
+    const checkBoxes = document.querySelectorAll('input[name="uc50Activities"]');
+    for(const checkBox of checkBoxes){
+      if(checkBox.checked){
+        activities += checkBox.value + "#";
+      }
+    }
+    sessionStorage.setItem("uc50-declared-day",document.getElementById('uc50-declared-day').value);
+    sessionStorage.setItem("uc50-declared-month",document.getElementById('uc50-declared-month').value);
+    sessionStorage.setItem("uc50-declared-year",document.getElementById('uc50-declared-year').value);
+    sessionStorage.setItem("uc50-activities",activities);
+    window.location.href = "13-01-facts.html";
+  }
+</script>
+{% endblock %}
