@@ -32,6 +32,46 @@
         <h3 class="govuk-heading-m">Add the following details</h3>
 
         <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h1 class="govuk-fieldset__heading">
+                Date UC50 completed
+              </h1>
+            </legend>
+            <div id="passport-issued-hint" class="govuk-hint">
+              For example, 27 3 2007
+            </div>
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50-declared-day" name="passport-issued-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50-declared-month" name="passport-issued-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="uc50-declared-year" name="passport-issued-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
               <h1 class="govuk-fieldset__heading">
@@ -43,121 +83,121 @@
             </div>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-mobilising" name="uc50Activities" type="checkbox" value="uc50Activities-mobilising">
+                <input class="govuk-checkboxes__input" id="uc50Activities-mobilising" name="uc50Activities" type="checkbox" value="Mobilising">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-mobilising">
                   Mobilising
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-stairs" name="uc50Activities" type="checkbox" value="uc50Activities-stairs">
+                <input class="govuk-checkboxes__input" id="uc50Activities-stairs" name="uc50Activities" type="checkbox" value="Using Stairs">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-stairs">
                   Using Stairs
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-seats" name="uc50Activities" type="checkbox" value="uc50Activities-seats">
+                <input class="govuk-checkboxes__input" id="uc50Activities-seats" name="uc50Activities" type="checkbox" value="Transferring from one seat to another">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-seats">
                   Transferring from one seat to another
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-standing-sitting" name="uc50Activities" type="checkbox" value="uc50Activities-standing-sitting">
+                <input class="govuk-checkboxes__input" id="uc50Activities-standing-sitting" name="uc50Activities" type="checkbox" value="Standing and sitting">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-standing-sitting">
                   Standing and sitting
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-reaching" name="uc50Activities" type="checkbox" value="uc50Activities-reaching">
+                <input class="govuk-checkboxes__input" id="uc50Activities-reaching" name="uc50Activities" type="checkbox" value="Reaching">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-reaching">
                   Reaching
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="uc50Activities-things" name="uc50Activities" type="checkbox" value="uc50Activities-things">
-                <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-things">
+                <label class="govuk-label govuk-checkboxes__label" for="Picking up and moving things">
                   Picking up and moving things
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="uc50Activities-hands" name="uc50Activities" type="checkbox" value="uc50Activities-hands">
-                <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-hands">
+                <label class="govuk-label govuk-checkboxes__label" for="Using your hands">
                   Using your hands
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="uc50Activities-speak-write-type" name="uc50Activities" type="checkbox" value="uc50Activities-speak-write-type">
-                <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-speak-write-type">
+                <label class="govuk-label govuk-checkboxes__label" for="Speaking, writing and typing">
                   Speaking, writing and typing
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="uc50Activities-communication" name="uc50Activities" type="checkbox" value="uc50Activities-communication">
-                <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-communication">
+                <label class="govuk-label govuk-checkboxes__label" for="Hearing or understanding communication">
                   Hearing or understanding communication
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="uc50Activities-sight" name="uc50Activities" type="checkbox" value="uc50Activities-sight">
-                <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-sight">
+                <label class="govuk-label govuk-checkboxes__label" for="Getting around safely (sight)">
                   Getting around safely (sight)
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="uc50Activities-control" name="uc50Activitie" type="checkbox" value="uc50Activities-control">
-                <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-control">
+                <label class="govuk-label govuk-checkboxes__label" for="Control of bladder, bowels or stoma">
                   Control of bladder, bowels or stoma
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-conscious" name="uc50Activities" type="checkbox" value="uc50Activities-conscious">
+                <input class="govuk-checkboxes__input" id="uc50Activities-conscious" name="uc50Activities" type="checkbox" value="Staying conscious when awake">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-conscious">
                   Staying conscious when awake
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-learning-tasks" name="uc50Activities" type="checkbox" value="uc50Activities-learning-tasks">
+                <input class="govuk-checkboxes__input" id="uc50Activities-learning-tasks" name="uc50Activities" type="checkbox" value="Learning tasks">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-learning-tasks">
                   Learning tasks
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-danger" name="uc50Activities" type="checkbox" value="uc50Activities-danger">
+                <input class="govuk-checkboxes__input" id="uc50Activities-danger" name="uc50Activities" type="checkbox" value="Being aware of danger">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-danger">
                   Being aware of danger
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-finishing-tasks" name="uc50Activities" type="checkbox" value="uc50Activities-finishing-tasks">
+                <input class="govuk-checkboxes__input" id="uc50Activities-finishing-tasks" name="uc50Activities" type="checkbox" value="Starting and finishing tasks">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-mobilising">
                   Starting and finishing tasks
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-changes" name="uc50Activities" type="checkbox" value="uc50Activities-changes">
+                <input class="govuk-checkboxes__input" id="uc50Activities-changes" name="uc50Activities" type="checkbox" value="Coping with changes">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-changes">
                   Coping with changes
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-people" name="uc50Activities" type="checkbox" value="uc50Activities-people">
+                <input class="govuk-checkboxes__input" id="uc50Activities-people" name="uc50Activities" type="checkbox" value="Coping with going out or getting about">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-people">
                   Coping with going out or getting about
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-people" name="uc50Activities" type="checkbox" value="uc50Activities-people">
+                <input class="govuk-checkboxes__input" id="uc50Activities-people" name="uc50Activities" type="checkbox" value="Dealing with other people">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-people">
                   Dealing with other people
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-behaviour" name="uc50Activities" type="checkbox" value="uc50Activities-behaviour">
+                <input class="govuk-checkboxes__input" id="uc50Activities-behaviour" name="uc50Activities" type="checkbox" value="Appropriateness of behaviour">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-behaviour">
                   Appropriateness of behaviour
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="uc50Activities-eat-drink" name="uc50Activities" type="checkbox" value="uc50Activities-eat-drink">
+                <input class="govuk-checkboxes__input" id="uc50Activities-eat-drink" name="uc50Activities" type="checkbox" value="Ability to eat and drink">
                 <label class="govuk-label govuk-checkboxes__label" for="uc50Activities-eat-drink">
                   Ability to eat and drink
                 </label>
@@ -192,7 +232,7 @@
     }
     if(sessionStorage.getItem("uc50Complete") == "1")
     {
-      var activities = sessionStorage.getItem("uc50-activities").split(",");
+      var activities = sessionStorage.getItem("uc50-activities").split("#");
       const checkBoxes = document.querySelectorAll('input[name="uc50Activities"]');
       for(checkBox of checkBoxes){
         if(checkIfSelected(checkBox.value,activities)){
@@ -226,9 +266,12 @@
     const checkBoxes = document.querySelectorAll('input[name="uc50Activities"]');
     for(const checkBox of checkBoxes){
       if(checkBox.checked){
-        activities += checkBox.value + ",";
+        activities += checkBox.value + "#";
       }
     }
+    sessionStorage.setItem("uc50-declared-day",document.getElementById('uc50-declared-day').value);
+    sessionStorage.setItem("uc50-declared-month",document.getElementById('uc50-declared-month').value);
+    sessionStorage.setItem("uc50-declared-year",document.getElementById('uc50-declared-year').value);
     sessionStorage.setItem("uc50-activities",activities);
     window.location.href = "13-01-facts.html";
   }

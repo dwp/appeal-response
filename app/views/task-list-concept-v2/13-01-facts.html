@@ -41,51 +41,31 @@
 
         <div class="govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m">UC50 self-assessment medical questionnaire form</h2>
-          <div class="" id="uc50-container">
+          <p class="" id="uc50Container">
 
-          </div>
+          </p>
           <p class="govuk-body">
-            <a class="govuk-link" href="13-06-uc50">+ Add UC50 self-assessment medical questionnaire form details</a>
+            <a class="govuk-link" href="13-06-uc50" id="uc50Link">+ Add UC50 self-assessment medical questionnaire form details</a>
           </p>
         </div>
 
         <div class="govuk-!-margin-bottom-9">
-          <h2 class="govuk-heading-m">Other assessments</h2>
-          <div class="" id="other-assessment-container">
+          <h2 class="govuk-heading-m">WCA assessment</h2>
+          <p class="" id="wcaContainer">
 
-          </div>
-          <p class="govuk-body">
-            <a class="govuk-link" href="#">+ Add other assessment details</a>
           </p>
-        </div>
-
-        <div class="govuk-!-margin-bottom-9">
-          <h2 class="govuk-heading-m">Points scored</h2>
-          <div class="" id="points-container">
-
-          </div>
           <p class="govuk-body">
-            <a class="govuk-link" href="#">+ Add points scored</a>
+            <a class="govuk-link" href="#" id="wcaLink">+ Add WCA assessment details</a>
           </p>
         </div>
 
         <div class="govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m">Mandatory reconsideration details</h2>
-          <div class="" id="points-container">
+          <p class="" id="MRContainer">
 
-          </div>
-          <p class="govuk-body">
-            <a class="govuk-link" href="#">+ Add mandatory reconsideration details</a>
           </p>
-        </div>
-
-        <div class="govuk-!-margin-bottom-9">
-          <h2 class="govuk-heading-m">Grounds of appeal</h2>
-          <div class="" id="points-container">
-
-          </div>
           <p class="govuk-body">
-            <a class="govuk-link" href="#">+ Add grounds of appeal</a>
+            <a class="govuk-link" href="#" id="MRLink">+ Add mandatory reconsideration details</a>
           </p>
         </div>
 
@@ -106,6 +86,8 @@
     var introLink = "";
     var legacyClaimText = "";
     var legacyClaimLink = "";
+    var uc50Text = "";
+    var uc50Link = "";
 
     //Introduction
     if(sessionStorage.getItem("introComplete")=="1"){
@@ -150,6 +132,31 @@
       legacyClaimLink = "+ Add legacy claim";
     }
     document.getElementById("legacyClaimLink").innerHTML = legacyClaimLink;
+
+    //UC50
+    if(sessionStorage.getItem("uc50Complete")=="1"){
+      if(sessionStorage.getItem("uc50")=="returned-included"){
+        uc50Text += "On <strong>"
+        + sessionStorage.getItem("uc50-declared-day") + " / "  + sessionStorage.getItem("uc50-declared-month") + " / "  + sessionStorage.getItem("uc50-declared-year")
+        + "</strong> , Jacob completed a UC50 self-assessment medical questionnaire form. It asked about his capability to perform activities in order to assess whether he has LCW. </p><p>Jacob stated that he had varying degrees of difficulty with:<ul class=\"govuk-list govuk-list--bullet\">";
+        var activities = sessionStorage.getItem("uc50-activities").split("#");
+        for(activity of activities)
+        {
+          if(activity != "")
+            uc50Text += "<li>"+activity+"</li>";
+        }
+        uc50Text += "</ul>";
+      }
+      else{
+        legacyClaimText += "<i>Not applicable as there are no legacy claims</i>";
+      }
+      uc50Link = "Edit legacy claims";
+      document.getElementById("uc50Container").innerHTML = uc50Text;
+    }
+    else{
+      uc50Link = "+ Add legacy claim";
+    }
+    document.getElementById("uc50Link").innerHTML = uc50Link;
 
   });
 </script>
