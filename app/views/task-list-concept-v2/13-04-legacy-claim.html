@@ -23,7 +23,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">The facts of the case</h1>
-        <h2 class="govuk-heading-l">Add introduction</h2>
+        <h2 class="govuk-heading-l">Add legacy claim details</h2>
         <div class="govuk-inset-text">
           Select one of the appropriate templates below. You will be able to add the necessary details later.
         </div>
@@ -36,15 +36,15 @@
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no-conditions" name="conditions" type="radio" value="yes" aria-describedby="Select this template with health conditions not declared at IODC">
+                <input class="govuk-radios__input" id="no-conditions" name="legacyClaim" type="radio" value="yes" aria-describedby="Select this template with legacy claims">
                 <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="no-conditions">
-                  No health conditions were declared initially
+                  Legacy claim
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no-impact" name="conditions" type="radio" value="no-imapct" aria-describedby="Select this template with health conditions declared at IODC but had no impact on work">
+                <input class="govuk-radios__input" id="no-impact" name="legacyClaim" type="radio" value="no" aria-describedby="Select this template for no legacy claims">
                 <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="no-impact">
-                  Health conditions declared initially did not impact work
+                  No legacy claim
                 </label>
               </div>
             </div>
@@ -66,22 +66,26 @@
 {% block pageScripts %}
 <script type="text/javascript">
   window.addEventListener('load', (event) => {
-    const radioButtons = document.querySelectorAll('input[name="conditions"]');
+    const radioButtons = document.querySelectorAll('input[name="legacyClaim"]');
     for(const radioButton of radioButtons){
-      if(radioButton.value == sessionStorage.getItem("conditionAtIDOC")){
+      if(radioButton.value == sessionStorage.getItem("legacyClaim")){
         radioButton.checked = true;
       }
     }
   });
 
   function saveData(){
-    const radioButtons = document.querySelectorAll('input[name="conditions"]');
+    const radioButtons = document.querySelectorAll('input[name="legacyClaim"]');
     for(const radioButton of radioButtons){
       if(radioButton.checked){
-        sessionStorage.setItem("conditionAtIDOC",radioButton.value);
+        sessionStorage.setItem("legacyClaim",radioButton.value);
       }
     }
-    window.location.href = "13-03-intro.html";
+    sessionStorage.setItem("legacyClaimComplete","1");
+    if(sessionStorage.getItem("legacyClaim")=="yes")
+      window.location.href = "13-05-legacy-claim.html";
+    else
+      window.location.href = "13-01-facts.html";
   }
 </script>
 {% endblock %}

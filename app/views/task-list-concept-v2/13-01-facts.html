@@ -31,11 +31,11 @@
         </div>
         <div class="govuk-!-margin-bottom-9">
           <h2 class="govuk-heading-m">Legacy claims</h2>
-          <div class="" id="legacy-claims-container">
+          <p class="" id="legacyClaimsContainer">
 
-          </div>
+          </p>
           <p class="govuk-body">
-            <a class="govuk-link" href="#">+ Add claim details</a>
+            <a class="govuk-link" href="13-04-legacy-claim" id="legacyClaimLink">+ Add claim details</a>
           </p>
         </div>
 
@@ -94,7 +94,7 @@
             Continue
           </a>
         </div>
-        <p><a href="01-task-list-new">Back to appeal response</a></p>gf
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
     </div>
   </div>
 {% endblock %}
@@ -104,6 +104,10 @@
   window.addEventListener('load', (event) => {
     var introText = "";
     var introLink = "";
+    var legacyClaimText = "";
+    var legacyClaimLink = "";
+
+    //Introduction
     if(sessionStorage.getItem("introComplete")=="1"){
       introText = "<p>On <strong>21 December 2021</strong>, <strong>Jacob Abraham</strong> made a claim to Universal Credit (UC). On his initial declaration, he reported the following health conditions <strong>Arthritis, High blood pressure and Depression </strong> which restricted his ability to work or to look for work. A verified fit note confirming these conditions was provided on <strong>21 December 2021</strong>.</p>";
       if(sessionStorage.getItem("conditionAtIDOC") == "yes"){
@@ -127,6 +131,26 @@
       introLink = "+ Add introduction";
     }
     document.getElementById("introLink").innerHTML = introLink;
+
+
+    //Legacy claims
+    if(sessionStorage.getItem("legacyClaimComplete")=="1"){
+      if(sessionStorage.getItem("legacyClaim")=="yes"){
+        legacyClaimText += "The Tribunal may wish to note that Jacob Abraham was previously in receipt of Employment and Support Allowance (ESA) with the Work Related Activity Component/Support Component. This award ended on <strong>"
+        + sessionStorage.getItem("legacy-end-day") + " / "  + sessionStorage.getItem("legacy-end-month") + " / "  + sessionStorage.getItem("legacy-end-year")
+        + "</strong> following a determination that Jacob Abraham did not have LCW OR was treated as not having LCW.";
+      }
+      else{
+        legacyClaimText += "<i>Not applicable as there are no legacy claims</i>";
+      }
+      legacyClaimLink = "Edit legacy claims";
+      document.getElementById("legacyClaimsContainer").innerHTML = legacyClaimText;
+    }
+    else{
+      legacyClaimLink = "+ Add legacy claim";
+    }
+    document.getElementById("legacyClaimLink").innerHTML = legacyClaimLink;
+
   });
 </script>
 {% endblock %}

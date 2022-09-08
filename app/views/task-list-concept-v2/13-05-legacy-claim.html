@@ -23,11 +23,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">The facts of the case</h1>
-        <h2 class="govuk-heading-l">Add introduction</h2>
-        <div class="govuk-inset-text">
-          <h4 class="govuk-heading-s">Selected template</h4>
-          <p id="selectedTemplate"></p>
-        </div>
+        <h2 class="govuk-heading-l">Add legacy claims</h2>
 
         <h3 class="govuk-heading-m">Complete the template by adding the following details</h3>
 
@@ -35,7 +31,7 @@
           <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
               <h1 class="govuk-fieldset__heading">
-                When were the conditions declared subsequently?
+                When did the legacy claim end?
               </h1>
             </legend>
             <div id="passport-issued-hint" class="govuk-hint">
@@ -47,7 +43,7 @@
                   <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
                     Day
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="condition-declared-day" name="passport-issued-day" type="text" inputmode="numeric">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="legacy-end-day" name="passport-issued-day" type="text" inputmode="numeric">
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -55,7 +51,7 @@
                   <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
                     Month
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="condition-declared-month" name="passport-issued-month" type="text" inputmode="numeric">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="legacy-end-month" name="passport-issued-month" type="text" inputmode="numeric">
                 </div>
               </div>
               <div class="govuk-date-input__item">
@@ -63,24 +59,12 @@
                   <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
                     Year
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="condition-declared-year" name="passport-issued-year" type="text" inputmode="numeric">
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="legacy-end-year" name="passport-issued-year" type="text" inputmode="numeric">
                 </div>
               </div>
             </div>
 
           </fieldset>
-        </div>
-
-        <div class="govuk-form-group">
-          <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--s" for="event-name">
-              What conditons were declared subsequently?
-            </label>
-          </h1>
-          <div id="account-number-hint" class="govuk-hint">
-            Separate each conditon by a comma (,)
-          </div>
-          <input class="govuk-input" id="conditionsDeclared" name="event-name" type="text">
         </div>
 
         <div class="govuk-button-group">
@@ -99,18 +83,9 @@
 <script type="text/javascript">
   window.addEventListener('load', (event) => {
 
-    if(sessionStorage.getItem("conditionAtIDOC") == "yes")
-    {
-      document.getElementById("selectedTemplate").innerHTML = "No health conditions were declared initially";
-    }
-    else {
-      document.getElementById("selectedTemplate").innerHTML = "\"Health conditions declared initially did not impact work\"";
-    }
-
-    document.getElementById('condition-declared-day').value=sessionStorage.getItem("condition-declared-day");
-    document.getElementById('condition-declared-month').value=sessionStorage.getItem("condition-declared-month");
-    document.getElementById('condition-declared-year').value=sessionStorage.getItem("condition-declared-year");
-    document.getElementById('conditionsDeclared').value=sessionStorage.getItem("conditionsDeclared");
+    document.getElementById('legacy-end-day').value=sessionStorage.getItem("legacy-end-day");
+    document.getElementById('legacy-end-month').value=sessionStorage.getItem("legacy-end-month");
+    document.getElementById('legacy-end-year').value=sessionStorage.getItem("legacy-end-year");
 
 
 
@@ -126,11 +101,10 @@
   });
 
   function saveData(){
-    sessionStorage.setItem("introComplete","1");
-    sessionStorage.setItem("condition-declared-day",document.getElementById('condition-declared-day').value);
-    sessionStorage.setItem("condition-declared-month",document.getElementById('condition-declared-month').value);
-    sessionStorage.setItem("condition-declared-year",document.getElementById('condition-declared-year').value);
-    sessionStorage.setItem("conditionsDeclared",document.getElementById('conditionsDeclared').value);
+    sessionStorage.setItem("legacyClaimComplete","1");
+    sessionStorage.setItem("legacy-end-day",document.getElementById('legacy-end-day').value);
+    sessionStorage.setItem("legacy-end-month",document.getElementById('legacy-end-month').value);
+    sessionStorage.setItem("legacy-end-year",document.getElementById('legacy-end-year').value);
 
     window.location.href = "13-01-facts.html";
   }
