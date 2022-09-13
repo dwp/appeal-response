@@ -1,4 +1,5 @@
-{% macro header(serviceName,appellantName) %}
+{% import "../menu/macro.html" as menu%}
+{% macro header(serviceName,appellantName, menuItems) %}
 <header class="govuk-header dwp-header" data-module="govuk-header">
   <div class=" govuk-width-container">
     <div class="govuk-grid-row">
@@ -14,6 +15,10 @@
         </div>
     </div>
   </div>
+
+{% if menuItems %}
+  {{menu.menu(menuItems)}}
+{% endif %}
 
 {% if appellantName %}
 <section class="dwp-key-details-bar " aria-label="Key details">

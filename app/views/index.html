@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block header %}
-{{header.header(serviceName)}}
+{{header.header(serviceName,0,[{ text: "Start a new response", link: "#" , class:"active"},{ text: "Find a response", link: "find_response", active:"inactive"}])}}
 {% endblock %}
 
 {% block content %}
@@ -22,15 +22,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="cHeader govuk-!-margin-bottom-9">
-
-        <!-- Tab links -->
-        <div class="tab">
-          <button class="tablinks active govuk-body govuk-!-margin-bottom-0" onclick="openTab(event, 'New')">Start a new response</button>
-          <button class="tablinks govuk-body govuk-!-margin-bottom-0" onclick="openTab(event, 'Search')">Find a response</button>
-        </div>
-
-        <!-- Tab content -->
-        <div id="New" class="tabcontent govuk-!-padding-top-7" style="display:block">
           <div class="govuk-form-group">
 
               <h1 class="govuk-heading-xl">
@@ -47,28 +38,6 @@
             text: "Start now",
             href: "task-list-concept-v2/01-task-list-new.html"
           }) }}
-          <br>
-        </div>
-
-        <div id="Search" class="tabcontent govuk-!-padding-top-7">
-          <div class="govuk-form-group">
-            <h1 class="govuk-heading-xl">
-              Find a response
-            </h1>
-            <h3 class="govuk-label-wrapper">
-              <label class="govuk-label govuk-label--s" for="event-name">
-                Enter the HMCTS reference number
-              </label>
-            </h3>
-            <div id="account-number-hint" class="govuk-hint">
-            </div>
-            <input class="govuk-input" id="event-name" name="event-name" type="text">
-          </div>
-          {{ govukButton({
-            text: "Search",
-            href: "previous_responses.html"
-          }) }}
-        </div>
     </div>
     </div>
     <!--

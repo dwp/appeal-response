@@ -17,6 +17,38 @@
   padding: 1rem;
 }
 
+.menuContainer {
+  background-color: #f8f8f8;
+  color: black;
+  border-bottom: 1px solid #b1b4b6;
+}
+
+.globalNav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.globalNav li {
+  float: left;
+  margin-right: 32px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.globalNav li a {
+  text-decoration: none;
+}
+
+.globalNav li:hover:not(.active) {
+  text-decoration: underline;
+}
+
+.active {
+  border-bottom: 2px solid black;
+}
+
 /* Style the tab */
 .tab {
   overflow: hidden;

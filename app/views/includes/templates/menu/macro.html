@@ -1,0 +1,17 @@
+{% macro menu(items) %}
+<div class="govuk-grid-row menuContainer">
+  <div class="govuk-grid-column-full">
+    <div class=" govuk-width-container">
+      <ul class="globalNav">
+        {% for item in items %}
+          <li class="{{ item.class }}">
+              <a  class="govuk-link govuk-link--no-visited-state" href="{{ item.link }}">
+                {{ item.text }}
+              </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endmacro %}

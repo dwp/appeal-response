@@ -80,7 +80,7 @@
                     Facts of the case
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="company-information-status">Not started</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="facts-status">Not started</strong>
               </li>
               <!--
               <li class="app-task-list__item">
@@ -175,4 +175,27 @@
     </div>
   </div>
 
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+    if(sessionStorage.getItem("introComplete")=="1"
+        && sessionStorage.getItem("legacyClaimComplete")=="1"
+        && sessionStorage.getItem("uc50Complete")=="1"
+        && sessionStorage.getItem("wcaComplete")=="1"
+        && sessionStorage.getItem("mrComplete")=="1") {
+          document.getElementById("facts-status").innerHTML = "Complete";
+          document.getElementById("facts-status").className = "govuk-tag app-task-list__tag";
+    }
+    else if (sessionStorage.getItem("introComplete")=="1"
+        || sessionStorage.getItem("legacyClaimComplete")=="1"
+        || sessionStorage.getItem("uc50Complete")=="1"
+        || sessionStorage.getItem("wcaComplete")=="1"
+        || sessionStorage.getItem("mrComplete")=="1") {
+          document.getElementById("facts-status").innerHTML = "In progress";
+          document.getElementById("facts-status").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+    }
+  });
+</script>
 {% endblock %}
