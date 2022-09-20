@@ -36,7 +36,7 @@
                     Appellant details
                   </a>
                 </span>
-                <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Auto populated</strong>
+                <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>
                 <strong class="govuk-tag govuk-tag--green app-task-list__tag govuk-!-margin-right-1" id="eligibility-status">Verified</strong>
               </li>
               <li class="app-task-list__item">
@@ -45,7 +45,7 @@
                     Representative details
                   </a>
                 </span>
-                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Auto populated</strong>
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
                 <strong class="govuk-tag govuk-tag--green app-task-list__tag govuk-!-margin-right-1" id="eligibility-status">Verified</strong>
               </li>
               <li class="app-task-list__item">
@@ -54,7 +54,7 @@
                     Appeal details
                   </a>
                 </span>
-                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Auto populated</strong>
+                <strong class="govuk-tag app-task-list__tag" id="read-declaration-status">Completed</strong>
                 <strong class="govuk-tag govuk-tag--green app-task-list__tag govuk-!-margin-right-1" id="eligibility-status">Verified</strong>
               </li>
             </ul>
@@ -71,7 +71,7 @@
                     Schedule of evidence
                   </a>
                 </span>
-                <strong class="govuk-tag app-task-list__tag" id="company-information-status">Auto populated</strong>
+                <strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>
                 <strong class="govuk-tag govuk-tag--green app-task-list__tag govuk-!-margin-right-1" id="eligibility-status">Verified</strong>
               </li>
               <li class="app-task-list__item">
@@ -153,10 +153,10 @@
         </h4>
         <ul class="govuk-list govuk-list--bullet">
           <li>
-            Check code of appeals
+            <a href="#">Check code of appeals</a>
           </li>
           <li>
-            View intranet guidance
+            <a href="#">View intranet guidance</a>
           </li>
         </ul>
 
@@ -165,10 +165,10 @@
         </h4>
         <ul class="govuk-list govuk-list--bullet">
           <li>
-            View UC legislation
+            <a href="#">View UC legislation</a>
           </li>
           <li>
-            View other benefit regulations
+            <a href="#">View other benefit regulations</a>
           </li>
         </ul>
       </div>
@@ -185,7 +185,7 @@
         && sessionStorage.getItem("uc50Complete")=="1"
         && sessionStorage.getItem("wcaComplete")=="1"
         && sessionStorage.getItem("mrComplete")=="1") {
-          document.getElementById("facts-status").innerHTML = "Complete";
+          document.getElementById("facts-status").innerHTML = "Completed";
           document.getElementById("facts-status").className = "govuk-tag app-task-list__tag";
     }
     else if (sessionStorage.getItem("introComplete")=="1"
