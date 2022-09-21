@@ -1,0 +1,120 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back to iterations",
+  href: "../index"
+}) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Question-led approach per appellant point
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        Hypothesis / Experiment
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <strong>We have seen that </strong>appeal responses do not meet DWP and HMCTS quality standards
+        </li>
+        <li>
+          <strong>We think this is because </strong> <br>
+          We are asked for additional information from HMCTS <br>
+          And PO's recognise variance in quality
+        </li>
+        <li>
+          <strong>So if we </strong> <br>
+          Guide AW's through a set of structured questions <br>
+          Answers to which automatically generate a response
+        </li>
+        <li>
+          <strong>We will see </strong> increased uniformity, increased throughput
+        </li>
+        <li>
+          <strong>We'll know this is true when </strong> <br>
+          QA has a high assurance ratio/rating <br>
+          AW's have a reduced appeal handling time per response<br>
+          a reduction in direction notices from HMCTS (including regs referred to) 
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        User need(s)
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          I need [the tools to support me in creating] a response which feels personalised and persuasive, so that the appellant and judiciary recognise that I’ve considered the appellant’s circumstances and all the points raised in the appeal.  <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to be able to explain the reason for DWP opposing the appellant’s grounds for appeal so that the judiciary and the appellant understand why DWP has made its decision. <a href="../user-needs/"> More about this need.</a>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What's new or changed?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          In the previous iteration we tested a smart questionnaire that took the conditions of the appellant as an input and intelligently generated a response. However, this can be challenging to implement. This set of questionnaire was designed to ask the questions an Appeal Writer would ask themselves while choosing and editing a template.
+        </li>
+        <li>
+          The answers to the questions will customise the template and generate the right response.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What did we learn?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Very well received, fewer doubts expressed vs. appellant points.
+        </li>
+        <li>
+          Recognised potential for time-saving, accuracy and quality.​
+        </li>
+      </ul>
+      <h3 class="govuk-heading-s">
+          One of the participant said
+      </h3>
+      <div class="govuk-inset-text">
+        Normally I’d be sitting with notebook and pen. I’m liking the chronological order and how it’s presenting.
+      </div>
+
+      <h2 class="govuk-heading-l">
+        Next steps
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          TBD
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Screenshots
+      </h2>
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/task-list.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/facts-of-the-case.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/f19.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/f20.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/f21.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/f22.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/f23.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/f24.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/f25.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/f26.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/f27.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S08/f28.png" alt="home page screenshot">
+    </div>
+  </div>
+
+{% endblock %}

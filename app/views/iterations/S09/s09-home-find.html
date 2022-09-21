@@ -1,0 +1,96 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back to iterations",
+  href: "../index"
+}) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        A new home
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        Hypothesis / Experiment
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <strong>We have seen that that </strong>showing the list of previous responses gave an impression that this service was a workflow management tool
+        </li>
+        <li>
+          <strong>We know this because </strong> in the last rounds of usability testing, users could not identify what this tool's purpose was on the first impressions
+        </li>
+        <li>
+          <strong>So if we </strong> create a simpler home page with bare bones content<br>
+          and just a simple UI to upload the bundle
+        </li>
+        <li>
+          <strong>We will see </strong> a better orientation on what this service is meant for<br>
+          less distractions for users <br>
+        </li>
+        <li>
+          <strong>We'll know this is true when </strong> users will be able to identify the purpose of the service without having to read through the text or going through the service
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        User need(s)
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          I need to be able to pause writing an appeal response, and continue working on it later. <a href="../user-needs/"> More about this need.</a>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What's new or changed?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          In the previous iteration we tested a home page with the list of previously created appeal responses either in draft or completed status. In this iterations we have designed a simplified home page with just the ability to upload a bundle.
+        </li>
+        <li>
+          A separate search page to search for previously created appeal responses.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What did we learn?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          In the previous sprint we mentioned ‘orientation’ issues relating to the ‘Appeal Response’ screens. These were less evident in this round of testing. Possible reasons (i) prior knowledge of prototype (ii) new  “upload evidence” concept.
+        </li>
+        <li>
+          There were ‘orientation’ findings relating to first screen users saw – including perception that it was the start of building the evidence bundle, or the first step in creating an appeal response, or compiling a response but with some form of response already in place.​
+        </li>
+      </ul>
+      <h2 class="govuk-heading-l">
+        Next steps
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Since the evidence bundle might not have been created at the point of creating a response, we will have to extract that information from a different system. We will continue evolving this simpler version of the home page and search page but might revert back to creating the response by extrating data from HMCTS' CCD system.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Screenshots
+      </h2>
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/index-page.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/find.png" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/results.png" alt="home page screenshot">
+    </div>
+  </div>
+
+{% endblock %}

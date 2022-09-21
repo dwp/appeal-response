@@ -1,0 +1,96 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back to iterations",
+  href: "../index"
+}) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Auto populate data from the evidence bundle
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        Hypothesis / Experiment
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <strong>We believe that </strong>the evidence bundle has most of the data needed to construct an appeal response. If we can extract the relevant data from the bundle
+        </li>
+        <li>
+          <strong>We will </strong> <br>
+          be able to auto populate appellant details, representative details, appeal details and scheudle of evidence<br>
+          reduce time taken for appeal writers in keying all this information
+        </li>
+        <li>
+          <strong>We'll know this is true when </strong> <br>
+          QA has a high assurance ratio/rating <br>
+          AW's have a reduced appeal handling time per response<br>
+          a reduction in direction notices from HMCTS (including regs referred to) 
+        </li>
+      </ul>
+      <p>
+        This will also allow us to learn the process of appeal writing, especially bring clarity around when and how an evidence bundle is created
+      </p>
+
+      <h2 class="govuk-heading-l">
+        User need(s)
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          I need [the tools to support me in creating] a response which feels personalised and persuasive, so that the appellant and judiciary recognise that I’ve considered the appellant’s circumstances and all the points raised in the appeal.  <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to be able to explain the reason for DWP opposing the appellant’s grounds for appeal so that the judiciary and the appellant understand why DWP has made its decision. <a href="../user-needs/"> More about this need.</a>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What's new or changed?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          In the previous iteration we tested auto populating date from the CCD system, in this version we want to experiment extracting that data from the evidence bundle.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What did we learn?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Approaches to researching, building an evidence bundle and writing the response differ between appeal writers. We can’t assume that an evidence bundle will always be available, in a finalised form, at the point an appeal writer starts producing their response. ​
+        </li>
+        <li>
+          <div class="govuk-inset-text">
+            “I always make my bundle first – I can have one pdf open. Some people make the bundle either in the middle of the decision or at the end. “ – Appeals Writer, UC​
+          </div>
+        </li>
+      </ul>
+      <h2 class="govuk-heading-l">
+        Next steps
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Since the evidence bundle might not be built at the time of response creation, we will have to get this data from other systems like CCD.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Screenshots
+      </h2>
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S09/index-page.png" alt="home page screenshot">
+    </div>
+  </div>
+
+{% endblock %}
