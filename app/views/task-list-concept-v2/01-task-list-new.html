@@ -106,8 +106,25 @@
                     Decision
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="company-information-status">Not started</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="decision-status">Not started</strong>
               </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="14-grounds" aria-describedby="company-information-status">
+                    Grounds of appeal
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="grounds-status">Not started</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="15-response" aria-describedby="company-information-status">
+                    Response to grounds of appeal
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="response-status">Not started</strong>
+              </li>
+              <!--
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="08-respond-to-points" aria-describedby="company-information-status">
@@ -116,7 +133,6 @@
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="company-information-status">Not started</strong>
               </li>
-              <!--
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="08-respond-to-points" aria-describedby="company-information-status">
@@ -180,20 +196,28 @@
 <script type="text/javascript">
   window.addEventListener('load', (event) => {
     if(sessionStorage.getItem("introComplete")=="1"
-        && sessionStorage.getItem("legacyClaimComplete")=="1"
-        && sessionStorage.getItem("uc50Complete")=="1"
-        && sessionStorage.getItem("wcaComplete")=="1"
-        && sessionStorage.getItem("mrComplete")=="1") {
-          document.getElementById("facts-status").innerHTML = "Completed";
-          document.getElementById("facts-status").className = "govuk-tag app-task-list__tag";
+      && sessionStorage.getItem("legacyClaimComplete")=="1"
+      && sessionStorage.getItem("uc50Complete")=="1"
+      && sessionStorage.getItem("wcaComplete")=="1"
+      && sessionStorage.getItem("mrComplete")=="1") {
+        document.getElementById("facts-status").innerHTML = "Completed";
+        document.getElementById("facts-status").className = "govuk-tag app-task-list__tag";
     }
     else if (sessionStorage.getItem("introComplete")=="1"
-        || sessionStorage.getItem("legacyClaimComplete")=="1"
-        || sessionStorage.getItem("uc50Complete")=="1"
-        || sessionStorage.getItem("wcaComplete")=="1"
-        || sessionStorage.getItem("mrComplete")=="1") {
-          document.getElementById("facts-status").innerHTML = "In progress";
-          document.getElementById("facts-status").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+      || sessionStorage.getItem("legacyClaimComplete")=="1"
+      || sessionStorage.getItem("uc50Complete")=="1"
+      || sessionStorage.getItem("wcaComplete")=="1"
+      || sessionStorage.getItem("mrComplete")=="1") {
+        document.getElementById("facts-status").innerHTML = "In progress";
+        document.getElementById("facts-status").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+    }
+    if (sessionStorage.getItem("groundsComplete")){
+      document.getElementById("grounds-status").innerHTML = "Completed ("+sessionStorage.getItem("groundsComplete").length+")";
+      document.getElementById("grounds-status").className = "govuk-tag app-task-list__tag";
+    }
+    else{
+      document.getElementById("grounds-status").innerHTML = "Not started";
+      document.getElementById("grounds-status").className = "govuk-tag govuk-tag--grey app-task-list__tag";
     }
   });
 </script>

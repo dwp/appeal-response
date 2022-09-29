@@ -1,0 +1,70 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Grounds of appeal</h1>
+        <h2 class="govuk-heading-m">Add a new ground for appeal</h2>
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="more-detail">
+              What is the appellant contesting?
+            </label>
+          </h1>
+          <div id="more-detail-hint" class="govuk-hint">
+            Add each ground separately. You can add as many grounds as necessary.
+          </div>
+          <textarea class="govuk-textarea" id="groundsText" name="groundsText" rows="5" aria-describedby="Ground of appeal"></textarea>
+        </div>
+
+        <div class="govuk-button-group">
+          <a class="govuk-button" onclick="saveData()">
+            Continue
+          </a>
+        </div>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  function saveData(){
+
+    var grounds = "";
+
+    //Introduction
+    if(sessionStorage.getItem("grounds")){
+      grounds = sessionStorage.getItem("grounds");
+    }
+    grounds += document.getElementById('groundsText').value + "#";
+
+    sessionStorage.setItem("grounds",grounds);
+    if(sessionStorage.getItem("groundsComplete"))
+      sessionStorage.setItem("groundsComplete",sessionStorage.getItem("groundsComplete")+".");
+    else
+      sessionStorage.setItem("groundsComplete",".");
+
+    window.location.href = "14-grounds";
+  }
+</script>
+{% endblock %}

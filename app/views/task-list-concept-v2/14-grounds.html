@@ -1,0 +1,103 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">Grounds of appeal</h1>
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body" id="groundsTable">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header ">1</th>
+              <td class="govuk-table__cell govuk-!-width-three-quarters">
+                <p>
+                  The common sunflower (Helianthus annuus) is a large annual forb of the genus Helianthus grown as a crop for its edible oil and seeds. This sunflower species is also used as wild bird food, as livestock forage (as a meal or a silage plant), in some industrial applications, and as an ornamental in domestic gardens.
+                </p>
+              </td>
+              <td class="govuk-table__cell">
+                <div class="govuk-button-group">
+                  <a class="govuk-link" href="#">
+                    Edit
+                  </a>
+                  <a class="govuk-link" href="#">
+                    Remove
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="" id="groundsContainer">
+
+        </div>
+
+        <div class="govuk-button-group">
+          <a class="govuk-button" href="01-task-list-new">
+            Continue
+          </a>
+          <a class="govuk-button govuk-button--secondary" href="14-01-grounds-new">Add another</a>
+        </div>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  groundRow = "";
+
+  function createRow(ground){
+    if(ground != ""){
+      groundRow += '<tr class="govuk-table__row">'
+        +'<th scope="row" class="govuk-table__header ">1</th>'
+        + '<td class="govuk-table__cell govuk-!-width-three-quarters">'
+        +  '<p>'
+        +    ground
+        + '</p>'
+        + '</td>'
+        + '<td class="govuk-table__cell">'
+        +  '<div class="govuk-button-group">'
+        +    '<a class="govuk-link" href="#">'
+        +      'Edit'
+        +    '</a>'
+        +    '<a class="govuk-link" href="#">'
+        +      'Remove'
+        +    '</a>'
+        +  '</div>'
+        + '</td>'
+        +'</tr>';
+      }
+  }
+  window.addEventListener('load', (event) => {
+    var grounds = [""];
+    //Introduction
+    if(sessionStorage.getItem("grounds")){
+      grounds = sessionStorage.getItem("grounds").split("#");
+      grounds.forEach(createRow);
+      document.getElementById('groundsTable').innerHTML = groundRow;
+    }
+    else{
+      window.location.href = "14-01-grounds-new";
+    }
+  });
+</script>
+{% endblock %}
