@@ -22,16 +22,23 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Grounds of appeal</h1>
+        <h1 class="govuk-heading-l">Grounds of appeal</h1>
         <h2 class="govuk-heading-m">Add a new ground for appeal</h2>
+        <p>Add each ground separately. You can add as many grounds as necessary.</p>
         <div class="govuk-form-group">
-          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="more-detail">
-              What is the appellant contesting?
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="more-detail">
+              A short summary
             </label>
           </h1>
-          <div id="more-detail-hint" class="govuk-hint">
-            Add each ground separately. You can add as many grounds as necessary.
-          </div>
+          <input class="govuk-input" id="groundsTitle" name="event-name" type="text">
+        </div>
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="more-detail">
+              Description of the point raised
+            </label>
+          </h1>
           <textarea class="govuk-textarea" id="groundsText" name="groundsText" rows="5" aria-describedby="Ground of appeal"></textarea>
         </div>
 
@@ -49,15 +56,17 @@
 <script type="text/javascript">
 
   function saveData(){
-
     var grounds = "";
-
+    var groundsTitles = "";
     //Introduction
     if(sessionStorage.getItem("grounds")){
       grounds = sessionStorage.getItem("grounds");
+      groundsTitles = sessionStorage.getItem("groundsTitles");
     }
     grounds += document.getElementById('groundsText').value + "#";
+    groundsTitles += document.getElementById('groundsTitle').value + "#";
 
+    sessionStorage.setItem("groundsTitles",groundsTitles);
     sessionStorage.setItem("grounds",grounds);
     if(sessionStorage.getItem("groundsComplete"))
       sessionStorage.setItem("groundsComplete",sessionStorage.getItem("groundsComplete")+".");

@@ -22,28 +22,10 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-        <h1 class="govuk-heading-xl">Grounds of appeal</h1>
+        <h1 class="govuk-heading-l">Grounds of appeal</h1>
 
         <table class="govuk-table">
           <tbody class="govuk-table__body" id="groundsTable">
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header ">1</th>
-              <td class="govuk-table__cell govuk-!-width-three-quarters">
-                <p>
-                  The common sunflower (Helianthus annuus) is a large annual forb of the genus Helianthus grown as a crop for its edible oil and seeds. This sunflower species is also used as wild bird food, as livestock forage (as a meal or a silage plant), in some industrial applications, and as an ornamental in domestic gardens.
-                </p>
-              </td>
-              <td class="govuk-table__cell">
-                <div class="govuk-button-group">
-                  <a class="govuk-link" href="#">
-                    Edit
-                  </a>
-                  <a class="govuk-link" href="#">
-                    Remove
-                  </a>
-                </div>
-              </td>
-            </tr>
           </tbody>
         </table>
         <div class="" id="groundsContainer">
@@ -65,11 +47,17 @@
 <script type="text/javascript">
   groundRow = "";
 
-  function createRow(ground){
+  function createRow(ground,index){
     if(ground != ""){
+      groundTitle = sessionStorage.getItem("groundsTitles").split("#")[index];
       groundRow += '<tr class="govuk-table__row">'
-        +'<th scope="row" class="govuk-table__header ">1</th>'
+        +'<th scope="row" class="govuk-table__header ">'
+          + (parseInt(index)+1)
+        +'</th>'
         + '<td class="govuk-table__cell govuk-!-width-three-quarters">'
+        + '<h3 class="govuk-!-margin-top-0 ">'
+        + groundTitle
+        + '</h3">'
         +  '<p>'
         +    ground
         + '</p>'
