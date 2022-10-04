@@ -21,7 +21,7 @@
 <a href="15-response" class="govuk-back-link">Back to grounds of appeal</a>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Respond to appellant's points</h1>
         <h2 class="govuk-heading-m">Appellant's point</h2>
         <h3 class="govuk-heading-s govuk-!-margin-bottom-0" id="groundTitle"></h3>
@@ -49,12 +49,22 @@
 <script type="text/javascript">
   window.addEventListener('load', (event) => {
     let index = 0;
-    //Introduction
+    let dwpResponse = "";
+    if(sessionStorage.getItem("groundIndex")){
+      index = sessionStorage.getItem("groundIndex");
+    }
+
     if(sessionStorage.getItem("grounds")){
       ground = sessionStorage.getItem("grounds").split("#")[index];
       groundTitle = sessionStorage.getItem("groundsTitles").split("#")[index];
       document.getElementById('groundTitle').innerHTML = groundTitle;
       document.getElementById('groundDesc').innerHTML = ground;
+      if(sessionStorage.getItem("dwpResponse").split("#")[index]){
+        document.getElementById('dwpResponse').value = sessionStorage.getItem("dwpResponse").split("#")[index];
+      }
+      else {
+        document.getElementById('dwpResponse').value = "";
+      }
     }
   });
 

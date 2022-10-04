@@ -21,46 +21,38 @@
 <a href="15-response" class="govuk-back-link">Back to grounds of appeal</a>
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Respond to appellant's points</h1>
         <h2 class="govuk-heading-m">Appellant's point</h2>
         <h3 class="govuk-heading-s" id="groundTitle"></h3>
         <p id="groundDesc"></p>
 
+        <h2 class="govuk-heading-m">Evidence</h2>
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-label--s" for="search">
-            What legislation did you use to make this decision?
-          </label>
-          <div class="govuk-input__wrapper"><input class="govuk-input govuk-!-width-one-half" id="weight" name="weight" type="text" spellcheck="false">
-            <div class="govuk-input__suffix" aria-hidden="true">
-              <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-              </svg>
-            </div>
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="event-name">
+              What is the evidence supporting this decision?
+            </label>
+          </h1>
+          <div id="event-name-hint" class="govuk-hint">
+            The evidence from the bundle
           </div>
+          <input class="govuk-input" id="evidenceTitle" name="event-name" type="text" aria-describedby="event-name-hint">
         </div>
 
-        <h2 class="govuk-heading-m">Selected legislation</h2>
-        <div class="govuk-!-margin-bottom-5">
-          <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
-            The title of the selected legislation would be shown here (2021)
-          </h3>
-          <p>
-            <a href="#">View legislation</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#">Remove</a>
-          </p>
-          <hr class="govuk-section-break govuk-section-break--visible">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="event-name">
+              Starting page number in the bundle
+            </label>
+          </h1>
+          <input class="govuk-input govuk-!-width-one-quarter" id="evidenceStart" name="event-name" type="text" aria-describedby="event-name-hint">
         </div>
 
-        <div class="govuk-!-margin-bottom-5">
-          <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
-            And there can be more than one legislations used for this response (2017)
-          </h3>
-          <p>
-            <a href="#">View legislation</a> &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#">Remove</a>
-          </p>
-          <hr class="govuk-section-break govuk-section-break--visible">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="event-name">
+              Ending page number in the bundle
+            </label>
+          </h1>
+          <input class="govuk-input govuk-!-width-one-quarter" id="evidenceEnd" name="event-name" type="text" aria-describedby="event-name-hint">
         </div>
 
         <div class="govuk-button-group">
@@ -78,28 +70,55 @@
   window.addEventListener('load', (event) => {
     let index = 0;
     var grounds = [""];
-    //Introduction
+
+    if(sessionStorage.getItem("groundIndex")){
+      index = sessionStorage.getItem("groundIndex");
+    }
     if(sessionStorage.getItem("grounds")){
       ground = sessionStorage.getItem("grounds").split("#")[index];
       groundTitle = sessionStorage.getItem("groundsTitles").split("#")[index];
       document.getElementById('groundTitle').innerHTML = groundTitle;
       document.getElementById('groundDesc').innerHTML = ground;
     }
+    if(sessionStorage.getItem("dwpEvidenceTitle")){
+      document.getElementById('evidenceTitle').value = sessionStorage.getItem("dwpEvidenceTitle").split("#")[index];
+    }
+    if(sessionStorage.getItem("dwpEvidenceStart")){
+      document.getElementById('evidenceStart').value = sessionStorage.getItem("dwpEvidenceStart").split("#")[index];
+    }
+    if(sessionStorage.getItem("dwpEvidenceEnd")){
+      document.getElementById('evidenceEnd').value = sessionStorage.getItem("dwpEvidenceEnd").split("#")[index];
+    }
   });
 
   function saveData(){
-    var dwpResponse = "";
-    //Introduction
-    if(sessionStorage.getItem("dwpResponse")){
-      dwpResponse = sessionStorage.getItem("dwpResponse");
-    }
-    dwpResponse += document.getElementById('dwpResponse').value + "#";
+    var dwpEvidenceTitle = "";
+    var dwpEvidenceStart = "";
+    var dwpEvidenceEnd = "";
 
-    sessionStorage.setItem("dwpResponse",dwpResponse);
+    if(sessionStorage.getItem("dwpEvidenceTitle")){
+      dwpEvidenceTitle = sessionStorage.getItem("dwpEvidenceTitle");
+    }
+    dwpEvidenceTitle += document.getElementById('evidenceTitle').value + "#";
+    sessionStorage.setItem("dwpEvidenceTitle",dwpEvidenceTitle);
+
+    if(sessionStorage.getItem("dwpEvidenceStart")){
+      dwpEvidenceStart = sessionStorage.getItem("dwpEvidenceStart");
+    }
+    dwpEvidenceStart += document.getElementById('evidenceStart').value + "#";
+    sessionStorage.setItem("dwpEvidenceStart",dwpEvidenceStart);
+
+    if(sessionStorage.getItem("dwpEvidenceEnd")){
+      dwpEvidenceEnd = sessionStorage.getItem("dwpEvidenceEnd");
+    }
+    dwpEvidenceEnd += document.getElementById('evidenceEnd').value + "#";
+    sessionStorage.setItem("dwpEvidenceEnd",dwpEvidenceEnd);
+
+
     /* Need to figure this out soon */
     sessionStorage.setItem("dwpResponseComplete","1");
 
-    window.location.href = "15-response";
+    window.location.href = "15-05-response-preview";
   }
 
 </script>

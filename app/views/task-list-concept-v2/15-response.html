@@ -35,19 +35,32 @@
 <script type="text/javascript">
   groundRow = "";
 
+  function startResponse(index){
+    sessionStorage.setItem("groundIndex",index);
+    window.location.href = "15-01-add-response";
+  }
+
   function createRow(ground,index){
+    sessionStorage.setItem("noOfGrounds",index);
     if(ground != ""){
       groundTitle = sessionStorage.getItem("groundsTitles").split("#")[index];
       groundRow += '<li class="app-task-list__item">'
         +'<div class="govuk-grid-row govuk-!-padding-left-3 govuk-!-padding-bottom-0"><span class="app-task-list__task-name">'
           //+ (parseInt(index)+1)
-        +'<p><a class="govuk-!-font-size-24 " href="'
-        +"15-01-add-reponse.html?index="+index
-        +'" aria-describedby="eligibility-status">'
+        +'<p><a class="link-via-js govuk-!-font-size-24 govuk-link" onclick="'
+        +"startResponse("+index
+        +')" aria-describedby="eligibility-status">'
         + groundTitle
         + '</a></p>'
-        + '</span>'
-        +  '<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong></div>'
+        + '</span>';
+        if(sessionStorage.getItem("responseComplete"+index)){
+          groundRow +=  '<strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>';
+        }
+        else {
+          groundRow +=  '<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>';
+        }
+
+        groundRow += '</div>'
         + '<div class="govuk-grid-row govuk-!-padding-left-3 govuk-!-padding-bottom-0"><details class="govuk-details govuk-!-margin-bottom-0" data-module="govuk-details">'
         +  '<summary class="govuk-details__summary">'
         +    '<span class="govuk-details__summary-text">'
@@ -72,5 +85,6 @@
         //window.location.href = "14-01-grounds-new";
       }
   });
+
 </script>
 {% endblock %}

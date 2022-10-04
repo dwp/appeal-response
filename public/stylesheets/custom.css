@@ -82,3 +82,8 @@
   border-top: 1px solid #ccc;
   margin-top: -1px;
 }
+
+.link-via-js {
+  cursor: pointer;
+  color: rgb(29, 112, 184);
+}

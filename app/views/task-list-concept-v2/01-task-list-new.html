@@ -195,6 +195,11 @@
 {% block pageScripts %}
 <script type="text/javascript">
   window.addEventListener('load', (event) => {
+
+    let responseComplete = 1;
+    let responseInProgress = 0;
+    let noOfGrounds = 0;
+
     if(sessionStorage.getItem("introComplete")=="1"
       && sessionStorage.getItem("legacyClaimComplete")=="1"
       && sessionStorage.getItem("uc50Complete")=="1"
@@ -219,6 +224,22 @@
       document.getElementById("grounds-status").innerHTML = "Not started";
       document.getElementById("grounds-status").className = "govuk-tag govuk-tag--grey app-task-list__tag";
     }
+
+    noOfGrounds = parseInt(sessionStorage.getItem("groundsComplete").length);
+    for(i=0;i<noOfGrounds;i++){
+      responseComplete = responseComplete * parseInt(sessionStorage.getItem("responseComplete")+i);
+      responseInProgress += parseInt(sessionStorage.getItem("responseComplete")+i);
+    }
+
+    if(responseComplete){
+      document.getElementById('response-status').innerHTML = "Completed";
+      document.getElementById('response-status').classList.remove("govuk-tag--grey");
+    }
+    else if (responseInProgress) {
+      document.getElementById('response-status').innerHTML = "In progress";
+      document.getElementById('response-status').classList.add("govuk-tag--blue");
+    }
+
   });
 </script>
 {% endblock %}
