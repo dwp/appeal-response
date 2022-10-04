@@ -227,12 +227,13 @@
 
     noOfGrounds = parseInt(sessionStorage.getItem("groundsComplete").length);
     for(i=0;i<noOfGrounds;i++){
-      responseComplete = responseComplete * parseInt(sessionStorage.getItem("responseComplete")+i);
+      responseComplete = responseComplete * parseInt(sessionStorage.getItem("responseComplete"+i));
       responseInProgress += parseInt(sessionStorage.getItem("responseComplete")+i);
+      console.log(parseInt(sessionStorage.getItem("responseComplete"+i)));
     }
 
     if(responseComplete){
-      document.getElementById('response-status').innerHTML = "Completed";
+      document.getElementById('response-status').innerHTML = "Completed ("+i+")";
       document.getElementById('response-status').classList.remove("govuk-tag--grey");
     }
     else if (responseInProgress) {
