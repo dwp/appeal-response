@@ -227,9 +227,14 @@
 
     noOfGrounds = parseInt(sessionStorage.getItem("groundsComplete").length);
     for(i=0;i<noOfGrounds;i++){
-      responseComplete = responseComplete * parseInt(sessionStorage.getItem("responseComplete"+i));
-      responseInProgress += parseInt(sessionStorage.getItem("responseComplete")+i);
-      console.log(parseInt(sessionStorage.getItem("responseComplete"+i)));
+      if(parseInt(sessionStorage.getItem("responseComplete"+i)))
+        responseComplete *= 1;
+      else
+        responseComplete *= 0;
+
+
+      if(parseInt(sessionStorage.getItem("responseComplete"+i)))
+        responseInProgress += 1;
     }
 
     if(responseComplete){
