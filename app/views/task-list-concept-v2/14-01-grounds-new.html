@@ -23,12 +23,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Grounds of appeal</h1>
-        <h2 class="govuk-heading-m">Add a new ground for appeal</h2>
+        <h2 class="govuk-heading-m" id="pageTitle">Add a new ground for appeal</h2>
         <p>Add each ground separately. You can add as many grounds as necessary.</p>
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--s" for="more-detail">
-              A short summary
+              What are they appealing?
             </label>
           </h1>
           <input class="govuk-input" id="groundsTitle" name="event-name" type="text">
@@ -36,7 +36,7 @@
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--s" for="more-detail">
-              Description of the point raised
+              Reasons given
             </label>
           </h1>
           <textarea class="govuk-textarea" id="groundsText" name="groundsText" rows="5" aria-describedby="Ground of appeal"></textarea>
@@ -54,6 +54,15 @@
 
 {% block pageScripts %}
 <script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+    if(!sessionStorage.getItem("grounds")){
+      document.getElementById('pageTitle').innerHTML = "Add the first reason for appeal";
+    }
+    else {
+      document.getElementById('pageTitle').innerHTML = "Add the next reason for appeal";
+    }
+  });
 
   function saveData(){
     var grounds = "";
