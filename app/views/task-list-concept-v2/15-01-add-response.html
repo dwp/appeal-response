@@ -22,7 +22,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Respond to appellant's points</h1>
+        <h1 class="govuk-heading-l">Respond to point <span id="pointCount"></span></h1>
         <h2 class="govuk-heading-m">Appellant's point</h2>
         <h3 class="govuk-heading-s govuk-!-margin-bottom-0" id="groundTitle"></h3>
         <p id="groundDesc"></p>
@@ -52,6 +52,7 @@
     let dwpResponse = "";
     if(sessionStorage.getItem("groundIndex")){
       index = sessionStorage.getItem("groundIndex");
+      document.getElementById('pointCount').innerHTML =  (parseInt(index)+1) + " of " + (sessionStorage.getItem("grounds").split("#").length-1);
     }
 
     if(sessionStorage.getItem("grounds")){
