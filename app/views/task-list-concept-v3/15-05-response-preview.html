@@ -1,0 +1,172 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="15-response" class="govuk-back-link">Back to grounds of appeal</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Check your response to the appellant's point</h1>
+
+        <h2 class="govuk-heading-m">Appellant's point</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Title
+            </dt>
+            <dd class="govuk-summary-list__value" id="groundTitle">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden"> previous application number</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Details
+            </dt>
+            <dd class="govuk-summary-list__value" id="groundDesc">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden"> licence type</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">DWP's response</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Response
+            </dt>
+            <dd class="govuk-summary-list__value" id="dwpResponse">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden"> previous application number</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Legislation supporting the decision</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              1
+            </dt>
+            <dd class="govuk-summary-list__value" id="dwpLegislation">
+              Some title of a legislation (2020)
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden"> previous application number</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              2
+            </dt>
+            <dd class="govuk-summary-list__value" id="dwpLegislation">
+              Another legislation from 2013
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden"> previous application number</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Evidence supporting the decision</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              1
+            </dt>
+            <dd class="govuk-summary-list__value" id="dwpEvidence">
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden"> previous application number</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <div class="govuk-button-group">
+          <a class="govuk-button" onclick="saveData()">
+            Save response
+          </a>
+        </div>
+        <p><a href="15-response">Back to grounds of appeal</a></p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+    let index = 0;
+    let dwpResponse = "";
+    if(sessionStorage.getItem("groundIndex")){
+      index = sessionStorage.getItem("groundIndex");
+    }
+    if(sessionStorage.getItem("grounds")){
+      ground = sessionStorage.getItem("grounds").split("#")[index];
+      groundTitle = sessionStorage.getItem("groundsTitles").split("#")[index];
+      document.getElementById('groundTitle').innerHTML = groundTitle;
+      document.getElementById('groundDesc').innerHTML = ground;
+      if(sessionStorage.getItem("dwpResponse").split("#")[index]){
+        document.getElementById('dwpResponse').innerHTML = sessionStorage.getItem("dwpResponse").split("#")[index];
+      }
+      else {
+        document.getElementById('dwpResponse').innerHTML = "";
+      }
+      if(sessionStorage.getItem("dwpEvidenceTitle")){
+        document.getElementById('dwpEvidence').innerHTML = sessionStorage.getItem("dwpEvidenceTitle").split("#")[index] + "<br>Page numbers in bundle (" + sessionStorage.getItem("dwpEvidenceStart").split("#")[index] + " - " + sessionStorage.getItem("dwpEvidenceEnd").split("#")[index] + ")";
+      }
+    }
+  });
+
+  function saveData(){
+    let index = 0;
+    if(sessionStorage.getItem("groundIndex")){
+      index = sessionStorage.getItem("groundIndex");
+    }
+    sessionStorage.setItem("responseComplete"+index,"1");
+    window.location.href = "15-response";
+  }
+
+</script>
+{% endblock %}

@@ -1,0 +1,78 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h2 class="govuk-heading-l">Schedule of evidence</h2>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Date of event</th>
+              <th scope="col" class="govuk-table__header">Event</th>
+              <th scope="col" class="govuk-table__header">Date of document</th>
+              <th scope="col" class="govuk-table__header">Pages</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">07/05/2021</td>
+              <td class="govuk-table__cell">Valid claim received by phone</td>
+              <td class="govuk-table__cell">N/A</td>
+              <td class="govuk-table__cell">N/A</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">11/12/2021</td>
+              <td class="govuk-table__cell">AP assessment report</td>
+              <td class="govuk-table__cell">11/11/2021</td>
+              <td class="govuk-table__cell">6-26</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">30/12/2021</td>
+              <td class="govuk-table__cell">PIP .7039 Enhnaced Disallowance letter</td>
+              <td class="govuk-table__cell">30/11/2021</td>
+              <td class="govuk-table__cell">27-33</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">10/03/2022</td>
+              <td class="govuk-table__cell">PIP .7039 Reconsideration - Disallowance letter</td>
+              <td class="govuk-table__cell">10/02/2022</td>
+              <td class="govuk-table__cell">34-41</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">11/04/2022</td>
+              <td class="govuk-table__cell">Appeal request and supporting documents received from HMCTS</td>
+              <td class="govuk-table__cell">11/03/2022</td>
+              <td class="govuk-table__cell">2-5</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Edit schedule of evidence
+        </button>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,100 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">The facts of the case</h1>
+        <h2 class="govuk-heading-l">UC medical questionnaire</h2>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="Select a template">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Select the relevant template
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="returned-included" name="uc50" type="radio" value="returned-included" aria-describedby="Select this template with legacy claims">
+                <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="returned-included">
+                  UC50 returned and included in evidence bundle
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="returned-lost" name="uc50" type="radio" value="returned-lost" aria-describedby="Select this template for no legacy claims">
+                <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="returned-lost">
+                  UC50 returned and available to the HCP and then misplaced
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="returned-no-copy" name="uc50" type="radio" value="returned-no-copy" aria-describedby="Select this template for no legacy claims">
+                <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="returned-no-copy">
+                  UC50 returned and available to HCP but no copy available
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="not-returned" name="uc50" type="radio" value="not-returned" aria-describedby="Select this template for no legacy claims">
+                <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="not-returned">
+                  Appellant did not return the UC50
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+        <div class="govuk-button-group">
+          <button class="govuk-button" id="addButton" onclick="saveData()">
+            Select and continue
+          </button>
+        </div>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+    const radioButtons = document.querySelectorAll('input[name="uc50"]');
+    for(const radioButton of radioButtons){
+      if(radioButton.value == sessionStorage.getItem("uc50")){
+        radioButton.checked = true;
+      }
+    }
+  });
+
+  function saveData(){
+    const radioButtons = document.querySelectorAll('input[name="uc50"]');
+    for(const radioButton of radioButtons){
+      if(radioButton.checked){
+        sessionStorage.setItem("uc50",radioButton.value);
+      }
+    }
+    sessionStorage.setItem("uc50ClaimComplete","1");
+    if(sessionStorage.getItem("uc50")=="returned-included")
+      window.location.href = "13-07-uc50.html";
+    else
+      window.location.href = "13-01-facts.html";
+  }
+</script>
+{% endblock %}
