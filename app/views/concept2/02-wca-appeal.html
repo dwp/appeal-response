@@ -1,0 +1,60 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName, 'Sarah Phillips')}}
+{% endblock %}
+
+{% block content %}
+<a href="../index" class="govuk-back-link">Back to home</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">Is this a WCA appeal?</h1>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="UCB-Yes" name="UCB-Marker" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="UCB-Yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="UCB-No" name="UCB-Marker" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="UCB-No">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+
+        <div class="govuk-button-group">
+          <a class="govuk-button" data-module="govuk-button" href="03-decision-type.html">
+            Continue
+          </a>
+        </div>
+        <div class="govuk-link">
+          <a href="/index.html">Cancel this response</a>
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}

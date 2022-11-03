@@ -1,0 +1,80 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-7">
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l">Representative details</h2>
+        <strong class="govuk-tag govuk-tag--green">
+          Verified
+        </strong>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Jane Philips
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Relation with the appellant
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sister
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>07700 900457</p>
+              <p>jane.phillips@example.com</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              72 Guild Street
+              <br>London
+              <br>SE23 6FH
+            </dd>
+          </div>
+        </dl>
+        <!--
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Edit representative details
+        </button>
+        -->
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

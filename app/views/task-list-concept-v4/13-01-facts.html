@@ -1,0 +1,271 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">The facts of the case</h1>
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="introSection">Introduction</h2>
+          <p class="govuk-body" id="introContainer">
+          </p>
+          <a class="govuk-body govuk-link" href="13-02-intro" id="introLink">+ Add introduction</a>
+        </div>
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="legacySection">Legacy claims</h2>
+          <p class="" id="legacyClaimsContainer">
+
+          </p>
+          <p class="govuk-body">
+            <a class="govuk-link" href="13-04-legacy-claim" id="legacyClaimLink">+ Add claim details</a>
+          </p>
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="uc50Section">UC50 self-assessment medical questionnaire form</h2>
+          <p class="" id="uc50Container">
+
+          </p>
+          <p class="govuk-body">
+            <a class="govuk-link" href="13-06-uc50" id="uc50Link">+ Add UC50 self-assessment medical questionnaire form details</a>
+          </p>
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="wcaSection">WCA assessment</h2>
+          <p class="" id="wcaContainer">
+
+          </p>
+          <p class="govuk-body">
+            <a class="govuk-link" href="13-08-wca" id="wcaLink">+ Add WCA assessment details</a>
+          </p>
+        </div>
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" id="mrSection">Mandatory reconsideration details</h2>
+          <p class="" id="mrContainer">
+
+          </p>
+          <p class="govuk-body">
+            <a class="govuk-link" href="13-10-mr" id="mrLink">+ Add mandatory reconsideration details</a>
+          </p>
+        </div>
+
+        <div class="govuk-button-group">
+          <a class="govuk-button" href="01-task-list-new">
+            Continue
+          </a>
+        </div>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  function getfullMonth(month){
+    switch (month) {
+      case "1":
+      case "01":
+          return("January");
+        break;
+      case "2":
+      case "02":
+          return("February");
+        break;
+      case "3":
+      case "03":
+          return("March");
+        break;
+      case "4":
+      case "04":
+          return("April");
+      break;
+      case "5":
+      case "05":
+          return("May");
+        break;
+      case "6":
+      case "06":
+          return("June");
+        break;
+      case "7":
+      case "07":
+          return("July");
+        break;
+      case "8":
+      case "08":
+          return("August");
+        break;
+      case "9":
+      case "09":
+          return("September");
+        break;
+      case "10":
+          return("October");
+        break;
+      case "11":
+          return("November");
+        break;
+      case "12":
+          return("December");
+        break;
+      default:
+        return("Date not entered");
+
+    }
+  }
+  window.addEventListener('load', (event) => {
+    var introText = "";
+    var introLink = "";
+    var legacyClaimText = "";
+    var legacyClaimLink = "";
+    var uc50Text = "";
+    var uc50Link = "";
+    var wcaText = "";
+    var wcaLink = "";
+    var mrText = "";
+    var mrLink = "";
+
+    //Introduction
+    if(sessionStorage.getItem("introComplete")=="1"){
+      introText = "<p>On <strong>21 December 2021</strong>, <strong>Jacob Abraham</strong> made a claim to Universal Credit (UC).</p><p>On his initial claim, Jacob said he suffered from <strong>arthritis and high blood pressure</strong> but they did not affect his ability to work or look for work.</p>";
+      if(sessionStorage.getItem("conditionAtIDOC") == "yes"){
+        introText += "On his initial declaration, <strong>Jacob Abraham</strong> did not disclose any health conditions that would affect his capacity for work but subsequently on <strong>"
+        + sessionStorage.getItem("condition-declared-day") + " "  + getfullMonth(sessionStorage.getItem("condition-declared-month")) + " "  + sessionStorage.getItem("condition-declared-year")
+        + "</strong> he declared the following health conditions <strong>"
+        + sessionStorage.getItem("conditionsDeclared")
+        + "</strong> which restricted his ability to work or to look for work.";
+      }
+      else{
+        introText += "<p>Jacob’s circumstances changed. On <strong>"
+        + sessionStorage.getItem("condition-declared-day") + " " + getfullMonth(sessionStorage.getItem("condition-declared-month")) + " " + sessionStorage.getItem("condition-declared-year")
+        + "</strong> he provided a fit note declaring he had <strong>"
+        + sessionStorage.getItem("conditionsDeclared")
+        + "</strong> which restricted his ability to work or look for work.</p><p>Receipt of the fit note was accepted as an application for the LCW/LCWRA element of UC. As a result, Jacob was referred for a Work Capability Assessment (WCA).</p>";
+      }
+      introLink = "Edit introduction";
+      document.getElementById("introContainer").innerHTML = introText;
+    }
+    else{
+      introLink = "+ Add introduction";
+    }
+    document.getElementById("introLink").innerHTML = introLink;
+
+
+    //Legacy claims
+    if(sessionStorage.getItem("legacyClaimComplete")=="1"){
+      if(sessionStorage.getItem("legacyClaim")=="yes"){
+        legacyClaimText += "The Tribunal may wish to note that Jacob Abraham was previously in receipt of Employment and Support Allowance (ESA) with the Work Related Activity Component/Support Component. This award ended on <strong>"
+        + sessionStorage.getItem("legacy-end-day") + " "  + getfullMonth(sessionStorage.getItem("legacy-end-month")) + " "  + sessionStorage.getItem("legacy-end-year")
+        + "</strong> following a determination that Jacob Abraham did not have LCW OR was treated as not having LCW.";
+      }
+      else{
+        legacyClaimText += "<i>Not applicable as there are no legacy claims</i>";
+      }
+      legacyClaimLink = "Edit legacy claims";
+      document.getElementById("legacyClaimsContainer").innerHTML = legacyClaimText;
+    }
+    else{
+      legacyClaimLink = "+ Add legacy claim";
+    }
+    document.getElementById("legacyClaimLink").innerHTML = legacyClaimLink;
+
+    //UC50
+    if(sessionStorage.getItem("uc50Complete")=="1"){
+      if(sessionStorage.getItem("uc50")=="returned-included"){
+        uc50Text += "On <strong>"
+        + sessionStorage.getItem("uc50-declared-day") + " "  + getfullMonth(sessionStorage.getItem("uc50-declared-month")) + " "  + sessionStorage.getItem("uc50-declared-year")
+        + "</strong> , Jacob completed a UC50 self-assessment medical questionnaire form. It asked about his capability to perform activities in order to assess whether he has LCW. </p><p>Jacob stated that he had varying degrees of difficulty with:<ul class=\"govuk-list govuk-list--bullet\">";
+        var activities = sessionStorage.getItem("uc50-activities").split("#");
+        for(activity of activities)
+        {
+          if(activity != "")
+            uc50Text += "<li>"+activity+"</li>";
+        }
+        uc50Text += "</ul>";
+      }
+      else{
+        legacyClaimText += "<i>Not applicable as there are no legacy claims</i>";
+      }
+      uc50Link = "Edit UC50 self-assessment";
+      document.getElementById("uc50Container").innerHTML = uc50Text;
+    }
+    else{
+      uc50Link = "+ Add UC50 self-assessment";
+    }
+    document.getElementById("uc50Link").innerHTML = uc50Link;
+
+    //WCA
+    if(sessionStorage.getItem("wcaComplete")=="1"){
+      if(sessionStorage.getItem("wca")=="f2f"){
+        wcaText += "Considering all of the paper evidence, a health care professional (HCP) decided an assessment was needed to understand Jacob’s level of functional ability. </p><p>On <strong>"
+        + sessionStorage.getItem("wcaAssessment-day") + " "  + getfullMonth(sessionStorage.getItem("wcaAssessment-month")) + " "  + sessionStorage.getItem("wcaAssessment-year")
+        + "</strong> , Jacob attended <strong>"
+        + sessionStorage.getItem("wcaAssessmentCenter")
+        +"</strong> Assessment Centre for a Work Capability Assessment(WCA). An assessment was undertaken by an approved health care professional. At the medical examination, his health conditions were medically identified as <strong> "
+        + sessionStorage.getItem("wcaConditionsIdentified")
+        + "</strong> .</p><p> On <strong>"
+        + sessionStorage.getItem("wcaInit-day") + " " + getfullMonth(sessionStorage.getItem("wcaInit-month")) +" "+ sessionStorage.getItem("wcaInit-year")
+        + "</strong>, the initial Decision Maker carried out an assessment of Jacob’s capability for work considering all of the available evidence. They decided he scored <strong> "
+        + sessionStorage.getItem("wcaPhysicalPoints")
+        +"</strong> points on the physical descriptors and <strong>"
+        + sessionStorage.getItem("wcaMentalPoints")
+        +"</strong> points on the mental descriptors. Notification of this decision was put on Jacob’s UC journal on <strong>"
+        + sessionStorage.getItem("wcaJournal-day") + " " + getfullMonth(sessionStorage.getItem("wcaJournal-month")) +" "+ sessionStorage.getItem("wcaJournal-year")
+        + "</strong>";
+      }
+      else{
+        wcaText += "<i>Not applicable as there are no legacy claims</i>";
+      }
+      wcaLink = "Edit WCA assessment details";
+      document.getElementById("wcaContainer").innerHTML = wcaText;
+    }
+    else{
+      wcaLink = "+ Add WCA assessment details";
+    }
+    document.getElementById("wcaLink").innerHTML = wcaLink;
+
+
+    //MR
+    if(sessionStorage.getItem("mrComplete")=="1"){
+      if(sessionStorage.getItem("mr")=="callMadeNoInfo"){
+        mrText += "On 5 February 2022, Jacob asked for a Mandatory Reconsideration of the decision that a Limited Capability for Work and Work-Related Activity element could not be added to the award amounts of UC.</p><p> Jacob was contacted by telephone on <strong>"
+          + sessionStorage.getItem("mrCall-day") + " " + getfullMonth(sessionStorage.getItem("mrCall-month")) +" "+ sessionStorage.getItem("mrCall-year")
+          +"</strong> to explain how and why the decision was made and to ask for any further information he wished to be considered. However, he had nothing more to add.</p><p> On 25 February, a Decision Maker completed a Mandatory Reconsideration. They considered all of the available evidence but found no grounds to revise the original decision/ and although they revised the decision in part, insufficient points were awarded to revise the original decision.</p><p> Jacob was notified of the decision on <strong>"
+          + sessionStorage.getItem("mrJournal-day") + " " + getfullMonth(sessionStorage.getItem("mrJournal-month")) +" "+ sessionStorage.getItem("mrJournal-year")
+          +"</strong> via his UC Journal.";
+      }
+      else{
+        mrText += "<i>Not applicable as there are no legacy claims</i>";
+      }
+      mrLink = "Edit WCA assessment details";
+      document.getElementById("mrContainer").innerHTML = mrText;
+    }
+    else{
+      mrLink = "+ Add WCA assessment details";
+    }
+    document.getElementById("mrLink").innerHTML = mrLink;
+
+  });
+</script>
+{% endblock %}

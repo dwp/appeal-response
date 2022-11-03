@@ -1,0 +1,130 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="16-response" class="govuk-back-link">Back to the response</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">The response</h1>
+        <h2 class="govuk-heading-l">Points scored for activities identified in the appeal</h2>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="pointsMobilising">
+              Points scored for mobilising
+            </label>
+          </h1>
+          <input class="govuk-input govuk-input--width-2" id="pointsMobilising" name="pointsMobilising" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="pointsStanding">
+              Points scored for standing and sitting
+            </label>
+          </h1>
+          <input class="govuk-input govuk-input--width-2" id="pointsStanding" name="pointsStanding" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="pointsThings">
+              Points scored for picking things up and moving them
+            </label>
+          </h1>
+          <input class="govuk-input govuk-input--width-2" id="pointsThings" name="pointsThings" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="pointsContinence">
+              Points scored for continence
+            </label>
+          </h1>
+          <input class="govuk-input govuk-input--width-2" id="pointsContinence" name="pointsContinence" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="pointsLearn">
+              Points scored for learning new tasks
+            </label>
+          </h1>
+          <input class="govuk-input govuk-input--width-2" id="pointsLearn" name="pointsLearn" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="pointsTask">
+              Points scored for starting and finishing tasks
+            </label>
+          </h1>
+          <input class="govuk-input govuk-input--width-2" id="pointsTask" name="pointsTask" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="pointsGoingOut">
+              Points scored for going out
+            </label>
+          </h1>
+          <input class="govuk-input govuk-input--width-2" id="pointsGoingOut" name="pointsGoingOut" type="text">
+        </div>
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" id="addButton" onclick="saveData()">
+            Continue
+          </button>
+        </div>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+    document.getElementById('pointsMobilising').value=sessionStorage.getItem("pointsMobilising");
+    document.getElementById('pointsStanding').value=sessionStorage.getItem("pointsStanding");
+    document.getElementById('pointsContinence').value=sessionStorage.getItem("pointsContinence");
+    document.getElementById('pointsTask').value=sessionStorage.getItem("pointsTask");
+    document.getElementById('pointsThings').value=sessionStorage.getItem("pointsThings");
+    document.getElementById('pointsLearn').value=sessionStorage.getItem("pointsLearn");
+    document.getElementById('pointsGoingOut').value=sessionStorage.getItem("pointsGoingOut");
+  });
+
+  function saveData(){
+    sessionStorage.setItem("pointsComplete","1");
+    sessionStorage.setItem("pointsMobilising",document.getElementById('pointsMobilising').value);
+    sessionStorage.setItem("pointsStanding",document.getElementById('pointsStanding').value);
+    sessionStorage.setItem("pointsThings",document.getElementById('pointsThings').value);
+    sessionStorage.setItem("pointsContinence",document.getElementById('pointsContinence').value);
+    sessionStorage.setItem("pointsLearn",document.getElementById('pointsLearn').value);
+    sessionStorage.setItem("pointsTask",document.getElementById('pointsTask').value);
+    sessionStorage.setItem("pointsGoingOut",document.getElementById('pointsGoingOut').value);
+    window.location.href = "16-response.html#descriptorSection";
+  }
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,84 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">The facts of the case</h1>
+        <h2 class="govuk-heading-l">Add introduction</h2>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="Select a template">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Select the relevant template.
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="no-conditions" name="conditions" type="radio" value="yes" aria-describedby="Select this template with health conditions not declared at IODC">
+                <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="no-conditions">
+                  No medical conditions declared on original claim
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="no-impact" name="conditions" type="radio" value="no-imapct" aria-describedby="Select this template with health conditions declared at IODC but had no impact on work">
+                <label class="govuk-label govuk-radios__label govuk-!-font-weight-bold" for="no-impact">
+                  Medical conditions declared on original claim but did not affect ability to work
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+        <div class="govuk-button-group">
+          <button class="govuk-button" id="addButton" onclick="saveData()">
+            Continue
+          </button>
+        </div>
+        <p><a href="01-task-list-new">Back to appeal response</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+    const radioButtons = document.querySelectorAll('input[name="conditions"]');
+    for(const radioButton of radioButtons){
+      if(radioButton.value == sessionStorage.getItem("conditionAtIDOC")){
+        radioButton.checked = true;
+      }
+    }
+  });
+
+  function saveData(){
+    const radioButtons = document.querySelectorAll('input[name="conditions"]');
+    for(const radioButton of radioButtons){
+      if(radioButton.checked){
+        sessionStorage.setItem("conditionAtIDOC",radioButton.value);
+      }
+    }
+    window.location.href = "13-03-intro.html";
+  }
+</script>
+{% endblock %}

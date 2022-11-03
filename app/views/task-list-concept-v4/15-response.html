@@ -1,0 +1,97 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back to appeal response</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          Provide a reason
+        </h1>
+        <p>Respond to each point the appellant has made</p>
+        <ol class="app-task-list" id="listOfGrounds">
+        </ol>
+    </div>
+  </div>
+
+  <div class="govuk-button-group govuk-!-margin-top-9">
+    <a class="govuk-button" href="01-task-list-new">
+      Continue
+    </a>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  groundRow = "";
+
+  function startResponse(index){
+    sessionStorage.setItem("groundIndex",index);
+    window.location.href = "15-01-add-response";
+  }
+
+  function createRow(ground,index){
+    sessionStorage.setItem("noOfGrounds",index);
+    if(ground != ""){
+      groundTitle = sessionStorage.getItem("groundsTitles").split("#")[index];
+      groundRow += '<li class="app-task-list__item">'
+        +'<div class="govuk-grid-row govuk-!-padding-left-3 govuk-!-padding-bottom-0"><span class="app-task-list__task-name">'
+          //+ (parseInt(index)+1)
+        +'<p><a class="link-via-js govuk-!-font-size-24 govuk-link" onclick="'
+        +"startResponse("+index
+        +')" aria-describedby="eligibility-status">'
+        + groundTitle
+        + '</a></p>'
+        + '</span>';
+        if(sessionStorage.getItem("responseComplete"+index)){
+          groundRow +=  '<strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>';
+        }
+        else {
+          groundRow +=  '<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="eligibility-status">Not started</strong>';
+        }
+
+        groundRow += '</div>'
+        + '<div class="govuk-grid-row govuk-!-padding-left-3 govuk-!-padding-bottom-0"><details class="govuk-details govuk-!-margin-bottom-0" data-module="govuk-details">'
+        +  '<summary class="govuk-details__summary">'
+        +    '<span class="govuk-details__summary-text">'
+        +      'See details'
+        +    '</span>'
+        +  '</summary>'
+        +  '<div class="govuk-details__text">'
+        +    ground
+        +  '</div>'
+        +'</details></div>'
+        + '</li>';
+      }
+  }
+  window.addEventListener('load', (event) => {
+      var grounds = [""];
+      if(sessionStorage.getItem("grounds")){
+        grounds = sessionStorage.getItem("grounds").split("#");
+        grounds.forEach(createRow);
+        document.getElementById('listOfGrounds').innerHTML = groundRow;
+      }
+      else{
+        //window.location.href = "14-01-grounds-new";
+      }
+  });
+
+</script>
+{% endblock %}
