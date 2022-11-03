@@ -1,0 +1,235 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/headerWithDOB/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName, 'Jane Doe','5 June 1979')}}
+{% endblock %}
+
+{% block content %}
+<a href="index" class="govuk-back-link">Back to home</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">What did they state they have difficulty with?</h1>
+      <p>Select all that apply</p>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Mobility and getting around
+            </h1>
+          </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="op1" name="mobility" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="op1">
+                Mobilising (moving around)
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="op2" name="mobility" type="checkbox" value="mines">
+              <label class="govuk-label govuk-checkboxes__label" for="op2">
+                Using stairs
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="op3" name="mobility" type="checkbox" value="farm">
+              <label class="govuk-label govuk-checkboxes__label" for="op3">
+                Transferring from one seat to another
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="op4" name="mobility" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="op4">
+                Standing and sitting
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="op5" name="mobility" type="checkbox" value="mines">
+              <label class="govuk-label govuk-checkboxes__label" for="op5">
+                Getting around safely (sight)
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="op6" name="mobility" type="checkbox" value="farm">
+              <label class="govuk-label govuk-checkboxes__label" for="op6">
+                Reaching
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="op7" name="mobility" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="op7">
+                Picking up and moving things
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="op8" name="mobility" type="checkbox" value="mines">
+              <label class="govuk-label govuk-checkboxes__label" for="op8">
+                Using your hands
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Learning or completing tasks
+            </h1>
+          </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="lop1" name="learning" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="lop1">
+                Starting and finishing tasks
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="lop2" name="learning" type="checkbox" value="mines">
+              <label class="govuk-label govuk-checkboxes__label" for="lop2">
+                Learning tasks
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Communicating and social skills
+            </h1>
+          </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="cop1" name="comms" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="cop1">
+                Speaking, writing and typing
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="cop2" name="comms" type="checkbox" value="mines">
+              <label class="govuk-label govuk-checkboxes__label" for="cop2">
+                Hearing and understanding communication
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="cop3" name="comms" type="checkbox" value="farm">
+              <label class="govuk-label govuk-checkboxes__label" for="cop3">
+                Coping with going out and getting about
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="cop4" name="comms" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="cop4">
+                Dealing with other people
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="cop5" name="comms" type="checkbox" value="mines">
+              <label class="govuk-label govuk-checkboxes__label" for="cop5">
+                Appropriateness of behaviour
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="cop6" name="comms" type="checkbox" value="farm">
+              <label class="govuk-label govuk-checkboxes__label" for="cop6">
+                Being aware of danger
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="cop7" name="comms" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="cop7">
+                Coping with changes
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Continence
+            </h1>
+          </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="conop1" name="Continence" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="conop1">
+                Control of bladder/ bowels or stoma
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Eating and drinking
+            </h1>
+          </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="eop1" name="eating" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="eop1">
+                Ability to eat and drink
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Consciousness
+            </h1>
+          </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="consciousop1" name="conscious" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="consciousop1">
+                Staying conscious when awake
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+        <div class="govuk-button-group">
+          <a class="govuk-button" data-module="govuk-button" href="11-difficulty.html">
+            Continue
+          </a>
+        </div>
+        <div class="govuk-link">
+          <a href="/index.html">Cancel this response</a>
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}

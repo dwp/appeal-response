@@ -2,7 +2,7 @@
 {% extends "dwp-layout.html" %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
-{% import "includes/templates/header/macro.html" as header%}
+{% import "includes/templates/headerWithDOB/macro.html" as header%}
 
 {% block head %}
   {% include "includes/head.html" %}
@@ -14,11 +14,11 @@
 {% endblock %}
 
 {% block header %}
-{{header.header(serviceName, 'Sarah Phillips')}}
+{{header.header(serviceName, 'Jane Doe','5 June 1979')}}
 {% endblock %}
 
 {% block content %}
-<a href="../index" class="govuk-back-link">Back to home</a>
+<a href="index" class="govuk-back-link">Back to home</a>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
