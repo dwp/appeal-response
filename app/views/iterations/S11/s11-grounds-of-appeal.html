@@ -1,0 +1,84 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back to iterations",
+  href: "../index"
+}) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Grounds of appeal
+      </h1>
+
+
+
+      <h2 class="govuk-heading-l">
+        What's new or changed?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          A structured questions based approach to responding to the grounds of appeal
+        </li>
+        <li>
+          Allow appeal writers to gather all the grounds of appeal at one place and respond to each
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        What did we learn?
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          There was a desire to group similar grounds and reply to the group rather than individual ground
+        </li>
+        <li>
+          It wasn't intuitive that the appeal writers could add multiple grounds relating to the same appeal
+        </li>
+        <li>
+          Appeal writers might not know all the legilations for the type-ahead to work
+        </li>
+        <li>
+          There might be more than one evidence supporting the response
+        </li>
+      </ul>
+
+
+
+      <h2 class="govuk-heading-l">
+        Next steps
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          TBD
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">
+        Screenshots
+      </h2>
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/01-task-list.jpg" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/02-add-ground.jpg" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/03-grounds.jpg" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/04-task-list.jpg" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/05-responses-home.jpg" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/06-responses-home-with-details.jpg" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/07-response.jpg" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/08-add-legislation.jpg" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/09-legislation-added.jpg" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/10-Evidence.jpg" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/11-preview.jpg" alt="home page screenshot">
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/S11/12-response-complete.jpg" alt="home page screenshot">
+    </div>
+  </div>
+
+{% endblock %}
