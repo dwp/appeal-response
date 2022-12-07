@@ -1,0 +1,126 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jacob Abraham')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-7">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Health conditions or disabilities</h2>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-form-group">
+          <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="account-number">
+              Declared on original claim
+            </label>
+          </h3>
+          <div id="account-number-hint" class="govuk-hint">
+            For example, arthritis, depression
+          </div>
+          <input class="govuk-input govuk-input--width-24" id="account-number" name="account-number" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
+        </div>
+
+        <div class="govuk-form-group">
+          <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="account-number">
+              Declared as a change of circumstance
+            </label>
+          </h3>
+          <div id="account-number-hint" class="govuk-hint">
+            For example, arthritis, depression
+          </div>
+          <input class="govuk-input govuk-input--width-24" id="account-number" name="account-number" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
+        </div>
+
+      <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+        Continue
+      </button>
+      <p><a href="javascript:history.back()">Back</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+    document.getElementById('date-original-decision-day').value = sessionStorage.getItem("date-original-decision-day");
+    document.getElementById('date-original-decision-month').value = sessionStorage.getItem("date-original-decision-month");
+    document.getElementById('date-original-decision-year').value = sessionStorage.getItem("date-original-decision-year");
+    document.getElementById('mr-day').value = sessionStorage.getItem("mr-day");
+    document.getElementById('mr-month').value = sessionStorage.getItem("mr-month");
+    document.getElementById('mr-year').value = sessionStorage.getItem("mr-month");
+    document.getElementById('mrn-sent-day').value = sessionStorage.getItem("mrn-sent-day");
+    document.getElementById('mrn-sent-month').value = sessionStorage.getItem("mrn-sent-day");
+    document.getElementById('mrn-sent-year').value = sessionStorage.getItem("mrn-sent-day");
+  });
+
+
+  function saveData(){
+    sessionStorage.setItem("date-original-decision-day",document.getElementById('date-original-decision-day').value);
+    sessionStorage.setItem("date-original-decision-month",document.getElementById('date-original-decision-month').value);
+    sessionStorage.setItem("date-original-decision-year",document.getElementById('date-original-decision-year').value);
+
+    sessionStorage.setItem("mr-day",document.getElementById('mr-day').value);
+    sessionStorage.setItem("mr-month",document.getElementById('mr-month').value);
+    sessionStorage.setItem("mr-year",document.getElementById('mr-year').value);
+
+    sessionStorage.setItem("mrn-sent-day",document.getElementById('mrn-sent-day').value);
+    sessionStorage.setItem("mrn-sent-month",document.getElementById('mrn-sent-month').value);
+    sessionStorage.setItem("mrn-sent-year",document.getElementById('mrn-sent-year').value);
+
+    if(
+      document.getElementById('date-original-decision-day').value
+      && document.getElementById('date-original-decision-month').value
+      && document.getElementById('date-original-decision-year').value
+      && document.getElementById('mr-day').value
+      && document.getElementById('mr-month').value
+      && document.getElementById('mr-year').value
+      && document.getElementById('mrn-sent-day').value
+      && document.getElementById('mrn-sent-month').value
+      && document.getElementById('mrn-sent-year').value
+    )
+    {
+      sessionStorage.setItem("taskProgressDecisionDates","2");
+    }
+    else if(
+      document.getElementById('date-original-decision-day').value
+      || document.getElementById('date-original-decision-month').value
+      || document.getElementById('date-original-decision-year').value
+      || document.getElementById('mr-day').value
+      || document.getElementById('mr-month').value
+      || document.getElementById('mr-year').value
+      || document.getElementById('mrn-sent-day').value
+      || document.getElementById('mrn-sent-month').value
+      || document.getElementById('mrn-sent-year').value
+    )
+    {
+      sessionStorage.setItem("taskProgressDecisionDates","1");
+    }
+    else
+    {
+      sessionStorage.setItem("taskProgressDecisionDates","0");
+    }
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}
