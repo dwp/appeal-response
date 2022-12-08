@@ -137,6 +137,29 @@
 <script type="text/javascript">
 
   window.addEventListener('load', (event) => {
+    document.getElementById('hcpAssessment-day').value = sessionStorage.getItem('hcpAssessment-day');
+    document.getElementById('hcpAssessment-month').value = sessionStorage.getItem('hcpAssessment-day');
+    document.getElementById('hcpAssessment-year').value = sessionStorage.getItem('hcpAssessment-day');
+    document.getElementById('hcpConditions').value = sessionStorage.getItem("hcpConditions") ;
+
+    let radioButtons = document.querySelectorAll('input[name="assessmentType"]');
+    let assessmentTypeSelected = sessionStorage.getItem("assessmentType");
+    for (const radioButton of radioButtons) {
+        if (radioButton.value == assessmentTypeSelected) {
+            radioButton.checked = true;
+            break;
+        }
+    }
+
+    radioButtons = document.querySelectorAll('input[name="treatedAs"]');
+    let treatedAsSelected = sessionStorage.getItem("treatedAs");
+    for (const radioButton of radioButtons) {
+        if (radioButton.value == treatedAsSelected) {
+            radioButton.checked = true;
+            break;
+        }
+    }
+
   });
 
 
