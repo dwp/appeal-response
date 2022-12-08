@@ -194,6 +194,15 @@
       document.getElementById("taskUC50").className = "govuk-tag govuk-tag--blue app-task-list__tag";
     }
 
+    if(sessionStorage.getItem("taskProgressHealthAssessment")==2){
+      document.getElementById("taskHealthAssessment").innerHTML = "Completed";
+      document.getElementById("taskHealthAssessment").className = "govuk-tag app-task-list__tag";
+    }
+    else if(sessionStorage.getItem("taskProgressHealthAssessment")==1){
+      document.getElementById("taskHealthAssessment").innerHTML = "In progress";
+      document.getElementById("taskHealthAssessment").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+    }
+
   });
 </script>
 {% endblock %}

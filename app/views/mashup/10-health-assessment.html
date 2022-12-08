@@ -141,6 +141,62 @@
 
 
   function saveData(){
+    let progressTracker = 0;
+    let radioButtons = document.querySelectorAll('input[name="assessmentType"]');
+    let selectedType;
+    for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+            selectedType = radioButton.value;
+            break;
+        }
+    }
+
+    if(selectedType){
+      progressTracker++;
+      sessionStorage.setItem("assessmentType",selectedType);
+    }
+
+    if(
+      document.getElementById('hcpAssessment-day').value
+      && document.getElementById('hcpAssessment-month').value
+      && document.getElementById('hcpAssessment-year').value
+    )
+    {
+      progressTracker++;
+      sessionStorage.setItem("hcpAssessment-day",document.getElementById('hcpAssessment-day').value);
+      sessionStorage.setItem("hcpAssessment-month",document.getElementById('hcpAssessment-month').value);
+      sessionStorage.setItem("hcpAssessment-year",document.getElementById('hcpAssessment-year').value);
+    }
+
+    if(document.getElementById('hcpConditions').value){
+      sessionStorage.setItem("hcpConditions", document.getElementById('hcpConditions').value);
+      progressTracker++;
+    }
+
+    radioButtons = document.querySelectorAll('input[name="treatedAs"]');
+    let treatedAsIdentified;
+    for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+            treatedAsIdentified = radioButton.value;
+            break;
+        }
+    }
+
+    if(treatedAsIdentified){
+      sessionStorage.setItem("treatedAs", treatedAsIdentified);
+      progressTracker++;
+    }
+
+    if(progressTracker==4){
+      sessionStorage.setItem("taskProgressHealthAssessment","2");
+    }
+    else if(progressTracker>0){
+      sessionStorage.setItem("taskProgressHealthAssessment","1");
+    }
+    else {
+      sessionStorage.setItem("taskProgressHealthAssessment","0");
+    }
+
     window.location.href = "01-task-list-new";
   }
 </script>
