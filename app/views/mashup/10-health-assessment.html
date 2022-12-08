@@ -21,10 +21,15 @@
 <a href="javascript:history.back()" class="govuk-back-link">Back</a>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">What type of health assessment did Jane have?</h1>
+        <h1 class="govuk-heading-l">Health assessment</h1>
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Type of assessment
+              </h1>
+            </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="assessmentF2F" name="assessmentType" type="radio" value="england">
@@ -46,7 +51,7 @@
           <fieldset class="govuk-fieldset" role="group" aria-describedby="hcpAssessment-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h1 class="govuk-fieldset__heading">
-                Date of HCP assessment 
+                Date of assessment 
               </h1>
             </legend>
             <div class="govuk-date-input" id="hcpAssessment">
@@ -79,7 +84,7 @@
           </fieldset>
         </div>
 
-        <h2 class="govuk-heading-m govuk-!-margin-top-9">Health conditions identified by HCP</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">Health conditions identified by Healthcare Professional (HCP)</h2>
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="event-name">
               Conditions
@@ -97,6 +102,9 @@
               <h1 class="govuk-fieldset__heading">
                 Were any 'treated as' provisions identified?
               </h1>
+              <div id="event-name-hint" class="govuk-hint">
+                For example, if terminally ill or over State Pension age
+              </div>
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
