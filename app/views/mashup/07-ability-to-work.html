@@ -1,4 +1,3 @@
-
 {% extends "dwp-layout.html" %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
@@ -47,36 +46,6 @@
             For example, arthritis, depression
           </div>
           <input class="govuk-input govuk-input--width-24" id="cocCondition" name="cocCondition" type="text" spellcheck="false" aria-describedby="account-number-hint" >
-        </div>
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h3 class="govuk-fieldset__heading">
-                Did Jane's health condition affect their ability to work or look for work?
-              </h3>
-            </legend>
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="abilityToWorkInitial" name="ability-to-work" type="radio" value="abilityToWorkInitial">
-                <label class="govuk-label govuk-radios__label" for="abilityToWorkInitial">
-                  Yes - from initial claim
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="abilityToWorkCoC" name="ability-to-work" type="radio" value="abilityToWorkCoC">
-                <label class="govuk-label govuk-radios__label" for="abilityToWorkCoC">
-                  Yes - after change of circumstances
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="abilityToWorkNo" name="ability-to-work" type="radio" value="abilityToWorkNo">
-                <label class="govuk-label govuk-radios__label" for="abilityToWorkNo">
-                  No
-                </label>
-              </div>
-            </div>
-          </fieldset>
         </div>
 
       <button class="govuk-button" data-module="govuk-button" onclick="saveData()">

@@ -1,0 +1,139 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">What type of health assessment did Jane have?</h1>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="assessmentF2F" name="assessmentType" type="radio" value="england">
+                <label class="govuk-label govuk-radios__label" for="assessmentF2F">
+                  Face to face
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="assessmentTele" name="assessmentType" type="radio" value="scotland">
+                <label class="govuk-label govuk-radios__label" for="assessmentTele">
+                  Telephone
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="hcpAssessment-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Date of HCP assessment 
+              </h1>
+            </legend>
+            <div class="govuk-date-input" id="hcpAssessment">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="hcpAssessment-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="hcpAssessment-day" name="hcpAssessment-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="hcpAssessment-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="hcpAssessment-month" name="hcpAssessment-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="hcpAssessment-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="hcpAssessment-year" name="hcpAssessment-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">Health conditions identified by HCP</h2>
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="event-name">
+              Conditions
+            </label>
+          </h1>
+          <div id="event-name-hint" class="govuk-hint">
+            For example, arthritis, depression
+          </div>
+          <input class="govuk-input govuk-!-width-two-thirds" id="hcpConditions" name="event-name" type="text" aria-describedby="event-name-hint">
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Were any 'treated as' provisions identified?
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="treatedAsYes" name="treatedAs" type="radio" value="england">
+                <label class="govuk-label govuk-radios__label" for="treatedAsYes">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="treatedAsNo" name="treatedAs" type="radio" value="scotland">
+                <label class="govuk-label govuk-radios__label" for="treatedAsNo">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+      <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+        Continue
+      </button>
+      <p><a href="javascript:history.back()">Back</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}

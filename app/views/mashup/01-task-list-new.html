@@ -78,17 +78,19 @@
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskHealthConditions">Not started</strong>
               </li>
+              <!--
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="13-01-facts" aria-describedby="company-information-status">
+                  <a href="07-ability-to-work" aria-describedby="company-information-status">
                     Ability to work or look for work
                   </a>
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskAbilityToWork">Not started</strong>
               </li>
+              -->
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="13-01-facts" aria-describedby="company-information-status">
+                  <a href="08-fit-note" aria-describedby="company-information-status">
                     Fit note
                   </a>
                 </span>
@@ -96,7 +98,7 @@
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="13-01-facts" aria-describedby="company-information-status">
+                  <a href="09-uc50" aria-describedby="company-information-status">
                     Capability for work questionnaire (UC50)
                   </a>
                 </span>
@@ -104,7 +106,7 @@
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="13-01-facts" aria-describedby="company-information-status">
+                  <a href="10-health-assessment" aria-describedby="company-information-status">
                     Health assessment
                   </a>
                 </span>
@@ -129,11 +131,12 @@
             </ul>
           </li>
         </ol>
-
-        <div class="govuk-inset-text">
-          You can edit the repsonse after it has been created.
-        </div>
-        <a href="#" class="govuk-button">Create response</a>
+        <!--
+          <div class="govuk-inset-text">
+            You can edit the repsonse after it has been created.
+          </div>
+          <a href="#" class="govuk-button">Create response</a>
+        -->
     </div>
   </div>
 
@@ -164,6 +167,34 @@
       document.getElementById("taskDecisionDates").innerHTML = "In progress";
       document.getElementById("taskDecisionDates").className = "govuk-tag govuk-tag--blue app-task-list__tag";
     }
+
+    if(sessionStorage.getItem("taskProgressHealthConditions")==2){
+      document.getElementById("taskHealthConditions").innerHTML = "Completed";
+      document.getElementById("taskHealthConditions").className = "govuk-tag app-task-list__tag";
+    }
+    else if(sessionStorage.getItem("taskProgressHealthConditions")==1){
+      document.getElementById("taskHealthConditions").innerHTML = "In progress";
+      document.getElementById("taskHealthConditions").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+    }
+
+    if(sessionStorage.getItem("taskProgressFitNote")==2){
+      document.getElementById("taskFitNote").innerHTML = "Completed";
+      document.getElementById("taskFitNote").className = "govuk-tag app-task-list__tag";
+    }
+    else if(sessionStorage.getItem("taskProgressFitNote")==1){
+      document.getElementById("taskFitNote").innerHTML = "In progress";
+      document.getElementById("taskFitNote").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+    }
+
+    if(sessionStorage.getItem("taskProgressUC50")==2){
+      document.getElementById("taskUC50").innerHTML = "Completed";
+      document.getElementById("taskUC50").className = "govuk-tag app-task-list__tag";
+    }
+    else if(sessionStorage.getItem("taskProgressUC50")==1){
+      document.getElementById("taskUC50").innerHTML = "In progress";
+      document.getElementById("taskUC50").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+    }
+
   });
 </script>
 {% endblock %}
