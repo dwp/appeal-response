@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block header %}
-{{header.header(serviceName,'Jacob Abraham')}}
+{{header.header(serviceName,'Jane Doe')}}
 {% endblock %}
 
 {% block content %}
@@ -22,7 +22,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-        <h1 class="govuk-heading-xl">Select the decision type</h1>
+        <h1 class="govuk-heading-xl">Type of appeal</h1>
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="Select a template">
             <div class="govuk-radios" data-module="govuk-radios">
@@ -38,12 +38,6 @@
                   Limited capability for work (LCW) but not limited capability for work related activity (LCWRA)
                 </label>
               </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="other" name="decisonType" type="radio" value="no-imapct" aria-describedby="Select this template with health conditions declared at IODC but had no impact on work">
-                <label class="govuk-label govuk-radios__label" for="other">
-                  Other 
-                </label>
-              </div>
             </div>
 
           </fieldset>
@@ -53,7 +47,6 @@
             Continue
           </button>
         </div>
-        <p><a href="01-task-list-new">Back to appeal response</a></p>
 
     </div>
   </div>

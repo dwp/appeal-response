@@ -33,7 +33,7 @@
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="02-appellant-details" aria-describedby="eligibility-status">
-                    Appellant's personal details
+                    Appellant details
                   </a>
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskAppellantDetails">Not started</strong>
@@ -41,7 +41,7 @@
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="03-representative-details" aria-describedby="read-declaration-status">
-                    Representative or appointee
+                    Representative details
                   </a>
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskRepDetails">Not started</strong>
@@ -65,7 +65,7 @@
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="05-decision-dates" aria-describedby="company-information-status">
-                    Decision dates
+                    Additional dates needed
                   </a>
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskDecisionDates">Not started</strong>
@@ -87,7 +87,6 @@
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskAbilityToWork">Not started</strong>
               </li>
-              -->
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="08-fit-note" aria-describedby="company-information-status">
@@ -96,6 +95,8 @@
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskFitNote">Not started</strong>
               </li>
+
+              -->
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="09-uc50" aria-describedby="company-information-status">
@@ -123,7 +124,7 @@
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="11-check-answers" aria-describedby="company-information-status">
-                    Check and create response
+                    Check answers and create response
                   </a>
                 </span>
               </li>
@@ -176,6 +177,7 @@
       document.getElementById("taskHealthConditions").className = "govuk-tag govuk-tag--blue app-task-list__tag";
     }
 
+    /*
     if(sessionStorage.getItem("taskProgressFitNote")==2){
       document.getElementById("taskFitNote").innerHTML = "Completed";
       document.getElementById("taskFitNote").className = "govuk-tag app-task-list__tag";
@@ -184,6 +186,7 @@
       document.getElementById("taskFitNote").innerHTML = "In progress";
       document.getElementById("taskFitNote").className = "govuk-tag govuk-tag--blue app-task-list__tag";
     }
+    */
 
     if(sessionStorage.getItem("taskProgressUC50")==2){
       document.getElementById("taskUC50").innerHTML = "Completed";
