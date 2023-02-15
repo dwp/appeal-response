@@ -1,0 +1,49 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {{ govukPanel({
+        titleText: "Response document created",
+        html: '<p><a href="#" class="govuk-link govuk-link--inverse">Download the response document</a></p>'
+      }) }}
+      <p class="govuk-body">A response document has been created with personal details and facts of the case based on the information provided by you.</p>
+      <p class="govuk-body">You can download the document and continue editing in Microsoft Word.</p>
+      <p class="govuk-body">To be compliant with GDPR regulations, save the response document in a secure SharePoint folder and not on your desktop.</p>
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">
+        Once you have downloaded the response document, the details of the response will be deleted from this service.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}
