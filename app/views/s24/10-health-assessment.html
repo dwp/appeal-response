@@ -1,0 +1,161 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/s24/10-health-assessment?target={{target}}" method="post" id="healthAssessmentForm">
+        <h1 class="govuk-heading-l">Health assessment</h1>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Type of assessment
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="assessmentF2F" name="assessmentType" type="radio" value="Face to face" {{ checked('assessmentType','Face to face') }} >
+                <label class="govuk-label govuk-radios__label" for="assessmentF2F">
+                  Face to face
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="assessmentTele" name="assessmentType" type="radio" value="Telephone" {{ checked('assessmentType','Telephone') }} >
+                <label class="govuk-label govuk-radios__label" for="assessmentTele">
+                  Telephone
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="hcpAssessment-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Date of assessment 
+              </h1>
+            </legend>
+            <div class="govuk-date-input" id="hcpAssessment">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="hcpAssessment-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="hcpAssessmentDay" name="hcpAssessmentDay" type="text" inputmode="numeric" value = {{ data['hcpAssessmentDay'] }} >
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="hcpAssessment-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="hcpAssessmentMonth" name="hcpAssessmentMonth" type="text" inputmode="numeric" value = {{ data['hcpAssessmentMonth'] }}>
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="hcpAssessment-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="hcpAssessmentYear" name="hcpAssessmentYear" type="text" inputmode="numeric" value = {{ data['hcpAssessmentYear'] }}>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">Were any other health conditions identified by the healthcare professional (HCP)?</h2>
+        {% if data.healthConditions.length %}
+          <h2 class="govuk-heading-s">We already know about
+            <span style="text-transform: lowercase;">
+            {% if data.healthConditions.length > 1 %}
+              {% for healthCondition in data.healthConditions %}
+                {% if loop.index == ( data.healthConditions.length - 1 )%}
+                  {{ healthCondition.condition }}
+                {% elif loop.index == data.healthConditions.length %}
+                  and {{ healthCondition.condition }}
+                {% else %}
+                  {{ healthCondition.condition }},
+                {% endif %}
+              {% endfor %}
+            {% elif data.healthConditions.length == 1%}
+              {% for healthCondition in data.healthConditions %}
+                {{ healthCondition.condition }}
+              {% endfor %}
+            {% endif %}
+            </span>
+          </h2>
+        {% endif %}
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="event-name">
+              Conditions
+            </label>
+          </h1>
+          <div id="event-name-hint" class="govuk-hint">
+            For example, arthritis, depression
+          </div>
+          <input class="govuk-input govuk-!-width-two-thirds" id="hcpConditions" name="hcpConditions" type="text" aria-describedby="event-name-hint" value = {{data['hcpConditions']}}>
+        </div>
+
+      <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+        Continue
+      </button>
+      <p><a href="javascript:history.back()">Back</a></p>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+
+  function saveData(){
+    var checked_assessment_type = document.querySelector('input[name = "assessmentType"]:checked');
+    var progressFlag = 0;
+
+    if(
+      checked_assessment_type
+      && document.getElementById('hcpAssessmentDay').value
+      && document.getElementById('hcpAssessmentMonth').value
+      && document.getElementById('hcpAssessmentYear').value
+      && document.getElementById('hcpConditions').value
+    ){
+      progressFlag = 2;
+    }
+    else if(
+      checked_assessment_type
+      || document.getElementById('hcpAssessmentDay').value
+      || document.getElementById('hcpAssessmentMonth').value
+      || document.getElementById('hcpAssessmentYear').value
+      || document.getElementById('hcpConditions').value
+    ){
+      progressFlag = 1;
+    }
+    
+    sessionStorage.setItem("taskProgressHCP",progressFlag);
+    document.getElementById('healthAssessmentForm').submit();
+  }
+</script>
+{% endblock %}

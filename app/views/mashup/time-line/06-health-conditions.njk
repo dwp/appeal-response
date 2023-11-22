@@ -1,0 +1,175 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-7">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-1">Health conditions</h2>
+      <span class="govuk-hint">Add one condition: you can add more conditons later.</span>
+    </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="/mashup/06-list-of-conditions" method="post" novalidate>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+            Health condition
+          </label>
+          <div id="account-number-hint" class="govuk-hint">
+            For example, arthritis
+          </div>
+          <input class="govuk-input" id="condition-name" name="condition[name]" type="text" spellcheck="false" aria-describedby="name of the condition" >
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+            Date declared
+          </label>
+              <div class="govuk-date-input" id="condition-declared-date">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="condition-declared-day">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="condition-declared-day" name="condition[day]" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="condition-declared-month">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="condition-declared-month" name="condition[month]" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="condition-declared-year">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="condition-declared-year" name="condition[year]" type="text" inputmode="numeric">
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                Does it restrict ability to work?
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="condition-restricted-work-yes" name="condition[restricted-work]" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="condition-restricted-work-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="condition-restricted-work-no" name="condition[restricted-work]" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="condition-restricted-work-no">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                Is there a fit note?
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="condition-fit-note-yes" name="condition[fit-note]" type="radio" value="yes" data-aria-controls="conditional-contact">
+                  <label class="govuk-label govuk-radios__label" for="contact">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="fit-note-date">
+                      What date did they send it in?
+                    </label>
+                    <div class="govuk-date-input" id="date-original-decision">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="date-original-decision-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-original-decision-day" name="condition[fit-note-day]" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="date-original-decision-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-original-decision-month" name="condition[fit-note-month]" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="date-original-decision-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-original-decision-year" name="condition[fit-note-year]" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="condition-fit-note-yes" name="condition[fit-note]" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="fit-note-no">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">
+              Save condition
+            </button>
+          </div>
+
+
+      <p><a href="javascript:history.back()">Back</a></p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    window.location.href = "06-list-of-conditions-0";
+  }
+</script>
+{% endblock %}

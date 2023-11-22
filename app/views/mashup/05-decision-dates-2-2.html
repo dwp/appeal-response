@@ -1,0 +1,158 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-width">
+    <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+      <h2 class="govuk-heading-l">Appeal history</h2>
+
+      <div class="dwp-timeline govuk-!-margin-bottom-9">
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-half">Event</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">03 December 2021</th>
+              <td class="govuk-table__cell">Original decision made</td>
+              <td class="govuk-table__cell"><a href="#">Change</a> | <a href="#">Remove</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">03 December 2021</th>
+              <td class="govuk-table__cell">Original decision notification sent</td>
+              <td class="govuk-table__cell"><a href="#">Change</a> | <a href="#">Remove</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">17 January 2022 </th>
+              <td class="govuk-table__cell">MR requested by appellant</td>
+              <td class="govuk-table__cell"><a href="#">Change</a> | <a href="#">Remove</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">23 February 2022 </th>
+              <td class="govuk-table__cell">
+                <p>MR decision made</p>
+                <p>MR decision maker did not agree with the original decision.</p>
+                <p>This a dual claim for New Style Employment and Support Allowance.</p>
+              </td>
+              <td class="govuk-table__cell"><a href="#">Change</a> | <a href="#">Remove</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">23 February 2022 </th>
+              <td class="govuk-table__cell">MR notification sent</td>
+              <td class="govuk-table__cell"><a href="#">Change</a> | <a href="#">Remove</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">12 June 2022  </th>
+              <td class="govuk-table__cell">Appeal received by HMCTS</td>
+              <td class="govuk-table__cell"><a href="#">Change</a> | <a href="#">Remove</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">12 June 2022 </th>
+              <td class="govuk-table__cell">Appeal received by DWP </td>
+              <td class="govuk-table__cell"><a href="#">Change</a> | <a href="#">Remove</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+          Save and continue
+        </button>
+        <a class="govuk-button govuk-button--secondary" href="add-date-selection">
+          Add another date
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+    document.getElementById('date-original-decision-day').value = sessionStorage.getItem("date-original-decision-day");
+    document.getElementById('date-original-decision-month').value = sessionStorage.getItem("date-original-decision-month");
+    document.getElementById('date-original-decision-year').value = sessionStorage.getItem("date-original-decision-year");
+    document.getElementById('mr-day').value = sessionStorage.getItem("mr-day");
+    document.getElementById('mr-month').value = sessionStorage.getItem("mr-month");
+    document.getElementById('mr-year').value = sessionStorage.getItem("mr-month");
+    document.getElementById('mrn-sent-day').value = sessionStorage.getItem("mrn-sent-day");
+    document.getElementById('mrn-sent-month').value = sessionStorage.getItem("mrn-sent-day");
+    document.getElementById('mrn-sent-year').value = sessionStorage.getItem("mrn-sent-day");
+  });
+
+
+  function saveData(){
+    sessionStorage.setItem("date-original-decision-day",document.getElementById('date-original-decision-day').value);
+    sessionStorage.setItem("date-original-decision-month",document.getElementById('date-original-decision-month').value);
+    sessionStorage.setItem("date-original-decision-year",document.getElementById('date-original-decision-year').value);
+
+    sessionStorage.setItem("mr-day",document.getElementById('mr-day').value);
+    sessionStorage.setItem("mr-month",document.getElementById('mr-month').value);
+    sessionStorage.setItem("mr-year",document.getElementById('mr-year').value);
+
+    sessionStorage.setItem("mrn-sent-day",document.getElementById('mrn-sent-day').value);
+    sessionStorage.setItem("mrn-sent-month",document.getElementById('mrn-sent-month').value);
+    sessionStorage.setItem("mrn-sent-year",document.getElementById('mrn-sent-year').value);
+
+    if(
+      document.getElementById('date-original-decision-day').value
+      && document.getElementById('date-original-decision-month').value
+      && document.getElementById('date-original-decision-year').value
+      && document.getElementById('mr-day').value
+      && document.getElementById('mr-month').value
+      && document.getElementById('mr-year').value
+      && document.getElementById('mrn-sent-day').value
+      && document.getElementById('mrn-sent-month').value
+      && document.getElementById('mrn-sent-year').value
+    )
+    {
+      sessionStorage.setItem("taskProgressDecisionDates","2");
+    }
+    else if(
+      document.getElementById('date-original-decision-day').value
+      || document.getElementById('date-original-decision-month').value
+      || document.getElementById('date-original-decision-year').value
+      || document.getElementById('mr-day').value
+      || document.getElementById('mr-month').value
+      || document.getElementById('mr-year').value
+      || document.getElementById('mrn-sent-day').value
+      || document.getElementById('mrn-sent-month').value
+      || document.getElementById('mrn-sent-year').value
+    )
+    {
+      sessionStorage.setItem("taskProgressDecisionDates","1");
+    }
+    else
+    {
+      sessionStorage.setItem("taskProgressDecisionDates","0");
+    }
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}

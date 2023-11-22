@@ -254,6 +254,698 @@ getAllEvents = function(data){
   return allEvents;
 };
 
+
+
+router.get('/mashup/table/health-conditions/index',(req,res,next) => {
+  const { data } = req.session;
+  const { edit, id } = req.query;
+  const healthConditions = data.healthConditions;
+  if(healthConditions)
+    res.render('./mashup/table/health-conditions/index',{healthConditions});
+  else
+    res.render('./mashup/table/health-conditions/add-condition');
+})
+
+router.post('/mashup/table/health-conditions/add-condition',(req,res)=>{
+  const { data } = req.session;
+  if(!data.healthConditions){
+    data.healthConditions = [];
+  }
+  let healthCondition = {};
+  healthCondition.condition = data.conditionName;
+  healthCondition.day = data.conditionDay;
+  healthCondition.month = data.conditionMonth;
+  healthCondition.year = data.conditionYear;
+  healthCondition.date = data.conditionDay + " " + convertMonth(data.conditionMonth) + " " + data.conditionYear;
+  healthCondition.restrictedWork = data.restrictedWork;
+  healthCondition.fitNoteExists = data.fitNoteExists;
+
+  if(data.fitNoteExists === "Yes"){
+    healthCondition.fitNoteDay = data.fitNoteDay;
+    healthCondition.fitNoteMonth = data.fitNoteMonth;
+    healthCondition.fitNoteYear = data.fitNoteYear;
+    healthCondition.fitNoteDate = data.fitNoteDay + " " + convertMonth(data.fitNoteMonth) + " " + data.fitNoteYear;
+  }
+  data.healthConditions.push(healthCondition);
+  healthConditions = data.healthConditions;
+  res.redirect('index');
+})
+
+//Classic timeline--------------------------------------------------------------
+
+router.get('/mashup/time-line/index',(req,res,next) => {
+  const { data } = req.session;
+  const { edit, id } = req.query;
+
+  if(!data.claimHistory){
+
+    data.claimHistory = [];
+
+    let appealHMCTS = {};
+    appealHMCTS.day = '01';
+    appealHMCTS.month = '08';
+    appealHMCTS.year = '2022';
+    appealHMCTS.dateType = "appealHMCTS";
+    appealHMCTS.dateString = appealHMCTS.day + " " + convertMonth(appealHMCTS.month) + " " + appealHMCTS.year;
+    appealHMCTS.title = "Appeal received by HMCTS";
+    data.claimHistory.push(appealHMCTS);
+
+    let appealDWP = {};
+    appealDWP.day = "01";
+    appealDWP.month = "08";
+    appealDWP.year = "2022";
+    appealDWP.dateType = "appealDWP";
+    appealDWP.dateString = appealDWP.day + " " + convertMonth(appealDWP.month) + " " + appealDWP.year;
+    appealDWP.title = "Appeal received by DWP";
+    data.claimHistory.push(appealDWP);
+  }
+  res.render('./mashup/time-line/index', {data});
+})
+
+router.post('/mashup/time-line/add-date-selection', (req, res) => {
+  const { data } = req.session;
+  const dateChoice = data.dateType;
+
+  if(dateChoice =="originalDecision")
+    res.render('./mashup/time-line/add-original-decision');
+  else if (dateChoice =="originalNotifcation")
+    res.render('./mashup/time-line/add-original-notification');
+  else if (dateChoice =="mrRequest")
+    res.render('./mashup/time-line/add-mr-request');
+  else if (dateChoice =="mrDecision")
+    res.render('./mashup/time-line/add-mr-decision');
+  else if (dateChoice =="mrNotification")
+    res.render('./mashup/time-line/add-mr-notification');
+})
+
+router.post('/mashup/time-line/add-date',(req,res)=>{
+  const { data } = req.session;
+
+  if(data.day && data.month && data.year)
+  {
+    let eventDate = {};
+    eventDate.day = data.day;
+    eventDate.month = data.month;
+    eventDate.year = data.year;
+    eventDate.dateType = data.dateType;
+    eventDate.dateString = data.day + " " + convertMonth(data.month) + " " + data.year;
+    if(data.dateType == "originalDecisionDate")
+      eventDate.title = "Original decision made";
+    else if (data.dateType == "originalNotificationDate") {
+      eventDate.title = "Original decision notification sent";
+    }
+    else if (data.dateType == "mrRequest") {
+      eventDate.title = "MR requested by appellant";
+    }
+    else if (data.dateType == "mrDecision") {
+      eventDate.title = "MR decision made";
+      eventDate.agreeWithOriginal = data.agreeWithOriginal;
+      eventDate.dualClaim = data.dualClaim;
+    }
+    else if (data.dateType == "mrNotification") {
+      eventDate.title = "MR notification sent ";
+    }
+    data.claimHistory.push(eventDate);
+  }
+  sortChrono(data.claimHistory);
+  res.redirect('index');
+})
+
+//Health Conditions for time line
+
+router.get('/mashup/time-line/health-conditions/index',(req,res,next) => {
+  const { data } = req.session;
+  const { edit, id } = req.query;
+  const healthConditions = data.healthConditions;
+  if(healthConditions)
+    res.render('./mashup/time-line/health-conditions/index',{healthConditions});
+  else
+    res.render('./mashup/time-line/health-conditions/add-condition');
+})
+
+router.post('/mashup/time-line/health-conditions/add-condition',(req,res)=>{
+  const { data } = req.session;
+  if(!data.healthConditions){
+    data.healthConditions = [];
+  }
+  let healthCondition = {};
+  healthCondition.condition = data.conditionName;
+  healthCondition.day = data.conditionDay;
+  healthCondition.month = data.conditionMonth;
+  healthCondition.year = data.conditionYear;
+  healthCondition.date = data.conditionDay + " " + convertMonth(data.conditionMonth) + " " + data.conditionYear;
+  healthCondition.restrictedWork = data.restrictedWork;
+  healthCondition.fitNoteExists = data.fitNoteExists;
+
+  if(data.fitNoteExists === "Yes"){
+    healthCondition.fitNoteDay = data.fitNoteDay;
+    healthCondition.fitNoteMonth = data.fitNoteMonth;
+    healthCondition.fitNoteYear = data.fitNoteYear;
+    healthCondition.fitNoteDate = data.fitNoteDay + " " + convertMonth(data.fitNoteMonth) + " " + data.fitNoteYear;
+  }
+  data.healthConditions.push(healthCondition);
+  healthConditions = data.healthConditions;
+  res.redirect('index');
+})
+
+//Classic Table--------------------------------------------------------------
+
+router.get('/mashup/table/index',(req,res,next) => {
+  const { data } = req.session;
+  const { edit, id } = req.query;
+
+  if(!data.claimHistory){
+
+    data.claimHistory = [];
+
+    let appealHMCTS = {};
+    appealHMCTS.day = '01';
+    appealHMCTS.month = '08';
+    appealHMCTS.year = '2022';
+    appealHMCTS.dateType = "appealHMCTS";
+    appealHMCTS.dateString = appealHMCTS.day + " " + convertMonth(appealHMCTS.month) + " " + appealHMCTS.year;
+    appealHMCTS.title = "Appeal received by HMCTS";
+    data.claimHistory.push(appealHMCTS);
+
+    let appealDWP = {};
+    appealDWP.day = "01";
+    appealDWP.month = "08";
+    appealDWP.year = "2022";
+    appealDWP.dateType = "appealDWP";
+    appealDWP.dateString = appealDWP.day + " " + convertMonth(appealDWP.month) + " " + appealDWP.year;
+    appealDWP.title = "Appeal received by DWP";
+    data.claimHistory.push(appealDWP);
+  }
+  res.render('./mashup/table/index', {data});
+})
+
+router.post('/mashup/table/add-date-selection', (req, res) => {
+  const { data } = req.session;
+  const dateChoice = data.dateType;
+
+  if(dateChoice =="originalDecision")
+    res.render('./mashup/table/add-original-decision');
+  else if (dateChoice =="originalNotifcation")
+    res.render('./mashup/table/add-original-notification');
+  else if (dateChoice =="mrRequest")
+    res.render('./mashup/table/add-mr-request');
+  else if (dateChoice =="mrDecision")
+    res.render('./mashup/table/add-mr-decision');
+  else if (dateChoice =="mrNotification")
+    res.render('./mashup/table/add-mr-notification');
+})
+
+router.post('/mashup/table/add-date',(req,res)=>{
+  const { data } = req.session;
+
+  if(data.day && data.month && data.year)
+  {
+    let eventDate = {};
+    eventDate.day = data.day;
+    eventDate.month = data.month;
+    eventDate.year = data.year;
+    eventDate.dateString = data.day + " " + convertMonth(data.month) + " " + data.year;
+    eventDate.dateType = data.dateType;
+    if(data.dateType == "originalDecisionDate")
+      eventDate.title = "Original decision made";
+    else if (data.dateType == "originalNotificationDate") {
+      eventDate.title = "Notification sent";
+    }
+    else if (data.dateType == "mrRequest") {
+      eventDate.title = "MR requested by appellant";
+    }
+    else if (data.dateType == "mrDecision") {
+      eventDate.title = "MR decision made";
+      eventDate.agreeWithOriginal = data.agreeWithOriginal;
+      eventDate.dualClaim = data.dualClaim;
+    }
+    else if (data.dateType == "mrNotification") {
+      eventDate.title = "MR notification sent ";
+    }
+    data.claimHistory.push(eventDate);
+  }
+  sortChrono(data.claimHistory);
+  res.redirect('index');
+})
+
+
+router.get('/mashup/health-conditions/index',(req,res,next) => {
+  const { data } = req.session;
+  const { edit, id } = req.query;
+  const healthConditions = data.healthConditions;
+  if(healthConditions)
+    res.render('./mashup/health-conditions/index',{healthConditions});
+  else
+    res.render('./mashup/health-conditions/add-condition');
+})
+
+router.post('/mashup/health-conditions/add-condition',(req,res)=>{
+  const { data } = req.session;
+  if(!data.healthConditions){
+    data.healthConditions = [];
+  }
+  let healthCondition = {};
+  healthCondition.condition = data.conditionName;
+  healthCondition.day = data.conditionDay;
+  healthCondition.month = data.conditionMonth;
+  healthCondition.year = data.conditionYear;
+  healthCondition.date = data.conditionDay + " " + convertMonth(data.conditionMonth) + " " + data.conditionYear;
+  healthCondition.restrictedWork = data.restrictedWork;
+  healthCondition.fitNoteExists = data.fitNoteExists;
+
+  if(data.fitNoteExists === "Yes"){
+    healthCondition.fitNoteDay = data.fitNoteDay;
+    healthCondition.fitNoteMonth = data.fitNoteMonth;
+    healthCondition.fitNoteYear = data.fitNoteYear;
+    healthCondition.fitNoteDate = data.fitNoteDay + " " + convertMonth(data.fitNoteMonth) + " " + data.fitNoteYear;
+  }
+  data.healthConditions.push(healthCondition);
+  healthConditions = data.healthConditions;
+  res.redirect('index');
+})
+
+
+//Classic timeline--------------------------------------------------------------
+
+router.get('/mashup/claim-history-classic/index',(req,res,next) => {
+  const { data } = req.session;
+  const { edit, id } = req.query;
+
+  if(!data.claimHistory){
+
+    data.claimHistory = [];
+
+    let appealHMCTS = {};
+    appealHMCTS.day = '01';
+    appealHMCTS.month = '08';
+    appealHMCTS.year = '2022';
+    appealHMCTS.dateType = "appealHMCTS";
+    appealHMCTS.dateString = appealHMCTS.day + " " + convertMonth(appealHMCTS.month) + " " + appealHMCTS.year;
+    appealHMCTS.title = "Appeal received by HMCTS";
+    data.claimHistory.push(appealHMCTS);
+
+    let appealDWP = {};
+    appealDWP.day = "01";
+    appealDWP.month = "08";
+    appealDWP.year = "2022";
+    appealDWP.dateType = "appealDWP";
+    appealDWP.dateString = appealDWP.day + " " + convertMonth(appealDWP.month) + " " + appealDWP.year;
+    appealDWP.title = "Appeal received by DWP";
+    data.claimHistory.push(appealDWP);
+  }
+  res.render('./mashup/claim-history-classic/index');
+})
+
+router.post('/mashup/claim-history-classic/add-date-selection', (req, res) => {
+  const { data } = req.session;
+  const dateChoice = data.dateType;
+
+  if(dateChoice =="originalDecision")
+    res.render('./mashup/claim-history-classic/add-original-decision');
+  else if (dateChoice =="originalNotifcation")
+    res.render('./mashup/claim-history-classic/add-original-notification');
+  else if (dateChoice =="mrRequest")
+    res.render('./mashup/claim-history-classic/add-mr-request');
+  else if (dateChoice =="mrDecision")
+    res.render('./mashup/claim-history-classic/add-mr-decision');
+  else if (dateChoice =="mrNotification")
+    res.render('./mashup/claim-history-classic/add-mr-notification');
+})
+
+router.post('/mashup/claim-history-classic/add-date',(req,res)=>{
+  const { data } = req.session;
+
+  if(data.day && data.month && data.year)
+  {
+    let eventDate = {};
+    eventDate.day = data.day;
+    eventDate.month = data.month;
+    eventDate.year = data.year;
+    eventDate.dateType = data.dateType;
+    eventDate.dateString = data.day + " " + convertMonth(data.month) + " " + data.year;
+    if(data.dateType == "originalDecisionDate")
+      eventDate.title = "Original decision made";
+    else if (data.dateType == "originalNotificationDate") {
+      eventDate.title = "Original decision notification sent";
+    }
+    else if (data.dateType == "mrRequest") {
+      eventDate.title = "MR requested by appellant";
+    }
+    else if (data.dateType == "mrDecision") {
+      eventDate.title = "MR decision made";
+      eventDate.agreeWithOriginal = data.agreeWithOriginal;
+      eventDate.dualClaim = data.dualClaim;
+    }
+    else if (data.dateType == "mrNotification") {
+      eventDate.title = "MR notification sent ";
+    }
+    data.claimHistory.push(eventDate);
+  }
+  sortChrono(data.claimHistory);
+  res.redirect('index');
+})
+
+//Classic Table--------------------------------------------------------------
+
+router.get('/mashup/claim-history-table/index',(req,res,next) => {
+  const { data } = req.session;
+  const { edit, id } = req.query;
+
+  if(!data.claimHistory){
+
+    data.claimHistory = [];
+
+    let appealHMCTS = {};
+    appealHMCTS.day = '01';
+    appealHMCTS.month = '08';
+    appealHMCTS.year = '2022';
+    appealHMCTS.dateType = "appealHMCTS";
+    appealHMCTS.dateString = appealHMCTS.day + " " + convertMonth(appealHMCTS.month) + " " + appealHMCTS.year;
+    appealHMCTS.title = "Appeal received by HMCTS";
+    data.claimHistory.push(appealHMCTS);
+
+    let appealDWP = {};
+    appealDWP.day = "01";
+    appealDWP.month = "08";
+    appealDWP.year = "2022";
+    appealDWP.dateType = "appealDWP";
+    appealDWP.dateString = appealDWP.day + " " + convertMonth(appealDWP.month) + " " + appealDWP.year;
+    appealDWP.title = "Appeal received by DWP";
+    data.claimHistory.push(appealDWP);
+  }
+  res.render('./mashup/claim-history-table/index', {data});
+})
+
+router.post('/mashup/claim-history-table/add-date-selection', (req, res) => {
+  const { data } = req.session;
+  const dateChoice = data.dateType;
+
+  if(dateChoice =="originalDecision")
+    res.render('./mashup/claim-history-table/add-original-decision');
+  else if (dateChoice =="originalNotifcation")
+    res.render('./mashup/claim-history-table/add-original-notification');
+  else if (dateChoice =="mrRequest")
+    res.render('./mashup/claim-history-table/add-mr-request');
+  else if (dateChoice =="mrDecision")
+    res.render('./mashup/claim-history-table/add-mr-decision');
+  else if (dateChoice =="mrNotification")
+    res.render('./mashup/claim-history-table/add-mr-notification');
+})
+
+router.post('/mashup/claim-history-table/add-date',(req,res)=>{
+  const { data } = req.session;
+
+  if(data.day && data.month && data.year)
+  {
+    let eventDate = {};
+    eventDate.day = data.day;
+    eventDate.month = data.month;
+    eventDate.year = data.year;
+    eventDate.dateString = data.day + " " + convertMonth(data.month) + " " + data.year;
+    eventDate.dateType = data.dateType;
+    if(data.dateType == "originalDecisionDate")
+      eventDate.title = "Original decision made";
+    else if (data.dateType == "originalNotificationDate") {
+      eventDate.title = "Notification sent";
+    }
+    else if (data.dateType == "mrRequest") {
+      eventDate.title = "MR requested by appellant";
+    }
+    else if (data.dateType == "mrDecision") {
+      eventDate.title = "MR decision made";
+      eventDate.agreeWithOriginal = data.agreeWithOriginal;
+      eventDate.dualClaim = data.dualClaim;
+    }
+    else if (data.dateType == "mrNotification") {
+      eventDate.title = "MR notification sent ";
+    }
+    data.claimHistory.push(eventDate);
+  }
+  sortChrono(data.claimHistory);
+  res.redirect('index');
+})
+
+router.post('/mashup/05-decision-dates',(req,res)=>{
+  res.render('./mashup/01-task-list-new');
+})
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////For forms
+
+
+// UC 50
+
+router.get('/s24/09-uc50-exists',(req,res,next)=>{
+  const { data } = req.session;
+  const {change,target} = req.query;
+
+  if (data.uc50Exists == "Yes") {
+    if( change == 1 )
+      res.render('./s24/09-uc50-exists',{target});
+    else
+      res.render('./s24/09-uc50-summary',{target});
+  }
+  else
+    res.render('./s24/09-uc50-exists',{target});
+})
+
+router.post('/s24/09-uc50-exists',(req,res)=>{
+  const { data } = req.session;
+  const {target} = req.query;
+  if(data.uc50Exists == "No" || data.uc50Exists == "Yes, we do not have a copy of it"){
+    if(target=='cya')
+      res.render('./s24/11-check-answers');
+    else
+      res.render('./s24/01-task-list-new');
+  }
+  else if (data.uc50Exists == "Yes") {
+    res.render('./s24/09-uc50',{target});
+  }
+})
+
+
+//Health Conditions for table
+
+router.get('/s24/health-conditions/index',(req,res,next) => {
+  const { data } = req.session;
+  const { edit, id, target } = req.query;
+  const healthConditions = data.healthConditions;
+  let targetURL = "";
+  if(target == 'cya')
+  {
+    targetURL = "../11-check-answers";
+  }
+  else {
+    targetURL = "../01-task-list-new";
+  }
+
+  if(healthConditions)
+  {
+    res.render('./s24/health-conditions/index',{healthConditions,targetURL});
+  }
+  else
+    res.render('./s24/health-conditions/add-condition');
+})
+
+router.get('/s24/health-conditions/add-condition',(req,res,next) => {
+  const { data } = req.session;
+  const { change, id, target } = req.query;
+
+  let condition = {};
+  if(change==1)
+  {
+    condition = data.healthConditions[id];
+    condition.id = id;
+    condition.change = change;
+    condition.target = target;
+    res.render('./s24/health-conditions/add-condition',{condition});
+  }
+  else
+    res.render('./s24/health-conditions/add-condition');
+})
+
+router.post('/s24/health-conditions/add-condition',(req,res)=>{
+  const { data } = req.session;
+  const { change, id, target } = req.query;
+
+  if(!data.healthConditions){
+    data.healthConditions = [];
+  }
+  let healthCondition = {};
+  healthCondition.condition = data.conditionName;
+  healthCondition.day = data.conditionDay;
+  healthCondition.month = data.conditionMonth;
+  healthCondition.year = data.conditionYear;
+  healthCondition.date = data.conditionDay + " " + convertMonth(data.conditionMonth) + " " + data.conditionYear;
+  healthCondition.restrictedWork = data.restrictedWork;
+  healthCondition.fitNoteExists = data.fitNoteExists;
+
+  if(data.fitNoteExists === "Yes"){
+    healthCondition.fitNoteDay = data.fitNoteDay;
+    healthCondition.fitNoteMonth = data.fitNoteMonth;
+    healthCondition.fitNoteYear = data.fitNoteYear;
+    healthCondition.fitNoteDate = data.fitNoteDay + " " + convertMonth(data.fitNoteMonth) + " " + data.fitNoteYear;
+  }
+
+  if (change == 1) {
+    data.healthConditions.splice(id,1);
+  }
+
+  data.healthConditions.push(healthCondition);
+  healthConditions = data.healthConditions;
+
+
+  if(target == 'cya')
+    res.redirect('../11-check-answers');
+  else
+    res.redirect('index');
+})
+
+
+router.post('/s24/05-decision-dates',(req,res)=>{
+  const { target } = req.query;
+  let { data } = req.session;
+
+  data.dateCliamToUCDate = data.dateCliamToUCDay + " " + convertMonth(data.dateCliamToUCMonth) + " " + data.dateCliamToUCYear;
+  data.dateOriginalDecisionDate = data.dateOriginalDecisionDay + " " + convertMonth(data.dateOriginalDecisionMonth) + " " + data.dateOriginalDecisionYear;
+  data.dateOriginalNotifcationDate = data.dateOriginalNotifcationDay + " " + convertMonth(data.dateOriginalNotifcationMonth) + " " + data.dateOriginalNotifcationYear;
+  data.dateMrDate = data.dateMrDay + " " + convertMonth(data.dateMrMonth) + " " + data.dateMrYear;
+  data.dateMrDecisionDate = data.dateMrDecisionDay + " " + convertMonth(data.dateMrDecisionMonth) + " " + data.dateMrDecisionYear;
+  data.dateMrNotificationDate = data.dateMrNotificationDay + " " + convertMonth(data.dateMrNotificationMonth) + " " + data.dateMrNotificationYear;
+  data.dateHmctsAppealDate = data.dateHmctsAppealDay + " " + convertMonth(data.dateHmctsAppealMonth) + " " + data.dateHmctsAppealYear;
+  data.dateDwpAppealDate = data.dateDwpAppealDay + " " + convertMonth(data.dateDwpAppealMonth) + " " + data.dateDwpAppealYear;
+
+
+  if(target=='cya')
+    res.render('./s24/11-check-answers',{data});
+  else
+    res.render('./s24/01-task-list-new');
+})
+
+router.get('/s24/05-decision-dates',(req,res)=>{
+  const { target } = req.query;
+  res.render('./s24/05-decision-dates',{target});
+})
+
+router.get('/s24/06-dual-claim',(req,res)=>{
+  const { target } = req.query;
+  res.render('./s24/06-dual-claim',{target});
+})
+
+router.post('/s24/06-dual-claim',(req,res)=>{
+  const { target } = req.query;
+  const { data } = req.session;
+  data.dateDualClaimDate = data.dualClaimDay + " " + convertMonth(data.dualClaimMonth) + " " + data.dualClaimYear;
+  if(target=='cya')
+    res.render('./s24/11-check-answers', {data});
+  else
+    res.render('./s24/01-task-list-new',{data});
+})
+
+router.get('/s24/14-descriptors',(req,res)=>{
+  const { target } = req.query;
+  res.render('./s24/14-descriptors',{target});
+})
+
+router.post('/s24/14-descriptors',(req,res)=>{
+  const { target } = req.query;
+  const { data } = req.session;
+  if(target=='cya')
+    res.render('./s24/11-check-answers', {data});
+  else
+    res.render('./s24/01-task-list-new',{data});
+})
+
+router.get('/s24/11-check-answers',(req,res)=>{
+  const { data } = req.session;
+  res.render('./s24/11-check-answers',{data});
+})
+
+router.get('/s24/10-uc113',(req,res)=>{
+  const { target } = req.query;
+  res.render('./s24/10-uc113',{target});
+})
+
+router.post('/s24/10-uc113',(req,res)=>{
+  const { target } = req.query;
+  const { data } = req.session;
+
+  data.uc113Date = data.uc113Day + " " + convertMonth(data.uc113Month) + " " + data.uc113Year;
+  console.log("The UC 113 date is " + data.uc113Date);
+
+  if(target=='cya')
+    res.render('./s24/11-check-answers');
+  else
+    res.render('./s24/01-task-list-new');
+})
+
+router.get('/s24/10-health-assessment',(req,res)=>{
+  const { target } = req.query;
+  res.render('./s24/10-health-assessment',{target});
+})
+
+router.post('/s24/10-health-assessment',(req,res)=>{
+  const { target } = req.query;
+  const { data } = req.session;
+
+  data.hcpAssessmentDate = data.hcpAssessmentDay + " " + convertMonth(data.hcpAssessmentMonth) + " " + data.hcpAssessmentYear;
+
+  if(target=='cya')
+    res.render('./s24/11-check-answers');
+  else
+    res.render('./s24/01-task-list-new');
+})
+
+router.post('/s24/09-uc50-summary',(req,res)=>{
+  console.log("I am in the post function of uc50  summary");
+  const { target } = req.query;
+  if(target=='cya')
+    res.render('./s24/11-check-answers');
+  else
+    res.render('./s24/01-task-list-new');
+})
+
+router.post('/s24/09-uc50',(req,res)=>{
+  const { target } = req.query;
+
+  console.log("The target in the post function of uc50 is " + target);
+  if(target=='cya')
+    res.render('./s24/11-check-answers');
+  else
+    res.render('./s24/01-task-list-new');
+})
+
+router.get('/s24/06-dual-claim',(req,res)=>{
+  const { target } = req.query;
+  res.render('./s24/06-dual-claim',{target});
+})
+
+router.get('/s24/09-uc50',(req,res)=>{
+  const { change,target } = req.query;
+  res.render('./s24/09-uc50',{target,change});
+})
+
+router.get('/s24/13-timeline',(req,res,next)=>{
+  const { data } = req.session;
+  let listOfEvents = getAllEvents(data);
+  sortChrono(listOfEvents);
+  //console.log("The lenght of events is" + listOfEvents.length);
+  res.render('./s24/13-timeline',{listOfEvents});
+})
+
+router.get('/s24/13-timeline-table',(req,res,next)=>{
+  const { data } = req.session;
+  let listOfEvents = getAllEvents(data);
+  sortChrono(listOfEvents);
+  //console.log("The lenght of events is" + listOfEvents.length);
+  res.render('./s24/13-timeline-table',{listOfEvents});
+})
+
+
 /*
 *********************************************************************************************
 *********************************************************************************************
@@ -1314,5 +2006,97 @@ getDWPReceived = function(events){
   return(fact.date);
 };
 
+router.get('/timeline/response',(req,res)=>{
+  const { data } = req.session;
+  var response = {};
+  var i = 0;
+  var section1Items = [
+                        "Name",
+                        "Address",
+                        "NI NO",
+                        "Date of birth",
+                        "Benefit",
+                        "Date of outcome decision",
+                        "Date outcome decision notified",
+                        "Date of mandatory reconsideration decision",
+                        "Date of mandatory reconsideration decision notified",
+                        "Date appeal received by HMCTS",
+                        "Date appeal received by DWP"
+                      ];
+  var section1Values = [
+                          "Jane Doe",
+                          "72 Guild Street, London SE23 6FH",
+                          "QQ 12 34 45 Q",
+                          "4 June 1972",
+                          "Universal Credit – Work Capability Assessment"
+                        ];
+  var factsText = [];
+  var originalClaimText = {};
+  var mrText = {};
+  var mrDecisionText = {};
+  var cocText = {};
+  var decisionText = {};
+  var assessmentText = {};
+  var dualClaimText = {};
+  var uc113Text = {};
+  var uc50Text = {};
+  var appealText = {};
+
+  response.section1=[];
+  response.section4=[];
+  section1Values.push(getOutcomeDecision(data.events));
+  section1Values.push(getOutcomeNotification(data.events));
+  section1Values.push(getMRDecision(data.events));
+  section1Values.push(getMRNotification(data.events));
+  section1Values.push(getHMCTSReceived(data.events));
+  section1Values.push(getDWPReceived(data.events));
+
+  for(i = 0; i<section1Items.length; i++)
+  {
+    response.section1[i] = {};
+    response.section1[i].label = section1Items[i];
+    response.section1[i].value = section1Values[i];
+  }
+
+  originalClaimText.type = "originalClaim";
+  originalClaimText.text = "[-NAME-] made a claim to Universal Credit (UC). On [-NAME-]’s declaration they declared they did not have a health condition which restricts their ability to take up or look for work.";
+  factsText.push(originalClaimText);
+
+  mrText.type = "mr";
+  mrText.text = "[-NAME-] requested a Mandatory Reconsideration of the decision.";
+  factsText.push(mrText);
+
+  mrDecisionText.type = "mrDecision";
+  mrDecisionText.text = "Another Decision Maker looked at the decision and agreed with the HCP and previous decision maker. The activities considered are on pages [-------INSERT PAGE NUMBERS HERE-------] of the bundle. The decision in full is attached.";
+  factsText.push(mrDecisionText);
+
+  cocText.type = "coc";
+  cocText.text = "xxx reported a change of health and disability and provided valid medical evidence. Their conditions were [-CONDITIONS-]. This was an application by xxx for an LCW / LCWRA element to be included in the award amounts of UC.";
+  factsText.push(cocText);
+
+  decisionText.type = "decision";
+  decisionText.text = "The Decision Maker then carried out an assessment of [-NAME-] capability for work. Taking all the available evidence into account they decided that [-NAME-] scored [-PHYSICAL POINTS-] points on the physical and [-MENTAL POINTS-] points on the mental descriptors and it was also determined that they did not meet any of the “treated as” provisions in terms of LCW. The activities considered are on pages [-------INSERT PAGE NUMBERS HERE-------] of the bundle. The decision in full is attached.";
+  factsText.push(decisionText);
+
+  assessmentText.type = "assessment";
+  assessmentText.text = "[-NAME-] was assessed via [-ASSESSMENT TYPE-] by an approved Healthcare Professional (HCP) from The Centre for Health and Disability Assessments (CHDA) in connection with the WCA.<br>The HCP’s findings were that [-NAME-] did not have sufficient restriction of capability within the physical and mental health descriptors relevant to LCW. It was also the HCP’s findings that [-NAME-] did not meet any of the “treated as” provisions relevant to LCW.";
+  factsText.push(assessmentText);
+
+  uc113Text.type = "uc113";
+  uc113Text.text = "[-NAME-]’s GP completed a UC113 regarding their health conditions and provided a GP Printout";
+  factsText.push(uc113Text);
+
+  uc50Text.type = "uc113";
+  uc50Text.text = "[-NAME-] completed a UC50 medical questionnaire form which asks the claimant to provide information about their capability to perform activities to assess whether they have LCW. [-NAME-] identified difficulties with [-DIFFICULTIES-].";
+  factsText.push(uc50Text);
+
+  appealText.type = "hmctsReceipt";
+  appealText.text = "[-NAME-] appealed against the decision and submitted an SSCS1. On receipt of the appeal, all the available evidence was reviewed, and a lapse was considered. The respondent is unable to revise the decision and therefore has prepared a response.";
+  factsText.push(appealText);
+
+
+
+  res.render('./timeline/response',{response});
+})
 
 module.exports = router;

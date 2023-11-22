@@ -1,0 +1,119 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Add dates to claim history</h2>
+      <form action="/mashup/time-line/add-original-date" method="post" class="form">
+      <div class="govuk-!-margin-bottom-9">
+        <h3 class="govuk-heading-m">
+          Original decision
+          <span class="govuk-caption-m">Also known as outcome decision</span>
+        </h3>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+            Decision made
+          </label>
+              <div class="govuk-date-input" id="date-original-decision">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="originalDecisionDay">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="originalDecisionDay" name="originalDecisionDay" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="originalDecisionMonth">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="originalDecisionMonth" name="originalDecisionMonth" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="originalDecisionYear">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="originalDecisionYear" name="originalDecisionYear" type="text" inputmode="numeric">
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+              Notification sent
+            </label>
+                <div class="govuk-date-input" id="notificationSent">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="notificationSentDay">
+                        Day
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="notificationSentDay" name="notificationSentDay" type="text" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="notificationSentMonth">
+                        Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="notificationSentMonth" name="notificationSentMonth" type="text" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="notificationSentYear">
+                        Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="notificationSentYear" name="notificationSentYear" type="text" inputmode="numeric">
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Add date
+      </button>
+      </form>
+      <p><a href="javascript:history.back()">Back</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    window.location.href = "05-decision-dates-2-0";
+  }
+</script>
+{% endblock %}

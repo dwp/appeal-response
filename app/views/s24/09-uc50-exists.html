@@ -1,0 +1,80 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  UC 50 questionnaire - Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-9">
+    <form action="/s24/09-uc50-exists?target={{target}}" method="post" class="form" id="uc50Form">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            Did the appellant return the UC50?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uc50Exists1" name="uc50Exists" type="radio" value="Yes" {{ checked('uc50Exists','Yes') }} >
+              <label class="govuk-label govuk-radios__label" for="uc50Exists1">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uc50Exists2" name="uc50Exists" type="radio" value="Yes, we do not have a copy of it" {{ checked('uc50Exists','Yes, we do not have a copy of it') }}>
+              <label class="govuk-label govuk-radios__label" for="uc50Exists2">
+                Yes, but we do not have a copy of it
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uc50Exists3" name="uc50Exists" type="radio" value="No" {{ checked('uc50Exists','No') }}>
+              <label class="govuk-label govuk-radios__label" for="uc50Exists3">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+      Continue
+    </button>
+    <p><a href="javascript:history.back()">Back</a></p>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+
+    window.addEventListener('load', (event) => {
+
+    });
+
+
+      function saveData(){
+        if($('input[type=radio]:checked').size() > 0){
+          sessionStorage.setItem("taskProgressUC50","2");
+        }
+        else{
+          sessionStorage.setItem("taskProgressUC50","0");
+        }
+        document.getElementById("uc50Form").submit();
+      }
+</script>
+{% endblock %}

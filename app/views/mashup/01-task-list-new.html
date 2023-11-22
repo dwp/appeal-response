@@ -1,0 +1,197 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Tasks to complete – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="../" class="govuk-back-link">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          Tasks to complete
+        </h1>
+        <ol class="app-task-list">
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">1. </span> Check appeal information
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="02-appellant-details" aria-describedby="eligibility-status">
+                    Appellant details
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskAppellantDetails">Not started</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="03-representative-details" aria-describedby="read-declaration-status">
+                    Representative details
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskRepDetails">Not started</strong>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">2. </span> Prepare facts of the case
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="05-decision-dates" aria-describedby="company-information-status">
+                    Appeal history
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskAppealHistory">Not started</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="health-conditions/index" aria-describedby="company-information-status">
+                    Health conditions
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskHealthCondition">Not started</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="09-uc50" aria-describedby="company-information-status">
+                    Capability for work questionnaire (UC50)
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskUC50">Not started</strong>
+              </li>
+              <!--
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="10-uc113" aria-describedby="company-information-status">
+                    GP report form (UC113)
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskUC50">Not started</strong>
+              </li>
+              -->
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="10-health-assessment" aria-describedby="company-information-status">
+                    Health assessment
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskHealthAssessment">Not started</strong>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">3. </span> Create response
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="11-check-answers" aria-describedby="company-information-status">
+                    Check answers and create response
+                  </a>
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <!--
+          <div class="govuk-inset-text">
+            You can edit the repsonse after it has been created.
+          </div>
+          <a href="#" class="govuk-button">Create response</a>
+        -->
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+
+    sessionStorage.setItem("draftExists","1");
+    sessionStorage.setItem("appellantAddress","72 Guild Street <br>London <br>SE23 6FH");
+
+    if(sessionStorage.getItem("taskProgressAppellantDetails")=="2") {
+        document.getElementById("taskAppellantDetails").innerHTML = "Completed";
+        document.getElementById("taskAppellantDetails").className = "govuk-tag app-task-list__tag";
+    }
+    if(sessionStorage.getItem("taskProgressRepDetails")=="2") {
+        document.getElementById("taskRepDetails").innerHTML = "Completed";
+        document.getElementById("taskRepDetails").className = "govuk-tag app-task-list__tag";
+    }
+    if(sessionStorage.getItem("taskProgressAppealHistory")=="2") {
+        document.getElementById("taskAppealHistory").innerHTML = "Completed";
+        document.getElementById("taskAppealHistory").className = "govuk-tag app-task-list__tag";
+    }
+
+    if(sessionStorage.getItem("taskProgressHealthCondition")==2){
+      document.getElementById("taskHealthCondition").innerHTML = "Completed";
+      document.getElementById("taskHealthCondition").className = "govuk-tag app-task-list__tag";
+    }
+    else if(sessionStorage.getItem("taskProgressDecisionDates")==1){
+      document.getElementById("taskDecisionDates").innerHTML = "In progress";
+      document.getElementById("taskDecisionDates").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+    }
+
+    if(sessionStorage.getItem("taskProgressHealthConditions")==2){
+      document.getElementById("taskHealthConditions").innerHTML = "Completed";
+      document.getElementById("taskHealthConditions").className = "govuk-tag app-task-list__tag";
+    }
+    else if(sessionStorage.getItem("taskProgressHealthConditions")==1){
+      document.getElementById("taskHealthConditions").innerHTML = "In progress";
+      document.getElementById("taskHealthConditions").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+    }
+
+    /*
+    if(sessionStorage.getItem("taskProgressFitNote")==2){
+      document.getElementById("taskFitNote").innerHTML = "Completed";
+      document.getElementById("taskFitNote").className = "govuk-tag app-task-list__tag";
+    }
+    else if(sessionStorage.getItem("taskProgressFitNote")==1){
+      document.getElementById("taskFitNote").innerHTML = "In progress";
+      document.getElementById("taskFitNote").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+    }
+    */
+
+    if(sessionStorage.getItem("taskProgressUC50")==2){
+      document.getElementById("taskUC50").innerHTML = "Completed";
+      document.getElementById("taskUC50").className = "govuk-tag app-task-list__tag";
+    }
+    else if(sessionStorage.getItem("taskProgressUC50")==1){
+      document.getElementById("taskUC50").innerHTML = "In progress";
+      document.getElementById("taskUC50").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+    }
+
+    if(sessionStorage.getItem("taskProgressHealthAssessment")==2){
+      document.getElementById("taskHealthAssessment").innerHTML = "Completed";
+      document.getElementById("taskHealthAssessment").className = "govuk-tag app-task-list__tag";
+    }
+    else if(sessionStorage.getItem("taskProgressHealthAssessment")==1){
+      document.getElementById("taskHealthAssessment").innerHTML = "In progress";
+      document.getElementById("taskHealthAssessment").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+    }
+
+  });
+</script>
+{% endblock %}

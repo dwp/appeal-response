@@ -1,0 +1,108 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">When did Jane provide a fit note?</h2>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="fit-note-hint">
+            <div class="govuk-date-input" id="fit-note">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="fit-note-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="fit-note-day" name="fit-note-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="fit-note-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="fit-note-month" name="fit-note-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="fit-note-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="fit-note-year" name="fit-note-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+      <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+        Continue
+      </button>
+      <p><a href="javascript:history.back()">Back</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+
+    window.addEventListener('load', (event) => {
+      document.getElementById('fit-note-day').value = sessionStorage.getItem("fit-note-day");
+      document.getElementById('fit-note-month').value = sessionStorage.getItem("fit-note-month");
+      document.getElementById('fit-note-year').value = sessionStorage.getItem("fit-note-year");
+    });
+
+
+    function saveData(){
+      sessionStorage.setItem("fit-note-day",document.getElementById('fit-note-day').value);
+      sessionStorage.setItem("fit-note-month",document.getElementById('fit-note-month').value);
+      sessionStorage.setItem("fit-note-year",document.getElementById('fit-note-year').value);
+
+      if(
+        document.getElementById('fit-note-day').value
+        && document.getElementById('fit-note-month').value
+        && document.getElementById('fit-note-year').value
+      )
+      {
+        sessionStorage.setItem("taskProgressFitNote","2");
+      }
+      else if(
+        document.getElementById('fit-note-day').value
+        || document.getElementById('fit-note-month').value
+        || document.getElementById('fit-note-year').value
+      )
+      {
+        sessionStorage.setItem("taskProgressFitNote","1");
+      }
+      else
+      {
+        sessionStorage.setItem("taskProgressFitNote","0");
+      }
+      window.location.href = "01-task-list-new";
+    }
+</script>
+{% endblock %}

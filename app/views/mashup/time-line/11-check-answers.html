@@ -1,0 +1,368 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+        <h3 class="govuk-heading-l">Appeal type</h3>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Appeal type
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Limited capability for work (LCW) but not limited capability for work related activity (LCWRA)
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+          <h3 class="govuk-heading-l">Appeal history</h3>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Original decision made
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateOriginalDecisionDay'] }} /
+                {{ data['dateOriginalDecisionMonth'] }} /
+                {{ data['dateOriginalDecisionYear'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Original decision notification sent
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateOriginalNotifcationDay'] }} /
+                {{ data['dateOriginalNotifcationMonth'] }} /
+                {{ data['dateOriginalNotifcationYear'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                MR requested by appellant
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateMrDay'] }} /
+                {{ data['dateMrMonth'] }} /
+                {{ data['dateMrYear'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                MR decision made
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateMrDecisionDay'] }} /
+                {{ data['dateMrDecisionMonth'] }} /
+                {{ data['dateMrDecisionYear'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                MR notification sent
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateMrNotificationDay'] }} /
+                {{ data['dateMrNotificationMonth'] }} /
+                {{ data['dateMrNotificationYear'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Did the MR decision maker agree with the original decision?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['mrAgreeOriginal'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Is this a dual claim for New Style Employment and Support Allowance (ESA)?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dualClaim'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Appeal received by HMCTS
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateHmctsAppealDay'] }} /
+                {{ data['dateHmctsAppealMonth'] }} /
+                {{ data['dateHmctsAppealYear'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Appeal received by DWP
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateDwpAppealDay'] }} /
+                {{ data['dateDwpAppealMonth'] }} /
+                {{ data['dateDwpAppealYear'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+              <h3 class="govuk-heading-l">Health conditions</h3>
+              {% for healthCondition in data.healthConditions %}
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Condition
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{healthCondition.condition}}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> this condition</span>
+                    </a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date condition was declared on
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{healthCondition.day}} / {{healthCondition.month}} / {{healthCondition.year}}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> this condition</span>
+                    </a>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Was a fit note provided?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{healthCondition.fitNoteExists}}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> this condition</span>
+                    </a>
+                  </dd>
+                </div>
+                {%if healthCondition.fitNoteExists == "Yes" %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date fit note was provided on
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{healthCondition.fitNoteDay}} / {{healthCondition.fitNoteMonth}} / {{healthCondition.fitNoteYear}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> this condition</span>
+                      </a>
+                    </dd>
+                  </div>
+                {% endif %}
+            </dl>
+
+            {% endfor %}
+
+
+                <h3 class="govuk-heading-l">Capability for work questionnaire (UC50)</h3>
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    UC50 returned
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    27 May 2022
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> contact details</span>
+                    </a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Difficulty with activities
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <p>Starting and finishing tasks</p>
+                    <p>Learning tasks</p>
+                    <p>Coping with going out</p>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> contact details</span>
+                    </a>
+                  </dd>
+                </div>
+
+              </dl>
+
+              <h3 class="govuk-heading-l">Health assessment</h3>
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Assessment type
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Telephone
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> contact details</span>
+                    </a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date of assessment
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    02 June 2022
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> contact details</span>
+                    </a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Health conditions identified
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Depression
+                    <br>Anxiety
+                    <br>Migraine
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> contact details</span>
+                    </a>
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Any 'treated as' provisions
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    No
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> contact details</span>
+                    </a>
+                  </dd>
+                </div>
+
+              </dl>
+
+
+              <div class="govuk-inset-text">
+                The response is created in a Word document that you will be able to edit.
+              </div>
+
+          <div class="govuk-button-group">
+            <a class="govuk-button" data-module="govuk-button" href="12-success">
+              Create response
+            </a>
+          </div>
+
+          <p><a href="javascript:history.back()">Back</a></p>
+          <div class="govuk-link">
+            <p><a href="/index.html">Cancel this response</a></p>
+          </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}
