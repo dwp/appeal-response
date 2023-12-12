@@ -1,0 +1,60 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-7">
+      <h2 class="govuk-heading-l">Appellant's name</h2>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="event-name">
+              First name
+            </label>
+          </h1>
+          <input class="govuk-input govuk-!-width-two-thirds" id="changeFirstName" name="event-name" type="text" aria-describedby="event-name-hint" value="Jane">
+        </div>
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="event-name">
+              Last name
+            </label>
+          </h1>
+          <input class="govuk-input govuk-!-width-two-thirds" id="changeLastName" name="event-name" type="text" aria-describedby="event-name-hint" value="Doe">
+        </div>
+        <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+          Continue
+        </button>
+        <p><a href="javascript:history.back()">Cancel</a></p>
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressAppellantDetails","2");
+    window.location.href = "02-appellant-details";
+  }
+</script>
+{% endblock %}

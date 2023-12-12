@@ -1,0 +1,221 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-7">
+      <h2 class="govuk-heading-l">Capability for work questionnaire (UC50)</h2>
+        <form action="/s24/09-uc50?change={{change}}&target={{target}}" method="post" id="uc50Form">
+        <div class="govuk-form-group govuk-!-margin-bottom-9">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="uc50-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Date appellant signed the UC50
+              </h1>
+            </legend>
+            <div class="govuk-date-input" id="uc50">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="uc50-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50-day" name="uc50-day" type="text" inputmode="numeric" value={{data['uc50-day']}}>
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="uc50-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50-month" name="uc50-month" type="text" inputmode="numeric" value={{data['uc50-month']}}>
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="uc50-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="uc50-year" name="uc50-year" type="text" inputmode="numeric" value={{data['uc50-year']}}>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <h3 class="govuk-heading-m">What did the appellant have difficulty with?</h3>
+        <p>Select all that apply</p>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h3 class="govuk-fieldset__heading">
+                Physical functions
+              </h3>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op1" name="physical" type="checkbox" value="Moving around and using steps" {{ checked('physical','Moving around and using steps') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="op1">
+                  Moving around and using steps
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op2" name="physical" type="checkbox" value="Standing and sitting" {{ checked('physical','Standing and sitting') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="op2">
+                  Standing and sitting
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op3" name="physical" type="checkbox" value="Reaching" {{ checked('physical','Reaching') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="op3">
+                  Reaching
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op4" name="physical" type="checkbox" value="Picking up and moving things" {{ checked('physical','Picking up and moving things') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="op4">
+                  Picking up and moving things
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op5" name="physical" type="checkbox" value="Manual dexterity (using your hands)" {{ checked('physical','Manual dexterity (using your hands)') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="op5">
+                  Manual dexterity (using your hands)
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op6" name="physical" type="checkbox" value="Communicating - speaking, writing and typing" {{ checked('physical','Communicating - speaking, writing and typing') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="op6">
+                  Communicating - speaking, writing and typing
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op7" name="physical" type="checkbox" value="Communicating - hearing and reading" {{ checked('physical','Communicating - hearing and reading') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="op7">
+                  Communicating - hearing and reading
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op8" name="physical" type="checkbox" value="Getting around safely" {{ checked('physical','Getting around safely') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="op8">
+                  Getting around safely
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op9" name="physical" type="checkbox" value="Controlling your bowels and bladder and using a collecting device" {{ checked('physical','Controlling your bowels and bladder and using a collecting device') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="op9">
+                  Controlling your bowels and bladder and using a collecting device
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op10" name="physical" type="checkbox" value="Staying conscious when awake" {{ checked('physical','Staying conscious when awake') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="op10">
+                  Staying conscious when awake
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h1 class="govuk-fieldset__heading">
+                Mental, cognitive and intellectual capabilities
+              </h1>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="lop1" name="mental" type="checkbox" value="Learning how to do tasks" {{ checked('mental','Learning how to do tasks') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="lop1">
+                  Learning how to do tasks
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Awareness of hazards or danger" {{ checked('mental','Awareness of hazards or danger') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="lop3">
+                  Awareness of hazards or danger
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Starting and finishing tasks" {{ checked('mental','Starting and finishing tasks') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="lop2">
+                  Starting and finishing tasks
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Coping with changes" {{ checked('mental','Coping with changes') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="lop4">
+                  Coping with changes
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Going out" {{ checked('mental','Going out') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="lop5">
+                  Going out
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Coping with social situations" {{ checked('mental','Coping with social situations') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="lop6">
+                  Coping with social situations
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Behaving appropriately" {{ checked('mental','Behaving appropriately') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="lop7">
+                  Behaving appropriately
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Eating or drinking" {{ checked('mental','Eating or drinking') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="lop8">
+                  Eating or drinking
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+      <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+        Continue
+      </button>
+      <p><a href="javascript:history.back()">Back</a></p>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+
+    window.addEventListener('load', (event) => {
+    });
+
+
+    function saveData(){
+      document.getElementById("uc50Form").submit();
+    }
+</script>
+{% endblock %}

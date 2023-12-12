@@ -1,0 +1,59 @@
+include:
+  - project:  'dwp/engineering/pipeline-solutions/gitlab/functions'
+    ref: 3.52.1
+    file:
+      - functions/node.yml
+      - functions/auto-tag-merge.yml
+  # heroku publish
+  - project: 'dwp/engineering/pipeline-solutions/gitlab/fragments/heroku-site-publish'
+    ref: 1-1-0
+    file: 'ci-include-heroku-site-publish-base.yml'
+
+# --------------- job rules
+
+# No tests in the base custom project template and generally not written for fast prototyping
+.node-coverage-rules:
+  rules:
+    when: never
+
+# Prototyping - and no tests are run so don't run SQ
+.node-sonarqube-rules:
+  rules:
+      when: never
+
+# Prototypes are and have always been quick throwaway html and css with the odd bit of JavaScript
+# So time spent running code_quality will not add value
+.code_quality-rules:
+  rules:
+      when: never
+
+# Only publishes to Heroku when merged into main (preferably in DWP we only publish when a new Semantic Version is released using auto-tag-merge)
+.heroku-site-publish-rules:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: never
+
+# --------------- variables
+
+variables:
+  AUTO_TAG_MERGE_PREPARE_MR: "false" # Automatically create an MR to Semantically-Version merges into Main (requires a releaserc.js file in root)
+  CREATE_TARBALL: "false"
+
+# -------------- code-analysis
+
+# Don't fail on commit lint - will provide learning of DWP format when prototyping rather than blocking
+# Standards are: https://www.conventionalcommits.org/en/v1.0.0/#summary
+commitlint:
+  allow_failure: true
+
+# --------------- publish
+
+heroku-site-publish:
+  stage: publish
+  extends: .heroku-site-publish-template
+  variables:
+    HEROKU_APP_NAME: appeal-response
+  rules:
+    - !reference [.heroku-site-publish-rules, rules]
+    - if: $CI_COMMIT_TAG || $CI_COMMIT_REF_PROTECTED
+      when: on_success

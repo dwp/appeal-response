@@ -1,0 +1,89 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/mashup/table/add-date-selection" method="post" class="form">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What dates do you want to add to the appeal history?
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="date-type-original-decision" name="dateType" type="radio" value="originalDecision">
+                <label class="govuk-label govuk-radios__label" for="date-type-original-decision">
+                  Original decision made
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="date-type-original-notifcation" name="dateType" type="radio" value="originalNotifcation">
+                <label class="govuk-label govuk-radios__label" for="date-type-original-notifcation">
+                  Notification of original decision
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="date-type-mr" name="dateType" type="radio" value="mrRequest">
+                <label class="govuk-label govuk-radios__label" for="date-type-mr">
+                  MR requested by appellant
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="date-type-mr-decision" name="dateType" type="radio" value="mrDecision">
+                <label class="govuk-label govuk-radios__label" for="date-type-mr-decision">
+                  MR decision made
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="date-type-mr-notification" name="dateType" type="radio" value="mrNotification">
+                <label class="govuk-label govuk-radios__label" for="date-type-mr-notification">
+                  MR notification sent
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+        <p><a href="javascript:history.back()">Back</a></p>
+        </form>
+      </div>
+    </div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}

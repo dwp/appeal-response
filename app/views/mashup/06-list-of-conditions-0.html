@@ -1,0 +1,69 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Health conditions – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-7">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-1">Health conditions</h2>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class">Date declared</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Condition</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Fit note sent on</th>
+            <th scope="col" class="govuk-table__header app-custom-class"></th>
+
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">01 January 2023</td>
+            <td class="govuk-table__cell govuk-!-font-weight-bold">Depression</td>
+            <td class="govuk-table__cell">Not sent</td>
+            <td class="govuk-table__cell">
+              <a href="#">Change</a> | <a href="#">Remove</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="govuk-button-group">
+        <a class="govuk-button" data-module="govuk-button" href="01-task-list-new">
+          Save and continue
+        </a>
+        <a class="govuk-button govuk-button--secondary" data-module="govuk-button" href="06-health-conditions">
+          Add another condition
+        </a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+  });
+</script>
+{% endblock %}

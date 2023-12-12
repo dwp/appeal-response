@@ -1,0 +1,113 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Facts of the case</h1>
+
+      <div class="dwp-timeline">
+        <ol class="dwp-timeline__events">
+          {% for event in listOfEvents %}
+          <li class="dwp-timeline__events--entry govuk-!-margin-bottom-4">
+            <p class="govuk-caption-m govuk-!-margin-bottom-0">
+              {{ event.date }}
+            </p>
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-4">
+              {% if event.type == "keyDate" %}
+                  {{ event.title }}
+              {% elif event.type == "healthConditionDate" %}
+                  Health condition declared ({{ event.title }})
+              {% elif (event.type == "uc50" and event.uc50Exists == "Yes") %}
+                  Capability for work questionnaire (UC50)
+              {% endif %}
+            </h2>
+            {% if event.title == 'MR decision made'%}
+              <p class="govuk-body govuk-!-font-weight-bold">
+                Did the MR decision maker agree with the original decision? <br>
+                <span class="govuk-body govuk-!-font-weight-regular">
+                  {{ data['mrAgreeOriginal'] }}
+                </span>
+              </p>
+            {% endif %}
+            {% if event.type == "healthConditionDate" %}
+              <p class="govuk-body govuk-!-font-weight-bold">
+                Does it restrict ability to work? <br>
+                <span class="govuk-body govuk-!-font-weight-regular">
+                  {{ event.restrictedWork }}
+                </span>
+              </p>
+              <p class="govuk-body govuk-!-font-weight-bold">
+                Is there a fit note? <br>
+                <span class="govuk-body govuk-!-font-weight-regular">
+                  {{ event.fitNoteExists }}
+                </span>
+              </p>
+              {% if event.fitNoteExists == "Yes" %}
+                <p class="govuk-body govuk-!-font-weight-bold">
+                  What date did they send the fit note in? <br>
+                  <span class="govuk-body govuk-!-font-weight-regular">
+                    {{ event.fitNoteDate }}
+                  </span>
+                </p>
+              {% endif %}
+            {% elif (event.type == "uc50" and event.uc50Exists == "Yes") %}
+              <p class="govuk-body govuk-!-font-weight-bold">
+                What did the appellant have difficulty with?
+              </p>
+              <p class="govuk-body">
+                Physical functions
+              </p>
+              <ul class="govuk-list govuk-list--bullet">
+                {% for condition in data['physical'] %}
+                  <li>{{ condition }}</li>
+                {% endfor %}
+              </ul>
+              <p class="govuk-body">
+                Mental functions
+              </p>
+              <ul class="govuk-list govuk-list--bullet">
+                {% for condition in data['mental'] %}
+                  <li>{{ condition }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+
+      <p><a href="javascript:history.back()">Back</a></p>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}

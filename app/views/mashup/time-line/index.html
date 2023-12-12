@@ -1,0 +1,79 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Appeal history</h2>
+    </div>
+  </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__events">
+            {% for event in data.claimHistory %}
+              <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">{{ event.title }}</h2>
+                <p class="govuk-caption-m">
+                  {{ event.dateString }}
+                </p>
+                {% if event.agreeWithOriginal == "Yes" %}
+                  <p>MR decision maker agreed with the original decision.</p>
+                {% elif event.agreeWithOriginal == "No"%}
+                  <p>MR decision maker did not agree with the original decision, however the original decision was upheld.</p>
+                {% endif %}
+                {% if event.dualClaim == "Yes" %}
+                  <p>This is a dual claim for New Style Employment and Support Allowance.</p>
+                {% elif event.dualClaim == "No"%}
+                  <p>This is not a dual claim for New Style Employment and Support Allowance.</p>
+                {% endif %}
+                <p><a href="#">Edit</a></p>
+              </li>
+            {% endfor %}
+          </ol>
+        </div>
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+            Continue
+          </button>
+          <a class="govuk-button govuk-button--secondary" href="add-date-selection">
+            Add another date
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+  });
+
+  function saveData(){
+    sessionStorage.setItem("taskProgressAppealHistory","2");
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}

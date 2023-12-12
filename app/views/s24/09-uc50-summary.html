@@ -1,0 +1,139 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  UC 50 summary - Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-7">
+      <form action="/s24/09-uc50-summary?target={{target}}" method="post" novalidate>
+      <h1 class="govuk-heading-l">Check your answers</h1>
+      <h2 class="govuk-heading-m"> UC50</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Did the appellant return the UC50?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['uc50Exists'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="09-uc50-exists?change=1&target={{target}}">
+              Change<span class="govuk-visually-hidden"> customer reference</span>
+            </a>
+          </dd>
+        </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date appellant signed the UC50
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['uc50-day'] }}
+              {% if (data['uc50-month']==1) %}
+                January
+              {% elif (data['uc50-month']==2) %}
+                February
+              {% elif (data['uc50-month']==3) %}
+                March
+              {% elif (data['uc50-month']==4) %}
+                April
+              {% elif (data['uc50-month']==5) %}
+                May
+              {% elif (data['uc50-month']==6) %}
+                June
+              {% elif (data['uc50-month']==7) %}
+                July
+              {% elif (data['uc50-month']==8) %}
+                August
+              {% elif (data['uc50-month']==9) %}
+                September
+              {% elif (data['uc50-month']==10) %}
+                October
+              {% elif (data['uc50-month']==11) %}
+                November
+              {% elif (data['uc50-month']==12) %}
+                December
+              {% endif %}
+              {{ data['uc50-year'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="09-uc50?change=1&target={{target}}">
+                Change<span class="govuk-visually-hidden"> uc50 signed date</span>
+              </a>
+            </dd>
+          </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">What did the appellant have difficulty with?</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Physical functions
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% for condition in data['physical'] %}
+                <li>{{ condition }}</li>
+              {% endfor %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="09-uc50?change=1&target={{target}}">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Mental, cognitive and intellectual capabilities
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% for condition in data['mental'] %}
+                <li>{{ condition }}</li>
+              {% endfor %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="09-uc50?change=1&target={{target}}">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      <p><a href="javascript:history.back()">Back</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+
+    window.addEventListener('load', (event) => {
+      document.getElementById('uc50-day').value = sessionStorage.getItem("uc50-day");
+      document.getElementById('uc50-month').value = sessionStorage.getItem("uc50-month");
+      document.getElementById('uc50-year').value = sessionStorage.getItem("uc50-year");
+    });
+
+
+    function saveData(){
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+{% if data.error %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Enter all mandatory data</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+<a href="
+{% if (data.edit == 1 and data.target == 'index') %}
+  index
+{% elif (data.edit == 1 and data.target == 'index3') %}
+  index3
+{% else %}
+  javascript:history.back()
+{% endif %}
+" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Appeal dates</h2>
+      <form action="/timeline/foc/addAppealDates?target={{data.target}}" method="post" class="form" id="form">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+                Appeal received by HMCTS
+              </label>
+                  <div class="govuk-date-input" id="date-original-decision">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="dateHMCTSDay">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateHMCTSDay" name="dateHMCTSDay" type="text" inputmode="numeric" value={{ data.events[data.editHMCTSIndex].day }}>
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="dateHMCTSMonth">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateHMCTSMonth" name="dateHMCTSMonth" type="text" inputmode="numeric" value={{ data.events[data.editHMCTSIndex].month }}>
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="dateHMCTSYear">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateHMCTSYear" name="dateHMCTSYear" type="text" inputmode="numeric" value={{ data.events[data.editHMCTSIndex].year }}>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+                  Appeal received by DWP
+                </label>
+                    <div class="govuk-date-input" id="date-original-decision">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="dateDWPDay">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateDWPDay" name="dateDWPDay" type="text" inputmode="numeric" value={{ data.events[data.editDWPIndex].day }}>
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="dateDWPMonth">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateDWPMonth" name="dateDWPMonth" type="text" inputmode="numeric" value={{ data.events[data.editDWPIndex].month }}>
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="dateDWPYear">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateDWPYear" name="dateDWPYear" type="text" inputmode="numeric" value={{ data.events[data.editDWPIndex].year }}>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      {% if data.edit == 1 %}
+        <p>
+          <a class="govuk-body govuk-link govuk-link--no-visited-state redText" href="/remove?id={{data.events[data.editIndex].id}}">Remove this fact</a>
+        </p>
+      {% endif %}
+      <p><a href="
+      {% if (data.edit == 1 and data.target == 'index') %}
+        index
+      {% elif (data.edit == 1 and data.target == 'index3') %}
+        index3
+      {% elif (data.edit == 1 and data.target == 'index4') %}
+        index4
+      {% else %}
+        javascript:history.back()
+      {% endif %}
+      ">Back</a></p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}

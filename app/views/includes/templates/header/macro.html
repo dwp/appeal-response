@@ -19,7 +19,7 @@
 {% if menuItems %}
   {{menu.menu(menuItems)}}
 {% endif %}
-
+<!--
 {% if appellantName %}
 <section class="dwp-key-details-bar " aria-label="Key details">
 <div class="dwp-key-details-bar__key-details">
@@ -32,5 +32,15 @@
 </div>
 </section>
 {% endif %}
+-->
+<section class="dwp-key-details-bar " aria-label="Key details">
+<div class="dwp-key-details-bar__key-details">
+<dl class="dwp-key-details-bar__top-block">
+    <dt class="govuk-visually-hidden">Nino:</dt>
+    <dd class="dwp-key-details-bar__secondary">HMCTS reference: 1234 5678 8101 1111</dd>
+</dl>
+</div>
+</section>
+
 </header>
 {% endmacro %}

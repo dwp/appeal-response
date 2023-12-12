@@ -1,0 +1,95 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-7">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Health conditions or disabilities</h2>
+      </div>
+    </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-form-group">
+          <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="account-number">
+              Declared on original claim
+            </label>
+          </h3>
+          <div id="account-number-hint" class="govuk-hint">
+            For example, arthritis, depression
+          </div>
+          <input class="govuk-input govuk-input--width-24" id="originalCondition" name="originalCondition" type="text" spellcheck="false" aria-describedby="account-number-hint" >
+        </div>
+
+        <div class="govuk-form-group">
+          <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="account-number">
+              Declared as a change of circumstance
+            </label>
+          </h3>
+          <div id="account-number-hint" class="govuk-hint">
+            For example, arthritis, depression
+          </div>
+          <input class="govuk-input govuk-input--width-24" id="cocCondition" name="cocCondition" type="text" spellcheck="false" aria-describedby="account-number-hint" >
+        </div>
+
+      <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+        Continue
+      </button>
+      <p><a href="javascript:history.back()">Back</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+    document.getElementById('originalCondition').value = sessionStorage.getItem("originalCondition");
+    document.getElementById('cocCondition').value = sessionStorage.getItem("cocCondition");
+  });
+
+
+  function saveData(){
+    sessionStorage.setItem("cocCondition",document.getElementById('cocCondition').value);
+    sessionStorage.setItem("originalCondition",document.getElementById('originalCondition').value);
+
+    if(
+      document.getElementById('cocCondition').value
+      && document.getElementById('originalCondition').value
+    )
+    {
+      sessionStorage.setItem("taskProgressHealthConditions","2");
+    }
+    else if(
+      document.getElementById('originalCondition').value
+      || document.getElementById('cocCondition').value
+    )
+    {
+      sessionStorage.setItem("taskProgressHealthConditions","1");
+    }
+    else
+    {
+      sessionStorage.setItem("taskProgressHealthConditions","0");
+    }
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Facts of the case</h1>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-font-size-27 govuk-!-width-one-quarter">Date</th>
+            <th scope="col" class="govuk-table__header govuk-!-font-size-27 govuk-!-width-one-half">Event</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for event in listOfEvents %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">
+                {{ event.date }}
+              </th>
+              <td class="govuk-table__cell">
+                {% if event.type == "keyDate" %}
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    {{ event.title }}
+                  </p>
+                  {% if event.title == 'MR decision made'%}
+                    <p class="govuk-body govuk-!-font-weight-bold">
+                      Did the MR decision maker agree with the original decision? <br>
+                      <span class="govuk-body govuk-!-font-weight-regular">
+                        {{ data['mrAgreeOriginal'] }}
+                      </span>
+                    </p>
+                  {% endif %}
+                {% elif event.type == "healthConditionDate" %}
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    Health condition declared ({{ event.title }})
+                  </p>
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    Does it restrict ability to work? <br>
+                    <span class="govuk-body govuk-!-font-weight-regular">
+                      {{ event.restrictedWork }}
+                    </span>
+                  </p>
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    Is there a fit note? <br>
+                    <span class="govuk-body govuk-!-font-weight-regular">
+                      {{ event.fitNoteExists }}
+                    </span>
+                  </p>
+                  {% if event.fitNoteExists == "Yes" %}
+                    <p class="govuk-body govuk-!-font-weight-bold">
+                      What date did they send the fit note in? <br>
+                      <span class="govuk-body govuk-!-font-weight-regular">
+                        {{ event.fitNoteDate }}
+                      </span>
+                    </p>
+                  {% endif %}
+                {% elif (event.type == "uc50" and event.uc50Exists == "Yes") %}
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    Capability for work questionnaire (UC50)
+                  </p>
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    What did the appellant have difficulty with?
+                  </p>
+                  <p class="govuk-body">
+                    Physical functions
+                  </p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for condition in data['physical'] %}
+                      <li>{{ condition }}</li>
+                    {% endfor %}
+                  </ul>
+                  <p class="govuk-body">
+                    Mental functions
+                  </p>
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for condition in data['mental'] %}
+                      <li>{{ condition }}</li>
+                    {% endfor %}
+                  </ul>
+                {% elif event.type == "uc113" %}
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    GP report form (UC113)
+                  </p>
+                {% elif event.type == "hcp" %}
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    Health assessment
+                  </p>
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    Type of assessment <br>
+                    <span class="govuk-body govuk-!-font-weight-regular">
+                      {{ event.assessmentType }}
+                    </span>
+                  </p>
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    Health conditions identified by the healthcare professional (HCP) <br>
+                    <span class="govuk-body govuk-!-font-weight-regular">
+                      {{ event.conditions }}
+                    </span>
+                  </p>
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p><a href="javascript:history.back()">Back</a></p>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}

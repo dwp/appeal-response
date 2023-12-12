@@ -1,0 +1,97 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="">
+            <img src="/public/images/dwp-logo.png" alt="" width="150px">
+        </div>
+        <h2 class="govuk-heading-m govuk-!-margin-top-5">Secretary of State’s Response - IN CONFIDENCE</h2>
+        <table class="govuk-table">
+          <tr class="govuk-table__row">
+            <td class="govuk-body govuk-!-padding-2 bordered">To</td>
+            <td class="govuk-body govuk-!-padding-2 bordered">HM Courts & Tribunal Service - reference:</td>
+          </tr>
+        </table>
+        <h2 class="govuk-heading-m govuk-!-margin-top-5">Section 1: Personal details</h2>
+        <table class="govuk-table">
+          {% for item in response.section1 %}
+          <tr class="govuk-table__row">
+            <td class="govuk-body govuk-!-font-weight-bold govuk-!-padding-2 bordered">{{ item.label }} </td>
+            <td class="govuk-body govuk-!-padding-2 bordered">{{ item.value }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        <h2 class="govuk-heading-m govuk-!-margin-top-5">Section 2: Schedule of evidence</h2>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-body govuk-!-font-weight-bold govuk-!-text-align-left govuk-!-padding-2 bordered">Document page No.</th>
+              <th scope="col" class="govuk-body govuk-!-font-weight-bold govuk-!-text-align-left govuk-!-padding-2 bordered">Description of document</th>
+              <th scope="col" class="govuk-body govuk-!-font-weight-bold govuk-!-text-align-left govuk-!-padding-2 bordered">Date of document</th>
+            </tr>
+          </thead>
+          <tr class="govuk-table__row">
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+            <td class="govuk-body govuk-!-padding-2 bordered"></td>
+          </tr>
+        </table>
+        <h2 class="govuk-heading-m govuk-!-margin-top-5">Section 3: The decision</h2>
+        <table class="govuk-table">
+          <tr class="govuk-table__row">
+            <td class="govuk-body govuk-!-padding-2 bordered response-label">3.1</td>
+            <td class="govuk-body govuk-!-padding-2 bordered">
+              <p>
+                Jane Doe does not have Limited Capability for Work (LCW) as they have scored 0 points following the Work Capability Assessment (WCA) and do not satisfy any of the conditions for being treated as having LCW.
+              </p>
+              <p>
+                They are not entitled to the LCW or Limited Capability for Work-Related Activity (LCWRA) element of Universal Credit and should be placed in the Intensive Work Search conditionality group.
+              </p>
+
+            </td>
+          </tr>
+        </table>
+      </div>
+
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+</script>
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "dwp-layout.html" %}
 
 {% block pageTitle %}
   Data cleared – GOV.UK Prototype Kit
@@ -20,4 +20,14 @@
     </a>
   </p>
 
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+
+    sessionStorage.clear();
+
+  });
+</script>
 {% endblock %}

@@ -1,0 +1,121 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-9">
+
+      <form action="/s24/10-uc113?target={{target}}" method="post" id="descriptorsForm">
+      <h1 class="govuk-heading-l">Descriptor points awarded by the decision maker</h1>
+        <div class="govuk-!-margin-bottom-9">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                Mental, cognitive and intellectual function
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="points-mental-0" name="points-mental" type="radio" value="0"  {{ checked('points-mental','0') }}>
+                  <label class="govuk-label govuk-radios__label" for="points-mental-0">
+                    0
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="points-mental-6" name="points-mental" type="radio" value="6"  {{ checked('points-mental','6') }}>
+                  <label class="govuk-label govuk-radios__label" for="points-mental-6">
+                    6
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="points-mental-9" name="points-mental" type="radio" value="9"  {{ checked('points-mental','9') }}>
+                  <label class="govuk-label govuk-radios__label" for="points-mental-9">
+                    9
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                Physical
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="points-physical-0" name="points-physical" type="radio" value="0"  {{ checked('points-physical','0') }}>
+                  <label class="govuk-label govuk-radios__label" for="points-physical-0">
+                    0
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="points-physical-6" name="points-physical" type="radio" value="6"  {{ checked('points-physical','6') }}>
+                  <label class="govuk-label govuk-radios__label" for="points-physical-6">
+                    6
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="points-physical-9" name="points-physical" type="radio" value="9"  {{ checked('points-physical','9') }}>
+                  <label class="govuk-label govuk-radios__label" for="points-physical-9">
+                    9
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+          Continue
+        </button>
+        <p><a href="javascript:history.back()">Back</a></p>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+
+    window.addEventListener('load', (event) => {
+      document.getElementById('uc50-day').value = sessionStorage.getItem("uc50-day");
+      document.getElementById('uc50-month').value = sessionStorage.getItem("uc50-month");
+      document.getElementById('uc50-year').value = sessionStorage.getItem("uc50-year");
+    });
+
+
+    function saveData(){
+      var checked_mental = document.querySelector('input[name = "points-mental"]:checked');
+      var checked_physical = document.querySelector('input[name = "points-physical"]:checked');
+      var radioFlag = 0;
+
+      if(checked_mental != null){
+        radioFlag++;
+      }
+
+      if(checked_physical != null){
+        radioFlag++;
+      }
+
+      sessionStorage.setItem("taskProgressDescriptors",radioFlag);
+      document.getElementById("descriptorsForm").submit();
+    }
+</script>
+{% endblock %}

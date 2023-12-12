@@ -1,0 +1,119 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new.html" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-7">
+      <h2 class="govuk-heading-l">Appellant details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Jane Doe
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a href="02-appellant-details-change.html">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            4 June 1972
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <!--
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+            -->
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            National Insurance number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            QQ 12 34 45 Q
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <!--
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+            -->
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value" >
+            <div id="addressContainer">
+
+            </div>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="02-appellant-address-change.html">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+
+
+      </dl>
+      <div class="govuk-checkboxes__item govuk-!-margin-bottom-5">
+        <input class="govuk-checkboxes__input" id="confirmation" name="confirmation" type="checkbox" value="carcasses">
+        <label class="govuk-label govuk-checkboxes__label" for="confirmation">
+          I confirm that the details are correct.
+        </label>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+        Confirm
+      </button>
+      <p><a href="javascript:history.back()">Back</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.onload = function() {
+    document.getElementById('addressContainer').innerHTML = sessionStorage.getItem("appellantAddress");
+  };
+  function saveData(){
+    sessionStorage.setItem("taskProgressAppellantDetails","2");
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}

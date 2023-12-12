@@ -1,0 +1,261 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Appeal history</h2>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="dwp-timeline govuk-!-margin-bottom-9">
+        <ol class="dwp-timeline__events">
+          <li class="dwp-timeline__events--entry">
+            <div class="" style="display:inline-block;">
+              <dt class="govuk-body" style="float:left; width:160px;">
+                03 December 2021
+              </dt>
+              <dd class="govuk-body" style="float:left; width:250px; font-weight:bold;">
+                Original decision made
+              </dd>
+              <dd class="govuk-body" style="float:right">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </li>
+          <li class="dwp-timeline__events--entry">
+            <div class="" style="display:inline-block;">
+              <dt class="govuk-body" style="float:left; width:160px;">
+                03 December 2021
+              </dt>
+              <dd class="govuk-body" style="float:left; width:250px; font-weight:bold;">
+                Original decision notification sent
+              </dd>
+              <dd class="govuk-body" style="float:right">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </li>
+          <li class="dwp-timeline__events--entry">
+            <div class="" style="display:inline-block;">
+              <dt class="govuk-body" style="float:left; width:160px;">
+                17 January 2022
+              </dt>
+              <dd class="govuk-body" style="float:left; width:250px; font-weight:bold;">
+                MR requested by appellant
+              </dd>
+              <dd class="govuk-body" style="float:right">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </li>
+          <li class="dwp-timeline__events--entry">
+            <div class="" style="display:inline-block;">
+              <dt class="govuk-body" style="float:left; width:160px;">
+                23 February 2022
+              </dt>
+              <dd class="govuk-body" style="float:left; width:250px; font-weight:bold;">
+                MR decision made<br><br>
+                <p class="govuk-body">
+                  MR decision maker did not agree with the original decision.
+                </p>
+                <p class="govuk-body">
+                  This a dual claim for New Style Employment and Support Allowance.
+                </p>
+              </dd>
+              <dd class="govuk-body" style="float:right">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </li>
+          <li class="dwp-timeline__events--entry">
+            <div class="" style="display:inline-block;">
+              <dt class="govuk-body" style="float:left; width:160px;">
+                23 February 2022
+              </dt>
+              <dd class="govuk-body" style="float:left; width:250px; font-weight:bold;">
+                MR notification sent
+              </dd>
+              <dd class="govuk-body" style="float:right">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </li>
+          <li class="dwp-timeline__events--entry">
+            <div class="" style="display:inline-block;">
+              <dt class="govuk-body" style="float:left; width:160px;">
+                12 June 2022
+              </dt>
+              <dd class="govuk-body" style="float:left; width:250px; font-weight:bold;">
+                Appeal received by HMCTS
+              </dd>
+              <dd class="govuk-body" style="float:right">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </li>
+          <li class="dwp-timeline__events--entry">
+            <div class="" style="display:inline-block;">
+              <dt class="govuk-body" style="float:left; width:160px;">
+                12 June 2022
+              </dt>
+              <dd class="govuk-body" style="float:left; width:250px; font-weight:bold;">
+                Appeal received by DWP
+              </dd>
+              <dd class="govuk-body" style="float:right">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </li>
+          <!--
+          <li class="dwp-timeline__events--entry">
+            <div class="" style="display:inline-block;">
+              <dt class="govuk-body" style="float:left">
+                Outcome decision
+              </dt>
+              <dd class="govuk-body" style="float:left">
+                12 June 2022
+              </dd>
+              <dd class="govuk-body" style="float:right">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </li>
+          <li class="dwp-timeline__events--entry">
+            <div class="" style="display:inline-block;">
+              <dt class="govuk-body" style="float:left">
+                Outcome decision
+              </dt>
+              <dd class="govuk-body" style="float:left">
+                12 June 2022
+              </dd>
+              <dd class="govuk-body" style="float:right">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </li>
+          -->
+        </ol>
+      </div>
+      <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+        Continue
+      </button>
+      <p><a href="javascript:history.back()">Back</a></p>
+
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h3 class="govuk-heading-m">Add dates</h3>
+      <ul class="govuk-list">
+        <li>
+          <a class="govuk-link" href="#">Other dates</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+    document.getElementById('date-original-decision-day').value = sessionStorage.getItem("date-original-decision-day");
+    document.getElementById('date-original-decision-month').value = sessionStorage.getItem("date-original-decision-month");
+    document.getElementById('date-original-decision-year').value = sessionStorage.getItem("date-original-decision-year");
+    document.getElementById('mr-day').value = sessionStorage.getItem("mr-day");
+    document.getElementById('mr-month').value = sessionStorage.getItem("mr-month");
+    document.getElementById('mr-year').value = sessionStorage.getItem("mr-month");
+    document.getElementById('mrn-sent-day').value = sessionStorage.getItem("mrn-sent-day");
+    document.getElementById('mrn-sent-month').value = sessionStorage.getItem("mrn-sent-day");
+    document.getElementById('mrn-sent-year').value = sessionStorage.getItem("mrn-sent-day");
+  });
+
+
+  function saveData(){
+    sessionStorage.setItem("date-original-decision-day",document.getElementById('date-original-decision-day').value);
+    sessionStorage.setItem("date-original-decision-month",document.getElementById('date-original-decision-month').value);
+    sessionStorage.setItem("date-original-decision-year",document.getElementById('date-original-decision-year').value);
+
+    sessionStorage.setItem("mr-day",document.getElementById('mr-day').value);
+    sessionStorage.setItem("mr-month",document.getElementById('mr-month').value);
+    sessionStorage.setItem("mr-year",document.getElementById('mr-year').value);
+
+    sessionStorage.setItem("mrn-sent-day",document.getElementById('mrn-sent-day').value);
+    sessionStorage.setItem("mrn-sent-month",document.getElementById('mrn-sent-month').value);
+    sessionStorage.setItem("mrn-sent-year",document.getElementById('mrn-sent-year').value);
+
+    if(
+      document.getElementById('date-original-decision-day').value
+      && document.getElementById('date-original-decision-month').value
+      && document.getElementById('date-original-decision-year').value
+      && document.getElementById('mr-day').value
+      && document.getElementById('mr-month').value
+      && document.getElementById('mr-year').value
+      && document.getElementById('mrn-sent-day').value
+      && document.getElementById('mrn-sent-month').value
+      && document.getElementById('mrn-sent-year').value
+    )
+    {
+      sessionStorage.setItem("taskProgressDecisionDates","2");
+    }
+    else if(
+      document.getElementById('date-original-decision-day').value
+      || document.getElementById('date-original-decision-month').value
+      || document.getElementById('date-original-decision-year').value
+      || document.getElementById('mr-day').value
+      || document.getElementById('mr-month').value
+      || document.getElementById('mr-year').value
+      || document.getElementById('mrn-sent-day').value
+      || document.getElementById('mrn-sent-month').value
+      || document.getElementById('mrn-sent-year').value
+    )
+    {
+      sessionStorage.setItem("taskProgressDecisionDates","1");
+    }
+    else
+    {
+      sessionStorage.setItem("taskProgressDecisionDates","0");
+    }
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}
