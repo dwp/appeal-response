@@ -1,0 +1,116 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{ header.header(serviceName,'Jane Doe') }}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-9">
+
+      <form action="/s24/10-uc113?target={{target}}" method="post" id="uc113Form">
+      <h1 class="govuk-heading-l">GP report form (UC113)</h1>
+        <div class="govuk-!-margin-bottom-9">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                Has a GP completed a UC113 form for the claimant?
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="uc-113-yes" name="uc113Exists" type="radio" value="Yes" data-aria-controls="conditional-date" {{ checked('uc113Exists','Yes') }}>
+                  <label class="govuk-label govuk-radios__label" for="uc-113-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-date">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="uc113-date">
+                      What date did the GP complete the UC113?
+                    </label>
+                    <div class="govuk-date-input" id="date-original-decision">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="uc113-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc113-day" name="uc113Day" type="text" inputmode="numeric" value={{data['uc113Day']}}>
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="uc113-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc113-month" name="uc113Month" type="text" inputmode="numeric" value={{data['uc113Month']}}>
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="uc113-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="uc113-year" name="uc113Year" type="text" inputmode="numeric" value={{data['uc113Year']}}>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="uc-113-no" name="uc113Exists" type="radio" value="No" {{ checked('uc113Exists','No') }}>
+                  <label class="govuk-label govuk-radios__label" for="uc-113-no">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+          Continue
+        </button>
+        <p><a href="javascript:history.back()">Back</a></p>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+
+    function saveData(){
+      var checked_radio = document.querySelector('input[name = "uc113Exists"]:checked');
+      var radioFlag = 0;
+
+      if(document.getElementById('uc-113-no').checked){
+        radioFlag = 2;
+      }
+      else if(document.getElementById('uc-113-yes').checked){
+        if(document.getElementById('uc113-day').value && document.getElementById('uc113-month').value && document.getElementById('uc113-year').value){
+          radioFlag = 2;
+        }
+        else{
+          radioFlag = 1;
+        }
+      }
+      sessionStorage.setItem("taskProgressUC113",radioFlag);
+      document.getElementById("uc113Form").submit();
+    }
+</script>
+{% endblock %}

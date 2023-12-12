@@ -5874,3 +5874,9 @@ x:-moz-any-link {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.simplified-status {
+  font-weight: normal !important;
+  text-transform: none !important;
+  color: #fff !important;
+}

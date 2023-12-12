@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block pageTitle %}
-  Home – Prepare an appeal response
+  Tasks to complete – Prepare an appeal response
 {% endblock %}
 
 {% block header %}
@@ -18,7 +18,7 @@
 {% endblock %}
 
 {% block content %}
-<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+<a href="../" class="govuk-back-link">Back</a>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">
@@ -46,14 +46,6 @@
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskRepDetails">Not started</strong>
               </li>
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="04-key-dates" aria-describedby="read-declaration-status">
-                    Key dates
-                  </a>
-                </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskKeyDates">Not started</strong>
-              </li>
             </ul>
           </li>
 
@@ -65,38 +57,19 @@
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="05-decision-dates" aria-describedby="company-information-status">
-                    Additional dates needed
+                    Appeal history
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskDecisionDates">Not started</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskAppealHistory">Not started</strong>
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="06-health-conditions" aria-describedby="company-information-status">
-                    Health conditions or disabilities
+                  <a href="health-conditions/index" aria-describedby="company-information-status">
+                    Health conditions
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskHealthConditions">Not started</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskHealthCondition">Not started</strong>
               </li>
-              <!--
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="07-ability-to-work" aria-describedby="company-information-status">
-                    Ability to work or look for work
-                  </a>
-                </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskAbilityToWork">Not started</strong>
-              </li>
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="08-fit-note" aria-describedby="company-information-status">
-                    Fit note
-                  </a>
-                </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskFitNote">Not started</strong>
-              </li>
-
-              -->
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="09-uc50" aria-describedby="company-information-status">
@@ -105,6 +78,16 @@
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskUC50">Not started</strong>
               </li>
+              <!--
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="10-uc113" aria-describedby="company-information-status">
+                    GP report form (UC113)
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskUC50">Not started</strong>
+              </li>
+              -->
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="10-health-assessment" aria-describedby="company-information-status">
@@ -146,6 +129,9 @@
 <script type="text/javascript">
   window.addEventListener('load', (event) => {
 
+    sessionStorage.setItem("draftExists","1");
+    sessionStorage.setItem("appellantAddress","72 Guild Street <br>London <br>SE23 6FH");
+
     if(sessionStorage.getItem("taskProgressAppellantDetails")=="2") {
         document.getElementById("taskAppellantDetails").innerHTML = "Completed";
         document.getElementById("taskAppellantDetails").className = "govuk-tag app-task-list__tag";
@@ -154,14 +140,14 @@
         document.getElementById("taskRepDetails").innerHTML = "Completed";
         document.getElementById("taskRepDetails").className = "govuk-tag app-task-list__tag";
     }
-    if(sessionStorage.getItem("taskProgressKeyDates")=="2") {
-        document.getElementById("taskKeyDates").innerHTML = "Completed";
-        document.getElementById("taskKeyDates").className = "govuk-tag app-task-list__tag";
+    if(sessionStorage.getItem("taskProgressAppealHistory")=="2") {
+        document.getElementById("taskAppealHistory").innerHTML = "Completed";
+        document.getElementById("taskAppealHistory").className = "govuk-tag app-task-list__tag";
     }
 
-    if(sessionStorage.getItem("taskProgressDecisionDates")==2){
-      document.getElementById("taskDecisionDates").innerHTML = "Completed";
-      document.getElementById("taskDecisionDates").className = "govuk-tag app-task-list__tag";
+    if(sessionStorage.getItem("taskProgressHealthCondition")==2){
+      document.getElementById("taskHealthCondition").innerHTML = "Completed";
+      document.getElementById("taskHealthCondition").className = "govuk-tag app-task-list__tag";
     }
     else if(sessionStorage.getItem("taskProgressDecisionDates")==1){
       document.getElementById("taskDecisionDates").innerHTML = "In progress";

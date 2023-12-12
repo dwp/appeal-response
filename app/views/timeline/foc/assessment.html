@@ -1,0 +1,201 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="/public/javascripts/auto-complete.js"></script>
+  <script src="/public/javascripts/misc.js"></script>
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+{% if data.error %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Enter all mandatory data</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+<a href="
+{% if (data.edit == 1 and data.target == 'index') %}
+  index
+{% elif (data.edit == 1 and data.target == 'index3') %}
+  index3
+{% else %}
+  javascript:history.back()
+{% endif %}
+" class="govuk-back-link">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/timeline/foc/addAssessment?target={{data.target}}" method="post" id="form">
+        <h1 class="govuk-heading-l">Health assessment</h1>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="hcpAssessment-hint">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-!-font-weight-bold" for="weight">
+                Date of assessment
+              </label>
+            </h1>
+            <div class="govuk-date-input" id="hcpAssessment">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="hcpAssessment-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="hcpAssessmentDay" name="hcpAssessmentDay" type="text" inputmode="numeric" value={{data.events[data.editIndex].day}}>
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="hcpAssessment-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="hcpAssessmentMonth" name="hcpAssessmentMonth" type="text" inputmode="numeric" value={{data.events[data.editIndex].month}}>
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="hcpAssessment-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="hcpAssessmentYear" name="hcpAssessmentYear" type="text" inputmode="numeric" value={{data.events[data.editIndex].year}}>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-!-font-weight-bold" for="weight">
+                Type of assessment
+              </label>
+            </h1>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="assessmentTele" name="assessmentType" type="radio" value="Telephone"
+                {% if data.events[data.editIndex].details.assessmentType == "Telephone" %}
+                checked
+                {% endif %}>
+                <label class="govuk-label govuk-radios__label" for="assessmentTele">
+                  Telephone
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="assessmentVideo" name="assessmentType" type="radio" value="Video"
+                {% if data.events[data.editIndex].details.assessmentType == "Video" %}
+                checked
+                {% endif %}>
+                <label class="govuk-label govuk-radios__label" for="assessmentVideo">
+                  Video
+                </label>
+              </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="assessmentF2F" name="assessmentType" type="radio" value="Face to face"
+                    {% if data.events[data.editIndex].details.assessmentType == "Face to face" %}
+                    checked
+                    {% endif %}>
+                  <label class="govuk-label govuk-radios__label" for="assessmentF2F">
+                    Face to face
+                  </label>
+                </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <!--
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-!-font-weight-bold" for="weight">
+              Health conditions identified by the healthcare professional (HCP)
+            </label>
+          </h1>
+          <div class="govuk-input__wrapper autocomplete">
+            <input class="govuk-input" id="condition" name="condition" type="text">
+            <div class="govuk-input__suffix" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <input class="govuk-input" id="conditionsString" name="conditionsString" type="text" style="display:none">
+        <div class="govuk-!-margin-bottom-5" id="selectedConditions" style="display:none">
+          <h3 class="govuk-heading-s">
+            Selected conditions
+          </h3>
+        </div>
+        -->
+
+      <button class="govuk-button" data-module="govuk-button" onclick="submitForm()">
+        Continue
+      </button>
+      {% if data.edit == 1 %}
+        <p>
+          <a class="govuk-body govuk-link govuk-link--no-visited-state redText" href="/remove?id={{data.events[data.editIndex].id}}">Remove this fact</a>
+        </p>
+      {% endif %}
+      <p><a href="
+      {% if (data.edit == 1 and data.target == 'index') %}
+        index
+      {% elif (data.edit == 1 and data.target == 'index3') %}
+        index3
+      {% else %}
+        javascript:history.back()
+      {% endif %}
+      ">Back</a></p>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  /*
+  var selectedConditions = [];
+  var itemsToPopulate = "{{ data.events[data.editIndex].details.asessmentConditions }}";
+  */
+
+  function submitForm(){
+    /*
+    var conditionsString = "";
+    for (var i = 0; i < selectedConditions.length; i++) {
+      conditionsString += selectedConditions[i] + ",";
+    }
+    document.getElementById('conditionsString').value = conditionsString;
+    */
+    document.getElementById('form').submit();
+  }
+
+  /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+  /*
+  autocomplete(document.getElementById("condition"), conditions);
+  if ({{data.edit}} != -1) {
+    populate(itemsToPopulate);
+  }
+  */
+</script>
+{% endblock %}

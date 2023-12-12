@@ -1,0 +1,143 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+{% if data.error %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Please confirm if the appellant details are correct.</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+<a href="01-task-list-new.html" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-7">
+      <h2 class="govuk-heading-l">Appellant details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Jane Doe
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <!--
+            <a href="02-find-appellant.html">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+            -->
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            4 June 1972
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <!--
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+            -->
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            National Insurance number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            QQ 12 34 45 Q
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <!--
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+            -->
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value" >
+            <div id="addressContainer">
+              72 Guild street<br>
+              London<br>
+              SE23 6FH
+            </div>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <!--
+            <a href="02-appellant-address-change.html">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+            -->
+          </dd>
+        </div>
+
+
+      </dl>
+      <form action="/timeline/addAppellant?target={{data.target}}" method="post" class="form" id="form">
+        <div class="govuk-checkboxes__item govuk-!-margin-bottom-5">
+          <input class="govuk-checkboxes__input" id="appellantConfirmation" name="appellantConfirmation" type="checkbox" value="Confirm"
+          {{ checked("appellantConfirmation", "Confirm") }} >
+          <label class="govuk-label govuk-checkboxes__label" for="appellantConfirmation">
+            I confirm that the details are correct.
+          </label>
+        </div>
+        <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+          Continue
+        </button>
+      </form>
+      <p><a href="02-find-appellant">Change appellant</a></p>
+      <p><a href="javascript:history.back()">Back</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressAppellantDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}

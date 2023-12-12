@@ -1,0 +1,340 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Appeal history</h2>
+      <form action="/mashup/05-decision-dates" method="post" class="form" id="datesForm">
+      <div class="govuk-!-margin-bottom-9">
+        <h3 class="govuk-heading-m">
+          Original decision
+          <span class="govuk-caption-m">Also known as outcome decision</span>
+        </h3>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+            Decision made
+          </label>
+              <div class="govuk-date-input" id="date-original-decision">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="dateOriginalDecisionDay">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateOriginalDecisionDay" name="dateOriginalDecisionDay" type="text" inputmode="numeric" value={{ data['dateOriginalDecisionDay'] }}>
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="dateOriginalDecisionMonth">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateOriginalDecisionMonth" name="dateOriginalDecisionMonth" type="text" inputmode="numeric" value={{ data['dateOriginalDecisionMonth'] }}>
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="dateOriginalDecisionYear">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateOriginalDecisionYear" name="dateOriginalDecisionYear" type="text" inputmode="numeric" value={{ data['dateOriginalDecisionYear'] }}>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+              Notification sent
+            </label>
+                <div class="govuk-date-input" id="date-original-decision">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="dateOriginalNotifcationDay">
+                        Day
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateOriginalNotifcationDay" name="dateOriginalNotifcationDay" type="text" inputmode="numeric" value={{ data['dateOriginalNotifcationDay'] }}>
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="dateOriginalNotifcationMonth">
+                        Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateOriginalNotifcationMonth" name="dateOriginalNotifcationMonth" type="text" inputmode="numeric" value={{ data['dateOriginalNotifcationMonth'] }}>
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="dateOriginalNotifcationYear">
+                        Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateOriginalNotifcationYear" name="dateOriginalNotifcationYear" type="text" inputmode="numeric" value={{ data['dateOriginalNotifcationYear'] }}>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="govuk-!-margin-bottom-9">
+            <h3 class="govuk-heading-m">
+              Mandatory reconsideration (MR)
+            </h3>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+                MR requested by appellant
+              </label>
+                  <div class="govuk-date-input" id="date-original-decision">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="dateMrDay">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateMrDay" name="dateMrDay" type="text" inputmode="numeric" value={{ data['dateMrDay'] }}>
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="dateMrMonth">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateMrMonth" name="dateMrMonth" type="text" inputmode="numeric" value={{ data['dateMrMonth'] }}>
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="dateMrYear">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateMrYear" name="dateMrYear" type="text" inputmode="numeric" value={{ data['dateMrYear'] }}>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+                  MR decision made
+                </label>
+                    <div class="govuk-date-input" id="date-original-decision">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="dateMrDecisionDay">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateMrDecisionDay" name="dateMrDecisionDay" type="text" inputmode="numeric" value={{ data['dateMrDecisionDay'] }}>
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="dateMrDecisionMonth">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateMrDecisionMonth" name="dateMrDecisionMonth" type="text" inputmode="numeric" value={{ data['dateMrDecisionMonth'] }}>
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="dateMrDecisionYear">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateMrDecisionYear" name="dateMrDecisionYear" type="text" inputmode="numeric" value={{ data['dateMrDecisionYear'] }}>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+                    MR notification sent 
+                  </label>
+                      <div class="govuk-date-input" id="date-original-decision">
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateMrNotificationDay">
+                              Day
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateMrNotificationDay" name="dateMrNotificationDay" type="text" inputmode="numeric" value={{ data['dateMrNotificationDay'] }}>
+                          </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateMrNotificationMonth">
+                              Month
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateMrNotificationMonth" name="dateMrNotificationMonth" type="text" inputmode="numeric" value={{ data['dateMrNotificationMonth'] }}>
+                          </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateMrNotificationYear">
+                              Year
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateMrNotificationYear" name="dateMrNotificationYear" type="text" inputmode="numeric" value={{ data['dateMrNotificationYear'] }}>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                      <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                        Did the MR decision maker agree with the original decision?
+                      </legend>
+                      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="mr-agree-original-yes" name="mrAgreeOriginal" type="radio" value="Yes">
+                          <label class="govuk-label govuk-radios__label" for="mr-agree-original-yes">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="mr-agree-original-no" name="mrAgreeOriginal" type="radio" value="No">
+                          <label class="govuk-label govuk-radios__label" for="mr-agree-original-no">
+                            No
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+              </div>
+
+              <div class="govuk-!-margin-bottom-9">
+                <h3 class="govuk-heading-m">
+                  Mandatory reconsideration (MR)
+                </h3>
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                      Is this a dual claim for New Style Employment and Support Allowance (ESA)?
+                    </legend>
+                    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="dual-claim-yes" name="dualClaim" type="radio" value="Yes">
+                        <label class="govuk-label govuk-radios__label" for="dual-claim-yes">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="dual-claim-no" name="dualClaim" type="radio" value="No">
+                        <label class="govuk-label govuk-radios__label" for="dual-claim-no">
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="govuk-!-margin-bottom-9">
+                <h3 class="govuk-heading-m"> Appeal dates </h3>
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+                    Appeal received by HMCTS
+                  </label>
+                  <div id="passport-issued-hint" class="govuk-hint">
+                    The date on CCD is 01 March 2023
+                  </div>
+                      <div class="govuk-date-input" id="date-original-decision">
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateHmctsAppealDay">
+                              Day
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateHmctsAppealDay" name="dateHmctsAppealDay" type="text" inputmode="numeric"  value="01" >
+                          </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateHmctsAppealMonth">
+                              Month
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateHmctsAppealMonth" name="dateHmctsAppealMonth" type="text" inputmode="numeric" value="08">
+                          </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateHmctsAppealYear">
+                              Year
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateHmctsAppealYear" name="dateHmctsAppealYear" type="text" inputmode="numeric" value="2022">
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+                      Appeal received by DWP
+                    </label>
+                    <div id="passport-issued-hint" class="govuk-hint">
+                      The date on CCD is 01 August 2022
+                    </div>
+                        <div class="govuk-date-input" id="date-original-decision">
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="dateDwpAppealDay">
+                                Day
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateDwpAppealDay" name="dateDwpAppealDay" type="text" inputmode="numeric" value="01">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="dateDwpAppealMonth">
+                                Month
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateDwpAppealMonth" name="dateDwpAppealMonth" type="text" inputmode="numeric" value="08">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="dateDwpAppealYear">
+                                Year
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateDwpAppealYear" name="dateDwpAppealYear" type="text" inputmode="numeric" value="2022">
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+
+      <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+        Continue
+      </button>
+      <p><a href="javascript:history.back()">Back</a></p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    sessionStorage.setItem("taskProgressAppealHistory","2");
+    document.getElementById("datesForm").submit();
+  }
+</script>
+{% endblock %}

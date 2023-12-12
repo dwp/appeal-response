@@ -1,0 +1,91 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-width">
+    <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+      <h2 class="govuk-heading-l">Appeal history</h2>
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__events">
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Original decision made</h2>
+                <p class="govuk-caption-m">03 December 2021</p>
+                <p><a href="#">Change</a> | <a href="#">Remove</a></p>
+            </li>
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Original decision notification sent</h2>
+                <p class="govuk-caption-m">03 December 2021</p>
+                <p><a href="#">Change</a> | <a href="#">Remove</a></p>
+            </li>
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">MR requested by appellant</h2>
+                <p class="govuk-caption-m">27 January 2022</p>
+                <p><a href="#">Change</a> | <a href="#">Remove</a></p>
+            </li>
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">MR decision made</h2>
+                <p class="govuk-caption-m">12 March 2022</p>
+                <p>MR decision maker did not agree with the original decision.</p>
+                <p>This a dual claim for New Style Employment and Support Allowance.</p>
+                <p><a href="#">Change</a> | <a href="#">Remove</a></p>
+            </li>
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">MR notification sent</h2>
+                <p class="govuk-caption-m">12 March 2022 </p>
+                <p><a href="#">Change</a> | <a href="#">Remove</a></p>
+            </li>
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Appeal received by HMCTS</h2>
+                <p class="govuk-caption-m">12 June 2022</p>
+                <p><a href="#">Change</a> | <a href="#">Remove</a></p>
+            </li>
+            <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Appeal received by DWP</h2>
+                <p class="govuk-caption-m">12 June 2022</p>
+                <p><a href="#">Change</a> | <a href="#">Remove</a></p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+            Save and continue
+          </button>
+          <a class="govuk-button govuk-button--secondary" href="add-date-selection">
+            Add another date
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+  });
+
+  function saveData(){
+    window.location.href = "../01-task-list-new";
+  }
+</script>
+{% endblock %}

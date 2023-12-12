@@ -1,0 +1,100 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row govuk-!-margin-bottom-7">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/s24/06-dual-claim?target={{target}}" method="post" id="dualClaimForm">
+        <div class="govuk-!-margin-bottom-9">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                Is this a dual claim for New Style Employment and Support Allowance (ESA)?
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="dual-claim-yes" name="dualClaim" type="radio" value="Yes" data-aria-controls="conditional-date" {{ checked('dualClaim','Yes') }}>
+                  <label class="govuk-label govuk-radios__label" for="dual-claim-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-date">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-!-font-weight-bold" for="fit-note-date">
+                      Date of claim for New Style ESA
+                    </label>
+                    <div class="govuk-date-input" id="date-original-decision">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="date-original-decision-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-original-decision-day" name="dualClaimDay" type="text" inputmode="numeric" value={{data['dualClaimDay']}}>
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="date-original-decision-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="date-original-decision-month" name="dualClaimMonth" type="text" inputmode="numeric" value={{data['dualClaimMonth']}}>
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="date-original-decision-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="date-original-decision-year" name="dualClaimYear" type="text" inputmode="numeric" value={{data['dualClaimYear']}}>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="dual-claim-no" name="dualClaim" type="radio" value="No" {{ checked('dualClaim','No') }}>
+                  <label class="govuk-label govuk-radios__label" for="dual-claim-no">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+          Continue
+        </button>
+        <p><a href="javascript:history.back()">Back</a></p>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressDualClaim","2");
+    document.getElementById("dualClaimForm").submit();
+  }
+</script>
+{% endblock %}

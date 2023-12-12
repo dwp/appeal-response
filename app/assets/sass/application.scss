@@ -1,3 +1,8 @@
+$govuk-breakpoints: (
+  mobile: 900px,
+  tablet: 900px,
+  desktop: 1400px,
+);
 // global styles for <a> and <p> tags
 $govuk-global-styles: true;
 $govuk-new-link-styles: true;
@@ -19,3 +24,8 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/task-list";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+.simplified-status{
+  font-weight: normal !important;
+  text-transform: none !important;
+  color: #fff !important;
+}

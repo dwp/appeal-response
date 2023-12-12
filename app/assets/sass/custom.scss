@@ -1,3 +1,9 @@
+
+$govuk-breakpoints: (
+  mobile:  800px,
+  desktop: 800px
+);
+
 .user-needs-list{
     border-bottom: 1px solid #777777;
     margin-bottom: 2rem;
@@ -91,4 +97,140 @@
 .link-via-js{
   cursor: pointer;
   color: rgb(29, 112, 184);
+}
+
+
+/*styles for tasklist headers with link*/
+.tasklist-header-with-link{
+  width: 100%;
+}
+
+.link-in-tasklist{
+  float: right;
+}
+
+//Autocomplete stuff
+
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  //display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 2px solid #333333;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 2px solid #333333;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+.listOfDetails :first-child{
+  margin-top : 24px !important;
+}
+
+.fact{
+  cursor: pointer;
+}
+
+.bordered{
+  border: 1px solid grey !important;
+  padding: 12px !important;
+}
+
+.response-label{
+  vertical-align: top;
+}
+
+.chevContainer{
+  float: left;
+  width: 24px;
+}
+
+.factContainer{
+  float: right;
+  width: calc( 100% - 24px );
+  border-bottom: 1px solid #b1b4b6;
+}
+.fact{
+  clear: both;
+}
+.factDate{
+  float: left;
+}
+.factTitleAndLink{
+  float: right;
+}
+.factTitle{
+  float: left;
+  width: calc( 100% - 50px );
+}
+.factChangeContainer{
+  float: right;
+  width: 50px;
+}
+
+.redText{
+  color: #d13118 !important;
+}
+
+.rowHighlight{
+  background-color: #FEFBAF;
+}
+
+
+@media screen and (max-width: 900px) {
+  .wideCTA {
+    display: none;
+  }
+  .addPanel{
+    margin-left : 0px !important;
+    margin-top : 36px !important;
+    margin-bottom : 36px !important;
+
+  }
+  .narrowCTA {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .wideCTA {
+    display: block;
+  }
+  .addPanel{
+    margin-left : 36px !important;
+    margin-top : 0px !important;
+    margin-bottom : 0px !important;
+  }
+  .narrowCTA {
+    display: none;
+  }
+}
+
+.warning-text-box{
+  border: 2px solid black;
+  padding: 2rem;
 }

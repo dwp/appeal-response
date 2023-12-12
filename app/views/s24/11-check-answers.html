@@ -1,0 +1,555 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="01-task-list-new" class="govuk-back-link">Back</a>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+        <h3 class="govuk-heading-l">Appeal type</h3>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Appeal type
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Limited capability for work (LCW) but not limited capability for work related activity (LCWRA)
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="00-decision-type?target=cya">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <h3 class="govuk-heading-l">Key dates</h3>
+            </div>
+            <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+              <a class="govuk-link govuk-body" href="/s24/05-decision-dates?target=cya">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </div>
+          </div>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date of claim to UC
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateCliamToUCDate'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="05-decision-dates?target=cya">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Original decision made
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateOriginalDecisionDate'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="05-decision-dates">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Original decision notification sent
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateOriginalNotifcationDate'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="05-decision-dates">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                MR requested by appellant
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateMrDate'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="05-decision-dates">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                MR decision made
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateMrDecisionDate'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="05-decision-dates">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                MR notification sent
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateMrNotificationDate'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="05-decision-dates">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Did the MR decision maker agree with the original decision?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['mrAgreeOriginal'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="05-decision-dates">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Appeal received by HMCTS
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateHmctsAppealDate'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="05-decision-dates">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Appeal received by DWP
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dateDwpAppealDate'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="05-decision-dates">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <h3 class="govuk-heading-l">Dual claim</h3>
+            </div>
+            <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+              <a class="govuk-link govuk-body" href="06-dual-claim?target=cya">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </div>
+          </div>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Is this a dual claim for New Style Employment and Support Allowance (ESA)?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['dualClaim'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="06-dual-claim?target=cya">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            {%if data['dualClaim'] == "Yes" %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of claim for New Style ESA
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{data['dateDualClaimDate']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link govuk-visually-hidden" href="health-conditions/index">
+                    Change<span class="govuk-visually-hidden"> this condition</span>
+                  </a>
+                </dd>
+              </div>
+            {% endif %}
+          </dl>
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <h3 class="govuk-heading-l">Health conditions</h3>
+            </div>
+            <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+              <a class="govuk-link govuk-body" href="/s24/health-conditions/index?target=cya">
+                Add or remove<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </div>
+          </div>
+
+          <h3 class="govuk-heading-l"></h3>
+          {% for healthCondition in data.healthConditions %}
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Condition
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{healthCondition.condition}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="health-conditions/add-condition?change=1&id={{loop.index0}}&target=cya">
+                    Change<span class="govuk-visually-hidden"> this condition</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date condition was declared on
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{healthCondition.day}} / {{healthCondition.month}} / {{healthCondition.year}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link govuk-visually-hidden" href="health-conditions/add-condition?change=1&id={{loop.index0}}">
+                    Change<span class="govuk-visually-hidden"> this condition</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Was a fit note provided?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{healthCondition.fitNoteExists}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link govuk-visually-hidden" href="health-conditions/add-condition?change=1&id={{loop.index0}}">
+                    Change<span class="govuk-visually-hidden"> this condition</span>
+                  </a>
+                </dd>
+              </div>
+              {%if healthCondition.fitNoteExists == "Yes" %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date fit note was provided on
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{healthCondition.fitNoteDay}} / {{healthCondition.fitNoteMonth}} / {{healthCondition.fitNoteYear}}
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link govuk-visually-hidden" href="health-conditions/index">
+                      Change<span class="govuk-visually-hidden"> this condition</span>
+                    </a>
+                  </dd>
+                </div>
+              {% endif %}
+          </dl>
+        {% endfor %}
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <h3 class="govuk-heading-l">Capability for work questionnaire (UC50)</h3>
+          </div>
+          <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+            <a class="govuk-link govuk-body" href="09-uc50-exists?target=cya">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </div>
+        </div>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Did the appellant return the UC50?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['uc50Exists'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-visually-hidden" href="09-uc50-exists?change=1&target=cya">
+                Change<span class="govuk-visually-hidden"> customer reference</span>
+              </a>
+            </dd>
+          </div>
+          {% if (data['uc50Exists']=='Yes') %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date appellant signed the UC50
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['uc50-day'] }}
+                {% if (data['uc50-month']==1) %}
+                  January
+                {% elif (data['uc50-month']==2) %}
+                  February
+                {% elif (data['uc50-month']==3) %}
+                  March
+                {% elif (data['uc50-month']==4) %}
+                  April
+                {% elif (data['uc50-month']==5) %}
+                  May
+                {% elif (data['uc50-month']==6) %}
+                  June
+                {% elif (data['uc50-month']==7) %}
+                  July
+                {% elif (data['uc50-month']==8) %}
+                  August
+                {% elif (data['uc50-month']==9) %}
+                  September
+                {% elif (data['uc50-month']==10) %}
+                  October
+                {% elif (data['uc50-month']==11) %}
+                  November
+                {% elif (data['uc50-month']==12) %}
+                  December
+                {% endif %}
+                {{ data['uc50-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="09-uc50?change=1&target=cya">
+                  Change<span class="govuk-visually-hidden"> uc50 signed date</span>
+                </a>
+              </dd>
+            </div>
+            {% endif %}
+        </dl>
+
+        {% if (data['uc50Exists']=='Yes') %}
+        <h2 class="govuk-heading-m">What did the appellant have difficulty with?</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Physical functions
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% for condition in data['physical'] %}
+                  <li>{{ condition }}</li>
+                {% endfor %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="09-uc50?change=1&target=cya">
+                  Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Mental, cognitive and intellectual capabilities
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% for condition in data['mental'] %}
+                  <li>{{ condition }}</li>
+                {% endfor %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="09-uc50?change=1&target=cya">
+                  Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+          {% endif %}
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <h3 class="govuk-heading-l">GP report form (UC113)</h3>
+            </div>
+            <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+              <a class="govuk-link govuk-body" href="10-uc113?target=cya">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </div>
+          </div>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Has a GP completed a UC113 form for the claimant?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['uc113Exists'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="06-dual-claim?target=cya">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+            {% if (data['uc113Exists']=='Yes') %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  What date did the GP complete the UC113?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['uc113Date'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link govuk-visually-hidden" href="06-dual-claim?target=cya">
+                    Change<span class="govuk-visually-hidden"> contact details</span>
+                  </a>
+                </dd>
+              </div>
+            {% endif %}
+          </dl>
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <h3 class="govuk-heading-l">Health assessment</h3>
+            </div>
+            <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+              <a class="govuk-link govuk-body" href="10-health-assessment?target=cya">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </div>
+          </div>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Assessment type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['assessmentType']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-visually-hidden" href="#">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of assessment
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hcpAssessmentDate'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-visually-hidden" href="#">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Health conditions identified
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['hcpConditions']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-visually-hidden" href="#">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h3 class="govuk-heading-l">Descriptor points awarded by the decision maker</h3>
+        </div>
+        <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+          <a class="govuk-link govuk-body" href="14-descriptors?target=cya">
+            Change<span class="govuk-visually-hidden"> contact details</span>
+          </a>
+        </div>
+      </div>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Mental, cognitive and intellectual function
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['points-mental']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-visually-hidden" href="#">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Physical
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['points-physical']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-visually-hidden" href="#">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <div class="govuk-inset-text">
+        The response is created in a Word document that you will be able to edit.
+      </div>
+
+      <div class="govuk-button-group">
+        <a class="govuk-button" data-module="govuk-button" href="12-success">
+          Create response
+        </a>
+      </div>
+
+      <p><a href="01-task-list-new">Back</a></p>
+      <div class="govuk-link">
+        <p><a href="/index.html">Cancel this response</a></p>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}

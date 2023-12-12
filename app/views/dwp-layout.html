@@ -45,7 +45,7 @@
   {# Set serviceName in config.js. #}
   {{ dwpHeader({
   name: serviceName,
-  serviceHref: '#',
+  serviceHref: '/',
   action: "John Doe",
   container:true
   }) }}
@@ -57,16 +57,10 @@
   {% block footer %}
   <footer class="govuk-footer ">
     <div class="govuk-width-container ">
-    <h2 class="govuk-visually-hidden">Meta links</h2>
+      <h2 class="govuk-visually-hidden">Meta links</h2>
       <ul class="govuk-footer__inline-list">
           <li class="govuk-footer__inline-list-item">
-              <a class="govuk-footer__link" href="#1" onclick="clearStorage()">Clear data</a>
-          </li>
-          <li class="govuk-footer__inline-list-item">
-              <a class="govuk-footer__link" href="/concept2/">Concept 1</a>
-          </li>
-          <li class="govuk-footer__inline-list-item">
-              <a class="govuk-footer__link" href="/concept2-1/" target="_blank">Concept 2</a>
+              <a class="govuk-footer__link" href="/prototype-admin/clear-data">Clear data</a>
           </li>
       </ul>
     </div>
