@@ -2099,4 +2099,25 @@ router.get('/timeline/response',(req,res)=>{
   res.render('./timeline/response',{response});
 })
 
+// Representative
+
+router.post('/timeline/rep-present', function(request, response) {
+
+  var representative = request.session.data['representative']
+  if (representative == "Yes"){
+      response.redirect("/timeline/add-representative")
+  } else {
+      response.redirect("/timeline/01-task-list-new")
+  }
+})
+
+router.post('/timeline/representative-details', function(request, response) {
+
+  var representative = request.session.data['representative']
+  
+  response.redirect("/timeline/01-task-list-new")
+})
+
 module.exports = router;
+
+
