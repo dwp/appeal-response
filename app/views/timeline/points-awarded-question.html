@@ -1,0 +1,60 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/timeline/activities-considered" class="govuk-back-link">Back</a>
+    
+    
+      <form class="form" action="/timeline/points-for-each-activity" method="post">
+      
+        {{ govukRadios({
+          name: "points",
+          value: data['points'],
+          fieldset: {
+            legend: {
+              text: "Were there any points awarded on the activities?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+            </fieldset>
+          </div>
+         
+        </div> 
+          <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+            Continue
+          </button>
+</form>
+
+
+
+</div>
+{% endblock %}

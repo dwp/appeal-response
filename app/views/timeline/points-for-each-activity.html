@@ -1,0 +1,82 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="/timeline/points-awarded-question" class="govuk-back-link">Back</a>
+    
+    
+      <form class="form" action="/timeline/eating-drinking" method="post">
+      
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Enter points awarded for each considered activity
+            </h1>
+          </legend>
+
+          <h3 class="govuk-heading-m"> Physical</h3>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="width-2">
+              Mobilising 
+            </label>
+            <input class="govuk-input govuk-input--width-2" id="width-2" name="width2" type="text">
+          </div>
+        
+          <h3 class="govuk-heading-m"> Mental, physical</h3>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="width-2">
+              Learning new tasks
+            </label>
+            <input class="govuk-input govuk-input--width-2" id="width-2" name="width2" type="text">
+
+            <label class="govuk-label" for="width-2">
+              Personal action
+            </label>
+            <input class="govuk-input govuk-input--width-2" id="width-2" name="width2" type="text">
+            
+          </div>
+          
+            </div>
+            
+        </fieldset>
+      </div>
+    </div>
+  
+
+  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button>
+</form>
+</div>
+</div>
+{% endblock %}
+
+//when they click continue - change to '2,copy to endblock
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressRepDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}

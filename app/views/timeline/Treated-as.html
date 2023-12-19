@@ -1,0 +1,73 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="/timeline/01-task-list-new" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">Which paragraphs were met? 
+
+        </h1>
+        <form action="/timeline/decisionType" method="post" class="form" id="form">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="Select a template">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="lcw" name="decisionType" type="radio" value="LCW" aria-describedby="Select this template with health conditions not declared at IODC">
+                <label class="govuk-label govuk-radios__label" for="lcw">
+                  Paragraph 1,2,3,5,6
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="lcwra" name="decisionType" type="radio" value="LCWRA" aria-describedby="Select this template with health conditions declared at IODC but had no impact on work">
+                <label class="govuk-label govuk-radios__label" for="lcwra">
+                  Paragraph 4 (risk to others)
+                </label>
+              </div>
+        
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="lcwra" name="decisionType" type="radio" value="LCWRA" aria-describedby="Select this template with health conditions declared at IODC but had no impact on work">
+            <label class="govuk-label govuk-radios__label" for="lcwra">
+              Both
+            </label>
+          </div>
+        </div>
+
+          </fieldset>
+        </div>
+        <!-- LINK NOT BUTTON WHEN NO DATA NEEDS TO BE SENT-->
+        
+        <div class="govuk-button-group">
+          <a class="govuk-button" id="addButton" href="./activities-considered">
+            Continue
+          </a>
+        </div>
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}

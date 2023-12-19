@@ -2118,6 +2118,21 @@ router.post('/timeline/representative-details', function(request, response) {
   response.redirect("/timeline/01-task-list-new")
 })
 
+// No points 5.1
+
+router.post('/timeline/points-for-each-activity', function(request, response) {
+
+  var points = request.session.data['points']
+  if (points == "Yes"){
+      response.redirect("/timeline/points-for-each-activity")
+  } else {
+      response.redirect("/timeline/eating-drinking")
+  }
+})
+
+
 module.exports = router;
+
+
 
 

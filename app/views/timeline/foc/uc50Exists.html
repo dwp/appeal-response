@@ -47,12 +47,52 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-9">
-    <h2 class="govuk-heading-l">Capability for work questionnaire (UC50)</h2>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Capability for work questionnaire (UC50)
+          </h1>
+        </legend>
+        <h3 class="govuk-heading-s">Date used for facts of the case</h3>
+        <div id="passport-issued-hint" class="govuk-hint">
+          For example, 27 3 2007
+        </div>
+        <div class="govuk-date-input" id="passport-issued">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
     <form action="/timeline/foc/addUC50?target={{data.target}}" method="post" class="form" id="uc50Form">
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-label govuk-!-font-weight-bold">
-            Which UC50 date do you want to record?
+            What date is this?
           </legend>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
@@ -61,7 +101,7 @@
               checked
               {% endif %}>
               <label class="govuk-label govuk-radios__label" for="uc50Date1">
-                UC50 issued
+                UC50 signed by the appellant
               </label>
             </div>
             <div class="govuk-radios__item">
@@ -70,7 +110,7 @@
               checked
               {% endif %}>
               <label class="govuk-label govuk-radios__label" for="uc50Date2">
-                UC50 signed by the appellant
+                UC50 issued
               </label>
             </div>
             <div class="govuk-radios__item">
@@ -86,43 +126,7 @@
         </fieldset>
       </div>
       
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" role="group" aria-describedby="uc50-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h1 class="govuk-label govuk-!-font-weight-bold">
-              UC50 date
-            </h1>
-          </legend>
-          <div class="govuk-date-input" id="uc50">
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="uc50day">
-                  Day
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50day" name="uc50day" type="text" inputmode="numeric" value={{data.events[data.editIndex].day}}>
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="uc50month">
-                  Month
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50month" name="uc50month" type="text" inputmode="numeric" value={{data.events[data.editIndex].month}}>
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="uc50year">
-                  Year
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="uc50year" name="uc50year" type="text" inputmode="numeric" value={{data.events[data.editIndex].year}}>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-      
-
+    
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-label govuk-!-font-weight-bold">
