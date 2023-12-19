@@ -96,6 +96,68 @@
           <p class="govuk-!-margin-top-2"><a href="#" onclick="addCondtionInput('conditionsContainer')">Add another condition</a></p>
         </div>
         <input class="govuk-input" id="conditionsString" name="conditionsString" type="text" style="display:none">
+        
+        <h3 class="govuk-heading-s">Current declared health conditions</h3>
+        <div id="health condition-hint" class="govuk-hint">
+          Remove any that no longer apply
+        </div>
+
+        {% if data.events[data.editOClaimIndex].details.conditionsExists == "Yes"%}
+        <dl class="govuk-summary-list">
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+              Asthma
+            </dt>
+            
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+            </div>
+           
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__value">
+                Back pain
+              </dt>
+              
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" id="Remove_backpain" href="#">Remove<span class="govuk-visually-hidden"> name</span></a>
+              </dd>
+              </div>
+              
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                  Knee pain
+                </dt>
+                
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__value">
+                    Pain in leg
+                  </dt>
+                  
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> name</span></a>
+                  </dd>
+                  </div>
+            </dl>
+            {%endif%}
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-visually-hidden">Warning</span>
+                You have not added a previous health condition
+              </strong>
+            </div>
+
+            
+        
+        
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">

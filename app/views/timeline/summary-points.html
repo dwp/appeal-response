@@ -58,9 +58,10 @@
               Activities considered
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">Mobility</p>
-              <p class="govuk-body">Learning new tasks</p>
-              <p class="govuk-body">Personal action</p>
+              <p class="govuk-body">Manual Dexterity</p>
+              <p class="govuk-body">Mobilising</p>
+              <p class="govuk-body">Coping with change</p>
+              <p class="govuk-body">Getting about</p>
             </dd>
             
             <dd class="govuk-summary-list__actions">
@@ -84,6 +85,7 @@
             <dt class="govuk-summary-list__key">
               Points per activity
             </dt>
+            
             <dd class="govuk-summary-list__value">
               
             </dd>
@@ -91,10 +93,10 @@
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
             </dd>
           </div>
-          
+          {% if data.decisionType == 'LCW' %}
             <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value">
-            Mobility
+            Manual dexterity 
             </dt>
             <dd class="govuk-summary-list__value">
               0
@@ -105,7 +107,7 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value">
-            Learning new tasks
+            Mobilising 
             </dt>
             <dd class="govuk-summary-list__value">
               0
@@ -116,7 +118,7 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__value">
-            Personal action
+            Coping with change 
             </dt>
             <dd class="govuk-summary-list__value">
               0
@@ -125,8 +127,59 @@
               <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> address</span></a>
             </dd>
           </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+            Getting about
+            </dt>
+            <dd class="govuk-summary-list__value">
+              0
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          {%endif%}
+          {% if data.decisionType == 'LCWRA' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+            Moblising 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              9
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+            Making self-understood 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              0
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__value">
+            Getting about
+            </dt>
+            <dd class="govuk-summary-list__value">
+              6
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          {%endif%}
+          
           <br>
           <br>
+          
+          
+          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Problems eating and drinking
@@ -142,6 +195,7 @@
             </dd>
           </div>
         </dl>
+        
             </fieldset>
           </div>
         </div>
