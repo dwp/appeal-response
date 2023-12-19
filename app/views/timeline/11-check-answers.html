@@ -17,6 +17,8 @@
 {% endblock %}
 
 {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 <a href="01-task-list-new" class="govuk-back-link">Back to tasks</a>
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
@@ -182,7 +184,128 @@
                   </tr>
                 {% endfor %}
               </tbody>
+           
             </table>
+            <br>
+
+            <h2 class="govuk-heading-m">Activities and points</h2>
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              {% if data.decisionType == 'LCWRA' %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Treated as
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Paragraph 1,2,3,5,6
+                </dd>
+  
+                <dd class="govuk-summary-list__actions">
+                  <a href="02-appellant-details?target=cya">
+                    Change
+                    <span class="govuk-visually-hidden"> Treated as</span>
+                  </a>
+                </dd>
+              </div>
+              {%endif%}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Activities considered
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">Mobility</p>
+              <p class="govuk-body">Learning new tasks</p>
+              <p class="govuk-body">Personal action</p>
+                </dd>
+  
+                <dd class="govuk-summary-list__actions">
+                  <a href="02-appellant-details?target=cya">
+                    Change
+                    <span class="govuk-visually-hidden"> Treated as</span>
+                  </a>
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Points awarded
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  No
+                </dd>
+  
+                <dd class="govuk-summary-list__actions">
+                  <a href="02-appellant-details?target=cya">
+                    Change
+                    <span class="govuk-visually-hidden"> Treated as</span>
+                  </a>
+                </dd>
+              </div>
+<br>
+<br>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Points per activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+                </dd>
+              </div>
+              
+                <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                Mobility
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  0
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> address</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                Learning new tasks
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  0
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> address</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__value">
+                Personal action
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  0
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> address</span></a>
+                </dd>
+              </div>
+              <br>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Problems eating and drinking
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">no</p>
+            
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a></li>
+                  </ul>
+                </dd>
+              </div>
+              </dl>
+              </div>
+
+            
 
       <div class="govuk-inset-text">
         The response is created in a Word document that you will be able to edit.
@@ -192,6 +315,7 @@
         <a class="govuk-button" data-module="govuk-button" href="12-success">
           Create response
         </a>
+
       </div>
 
       <p><a href="01-task-list-new">Back to tasks</a></p>
@@ -202,6 +326,9 @@
 
     </div>
   </div>
+  </div>
+  </div>
+  
 
 {% endblock %}
 
