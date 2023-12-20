@@ -68,6 +68,7 @@
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
             </dd>
           </div>
+          {% if data.decisionType == 'LCWRA' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Points awarded 
@@ -79,7 +80,21 @@
               <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
             </dd>
         </div>
-<br>
+<br>{%endif%}
+
+{% if data.decisionType == 'LCW' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Points awarded 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+        </div>
+<br>{%endif%}
 <br>
 <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
