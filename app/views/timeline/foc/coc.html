@@ -96,7 +96,10 @@
           <p class="govuk-!-margin-top-2"><a href="#" onclick="addCondtionInput('conditionsContainer')">Add another condition</a></p>
         </div>
         <input class="govuk-input" id="conditionsString" name="conditionsString" type="text" style="display:none">
-        
+    
+        <!-- Hey Loc :) I'm trying to get the table below to only show when another task list item has been selected-->    
+        {% if data.decisionType == 'originalClaimConditionsExistYes' %}
+
         <h3 class="govuk-heading-s">Current declared health conditions</h3>
         <div id="health condition-hint" class="govuk-hint">
           Remove any that no longer apply
@@ -150,7 +153,7 @@
                 </div>
         
 
-            
+                {% endif %}  
         
         
         <div class="govuk-form-group">
