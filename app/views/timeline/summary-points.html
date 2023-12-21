@@ -36,6 +36,23 @@
 
         <dl class="govuk-summary-list"> <!--start of the list-->
           {% if data.decisionType == 'LCWRA' %} <!--How we're showing and hiding-->
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Treated as provisions
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">Yes</p>
+            
+            </dd>
+
+
+            
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Treated as 
@@ -159,7 +176,7 @@
             Moblising 
             </dt>
             <dd class="govuk-summary-list__value">
-              9
+              6
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> address</span></a>

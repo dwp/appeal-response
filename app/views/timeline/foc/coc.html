@@ -98,7 +98,7 @@
         <input class="govuk-input" id="conditionsString" name="conditionsString" type="text" style="display:none">
     
         <!-- Hey Loc :) I'm trying to get the table below to only show when another task list item has been selected-->    
-        {% if data.decisionType == 'originalClaimConditionsExistYes' %}
+        {% if data.originalClaim.details.conditionsExists == 'Yes' %}
 
         <h3 class="govuk-heading-s">Current declared health conditions</h3>
         <div id="health condition-hint" class="govuk-hint">
@@ -152,9 +152,13 @@
 
                 </div>
         
-
-                {% endif %}  
-        
+                {% else %} 
+                
+               
+                <div class="govuk-inset-text">
+                  The appellant has no previous health conditions added
+                </div>
+                {%endif%}
         
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -225,6 +229,14 @@
   </div>
 
 {% endblock %}
+
+{% if data.originalClaim.details.conditionsExists == 'No' %}
+
+<div class="govuk-inset-text">
+  The response is created in a Word document that you will be able to edit.
+</div>
+
+{% endif %}
 
 {% block pageScripts %}
 <script type="text/javascript">
