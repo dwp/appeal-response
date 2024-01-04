@@ -16,42 +16,49 @@
 {{header.header(serviceName,'Jane Doe')}}
 {% endblock %}
 
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <a href="/timeline/points-awarded-question" class="govuk-back-link">Back</a>
     
     
-      <form class="form" action="/timeline/summary-points" method="post">
-      
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading">
-                    Do they have any problems eating or drinking?
-                </h1>
-              </legend>
-              <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
-                  <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-                    No
-                  </label>
-               
-                
-              </div>
-            </fieldset>
-          </div>
+    
+     <!-- <form class="form" action="/timeline/summary-points" method="post"> -->
 
-  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
-    Continue
-  </button>
+      {{ govukRadios({
+        idPrefrix:"[new][eatingorDrinking]",
+        name: "[new][eatingorDrinking]",
+        fieldset: {
+          legend: {
+            text: "Do they have any problems eating or drinking?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        value: data.timeline.eatingorDrinking,
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}  
+      
+         
+
+ {{ govukButton({
+  text: "Continue"
+ }) }}
 </form>
 </div>
 </div>

@@ -16,10 +16,17 @@
 {{header.header(serviceName,'Jane Doe')}}
 {% endblock %}
 
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <a href="/timeline/points-awarded-question" class="govuk-back-link">Back</a>
+   
     
     
       <form class="form" action="/timeline/eating-drinking" method="post">

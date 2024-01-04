@@ -16,10 +16,18 @@
 {{header.header(serviceName,'Jane Doe')}}
 {% endblock %}
 
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <a href="../index" class="govuk-back-link">Back</a>
+  <form novalidate>
+  
     
       <h1 class="govuk-heading-xl">
         Add representative details
@@ -38,6 +46,8 @@
 
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
+
+
 
 {{ govukInput({
   label: {
@@ -97,6 +107,7 @@
   </label>
   <input class="govuk-input govuk-input--width-10" id="post-code" name="postcode" type="text">
 </div>
+</form>
 <div class="govuk-form-group">
 
   <button class="govuk-button" data-module="govuk-button" onclick="saveData()">

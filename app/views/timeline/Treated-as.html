@@ -17,8 +17,15 @@
 {{header.header(serviceName,'Jane Doe')}}
 {% endblock %}
 
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
 {% block content %}
-<a href="/timeline/01-task-list-new" class="govuk-back-link">Back</a>
+
 
 
   <div class="govuk-grid-row">

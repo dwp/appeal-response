@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const router = express.Router();
 
@@ -2129,9 +2131,20 @@ router.post('/timeline/points-for-each-activity', function(request, response) {
       response.redirect("/timeline/eating-drinking")
   }
 })
-
+// this is what I've tried to add so that the eating-drinking page goes to summary points copy
+router.post('/timeline/eating-drinking', (req, res) => {
+  res.redirect('/timeline/summary-points-copy')
+})
 
 module.exports = router;
+
+
+
+
+//routes for 5.1 
+
+
+
 
 
 

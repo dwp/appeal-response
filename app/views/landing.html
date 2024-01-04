@@ -1,35 +1,26 @@
 
-{% extends "dwp-layout.html" %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
-{% from "govuk/components/table/macro.njk" import govukTable %}
+{% extends "layout.html" %}
 
-{% block head %}
-  {% include "includes/head.html" %}
-  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
-{% endblock %}
-
-{% block pageTitle %}
-  Home – GOV.UK Prototype Kit
-{% endblock %}
-
+{% set pageName = "Prepare an appeal response prototype" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <div class="cHeader">
-        <h1 class="govuk-heading-xl">
-        Appeal Writing prototype testing
-        </h1>
-        <h2 class="govuk-heading-m">
-          This prototype is to be used in user research sessions only, it is not a demonstration system.
-          </h2>
-          <h2 class="govuk-heading-s govuk-!-margin-bottom-9">
-          Please only click the 'start' if you've been invited to take part in a user research session, and you've received a link to this prototype from the researcher for that specific session.
-        </h2>
-        <a class="govuk-button" href="index">
-          Start
-        </a>
+     <h1 class="govuk-heading-l">{{ pageName}}</h1>
+      
+     <h2 class="govuk-heading-m">
+      This prototype is to be used in user research sessions only, it is not a demonstration system.
+      </h2>
+      
+      
+      <p>
+      Please only click start if you've been invited to take part in a research session, and you've received a link to this prototype from the researcher for that specific session.
+      </p>
+
+
+      
+    
 
     </div>
   </div>
