@@ -29,7 +29,7 @@
     
     
     
-      <form class="form" action="/timeline/points-awarded-question" method="post">
+    <form novalidation method="post">
       
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -38,121 +38,109 @@
               Which activities were considered in the decision under appeal?
             </h1>
           </legend>
-          <div id="waste-hint" class="govuk-hint">
-            Select all that apply.
-          </div>
-          <h2 class="govuk-heading-m"> Physical</h2>
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-              <label class="govuk-label govuk-checkboxes__label" for="waste">
-                Mobilising 
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-                Standing and sitting             
-               </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-                Reaching             
-               </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                Manual dexterity 
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-4" name="waste" type="checkbox" value="farm">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-4">
-                Making self-understood             
-               </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-5" name="waste" type="checkbox" value="farm">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-5">
-                Understanding communication  
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-5" name="waste" type="checkbox" value="farm">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-5">
-                Navigation  
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-6" name="waste" type="checkbox" value="farm">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-6">
-                Continence 
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-7" name="waste" type="checkbox" value="farm">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-7">
-                Consciousness 
-              </label>
-            </div>
-
-            <br />
-            <h3 class="govuk-heading-m"> Mental, cognitive, intellectual</h3>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-8" name="waste" type="checkbox" value="farm">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-8">
-                Learning new tasks 
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-9" name="waste" type="checkbox" value="farm">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-9">
-                Hazard awareness 
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-10" name="waste" type="checkbox" value="farm">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-10">
-                Personal action  
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-11" name="waste" type="checkbox" value="farm">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-11">
-                Coping with change 
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="waste-12" name="waste" type="checkbox" value="farm">
-              <label class="govuk-label govuk-checkboxes__label" for="waste-12">
-                Getting about 
-              </label>
-            </div>
           
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="waste-13" name="waste" type="checkbox" value="farm">
-            <label class="govuk-label govuk-checkboxes__label" for="waste-13">
-              Coping socially 
-            </label>
-          </div>
-        
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="waste-14" name="waste" type="checkbox" value="farm">
-          <label class="govuk-label govuk-checkboxes__label" for="waste-14">
-            Appropriateness of behaviour 
-          </label>
-        </div>
-          </div>
-        </fieldset>
-      </div>
-  
 
-  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
-    Continue
-  </button>
+          {{ govukCheckboxes({
+            id: "[timeline][activities]",
+            name: "[timeline][activities]",
+            fieldset: {
+              legend: {
+                text: "Which activities were considered in the decision under appeal?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "Select all that apply"
+            },
+            fieldset:{
+            legend: {
+              text:"Physical",
+              isPageHeading:false,
+              classes: "govuk-fieldset__legend--m"
+            
+            }
+          },
+            values: data.timeline.activities,
+
+            items: [
+              {
+                value: "Mobilising",
+                text: "Mobilising"
+              },
+              {
+                value: "Standing and sitting",
+                text: "Standing and sitting"
+              },
+              {
+                value: "Reaching",
+                text: "Reaching"
+              },
+              
+              {
+                value: "Manual dexterity",
+                text: "Manual dexterity"
+              },
+              {
+                value: "Making self-understood",
+                text: "Making self-understood"
+              },
+
+              {
+                value: "Understanding communication",
+                text: "Understanding communication"
+              },
+              {
+                value: "Navigation",
+                text: "Navigation"
+              },
+              {
+                value: "Continence",
+                text: "Continence"
+              },
+              {
+                value: "Consciousness",
+                text: "Consciousness"
+              },
+
+              
+              
+              {
+                value: "Learning new tasks ",
+                text: "Learning new tasks "
+              },
+              {
+                value: "Hazard awareness ",
+                text: "Hazard awareness "
+              },
+              {
+                value: "Personal action   ",
+                text: "Personal action   "
+              },
+              {
+                value: "Coping with change  ",
+                text: "Coping with change  "
+              },
+              {
+                value: "Getting about  ",
+                text: "Getting about  "
+              },
+              {
+                value: "Coping socially  ",
+                text: "Coping socially  "
+              },
+              {
+                value: "Appropriateness of behaviour  ",
+                text: "Appropriateness of behaviour  "
+              }
+            ]
+          }) }}
+         
+        </div>
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
 </form>
 </div>
 </div>

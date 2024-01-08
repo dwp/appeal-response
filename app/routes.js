@@ -2136,6 +2136,14 @@ router.post('/timeline/eating-drinking', (req, res) => {
   res.redirect('/timeline/summary-points-copy')
 })
 
+router.post('/timeline/activities-considered', (req, res) => {
+  res.redirect('/timeline/points-awarded-question')
+})
+
+router.post('/timeline/points-awarded-question', (req, res) => {
+  res.redirect('/timeline/eating-drinking')
+})
+
 module.exports = router;
 
 

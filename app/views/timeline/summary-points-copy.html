@@ -25,7 +25,20 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
+
+    {% set activities %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.activities %}
+      <li>
+        {{item}}
+      </li>
+
+      {%endfor%}
     
+    </ul> 
+    {% endset %}   
     
     
       <form class="form" action="/timeline/01-task-list-new" method="post">
@@ -44,12 +57,30 @@
               text: "Activities considered"
             },
             value: {
-              text: "data.new.activitiesConsidered"
+              html: activities
             },
             actions: {
               items: [
                 {
-                  href: "timeline/activitiesConsidered",
+                  href: "activities-considered",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          },
+
+          {
+            key: {
+              text: "Points awarded"
+            },
+            value: {
+              text: data.timeline.points 
+            },
+            actions: {
+              items: [
+                {
+                  href: "/points-awarded-question",
                   text: "Change",
                   visuallyHiddenText: "Item label"
                 }
@@ -61,35 +92,19 @@
               text: "Problems eating or drinking"
             },
             value: {
-              text: "data.timeline.eatingorDrinking"
+              text: data.timeline.eatingorDrinking
             },
             actions: {
               items: [
                 {
-                  href: "Item URL",
-                  text: "Change",
-                  visuallyHiddenText: "Item label"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Item label"
-            },
-            value: {
-              text: "Item value"
-            },
-            actions: {
-              items: [
-                {
-                  href: "Item URL",
+                  href: "/eating-drinking",
                   text: "Change",
                   visuallyHiddenText: "Item label"
                 }
               ]
             }
           }
+          
         ]
       }) }}
                  

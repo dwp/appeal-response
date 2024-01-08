@@ -28,11 +28,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     
-      <form class="form" action="/timeline/points-for-each-activity" method="post">
+    <form novalidation method="post">
       
         {{ govukRadios({
-          name: "points",
-          value: data['points'],
+          id:"[timeline][points]",
+        name:"[timeline][points]",
+          value: data.timeline.points,
           fieldset: {
             legend: {
               text: "Were there any points awarded on the activities?",
