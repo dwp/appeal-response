@@ -77,11 +77,9 @@
           
         <!-- LINK NOT BUTTON WHEN NO DATA NEEDS TO BE SENT-->
         
-        <div class="govuk-button-group">
-          <a class="govuk-button" id="addButton" href="./activities-considered">
-            Continue
-          </a>
-        </div>
+      {{ govukButton({
+        text: "Continue"
+      }) }}
         </form>
 
     </div>
