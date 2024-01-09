@@ -30,38 +30,51 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-        <form action="/timeline/decisionType" method="post" class="form" id="form">
-        <div class="govuk-form-group">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
-              Which Schedule 8 'treated as' provisions were met?
-            </h1>
-          </legend>
-          <fieldset class="govuk-fieldset" aria-describedby="Select a template">
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="lcw" name="decisionType" type="radio" value="LCW" aria-describedby="Select this template with health conditions not declared at IODC">
-                <label class="govuk-label govuk-radios__label" for="lcw">
-                  Paragraph 1,2,3,5,6
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="lcwra" name="decisionType" type="radio" value="LCWRA" aria-describedby="Select this template with health conditions declared at IODC but had no impact on work">
-                <label class="govuk-label govuk-radios__label" for="lcwra">
-                  Paragraph 4 (risk to self and others)
-                </label>
-              </div>
+      <form novalidation method="post">
         
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="lcwra" name="decisionType" type="radio" value="LCWRA" aria-describedby="Select this template with health conditions declared at IODC but had no impact on work">
-            <label class="govuk-label govuk-radios__label" for="lcwra">
-              Both
-            </label>
-          </div>
-        </div>
+        
+        {{ govukCheckboxes({
+          name: "[timeline][provisiontype]",
+          fieldset: {
+            legend: {
+              text: "Which Schedule 8 'treated as' provisions were met?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          value: data.timeline.provisiontype,
+          items: [
+            {
+              value: "Paragraph 1 (Receiving certain treatments)",
+              text: "Paragraph 1 (Receiving certain treatments)"
+            },
+            {
+              value: "Paragraph 2 (In hospital)",
+              text: "Paragraph 2 (In hospital)"
+            },
+            {
+              value: "Paragraph 3 (Prevented from working by law)",
+              text: "Paragraph 3 (Prevented from working by law)"
+            },
+            {
+              value: "Paragraph 4 (Risk to self or others)",
+              text: "Paragraph 4 (Risk to self or others)"
+            },
+            {
+              value: "Paragraph 5 (Life threatening disease)",
+              text: "Paragraph 5 (Life threatening disease)"
+            },
 
-          </fieldset>
-        </div>
+            {
+              value: "Paragraph 6 (Disabled and over the age for state pension credit)",
+              text: "Paragraph 6 (Disabled and over the age for state pension credit)"
+            }
+          ]
+        }) }}
+        
+        
+        
+          
         <!-- LINK NOT BUTTON WHEN NO DATA NEEDS TO BE SENT-->
         
         <div class="govuk-button-group">

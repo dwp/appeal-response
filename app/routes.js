@@ -2122,19 +2122,33 @@ router.post('/timeline/representative-details', function(request, response) {
 
 // No points 5.1
 
-router.post('/timeline/points-for-each-activity', function(request, response) {
+router.post('/timeline/points-awarded-question', (req, res) => {
+  if (req.body.timeline.points == 'Yes'){
+    res.redirect('/timeline/points-for-each-activity')
 
-  var points = request.session.data['points']
-  if (points == "Yes"){
-      response.redirect("/timeline/points-for-each-activity")
   } else {
-      response.redirect("/timeline/eating-drinking")
+
+  res.redirect('/timeline/eating-drinking')
   }
 })
+
+router.post('/timeline/treated-as-question', (req, res) => {
+  if (req.body.timeline.provisions == 'Yes'){
+    res.redirect('/timeline/Treated-as')
+
+  } else {
+
+  res.redirect('/timeline/activities-considered')
+  }
+})
+
+
 // this is what I've tried to add so that the eating-drinking page goes to summary points copy
 router.post('/timeline/eating-drinking', (req, res) => {
   res.redirect('/timeline/summary-points-copy')
 })
+
+
 
 router.post('/timeline/activities-considered', (req, res) => {
   res.redirect('/timeline/points-awarded-question')
@@ -2143,6 +2157,15 @@ router.post('/timeline/activities-considered', (req, res) => {
 router.post('/timeline/points-awarded-question', (req, res) => {
   res.redirect('/timeline/eating-drinking')
 })
+
+router.post('/timeline/Treated-as', (req, res) => {
+  res.redirect('/timeline/activities-considered')
+})
+
+router.post('/timeline/points-for-each-activity', (req, res) => {
+  res.redirect('/timeline/eating-drinking')
+})
+
 
 module.exports = router;
 

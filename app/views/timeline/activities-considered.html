@@ -35,7 +35,7 @@
         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Which activities were considered in the decision under appeal?
+              Which activities are you considering?
             </h1>
           </legend>
           
@@ -45,13 +45,13 @@
             name: "[timeline][activities]",
             fieldset: {
               legend: {
-                text: "Which activities were considered in the decision under appeal?",
+                text: "Which activities are you considering?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
             },
             hint: {
-              text: "Select all that apply"
+              text: "Select all that you want to include in 5.1"
             },
             fieldset:{
             legend: {
@@ -76,10 +76,19 @@
                 value: "Reaching",
                 text: "Reaching"
               },
+              {
+                value: "Picking up and moving",
+                text: "Picking up and moving"
+              },
+            
               
               {
                 value: "Manual dexterity",
                 text: "Manual dexterity"
+              },
+              {
+                value: "Navigation",
+                text: "Navigation"
               },
               {
                 value: "Making self-understood",
@@ -90,10 +99,7 @@
                 value: "Understanding communication",
                 text: "Understanding communication"
               },
-              {
-                value: "Navigation",
-                text: "Navigation"
-              },
+              
               {
                 value: "Continence",
                 text: "Continence"
@@ -101,10 +107,36 @@
               {
                 value: "Consciousness",
                 text: "Consciousness"
-              },
+              }
 
+              ]
+            }) }}
+
+              {{ govukCheckboxes({
+                id: "[timeline][activities]",
+                name: "[timeline][activities]",
+                fieldset: {
+                  legend: {
+                    text: "Which activities are you considering?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                
+                fieldset:{
+                legend: {
+                  text:"Mental, Cognitive and intellectual function",
+                  isPageHeading:false,
+                  classes: "govuk-fieldset__legend--m"
+                
+                }
+              },
+                values: data.timeline.activities,
+    
+                items: [
+             
               
-              
+
               {
                 value: "Learning new tasks ",
                 text: "Learning new tasks "

@@ -32,13 +32,41 @@
     <ul class="govuk-list ">
       {% for item in data.timeline.activities %}
       <li>
-        {{item}}
+        {{item}} 
       </li>
 
       {%endfor%}
     
     </ul> 
-    {% endset %}   
+    {% endset %} 
+
+    {% set activitiespoints %}
+
+    <ul class="govuk-list  ">
+      {% for item in data.timeline.activities %}
+      <li>
+        {{item}} 
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
+
+    {% set points %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.activities %}
+      <li>
+         {{data.activitypoints[item]}}
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
+    
+    
     
     
       <form class="form" action="/timeline/01-task-list-new" method="post">
@@ -49,9 +77,59 @@
               Check your answers
             </h1>
           </legend>
-    
+
+        <p> {{
+          data.activitypoints["Mobilising"]
+        }}</p>  
+        {% if data.decisionType == 'LCWRA' %}
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Treated as provision"
+            },
+            value: {
+              text: data.timeline.provisions
+            },
+            actions: {
+              items: [
+                {
+                  href: "treated-as",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          },
+  
+          {
+            key: {
+              text: "Provision type"
+            },
+            value: {
+              html: provisiontype
+            },
+            actions: {
+              items: [
+                {
+                  href: "treated-as",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }
+
+          ]
+        }) }} 
+        {%endif%}
       {{ govukSummaryList({
         rows: [
+        
+        
+      
+        
+      
           {
             key: {
               text: "Activities considered"
@@ -86,7 +164,58 @@
                 }
               ]
             }
+          }
+
+          ]
+        }) }}        
+
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Points per activity"
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/points-awarded-question",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
           },
+
+        
+          {
+            key: {
+              html: activitiespoints
+            },
+            value: {
+              html: points 
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/points-awarded-question",
+                  text: "",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }
+
+          
+          
+          
+          
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        rows: [
           {
             key: {
               text: "Problems eating or drinking"
@@ -104,6 +233,7 @@
               ]
             }
           }
+          
           
         ]
       }) }}

@@ -27,11 +27,35 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
    
+  
+
     
-    
-      <form class="form" action="/timeline/eating-drinking" method="post">
       
+    
+    
+        
+    
+    <form novalidation method="post">
+<h1 class="govuk-heading-l">Enter points awarded for each activity</h1>
+        {% for activity in data.timeline.activities %}
+        {{ govukInput({
+          label: {
+  
+            html: activity
+          },
+          classes: "govuk-input--width-2",
+          name: "activitypoints["+activity+"]",
+          value: data.activitypoints[activity]
+          
+        }) }}
+  
+        {%endfor%}
+       
+      <!--
       <div class="govuk-form-group">
+
+        
+       
         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
@@ -69,10 +93,11 @@
       </div>
     </div>
   
+  -->
 
-  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
-    Continue
-  </button>
+  {{ govukButton({
+    text: "Continue"
+  }) }}
 </form>
 </div>
 </div>
