@@ -1,0 +1,156 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+<form novalidation method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+     
+
+        {{ govukInput({
+          id: "Declared health condition",
+          name: "[timeline][activitychange]",
+          label: {
+            text: "Declared health condition",
+            isPageHeading: true,
+            classes: "govuk-label--l"
+            
+          },
+          hint: {
+            text: "Add new health condition"
+          },
+          value: data.timeline.activitychange,
+
+          classes: "govuk-input--width-20"
+        }) }},
+        
+        {{ govukRadios({
+          name: "[timeline][abilitytowork]",
+          fieldset: {
+            legend: {
+              text: "Did this change restrict the appellant's ability to work?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          value: data.timeline.abilitytowork,
+          items: [
+            {
+              value: "Restricts ability to work",
+              text: "Yes"
+            },
+            {
+              value: "Does not restrict ability to work",
+              text: "No"
+            }
+          ]
+        }) }}  
+
+        {{ govukRadios({
+          name: "[timeline][medicalevidence]",
+          fieldset: {
+            legend: {
+              text: "Did they provide valid medical evidence?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          value: data.timeline.medicalevidence,
+          items: [
+            {
+              value: "Medical evidence provided",
+              text: "Yes"
+            },
+            {
+              value: "Medical evidence not provided",
+              text: "No"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({
+          text: "Add condition"
+        }) }}
+
+        
+        <!--{% if data.edit == 1 %}
+          <p>
+            <a class="govuk-body govuk-link govuk-link--no-visited-state redText" href="/remove?id={{data.events[data.editIndex].id}}">Remove this fact</a>
+          </p>
+        {% endif %} -->
+        
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+/*
+  var selectedConditions = [];
+  var itemsToPopulate = "{{ data.events[data.editOClaimIndex].details.OCConditions }}";
+
+  function submitForm(){
+    var conditionsString = "";
+    for (var i = 0; i < selectedConditions.length; i++) {
+      conditionsString += selectedConditions[i]+", ";
+    }
+    document.getElementById('conditionsString').value = conditionsString;
+    document.getElementById('form').submit();
+  }
+  initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:
+  autocomplete(document.getElementById("condition"), conditions);
+  if ({{data.edit}} != -1) {
+    populate(itemsToPopulate);
+  }
+
+  */
+
+  var itemsToPopulate = "{{ data.events[data.editOClaimIndex].details.OCConditions }}";
+
+  function submitForm(){
+    var conditionsString = "";
+    const allConditions = document.getElementsByClassName("conditionInput");
+    for (var i = 0; i < allConditions.length; i++) {
+      conditionsString += allConditions[i].value+", ";
+    }
+    document.getElementById('conditionsString').value = conditionsString;
+    document.getElementById('form').submit();
+  }
+
+  /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+  {% if data.edit != 1 %}
+    autocomplete(document.getElementById("condition"), conditions);
+  {% endif %}
+  {% if data.edit != 1 %}
+    populate(itemsToPopulate,'conditionsContainer');
+  {% endif %}
+</script>
+{% endblock %}
+
+

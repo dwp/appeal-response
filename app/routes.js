@@ -2166,6 +2166,36 @@ router.post('/timeline/points-for-each-activity', (req, res) => {
   res.redirect('/timeline/eating-drinking')
 })
 
+router.post('/timeline/foc/previously-declared-health-conditions', (req, res) => {
+  res.redirect('/timeline/foc/coc-option2')
+})
+
+router.post('/timeline/foc/date-of-change', (req, res) => {
+  res.redirect('/timeline/health-conditions')
+})
+
+router.post('/timeline/health-conditions', (req, res) => {
+  res.redirect('/timeline/Add-health-condition')
+})
+
+router.post('/timeline/Add-health-condition', (req, res) => {
+  res.redirect('/timeline/health-conditions')
+})
+
+
+router.post('/timeline/previously-declared-health-conditions', (req, res) => {
+  res.redirect('/timeline/New-health-conditions')
+})
+
+router.post('/timeline/New-health-conditions', (req, res) => {
+  res.redirect('/timeline/foc/coc-option2')
+})
+
+router.post('/timeline/remove-health-condition', (req, res) => {
+  res.redirect('/timeline/health-conditions')
+})
+
+
 
 module.exports = router;
 

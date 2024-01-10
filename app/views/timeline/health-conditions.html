@@ -1,0 +1,247 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+  <style>
+    .govuk-summary-list__value
+    {width: 295px}
+  </style>
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-form-group govuk-grid-column-three-quarters">
+      <form novalidation method="post">
+
+    <h1 class="govuk-heading-l"> Health conditions declared</h1>
+
+    
+    
+   
+
+    
+<h1 class="govuk-heading-m"> Existing conditions</h1>
+<div id="passport-issued-hint" class="govuk-hint">
+  Previously added health conditions can be removed if they no longer apply
+</div>
+{% if data.timeline.removehealthcondition == 'Yesremoveasthma' %}
+{{ govukSummaryList({
+  rows: [
+
+  
+
+    
+
+   
+
+    {
+      key: {
+        text: "Back pain"
+      },
+
+      value: {
+        text: ""
+      },
+      
+      actions: {
+        items: [
+          {
+            href: "Item URL",
+            text: "Remove",
+            visuallyHiddenText: "Item label"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Knee pain"
+      },
+      
+      actions: {
+        items: [
+          {
+            href: "Item URL",
+            text: "Remove",
+            visuallyHiddenText: "Item label"
+          }
+        ]
+      }
+    }
+  
+  
+  ]
+}) }}
+
+{%else%}
+
+    {{ govukSummaryList({
+      rows: [
+      {
+        key: {
+          text: "Asthma"
+        },
+        
+        actions: {
+          items: [
+            {
+              href: "/timeline/remove-health-condition",
+              text: "Remove",
+              visuallyHiddenText: "Item label"
+            }
+          ]
+        }
+      },
+
+        {
+          key: {
+            text: "Back pain"
+          },
+
+          value: {
+            text: ""
+          },
+          
+          actions: {
+            items: [
+              {
+                href: "Item URL",
+                text: "Remove",
+                visuallyHiddenText: "Item label"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Knee pain"
+          },
+          
+          actions: {
+            items: [
+              {
+                href: "Item URL",
+                text: "Remove",
+                visuallyHiddenText: "Item label"
+              }
+            ]
+          }
+        }
+      
+      
+      ]
+    }) }}
+
+    {%endif%} 
+
+    {% if data.timeline.activitychange %}
+
+    <h1 class="govuk-heading-m"> New health conditions</h1>
+
+    {{ govukSummaryList({
+    
+      rows: [
+      {
+        key: {
+          text: data.timeline.activitychange
+          
+        },
+        value: {
+          html: data.timeline.abilitytowork + "<br> " + data.timeline.medicalevidence,
+          width: 1px
+          
+        },
+       
+        
+       
+        actions: {
+          items: [
+            {
+              href: "/timeline/points-for-each-activity",
+              text: "Change",
+              visuallyHiddenText: "Item label"
+            },
+            {
+              href: "/timeline/points-for-each-activity",
+              text: "Remove",
+              visuallyHiddenText: "Item label"
+            }
+            
+
+          ]
+        }
+      }
+
+    
+      
+      ]
+    }) }}
+
+    {%endif%}
+
+      <div class="govuk-button-group">
+        
+
+        <a href="/timeline/Add-health-condition" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add a new health condition
+        </a>
+        
+                
+                
+          
+        
+        
+          
+            
+          
+        
+        <a href="/chinese" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+          Continue 
+        </a>
+        
+              </div>
+
+     
+    </form>
+        
+        
+        
+          
+        <!-- LINK NOT BUTTON WHEN NO DATA NEEDS TO BE SENT-->
+        
+      
+       
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}

@@ -62,6 +62,7 @@
       </li>
 
       {%endfor%}
+      
     
     </ul> 
     {% endset %} 
@@ -78,9 +79,7 @@
             </h1>
           </legend>
 
-        <p> {{
-          data.activitypoints["Mobilising"]
-        }}</p>  
+         
         {% if data.decisionType == 'LCWRA' %}
         {{ govukSummaryList({
           rows: [
