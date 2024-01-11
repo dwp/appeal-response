@@ -17,6 +17,46 @@
 {% endblock %}
 
 {% block content %}
+
+{% set activities %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.activities %}
+      <li>
+        {{item}} 
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
+
+    {% set activitiespoints %}
+
+    <ul class="govuk-list  ">
+      {% for item in data.timeline.activities %}
+      <li>
+        {{item}} 
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
+
+    {% set points %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.activities %}
+      <li>
+         {{data.activitypoints[item]}}
+      </li>
+
+      {%endfor%}
+      
+    
+    </ul> 
+    {% endset %} 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 <a href="01-task-list-new" class="govuk-back-link">Back to tasks</a>
@@ -111,7 +151,7 @@
             </div>
           </dl>
           <!-- for prototype scenario fake FACTS-->
-          
+         <!-- 
           <h2 class="govuk-heading-m">Facts of the case</h2>
           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <th scope="row" class="govuk-table__header govuk-summary-list__key">
@@ -298,8 +338,9 @@
         </dd>
       </div>
       
-            </dl>
-  <!--       
+            </dl> -->
+  
+   <!-- CYA that actually works-->         
             <h2 class="govuk-heading-m">Facts of the case</h2>
 
             <table class="govuk-table">
@@ -377,7 +418,192 @@
            
             </table>
             <br>
---> 
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                12 Feburary 2023 
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-heading-s">Change to health or disability </p>
+              
+                <p class="govuk-heading-s">Health conditions declared on that date </p>
+                <p class="govuk-body">Carpal tunnel syndrome  </p>
+                <p class="govuk-body">Broken wrist  </p>
+                <p class="govuk-body">Depression  </p>
+                <p class="govuk-heading-s">Restricts ability to work </p>
+                <p class="govuk-heading-s">Medical evidence provided </p>
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <ul class="govuk-summary-list__actions-list">
+                  <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a></li>
+                </ul>
+              </dd>
+            </div>
+
+            
+            </dl>
+
+            <h2 class="govuk-heading-m">Activities and points</h2>
+                    
+        {% if data.decisionType == 'LCWRA' %}
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Treated as provision"
+            },
+            value: {
+              text: data.timeline.provisions
+            },
+            actions: {
+              items: [
+                {
+                  href: "treated-as",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          },
+  
+          {
+            key: {
+              text: "Provision type"
+            },
+            value: {
+              text: data.timeline.provisiontype
+            },
+            actions: {
+              items: [
+                {
+                  href: "treated-as",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }
+
+          ]
+        }) }} 
+        {%endif%}
+      {{ govukSummaryList({
+        rows: [
+        
+        
+      
+        
+      
+          {
+            key: {
+              text: "Activities considered"
+            },
+            value: {
+              html: activities
+            },
+            actions: {
+              items: [
+                {
+                  href: "activities-considered",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          },
+
+          {
+            key: {
+              text: "Points awarded"
+            },
+            value: {
+              text: data.timeline.points 
+            },
+            actions: {
+              items: [
+                {
+                  href: "/timeline/points-awarded-question",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }
+
+          ]
+        }) }}        
+
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Points per activity"
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/timeline/points-for-each-activity",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          },
+
+        
+          {
+            key: {
+              html: activitiespoints
+            },
+            value: {
+              html: points 
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/points-awarded-question",
+                  text: "",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }
+
+          
+          
+          
+          
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Problems eating or drinking"
+            },
+            value: {
+              text: data.timeline.eatingorDrinking
+            },
+            actions: {
+              items: [
+                {
+                  href: "/timeline/eating-drinking",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }
+          
+          
+        ]
+      }) }}
+      <!--
+
             <h2 class="govuk-heading-m">Activities and points</h2>
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
               {% if data.decisionType == 'LCWRA' %}
@@ -622,7 +848,7 @@
               {%endif%}
               </dl>
               </div>
-              
+            -->
 
             
 

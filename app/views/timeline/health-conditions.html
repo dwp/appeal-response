@@ -34,13 +34,13 @@
     [
       {
         key: {
-          text: "Asthma"
+          text: "Arthritis"
         },
         
         actions: {
           items: [
             {
-              href: "/timeline/remove-health-condition?condition=" + "Asthma" | urlencode,
+              href: "/timeline/remove-health-condition?condition=" + "Arthritis" | urlencode,
               text: "Remove",
               visuallyHiddenText: "Item label"
             }
@@ -49,7 +49,7 @@
       },
       {
         key: {
-          text: "Back pain"
+          text: "Carpal tunnel syndrome"
         },
 
         value: {
@@ -68,7 +68,7 @@
       },
       {
         key: {
-          text: "Knee pain"
+          text: "Broken wrist"
         },
         
         actions: {
@@ -99,12 +99,12 @@
 <div id="passport-issued-hint" class="govuk-hint">
   Previously added health conditions can be removed if they no longer apply
 </div>
-{% if data.timeline.removehealthcondition == 'Asthma' %}
+{% if data.timeline.removehealthcondition == 'Arthritis' %}
 {{ govukSummaryList({
   rows: [
     {
       key: {
-        text: "Back pain"
+        text: "Carpal tunnel syndrome "
       },
 
       value: {
@@ -123,7 +123,7 @@
     },
     {
       key: {
-        text: "Knee pain"
+        text: "Broken wrist"
       },
       
       actions: {
