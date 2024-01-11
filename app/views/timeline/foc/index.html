@@ -39,6 +39,8 @@
     <h1 class="govuk-heading-xl govuk-!-margin-left-3">
       Build facts of the case
     </h1>
+    
+
 
     {% if (data.events | length) > 0 %}
         <div class="govuk-grid-column-two-thirds">
@@ -71,6 +73,7 @@
                   </td>
                   <td class="govuk-table__cell" style="width:60% !important;">
                     <span class="govuk-body govuk-!-font-weight-bold">{{ event.title }}</span>
+                    
                     {% if event.details %}
                       <div class="listOfDetails">
                         {% for key,value in event.details %}

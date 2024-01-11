@@ -6,6 +6,8 @@
 {% block head %}
   {% include "includes/head.html" %}
   <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="/public/javascripts/auto-complete.js"></script>
+  <script src="/public/javascripts/misc.js"></script>
 {% endblock %}
 
 {% block pageTitle %}
@@ -29,9 +31,9 @@
 <form novalidation method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-     
+      <h1 class='govuk-label--l'>Declared health condition</h1>
 
-        {{ govukInput({
+        <!-- {{ govukInput({
           id: "Declared health condition",
           name: "[timeline][activitychange]",
           label: {
@@ -46,7 +48,22 @@
           value: data.timeline.activitychange,
 
           classes: "govuk-input--width-20"
-        }) }},
+        }) }}, -->
+
+        <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-!-font-weight-bold" for="weight">
+                Add new health condition
+              </label>
+            </h1>
+            <div class="" id="conditionsContainer">
+              <div class="govuk-input__wrapper autocomplete ">
+                {% if data.edit != 1 %}
+                  <input class="govuk-input govuk-input--width-20 conditionInput" id="condition" name="[timeline][activitychange]" type="text">
+                {% endif %}
+              </div>
+            </div>
+        </div>
         
         {{ govukRadios({
           name: "[timeline][abilitytowork]",

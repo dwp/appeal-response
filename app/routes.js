@@ -93,8 +93,7 @@ getAllEvents = function(data){
   let dualClaim = {};
   let hcp = {};
   let uc113 = {};
-
-
+  
   //add all health conditions
   if(data.healthConditions)
   {
@@ -999,6 +998,9 @@ router.get('/timeline/foc/index',(req,res,next) => {
   const { data } = req.session;
   const { edit, id } = req.query;
   const events = data.events;
+
+  console.log("*************** ", events);
+
   let hmctsReceipt = {};
   let dwpReceipt = {};
   data.factToAdd = "";
@@ -2189,6 +2191,13 @@ router.post('/timeline/previously-declared-health-conditions', (req, res) => {
 
 router.post('/timeline/New-health-conditions', (req, res) => {
   res.redirect('/timeline/foc/coc-option2')
+})
+
+router.get('/timeline/remove-health-condition', (req, res) => {
+  const {condition } = req.query;
+
+  
+  res.render('./timeline/remove-health-condition', {condition});
 })
 
 router.post('/timeline/remove-health-condition', (req, res) => {

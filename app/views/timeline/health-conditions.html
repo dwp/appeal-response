@@ -30,8 +30,60 @@
 
 {% block content %}
 
+  {% set existingConditions =
+    [
+      {
+        key: {
+          text: "Asthma"
+        },
+        
+        actions: {
+          items: [
+            {
+              href: "/timeline/remove-health-condition?condition=" + "Asthma" | urlencode,
+              text: "Remove",
+              visuallyHiddenText: "Item label"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Back pain"
+        },
 
-
+        value: {
+          text: ""
+        },
+        
+        actions: {
+          items: [
+            {
+              href: "/timeline/remove-health-condition?condition=" + "Back pain" | urlencode,
+              text: "Remove",
+              visuallyHiddenText: "Item label"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Knee pain"
+        },
+        
+        actions: {
+          items: [
+            {
+              href: "/timeline/remove-health-condition?condition=" + "Knee pain" | urlencode,
+              text: "Remove",
+              visuallyHiddenText: "Item label"
+            }
+          ]
+        }
+      }  
+    ]
+  %}
+  
   <div class="govuk-grid-row">
     <div class="govuk-form-group govuk-grid-column-three-quarters">
       <form novalidation method="post">
@@ -47,16 +99,9 @@
 <div id="passport-issued-hint" class="govuk-hint">
   Previously added health conditions can be removed if they no longer apply
 </div>
-{% if data.timeline.removehealthcondition == 'Yesremoveasthma' %}
+{% if data.timeline.removehealthcondition == 'Asthma' %}
 {{ govukSummaryList({
   rows: [
-
-  
-
-    
-
-   
-
     {
       key: {
         text: "Back pain"
@@ -69,7 +114,7 @@
       actions: {
         items: [
           {
-            href: "Item URL",
+            href: "/timeline/remove-health-condition?condition=" + "Back pain" | urlencode,
             text: "Remove",
             visuallyHiddenText: "Item label"
           }
@@ -84,7 +129,7 @@
       actions: {
         items: [
           {
-            href: "Item URL",
+            href: "/timeline/remove-health-condition?condition=" + "Knee pain" | urlencode,
             text: "Remove",
             visuallyHiddenText: "Item label"
           }
@@ -99,60 +144,7 @@
 {%else%}
 
     {{ govukSummaryList({
-      rows: [
-      {
-        key: {
-          text: "Asthma"
-        },
-        
-        actions: {
-          items: [
-            {
-              href: "/timeline/remove-health-condition",
-              text: "Remove",
-              visuallyHiddenText: "Item label"
-            }
-          ]
-        }
-      },
-
-        {
-          key: {
-            text: "Back pain"
-          },
-
-          value: {
-            text: ""
-          },
-          
-          actions: {
-            items: [
-              {
-                href: "Item URL",
-                text: "Remove",
-                visuallyHiddenText: "Item label"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Knee pain"
-          },
-          
-          actions: {
-            items: [
-              {
-                href: "Item URL",
-                text: "Remove",
-                visuallyHiddenText: "Item label"
-              }
-            ]
-          }
-        }
-      
-      
-      ]
+      rows: existingConditions
     }) }}
 
     {%endif%} 
@@ -218,7 +210,7 @@
             
           
         
-        <a href="/chinese" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+        <a href="/timeline/foc/index" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
           Continue 
         </a>
         

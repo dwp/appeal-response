@@ -28,6 +28,7 @@
 
 
 
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <form novalidation method="post">
@@ -37,7 +38,7 @@
       fieldset: {
         legend: {
           text: "
-          Are you sure you want to remove Asthma?",
+          Are you sure you want to remove " + condition + " ?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
@@ -45,7 +46,7 @@
       value: data.timeline.removehealthcondition,
       items: [
         {
-          value: "Yesremoveasthma",
+          value: condition,
           text: "Yes"
         },
         {
