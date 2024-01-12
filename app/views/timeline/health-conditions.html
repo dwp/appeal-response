@@ -74,7 +74,7 @@
         actions: {
           items: [
             {
-              href: "/timeline/remove-health-condition?condition=" + "Knee pain" | urlencode,
+              href: "/timeline/remove-health-condition?condition=" + "Broken Wrist" | urlencode,
               text: "Remove",
               visuallyHiddenText: "Item label"
             }
@@ -99,10 +99,34 @@
 <div id="passport-issued-hint" class="govuk-hint">
   Previously added health conditions can be removed if they no longer apply
 </div>
-{% if data.timeline.removehealthcondition == 'Arthritis' %}
+
+    
+
+    {% if data.timeline.removehealthcondition == 'Broken Wrist' %}
 {{ govukSummaryList({
   rows: [
-    {
+    
+  {
+    key: {
+      text: "Arthritis "
+    },
+
+    value: {
+      text: ""
+    },
+    
+    actions: {
+      items: [
+        {
+          href: "/timeline/remove-health-condition?condition=" + "Back pain" | urlencode,
+          text: "Remove",
+          visuallyHiddenText: "Item label"
+        }
+      ]
+    }
+  },
+  
+  {
       key: {
         text: "Carpal tunnel syndrome "
       },
@@ -120,22 +144,8 @@
           }
         ]
       }
-    },
-    {
-      key: {
-        text: "Broken wrist"
-      },
-      
-      actions: {
-        items: [
-          {
-            href: "/timeline/remove-health-condition?condition=" + "Knee pain" | urlencode,
-            text: "Remove",
-            visuallyHiddenText: "Item label"
-          }
-        ]
-      }
     }
+    
   
   
   ]
@@ -193,6 +203,7 @@
     }) }}
 
     {%endif%}
+
 
       <div class="govuk-button-group">
         
