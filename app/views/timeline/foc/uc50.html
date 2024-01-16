@@ -36,25 +36,24 @@
 <a href="javascript:history.back()" class="govuk-back-link">Back</a>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-7">
-      <h2 class="govuk-heading-l">What did the appellant have difficulty with?</h2>
+      
+      <h2 class="govuk-heading-l">Which activities does the appellant claim affect their health?</h2>
         <form action="/timeline/foc/addUC50Details?target={{data.target}}" method="post" id="form">
           <input class="govuk-input" id="uc50ID" name="uc50ID" type="text" style="display:none" value={{data.uc50.id}}>
           
-        <p>Select all that apply</p>
+          <div id="passport-issued-hint" class="govuk-hint">
+            Select all that apply
+          </div>
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-              <h3 class="govuk-fieldset__heading">
-                Physical functions
-              </h3>
-            </legend>
+           <h1 class="govuk-heading-m">Physical</h1>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="op1" name="physical" type="checkbox" value="Moving around and using steps"
                  >
                 <label class="govuk-label govuk-checkboxes__label" for="op1">
-                  Moving around and using steps
+                  Mobilising
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
@@ -72,43 +71,43 @@
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="op4" name="physical" type="checkbox" value="Picking up and moving things" >
                 <label class="govuk-label govuk-checkboxes__label" for="op4">
-                  Picking up and moving things
+                  Picking up and moving
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="op5" name="physical" type="checkbox" value="Manual dexterity (using your hands)" >
                 <label class="govuk-label govuk-checkboxes__label" for="op5">
-                  Manual dexterity (using your hands)
+                  Manual dexterity
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="op6" name="physical" type="checkbox" value="Communicating - speaking, writing and typing">
                 <label class="govuk-label govuk-checkboxes__label" for="op6">
-                  Communicating - speaking, writing and typing
+                  Navigation
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="op7" name="physical" type="checkbox" value="Communicating - hearing and reading">
                 <label class="govuk-label govuk-checkboxes__label" for="op7">
-                  Communicating - hearing and reading
+                  Making self understood
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="op8" name="physical" type="checkbox" value="Getting around safely" >
                 <label class="govuk-label govuk-checkboxes__label" for="op8">
-                  Getting around safely
+                  Understanding communication
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="op9" name="physical" type="checkbox" value="Controlling your bowels and bladder and using a collecting device">
                 <label class="govuk-label govuk-checkboxes__label" for="op9">
-                  Controlling your bowels and bladder and using a collecting device
-                </label>
+                  Continence
+                                </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="op10" name="physical" type="checkbox" value="Staying conscious when awake" >
                 <label class="govuk-label govuk-checkboxes__label" for="op10">
-                  Staying conscious when awake
+                  Consciousness
                 </label>
               </div>
             </div>
@@ -120,27 +119,27 @@
           <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
               <h1 class="govuk-fieldset__heading">
-                Mental, cognitive and intellectual capabilities
+                Mental, cognitive and intellectual 
               </h1>
             </legend>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="lop1" name="mental" type="checkbox" value="Learning how to do tasks" >
                 <label class="govuk-label govuk-checkboxes__label" for="lop1">
-                  Learning how to do tasks
+                  Learning new tasks
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Awareness of hazards or danger" >
                 <label class="govuk-label govuk-checkboxes__label" for="lop3">
-                  Awareness of hazards or danger
+                  Hazard awareness
                 </label>
               </div>
 
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Starting and finishing tasks" >
                 <label class="govuk-label govuk-checkboxes__label" for="lop2">
-                  Starting and finishing tasks
+                  Personal action
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
@@ -152,19 +151,19 @@
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Going out" >
                 <label class="govuk-label govuk-checkboxes__label" for="lop5">
-                  Going out
+                  Getting about
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Coping with social situations" >
                 <label class="govuk-label govuk-checkboxes__label" for="lop6">
-                  Coping with social situations
+                  Coping socially
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="lop2" name="mental" type="checkbox" value="Behaving appropriately" >
                 <label class="govuk-label govuk-checkboxes__label" for="lop7">
-                  Behaving appropriately
+                  Appropriateness of behaviour
                 </label>
               </div>
               <div class="govuk-checkboxes__item">

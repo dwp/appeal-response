@@ -1359,7 +1359,7 @@ router.post('/timeline/foc/addUC50Details',(req,res) => {
   if(data.cya =="true")
     res.redirect('/timeline/11-check-answers');
   else
-    res.redirect('/timeline/foc/index');
+    res.redirect('/timeline/foc/index'); //change to eating or drinking
 })
 
 router.post('/timeline/foc/addDecision',(req,res) => {
