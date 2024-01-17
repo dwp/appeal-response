@@ -26,10 +26,10 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-  
-    <form action="/timeline/eating-drinkingUC50" novalidation method="post">
+  <form action="/timeline/eating-drinkingUC50" novalidation method="post">
     
-      
+    
+    
      <!-- <form class="form" action="/timeline/summary-points" method="post"> -->
 
       {{ govukRadios({
@@ -57,10 +57,9 @@
       
          
 
-    {{ govukButton({
-      text: "Continue",
-      type: "submit"
-    }) }}
+ {{ govukButton({
+  text: "Continue"
+ }) }}
 </form>
 </div>
 </div>
@@ -69,11 +68,11 @@
 //when they click continue - change to '2,copy to endblock
 
 {% block pageScripts %}
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   function saveData(){
     sessionStorage.setItem("taskProgressRepDetails","2");
     document.getElementById("form").submit();
   }
 
-</script> -->
+</script>
 {% endblock %}
