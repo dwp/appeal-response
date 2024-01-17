@@ -39,9 +39,7 @@
     <h1 class="govuk-heading-xl govuk-!-margin-left-3">
       Build facts of the case
     </h1>
-    
-
-
+        
     {% if (data.events | length) > 0 %}
         <div class="govuk-grid-column-two-thirds">
           <p class="">
@@ -73,11 +71,21 @@
                   </td>
                   <td class="govuk-table__cell" style="width:60% !important;">
                     <span class="govuk-body govuk-!-font-weight-bold">{{ event.title }}</span>
-                    
+                                        
                     {% if event.details %}
                       <div class="listOfDetails">
                         {% for key,value in event.details %}
                           <div class="details-{{event.id}} detail" style="display:none;">
+                            {% if event.type == "changeHealthDisability" and key == "newHealthConditions" %}
+                            <p class="govuk-body govuk-!-font-weight-bold">
+                              Existing conditions
+                              <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0">                                
+                                  <li class="govuk-body" >Arthritis</li>
+                                  <li class="govuk-body" >Carpal tunnel syndrome</li>
+                                  <li class="govuk-body" >Broken wrist</li>
+                              </ul>                          
+                            </p>
+                            {% endif %}
                             <p class="govuk-body govuk-!-font-weight-bold" >
                               {% if key == 'mentalPoints' %}
                                 Descriptor points awarded by the decision maker for mental, cognitive and intellectual function <br>
@@ -105,10 +113,14 @@
                                 Are the details of the UC50 available?<br>
                               {% elif key == 'uc50Physical' %}
                                 Physical functions the appellant have difficulty with<br>
+                              {% elif key == 'eatingorDrinkingUC50' %}
+                                Eating or drinking<br>
                               {% elif key == 'uc50Mental' %}
                                 Mental, cognitive and intellectual capabilities the appellant have difficulty with<br>
                               {% elif key == 'agree' %}
                                 Did the MR decision maker agree with the original decision?<br>
+                              {% elif key == 'newHealthConditions' %}
+                                New health condition<br>
                               {% endif %}
 
                               {% if event.type == "other"%}
@@ -123,7 +135,7 @@
                                 {% else %}
                                   <span class="govuk-body">{{value}}</span>
                                 {% endif %}
-                              {% endif %}
+                              {% endif %}                              
                             </p>
                           </div>
                         {% endfor %}
@@ -200,8 +212,8 @@
 
           <li class="govuk-!-margin-bottom-2">
             <a class="govuk-link govuk-link--no-visited-state" href="date-of-change">Change to health or disability</a>
-            {% if data.noOfEvents.coc > 0%}
-              ({{data.noOfEvents.coc}} added)
+            {% if data.noOfEvents.changeHealthDisability > 0%}
+              ({{data.noOfEvents.changeHealthDisability}} added)
             {% endif %}
           </li>
           <li class="govuk-!-margin-bottom-2">

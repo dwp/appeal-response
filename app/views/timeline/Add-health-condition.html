@@ -29,6 +29,7 @@
 
 
 <form novalidation method="post">
+  <input type="hidden"  name="changeHealthDisabilityID" type="text" style="display:none" value={{data.changeHealthDisability.id}}>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class='govuk-label--l'>Declared health condition</h1>
@@ -58,15 +59,15 @@
             </h1>
             <div class="" id="conditionsContainer">
               <div class="govuk-input__wrapper autocomplete ">
-                {% if data.edit != 1 %}
-                  <input class="govuk-input govuk-input--width-20 conditionInput" id="condition" name="[timeline][activitychange]" type="text">
-                {% endif %}
+                <!-- {% if data.edit != 1 %} -->
+                  <input class="govuk-input govuk-input--width-20 conditionInput" id="condition" name="newHealthCondition" type="text">
+                <!-- {% endif %} -->
               </div>
             </div>
         </div>
         
         {{ govukRadios({
-          name: "[timeline][abilitytowork]",
+          name: "abilityToWork",
           fieldset: {
             legend: {
               text: "Did this change restrict the appellant's ability to work?",
@@ -74,7 +75,7 @@
               classes: "govuk-fieldset__legend--s"
             }
           },
-          value: data.timeline.abilitytowork,
+          value: data.events[data.editChangeHealthDisabilityIndex].details.abilityToWork,
           items: [
             {
               value: "Restricts ability to work",
@@ -88,7 +89,7 @@
         }) }}  
 
         {{ govukRadios({
-          name: "[timeline][medicalevidence]",
+          name: "medicalEvidence",
           fieldset: {
             legend: {
               text: "Did they provide valid medical evidence?",
@@ -96,7 +97,7 @@
               classes: "govuk-fieldset__legend--s"
             }
           },
-          value: data.timeline.medicalevidence,
+          value: data.events[data.editChangeHealthDisabilityIndex].details.medicalEvidence,
           items: [
             {
               value: "Medical evidence provided",

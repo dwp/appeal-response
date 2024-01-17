@@ -86,7 +86,7 @@
   
   <div class="govuk-grid-row">
     <div class="govuk-form-group govuk-grid-column-three-quarters">
-      <form novalidation method="post">
+      <form method="post">
 
     <h1 class="govuk-heading-l"> Health conditions declared</h1>
 
@@ -99,86 +99,68 @@
 <div id="passport-issued-hint" class="govuk-hint">
   Previously added health conditions can be removed if they no longer apply
 </div>
-
-    
-
     {% if data.timeline.removehealthcondition == 'Broken Wrist' %}
-{{ govukSummaryList({
-  rows: [
-    
-  {
-    key: {
-      text: "Arthritis "
-    },
-
-    value: {
-      text: ""
-    },
-    
-    actions: {
-      items: [
-        {
-          href: "/timeline/remove-health-condition?condition=" + "Back pain" | urlencode,
-          text: "Remove",
-          visuallyHiddenText: "Item label"
-        }
-      ]
-    }
-  },
-  
-  {
-      key: {
-        text: "Carpal tunnel syndrome "
-      },
-
-      value: {
-        text: ""
-      },
-      
-      actions: {
-        items: [
+      {{ govukSummaryList({
+        rows: [
           {
-            href: "/timeline/remove-health-condition?condition=" + "Back pain" | urlencode,
-            text: "Remove",
-            visuallyHiddenText: "Item label"
-          }
+            key: {
+              text: "Arthritis "
+            },
+
+            value: {
+              text: ""
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/timeline/remove-health-condition?condition=" + "Back pain" | urlencode,
+                  text: "Remove",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Carpal tunnel syndrome "
+            },
+
+            value: {
+              text: ""
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/timeline/remove-health-condition?condition=" + "Back pain" | urlencode,
+                  text: "Remove",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }        
         ]
-      }
-    }
-    
-  
-  
-  ]
-}) }}
-
-{%else%}
-
-    {{ govukSummaryList({
-      rows: existingConditions
-    }) }}
-
+      }) }}
+    {% else %}
+      {{ govukSummaryList({
+        rows: existingConditions
+      }) }}
     {%endif%} 
-
-    {% if data.timeline.activitychange %}
-
+        
+    {% if data.newHealthCondition %}
     <h1 class="govuk-heading-m"> New health conditions</h1>
 
-    {{ govukSummaryList({
-    
+    {{ govukSummaryList({    
       rows: [
       {
         key: {
-          text: data.timeline.activitychange
-          
+          text: data.newHealthCondition
         },
         value: {
-          html: data.timeline.abilitytowork + "<br> " + data.timeline.medicalevidence,
+          html: data.abilityToWork + "<br> " + data.medicalEvidence,
           width: 1px
-          
         },
-       
-        
-       
         actions: {
           items: [
             {
@@ -190,54 +172,27 @@
               href: "/timeline/points-for-each-activity",
               text: "Remove",
               visuallyHiddenText: "Item label"
-            }
-            
-
+            }        
           ]
         }
       }
-
-    
-      
       ]
     }) }}
 
     {%endif%}
 
-
       <div class="govuk-button-group">
-        
-
         <a href="/timeline/Add-health-condition" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
           Add a new health condition
         </a>
-        
-                
-                
-          
-        
-        
-          
-            
-          
-        
+                        
         <a href="/timeline/foc/index" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
           Continue 
         </a>
-        
-              </div>
-
-     
+      </div>     
     </form>
-        
-        
-        
-          
-        <!-- LINK NOT BUTTON WHEN NO DATA NEEDS TO BE SENT-->
-        
-      
-       
-
+ 
+    <!-- LINK NOT BUTTON WHEN NO DATA NEEDS TO BE SENT-->      
     </div>
   </div>
 

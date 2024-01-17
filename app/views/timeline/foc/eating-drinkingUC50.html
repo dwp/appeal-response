@@ -26,15 +26,15 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-  <form novalidation method="post">
+  
+    <form action="/timeline/eating-drinkingUC50" novalidation method="post">
     
-    
-    
+      
      <!-- <form class="form" action="/timeline/summary-points" method="post"> -->
 
       {{ govukRadios({
-        idPrefrix:"[timeline][eatingorDrinking]",
-        name: "[timeline][eatingorDrinking]",
+        idPrefrix:"[timeline][eatingorDrinkingUC50]",
+        name: "[timeline][eatingorDrinkingUC50]",
         fieldset: {
           legend: {
             text: "Do they have any problems eating or drinking?",
@@ -57,9 +57,10 @@
       
          
 
- {{ govukButton({
-  text: "Continue"
- }) }}
+    {{ govukButton({
+      text: "Continue",
+      type: "submit"
+    }) }}
 </form>
 </div>
 </div>
@@ -68,11 +69,11 @@
 //when they click continue - change to '2,copy to endblock
 
 {% block pageScripts %}
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   function saveData(){
     sessionStorage.setItem("taskProgressRepDetails","2");
     document.getElementById("form").submit();
   }
 
-</script>
+</script> -->
 {% endblock %}

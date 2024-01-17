@@ -30,10 +30,10 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <form novalidation method="post">
+      <form novalidation method="post" action='/timeline/foc/date-of-change'>
         
        {{ govukDateInput({
-        id: "date",
+        id: "healthDisabilityChangeDate",
         fieldset: {
           legend: {
             text: "Date of health or disability change",
@@ -44,29 +44,27 @@
        
         items: [
           {
-            name: "date",
+            name: "healthDisabilityChangeDay",
             label: "Day",
-            value: data.day,
+            value: data.events[data.editChangeHealthDisabilityIndex].day,
             classes: "govuk-input--width-2"
           },
           {
-            name: "date",
+            name: "healthDisabilityChangeMonth",
             label: "Month",
-            value: data.month,
+            value: data.events[data.editChangeHealthDisabilityIndex].month,
             classes: "govuk-input--width-2"
           },
           {
-            name: "date",
+            name: "healthDisabilityChangeYear",
             label: "Year",
-            value: data.year,
+            value: data.events[data.editChangeHealthDisabilityIndex].year,
             classes: "govuk-input--width-4"
           }
         ]
        }) }}
         
-        
-        
-          
+                
         <!-- LINK NOT BUTTON WHEN NO DATA NEEDS TO BE SENT-->
         
       {{ govukButton({
