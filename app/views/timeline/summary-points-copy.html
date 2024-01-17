@@ -80,48 +80,7 @@
           </legend>
 
          
-        {% if data.decisionType == 'LCWRA' %}
-        {{ govukSummaryList({
-          rows: [
-          {
-            key: {
-              text: "Treated as provision"
-            },
-            value: {
-              text: data.timeline.provisions
-            },
-            actions: {
-              items: [
-                {
-                  href: "treated-as",
-                  text: "Change",
-                  visuallyHiddenText: "Item label"
-                }
-              ]
-            }
-          },
-  
-          {
-            key: {
-              text: "Provision type"
-            },
-            value: {
-              text: data.timeline.provisiontype
-            },
-            actions: {
-              items: [
-                {
-                  href: "treated-as",
-                  text: "Change",
-                  visuallyHiddenText: "Item label"
-                }
-              ]
-            }
-          }
-
-          ]
-        }) }} 
-        {%endif%}
+        
       {{ govukSummaryList({
         rows: [
         
@@ -237,7 +196,48 @@
         ]
       }) }}
                  
+      {% if data.decisionType == 'LCWRA' %}
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Treated as provision"
+          },
+          value: {
+            text: data.timeline.provisions
+          },
+          actions: {
+            items: [
+              {
+                href: "treated-as",
+                text: "Change",
+                visuallyHiddenText: "Item label"
+              }
+            ]
+          }
+        },
 
+        {
+          key: {
+            text: "Provision type"
+          },
+          value: {
+            text: data.timeline.provisiontype
+          },
+          actions: {
+            items: [
+              {
+                href: "treated-as",
+                text: "Change",
+                visuallyHiddenText: "Item label"
+              }
+            ]
+          }
+        }
+
+        ]
+      }) }} 
+      {%endif%}
         
         <!-- when they click continue - change to '2,copy to endblock -->
   <button class="govuk-button" data-module="govuk-button" onclick="saveData()">

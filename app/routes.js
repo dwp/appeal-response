@@ -2157,21 +2157,44 @@ router.post('/timeline/treated-as-question', (req, res) => {
 
 
 // this is what I've tried to add so that the eating-drinking page goes to summary points copy
-router.post('/timeline/eating-drinking', (req, res) => {
-  res.redirect('/timeline/summary-points-copy')
-})
+//router.post('/timeline/eating-drinking', (req, res) => {
+ // res.redirect('/timeline/summary-points-copy')
+//})
 
 
 router.post('/timeline/activities-considered', (req, res) => {
-  res.redirect('/timeline/points-awarded-question')
+ res.redirect('/timeline/points-awarded-question')
 })
 
 router.post('/timeline/points-awarded-question', (req, res) => {
   res.redirect('/timeline/eating-drinking')
 })
 
+
+
+//router.post('/timeline/eating-drinking', (req, res) => {
+  //if (data.decisionType == 'lcw'){
+  //  res.redirect('/timeline/summary-points-copy')
+
+  //} else {
+
+  //res.redirect('/timeline/eating-drinking')
+  //}
+//})
+
+router.post('/timeline/eating-drinking', function(request, response) {
+
+  var decisionType = request.session.data['decisionType']
+  if (decisionType == "LCW"){
+      response.redirect("/timeline/summary-points-copy")
+  } else {
+      response.redirect("/timeline/Treated-as-question")
+  }
+})
+
+
 router.post('/timeline/Treated-as', (req, res) => {
-  res.redirect('/timeline/activities-considered')
+  res.redirect('/timeline/summary-points-copy')
 })
 
 router.post('/timeline/points-for-each-activity', (req, res) => {

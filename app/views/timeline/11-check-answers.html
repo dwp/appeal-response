@@ -436,48 +436,7 @@
 
             <h2 class="govuk-heading-m">Activities and points</h2>
                     
-        {% if data.decisionType == 'LCWRA' %}
-        {{ govukSummaryList({
-          rows: [
-          {
-            key: {
-              text: "Treated as provision"
-            },
-            value: {
-              text: data.timeline.provisions
-            },
-            actions: {
-              items: [
-                {
-                  href: "treated-as",
-                  text: "Change",
-                  visuallyHiddenText: "Item label"
-                }
-              ]
-            }
-          },
-  
-          {
-            key: {
-              text: "Provision type"
-            },
-            value: {
-              text: data.timeline.provisiontype
-            },
-            actions: {
-              items: [
-                {
-                  href: "treated-as",
-                  text: "Change",
-                  visuallyHiddenText: "Item label"
-                }
-              ]
-            }
-          }
-
-          ]
-        }) }} 
-        {%endif%}
+        
       {{ govukSummaryList({
         rows: [
         
@@ -592,6 +551,48 @@
           
         ]
       }) }}
+      {% if data.decisionType == 'LCWRA' %}
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Treated as provision"
+            },
+            value: {
+              text: data.timeline.provisions
+            },
+            actions: {
+              items: [
+                {
+                  href: "treated-as",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          },
+  
+          {
+            key: {
+              text: "Provision type"
+            },
+            value: {
+              text: data.timeline.provisiontype
+            },
+            actions: {
+              items: [
+                {
+                  href: "treated-as",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }
+
+          ]
+        }) }} 
+        {%endif%}
       <!--
 
             <h2 class="govuk-heading-m">Activities and points</h2>
