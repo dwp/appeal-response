@@ -2147,7 +2147,7 @@ router.post('/timeline/points-awarded-question', (req, res) => {
 
 router.post('/timeline/treated-as-question', (req, res) => {
   if (req.body.timeline.provisions == 'Yes'){
-    res.redirect('/timeline/Treated-as')
+    res.redirect('/timeline/treated-as')
 
   } else {
 
