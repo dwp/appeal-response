@@ -2147,7 +2147,7 @@ router.post('/timeline/points-awarded-question', (req, res) => {
 
 router.post('/timeline/treated-as-question', (req, res) => {
   if (req.body.timeline.provisions == 'Yes'){
-    res.redirect('/timeline/treated-as')
+    res.redirect('/timeline/Treated-as')
 
   } else {
 
@@ -2188,7 +2188,7 @@ router.post('/timeline/eating-drinking', function(request, response) {
   if (decisionType == "LCW"){
       response.redirect("/timeline/summary-points-copy")
   } else {
-      response.redirect("/timeline/Treated-as-question")
+      response.redirect("/timeline/treated-as-question")
   }
 })
 
