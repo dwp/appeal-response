@@ -2315,14 +2315,21 @@ router.post('/timeline/foc/mr-forthpage', (req, res) => {
 
 
 router.post('/timeline/foc/appealDates-secondpage', (req, res) => {
-  if (req.body.timeline.appealsubmitted == 'No'){
+  console.log("******** req.body.timeline.appealsubmitted ", req.body.timeline.appealsubmitted);
+  console.log("******** req.body.timeline.submitted ", req.body.timeline.submitted);
+  if (req.body.timeline.appealsubmitted == 'No' &&  
+    req.body.timeline.submitted == 'No'){
     res.redirect('/timeline/foc/appealDates-appeal-submitted')
-
-  } else {
-
-  res.redirect('/timeline/foc/index')
-  }
-
+  } else if(req.body.timeline.appealsubmitted == 'Yes' && 
+    req.body.timeline.submitted == 'No') {
+    res.redirect('/timeline/foc/appealDates-appeal-dwpdatereceived')
+  } else if(req.body.timeline.appealsubmitted == 'Yes' && 
+    req.body.timeline.submitted == 'Yes') {
+    res.redirect('/timeline/foc/index')
+  } else if(req.body.timeline.appealsubmitted == 'No' && 
+    req.body.timeline.submitted == 'Yes') {
+    res.redirect('/timeline/foc/appealDates-appeal-submitted')
+}
 
   
 })
