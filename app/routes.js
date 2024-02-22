@@ -2317,24 +2317,32 @@ router.post('/timeline/foc/mr-forthpage', (req, res) => {
 router.post('/timeline/foc/appealDates-secondpage', (req, res) => {
   console.log("******** req.body.timeline.appealsubmitted ", req.body.timeline.appealsubmitted);
   console.log("******** req.body.timeline.submitted ", req.body.timeline.submitted);
+  const params = '?appealsubmitted=' + req.body.timeline.appealsubmitted + '&submitted=' +  req.body.timeline.submitted  ;
   if (req.body.timeline.appealsubmitted == 'No' &&  
     req.body.timeline.submitted == 'No'){
-    res.redirect('/timeline/foc/appealDates-appeal-submitted')
+
+    res.redirect('/timeline/foc/appealDates-appeal-submitted'+ params)
   } else if(req.body.timeline.appealsubmitted == 'Yes' && 
     req.body.timeline.submitted == 'No') {
-    res.redirect('/timeline/foc/appealDates-appeal-dwpdatereceived')
+    res.redirect('/timeline/foc/appealDates-appeal-dwpdatereceived' + params)
   } else if(req.body.timeline.appealsubmitted == 'Yes' && 
     req.body.timeline.submitted == 'Yes') {
     res.redirect('/timeline/foc/index')
   } else if(req.body.timeline.appealsubmitted == 'No' && 
     req.body.timeline.submitted == 'Yes') {
-    res.redirect('/timeline/foc/appealDates-appeal-submitted')
+    res.redirect('/timeline/foc/appealDates-appeal-submitted'+ params)
 }
 
   
 })
 router.post('/timeline/foc/appealDates-appeal-submitted', (req, res) => {
-  res.redirect('/timeline/foc/appealDates-appeal-dwpdatereceived')
+
+ if(req.query.appealsubmitted == 'No' && 
+    req.query.submitted == 'Yes') {
+    res.redirect('/timeline/foc/index')
+  } else {
+    res.redirect('/timeline/foc/appealDates-appeal-dwpdatereceived')
+  }
 })
 
 router.post('/timeline/foc/appealDates-appeal-dwpdatereceived', (req, res) => {
