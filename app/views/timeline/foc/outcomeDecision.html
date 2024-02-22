@@ -15,6 +15,12 @@
 {% block header %}
 {{header.header(serviceName,'Jane Doe')}}
 {% endblock %}
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
 
 {% block content %}
 {% if data.error %}
@@ -33,7 +39,7 @@
   </div>
   </div>
 {% endif %}
-<a href="
+<!--<a href="
 {% if (data.edit == 1 and data.target == 'index') %}
   index
 {% elif (data.edit == 1 and data.target == 'index3') %}
@@ -41,19 +47,20 @@
 {% else %}
   javascript:history.back()
 {% endif %}
-" class="govuk-back-link">Back</a>
+" class="govuk-back-link">Back</a> -->
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h2 class="govuk-heading-l">Original decision</h2>
-      <div class="govuk-inset-text">
-        Also known as 'outcome decision'
-      </div>
+      
       <form action="/timeline/foc/addOutcomeDecision?target={{data.target}}" method="post" class="form" id="form">
             <div class="govuk-form-group">
               <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
                 Date of decision
               </label>
+              <div id="passport-issued-hint" class="govuk-hint">
+                For example, 27 3 2007
+              </div>
                   <div class="govuk-date-input" id="date-original-decision">
                     <div class="govuk-date-input__item">
                       <div class="govuk-form-group">
@@ -85,6 +92,9 @@
                 <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
                   Notification sent
                 </label>
+                <div id="passport-issued-hint" class="govuk-hint">
+                  For example, 27 3 2007
+                </div>
                     <div class="govuk-date-input" id="date-original-notification">
                       <div class="govuk-date-input__item">
                         <div class="govuk-form-group">
@@ -113,29 +123,29 @@
                     </div>
                 </div>
 
-                {% if data.decisionType == 'LCW' %}
-                  <h2 class="govuk-heading-m govuk-!-margin-top-9">Total descriptor points awarded by decision maker</h2>
+                
+                  <h3 class="govuk-heading-s govuk-!-margin-top-8">Total descriptor points awarded by decision maker</h3>
                   <div class="govuk-form-group">
-                    <label class="govuk-label govuk-!-font-weight-bold" for="width-3">
+                    <label class="govuk-label govuk-!-font-weight" for="width-3">
                       Physical
                     </label>
                     <input class="govuk-input govuk-input--width-3" id="physicalPoints" name="physicalPoints" type="text" value={{data.events[data.editOutcomeDecisionIndex].details.physicalPoints}} >
                   </div>
                   <div class="govuk-form-group">
-                    <label class="govuk-label govuk-!-font-weight-bold" for="width-3">
+                    <label class="govuk-label govuk-!-font-weight" for="width-3">
                       Mental, cognitive and intellectual
                     </label>
                     <input class="govuk-input govuk-input--width-3" id="mentalPoints" name="mentalPoints" type="text" value={{data.events[data.editOutcomeDecisionIndex].details.mentalPoints}} >
                   </div>
-                {% else %}
+                  {% if data.decisionType == 'LCWRA' %}
 
             <div class="govuk-form-group">
               <fieldset class="govuk-fieldset">
-                <legend class="govuk-label govuk-!-font-weight-bold">
+                <label class="govuk-label govuk-!-font-weight-bold govuk-!-margin-top-3 ">
                   Were any 'treated as' provisions identified?
-                </legend>
+                </lable>
                 <div id="event-name-hint" class="govuk-hint">
-                  For example, exceptional circumstances under schedule 1.
+                  For example, exceptional circumstances under Schedule 8.
                 </div>
                 <div class="govuk-radios" data-module="govuk-radios">
                   <div class="govuk-radios__item">

@@ -2126,10 +2126,10 @@ router.post('/timeline/rep-present', function(request, response) {
   }
 })
 
-router.post('/timeline/representative-details', function(request, response) {
 
-  var representative = request.session.data['representative']
-  
+router.post('/timeline/add-representative', function(request, response) {
+console.log("********************* ");
+
   response.redirect("/timeline/01-task-list-new")
 })
 
@@ -2151,7 +2151,7 @@ router.post('/timeline/treated-as-question', (req, res) => {
 
   } else {
 
-  res.redirect('/timeline/activities-considered')
+  res.redirect('/timeline/summary-points-copy')
   }
 })
 
@@ -2290,6 +2290,55 @@ router.get('/timeline/remove-health-condition', (req, res) => {
 
 router.post('/timeline/remove-health-condition', (req, res) => {
   res.redirect('/timeline/health-conditions')
+})
+
+router.post('/timeline/foc/mr-firstpage', (req, res) => {
+  res.redirect('/timeline/foc/mr-secondpage')
+})
+
+//router.post('/timeline/foc/mr-secondpage', (req, res) => {
+//  res.redirect('/timeline/foc/mr-thirdpage')
+//})
+
+router.post('/timeline/foc/mr-thirdpage', (req, res) => {
+  res.redirect('/timeline/foc/mr-forthpage')
+})
+
+router.post('/timeline/foc/mr-forthpage', (req, res) => {
+  res.redirect('/timeline/foc/mr-forthpage')
+})
+
+router.post('/timeline/foc/mr-forthpage', (req, res) => {
+  res.redirect('/timeline/foc/index')
+})
+
+
+
+router.post('/timeline/foc/appealDates-secondpage', (req, res) => {
+  if (req.body.timeline.appealsubmitted == 'Yes'){
+    res.redirect('/timeline/foc/appealDates-appeal-submitted')
+
+  } else {
+
+  res.redirect('/timeline/foc/index')
+  }
+})
+router.post('/timeline/foc/appealDates-appeal-submitted', (req, res) => {
+  res.redirect('/timeline/foc/appealDates-appeal-dwpdatereceived')
+})
+
+router.post('/timeline/foc/appealDates-appeal-dwpdatereceived', (req, res) => {
+  res.redirect('/timeline/foc/index')
+})
+
+router.post('/timeline/foc/mr-secondpage', (req, res) => {
+  if (req.body.timeline.orginaldecision == 'Yes'){
+    res.redirect('/timeline/foc/mr-thirdpage')
+
+  } else {
+
+  res.redirect('/timeline/foc/mr-forthpage')
+  }
 })
 
 router.post('/timeline/eating-drinkingUC50', (req, res) => {    

@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back to interations",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+
+
+{% block content %}
+
+
+
+<form>
+
+
+    
+      <div class="<div class="govuk-grid-column-one-half">
+        
+     
+      <h1 class="govuk-heading-xl">
+        Changes to the health and disability fact
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        Hypothesis / Experiment
+      </h2>
+      
+      <h1 class="govuk-heading-s">We have seen that</h1>
+      <p class="govuk-body"> Through feedback we have found Appeal Writers re-entering the same health consitions previously declared.</p>
+          
+      <h1 class="govuk-heading-s">We think this is because</h1> 
+      <p class="govuk-body"> ‘Change to health or disability’ is one of the most commonly used Facts of the case.</p>
+
+      <h1 class="govuk-heading-s">So if we</h1> 
+      <p class="govuk-body"> Make it easier for Appeal Writers to enter multiple changes to health or disability</p>
+      
+      <h1 class="govuk-heading-s">We will see</h1> 
+      <p class="govuk-body"> More positive feedback and a reduction in time spent in the service</p>
+        
+      <h2 class="govuk-heading-l">
+        What's new or changed?
+      
+      </h2>
+      <!--
+      <h2 class="govuk-heading-l">
+        User need(s)
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          I need to spend my time on high value activities, so that I can create the best possible appeal response for every case. <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to avoid undertaking unnecessary tasks or duplicating activities. <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to know what to be included in the response to ensure it meets the needs of appellants, the judiciary and DWP. <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to be able to make best use of information DWP holds to support my case, and to integrate into the response effectively <a href="../user-needs/"> More about this need.</a>
+        </li>
+      </ul>
+      -->
+
+      <h2 class="govuk-heading-s">
+        Existing design
+      
+      </h2>
+      <br>
+      <video controls="controls" width="800" height="600" margin-bottom="20" name="Existing Design">
+        <source src="/public/images/design-evolution/Private-beta/change-to-health-or-disability/existing-design.mov">
+      </video>
+      <br>
+      <br>
+      <br>
+      <h2 class="govuk-heading-s">
+        New design
+      
+      </h2>
+
+      <p class="govuk-body"> We started with the DWP 'add another thing pattern' </p>
+      <br>
+
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/Private-beta/change-to-health-or-disability/user-flow.png" alt="home page screenshot">
+      <br>
+      <br>
+      <p class="govuk-body"> Allowing users to add any new health conditions or remove any exisiting without having to re-enter them each time </p>
+
+      <br>
+      <br>
+
+      <video controls="controls" width="800" height="600" margin-bottom="20" name="New Design">
+        <source src="/public/images/design-evolution/Private-beta/change-to-health-or-disability/new-design.mov">
+      </video>
+
+<br>
+<br>
+<br>
+      <h2 class="govuk-heading-l">
+        What did we learn?
+      </h2>
+     
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          In prototype testing participants were able to add and remove conditions with ease
+        </li>
+        <li>
+          There were no usability issues identified although we did only test the 'happy path'
+        </li>
+        <li>
+          We have enough confidence in the design to test it in Live, due to go in March 24
+        </li>
+        
+      </ul>
+
+
+</form>
+
+{% endblock %}

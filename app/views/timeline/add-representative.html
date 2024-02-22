@@ -26,13 +26,13 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-  <form novalidate>
+  
   
     
       <h1 class="govuk-heading-xl">
         Add representative details
       </h1>
-      <form class="form" action="/timeline/representative-details" method="post">
+      <form id="representativedetails" class="form" action="/timeline/add-representative" method="post">
       <h3 class="govuk-heading-m">
         Name
       </h3>
@@ -110,21 +110,23 @@
 </form>
 <div class="govuk-form-group">
 
+ 
   <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
     Continue
-  </button>
+  </button> 
 </form>
 </div>
 </div>
 {% endblock %}
 
-//when they click continue - change to '2,copy to endblock
+<!--when they click continue - change to '2,copy to endblock -->
 
 {% block pageScripts %}
 <script type="text/javascript">
   function saveData(){
     sessionStorage.setItem("taskProgressRepDetails","2");
-    document.getElementById("form").submit();
+    console.log("========= ");
+    document.getElementById("representativedetails").submit();
   }
 
 </script>

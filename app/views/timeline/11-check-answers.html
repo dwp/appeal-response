@@ -439,23 +439,20 @@
         
       {{ govukSummaryList({
         rows: [
-        
-        
-      
-        
       
           {
             key: {
               text: "Activities considered"
             },
             value: {
-              html: activities
+              html: '<a href="#" class="govuk-link">Enter activities considered</a>'
             },
+            
             actions: {
               items: [
                 {
                   href: "activities-considered",
-                  text: "Change",
+                  
                   visuallyHiddenText: "Item label"
                 }
               ]
@@ -466,6 +463,8 @@
             key: {
               text: "Points awarded"
             },
+
+          
             value: {
               text: data.timeline.points 
             },
@@ -483,6 +482,7 @@
           ]
         }) }}        
 
+        <!--
         {{ govukSummaryList({
           rows: [
           {
@@ -500,7 +500,7 @@
               ]
             }
           },
-
+        
         
           {
             key: {
@@ -520,13 +520,12 @@
               ]
             }
           }
-
-          
-          
-          
-          
+ 
         ]
       }) }}
+      -->
+
+      
 
       {{ govukSummaryList({
         rows: [
@@ -847,13 +846,20 @@
         The response is created in a Word document that you will be able to edit.
       </div>
 
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Create response",
+  disabled: true
+}) }}
+<!--
       <div class="govuk-button-group">
         <a class="govuk-button" data-module="govuk-button" href="12-success">
           Create response
         </a>
 
       </div>
-
+    -->
       <p><a href="01-task-list-new">Back to tasks</a></p>
 
       <div class="govuk-link">

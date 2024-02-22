@@ -79,7 +79,7 @@
             </h1>
           </legend>
 
-         
+       
         
       {{ govukSummaryList({
         rows: [
@@ -90,11 +90,15 @@
       
           {
             key: {
-              text: "Activities considered"
+              text: "Activities"
             },
-            value: {
-              html: activities
+            value: { 
+            html: activities 
             },
+            
+
+            
+
             actions: {
               items: [
                 {
@@ -104,28 +108,13 @@
                 }
               ]
             }
-          },
-
-          {
-            key: {
-              text: "Points awarded"
-            },
-            value: {
-              text: data.timeline.points 
-            },
-            actions: {
-              items: [
-                {
-                  href: "/timeline/points-awarded-question",
-                  text: "Change",
-                  visuallyHiddenText: "Item label"
-                }
-              ]
-            }
           }
+      
 
           ]
         }) }}        
+
+      
 
         {{ govukSummaryList({
           rows: [
@@ -172,6 +161,8 @@
         ]
       }) }}
 
+      
+
       {{ govukSummaryList({
         rows: [
           {
@@ -199,23 +190,6 @@
       {% if data.decisionType == 'LCWRA' %}
       {{ govukSummaryList({
         rows: [
-        {
-          key: {
-            text: "Treated as provision"
-          },
-          value: {
-            text: data.timeline.provisions
-          },
-          actions: {
-            items: [
-              {
-                href: "treated-as",
-                text: "Change",
-                visuallyHiddenText: "Item label"
-              }
-            ]
-          }
-        },
 
         {
           key: {

@@ -32,6 +32,7 @@
     <div class="govuk-grid-column-full">
       <form novalidation method="post" action='/timeline/foc/date-of-change'>
         
+        
        {{ govukDateInput({
         id: "healthDisabilityChangeDate",
         fieldset: {
@@ -41,6 +42,11 @@
             classes: "govuk-fieldset__legend--l"
           }
         },
+        hint: {
+          text: "For example, 27 3 2007"
+
+        }, 
+        
        
         items: [
           {

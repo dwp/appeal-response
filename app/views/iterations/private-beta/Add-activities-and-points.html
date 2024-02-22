@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back to interations",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+
+
+{% block content %}
+
+
+
+<form>
+
+
+    
+      <div class="<div class="govuk-grid-column-one-half">
+        
+     
+      <h1 class="govuk-heading-xl">
+        Add activities and points (new feature)
+      </h1>
+
+      <h2 class="govuk-heading-l">
+        Hypothesis / Experiment
+      </h2>
+      
+      <h1 class="govuk-heading-s">We have seen that</h1>
+      <p class="govuk-body"> Appeal Writers manually add this to the response, which requires a lot of editing and removing conditions</p>
+
+      <h1 class="govuk-heading-s">So if we</h1> 
+      <p class="govuk-body"> Make it easier for Appeal Writers to enter activities and points in our service</p>
+      
+      <h1 class="govuk-heading-s">We will see</h1> 
+      <p class="govuk-body"> Less manual editing of the response</p>
+        
+      <h2 class="govuk-heading-l">
+        What's new or changed?
+      
+      </h2>
+      <!--
+      <h2 class="govuk-heading-l">
+        User need(s)
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          I need to spend my time on high value activities, so that I can create the best possible appeal response for every case. <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to avoid undertaking unnecessary tasks or duplicating activities. <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to know what to be included in the response to ensure it meets the needs of appellants, the judiciary and DWP. <a href="../user-needs/"> More about this need.</a>
+        </li>
+        <li>
+          I need to be able to make best use of information DWP holds to support my case, and to integrate into the response effectively <a href="../user-needs/"> More about this need.</a>
+        </li>
+      </ul>
+      -->
+
+      <h2 class="govuk-heading-s">
+        Existing design
+      </h2>
+
+      <p class="govuk-body"> Appeal writers were manually editing the activities and points awarded in the word document. </p>
+
+    
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/Private-beta/add-activities-points/template.png" alt="home page screenshot">
+
+      <br>
+      <br>
+      <br>
+      <h2 class="govuk-heading-s">
+        New design
+      
+      </h2>
+
+      <p class="govuk-body"> We got early feedback on design concepts for this section of the Appeal response </p>
+      <br>
+
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/Private-beta/add-activities-points/Design-workshop.png" alt="home page screenshot">
+      <br>
+      <br>
+      <br>
+      <br>
+      <p class="govuk-body"> We found that quite often no points were awarded which led us to add a question upfront to prevent Appeal Writers entering all '0s' </p>
+      
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/Private-beta/add-activities-points/New-design.png" alt="home page screenshot">
+      
+      <p class="govuk-body"> We also found that 'eating or drinking' didn't belong in either physical or mental activites and instead should be a seperate question</p>
+
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/Private-beta/add-activities-points/New-design2.png" alt="home page screenshot">
+
+      <br>
+      <br>
+
+      <img class="govuk-grid-column-full govuk-!-margin-bottom-5" src="/public/images/design-evolution/Private-beta/add-activities-points/Design-workshop.png" alt="home page screenshot">
+
+
+      <video controls="controls" width="800" height="600" margin-bottom="20" name="New Design">
+        <source src="/public/images/design-evolution/Private-beta/add-activities-points/New-design.mov">
+      </video>
+
+<br>
+<br>
+<br>
+      <h2 class="govuk-heading-l">
+        What did we learn?
+      </h2>
+     
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          In prototype testing participants were able to add and remove conditions with ease
+        </li>
+        <li>
+          There were no usability issues identified although we did only test the 'happy path'
+        </li>
+        <li>
+          We have enough confidence in the design to test it in Live, due to go in March 24
+        </li>
+        
+      </ul>
+
+
+</form>
+
+{% endblock %}
