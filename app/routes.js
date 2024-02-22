@@ -2315,13 +2315,16 @@ router.post('/timeline/foc/mr-forthpage', (req, res) => {
 
 
 router.post('/timeline/foc/appealDates-secondpage', (req, res) => {
-  if (req.body.timeline.appealsubmitted == 'Yes'){
+  if (req.body.timeline.appealsubmitted == 'No'){
     res.redirect('/timeline/foc/appealDates-appeal-submitted')
 
   } else {
 
   res.redirect('/timeline/foc/index')
   }
+
+
+  
 })
 router.post('/timeline/foc/appealDates-appeal-submitted', (req, res) => {
   res.redirect('/timeline/foc/appealDates-appeal-dwpdatereceived')
@@ -2332,7 +2335,7 @@ router.post('/timeline/foc/appealDates-appeal-dwpdatereceived', (req, res) => {
 })
 
 router.post('/timeline/foc/mr-secondpage', (req, res) => {
-  if (req.body.timeline.orginaldecision == 'Yes'){
+  if (req.body.timeline.orginaldecision == 'No'){
     res.redirect('/timeline/foc/mr-thirdpage')
 
   } else {
