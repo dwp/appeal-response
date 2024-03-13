@@ -88,9 +88,9 @@
           
         <!-- LINK NOT BUTTON WHEN NO DATA NEEDS TO BE SENT-->
         
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+        <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+          Continue
+        </button>
         </form>
 
     </div>
@@ -100,6 +100,11 @@
 
 {% block pageScripts %}
 <script type="text/javascript">
-
+  function saveData(){
+    sessionStorage.setItem("taskProgressRisk","2");
+    window.location.href = "01-task-list-new";
+  }
 </script>
 {% endblock %}
+
+

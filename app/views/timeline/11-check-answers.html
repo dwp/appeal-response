@@ -434,10 +434,265 @@
             </table>
           
 
-            <h2 class="govuk-heading-m">Activities and points</h2>
+            <h2 class="govuk-heading-m">Reasons for appeal and responses</h2>
+
+            {{ govukSummaryList({
+              rows: [
+              {
+                key: {
+                  text: "Activities"
+                },
+                
+                actions: {
+                  items: [
+                    {
+                      href: "/timeline/points-for-each-activity",
+                      text: "Change",
+                      visuallyHiddenText: "Item label"
+                    }
+                  ]
+                }
+              },
+    
+            
+              {
+                key: {
+                  html: activitiespoints
+                },
+                value: {
+                  html: points 
+                },
+                
+                actions: {
+                  items: [
+                    {
+                      href: "/points-awarded-question",
+                      text: "",
+                      visuallyHiddenText: "Item label"
+                    }
+                  ]
+                }
+              }
+    
+              
+              
+              
+              
+            ]
+          }) }}
+    
+          
+    
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Problems eating or drinking"
+                },
+                value: {
+                  text: data.timeline.eatingorDrinking
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "/timeline/eating-drinking",
+                      text: "Change",
+                      visuallyHiddenText: "Item label"
+                    }
+                  ]
+                }
+              }
+              
+              
+            ]
+          }) }}
+    
+          <h1 class="govuk-heading-m">Other issues raised </h1>
+    
+          {{ govukSummaryList({
+            rows: [
+            {
+              key: {
+                text: "Issue 1"
+                
+              },
+  
+                  actions: {
+                    items: [
+                      {
+                        href: "/timeline/Otherissues/activities-and-issues-summary-2",
+                        text: "Change",
+                        visuallyHiddenText: "Item label"
+                      }
+                    ]
+                  }
+                },
+    
+          
+            {
+              key: {
+                html: "Description of issue"
+              },
+              
+              value: {
+                text: data.timeline.Otherissue.description
+              },
+              
+              actions: {
+                items: [
+                  {
+                    href: "/points-awarded-question",
+                    text: "",
+                    visuallyHiddenText: "Item label"
+                  }
+                ]
+              }
+            }, 
+    
+            {
+              key: {
+                html: "Response"
+              },
+              
+              value: {
+                text: data.timeline.Otherissue.response
+              },
+              
+              actions: {
+                items: [
+                  {
+                    href: "/points-awarded-question",
+                    text: "",
+                    visuallyHiddenText: "Item label"
+                  }
+                ]
+              }
+            },
+    
+            {
+              key: {
+                html: "Raised"
+              },
+              
+              value: {
+                text: data.timeline.Otherissue.source
+              },
+              
+              actions: {
+                items: [
+                  {
+                    href: "/points-awarded-question",
+                    text: "",
+                    visuallyHiddenText: "Item label"
+                  }
+                ]
+              }
+            }
+    
+            
+            
+            
+            
+          ]
+        }) }}
+    
+        
+    
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Issue 2"
+              
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/timeline/Otherissues/activities-and-issues-summary-2",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          },
+    
+    
+          
+          {
+            key: {
+              html: "Description of issue"
+            },
+            
+            value: {
+              text: data.timeline.Otherissues.description2
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/points-awarded-question",
+                  text: "",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }, 
+    
+          {
+            key: {
+             
+              html: "Response"
+              
+            },
+    
+             
+            
+            value: {
+              text: data.timeline.Otherissues.response2
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/points-awarded-question",
+                  text: "",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          },
+    
+          {
+            key: {
+              html: "Raised"
+            },
+            
+            value: {
+              text: data.timeline.Otherissues.source2
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/points-awarded-question",
+                  text: "",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }
+    
+          
+          
+          
+          
+        ]
+      }) }}
+    
                     
         
-      {{ govukSummaryList({
+     <!-- {{ govukSummaryList({
         rows: [
       
           {
@@ -481,8 +736,8 @@
 
           ]
         }) }}        
-
-        <!--
+      
+        
         {{ govukSummaryList({
           rows: [
           {
@@ -523,7 +778,7 @@
  
         ]
       }) }}
-      -->
+     
 
       
 
@@ -848,18 +1103,15 @@
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{{ govukButton({
-  text: "Create response",
-  disabled: true
-}) }}
-<!--
+
+
       <div class="govuk-button-group">
         <a class="govuk-button" data-module="govuk-button" href="12-success">
           Create response
         </a>
 
       </div>
-    -->
+   
       <p><a href="01-task-list-new">Back to tasks</a></p>
 
       <div class="govuk-link">

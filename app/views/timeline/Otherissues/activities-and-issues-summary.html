@@ -1,0 +1,279 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    {% set activities %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.activities %}
+      <li>
+        {{item}} 
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
+
+    {% set activitiespoints %}
+
+    <ul class="govuk-list  ">
+      {% for item in data.timeline.activities %}
+      <li>
+        {{item}} 
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
+
+    {% set points %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.activities %}
+      <li>
+         {{data.activitypoints[item]}}
+      </li>
+
+      {%endfor%}
+      
+    
+    </ul> 
+    {% endset %} 
+    
+    
+    
+    
+      <form class="form" action="/timeline/01-task-list-new" method="post">
+
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Reasons for appeal and responses
+            </h1>
+          </legend>
+
+      
+
+        {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Activities"
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/timeline/points-for-each-activity",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          },
+
+        
+          {
+            key: {
+              html: activitiespoints
+            },
+            value: {
+              html: points 
+            },
+            
+            actions: {
+              items: [
+                {
+                  href: "/points-awarded-question",
+                  text: "",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }
+
+          
+          
+          
+          
+        ]
+      }) }}
+
+      
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Problems eating or drinking"
+            },
+            value: {
+              text: data.timeline.eatingorDrinking
+            },
+            actions: {
+              items: [
+                {
+                  href: "/timeline/eating-drinking",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
+          }
+          
+          
+        ]
+      }) }}
+
+      <h1 class="govuk-heading-m">Other issues raised </h1>
+
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Issue 1"
+            
+          },
+          
+          actions: {
+            items: [
+              {
+                href: "/timeline/Otherissues/add-issue",
+                text: "Edit",
+                visuallyHiddenText: "Item label"
+              },
+              {
+                href: "/timeline/Otherissues/remove-issue",
+                text: "Remove",
+                visuallyHiddenText: "Item label"
+              }
+            ]
+          }
+        },
+
+      
+        {
+          key: {
+            html: "Description of issue"
+          },
+          
+          value: {
+            text: data.timeline.Otherissue.description
+          },
+          
+          actions: {
+            items: [
+              {
+                href: "/points-awarded-question",
+                text: "",
+                visuallyHiddenText: "Item label"
+              }
+            ]
+          }
+        }, 
+
+        {
+          key: {
+            html: "Response"
+          },
+          
+          value: {
+            text: data.timeline.Otherissue.response
+          },
+          
+          actions: {
+            items: [
+              {
+                href: "/points-awarded-question",
+                text: "",
+                visuallyHiddenText: "Item label"
+              }
+            ]
+          }
+        },
+
+        {
+          key: {
+            html: "Raised"
+          },
+          
+          value: {
+            text: data.timeline.Otherissue.source
+          },
+          
+          actions: {
+            items: [
+              {
+                href: "/points-awarded-question",
+                text: "",
+                visuallyHiddenText: "Item label"
+              }
+            ]
+          }
+        }
+
+        
+        
+        
+        
+      ]
+    }) }}
+
+  
+
+      
+    
+                 
+      
+  <div class="govuk-button-group">
+  <a href="/timeline/Otherissues/add-issue-2" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Add a new health condition
+  </a>   
+        <!-- when they click continue - change to '2,copy to endblock -->
+  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button>
+  </div>
+</form>
+</div>
+</div>
+{% endblock %}
+
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressPoints","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}

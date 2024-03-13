@@ -139,6 +139,10 @@
     if(sessionStorage.getItem("taskProgressRepDetails")=="2") {
         document.getElementById("taskRepDetails").innerHTML = "Completed";
         document.getElementById("taskRepDetails").className = "govuk-tag app-task-list__tag";
+
+        if(sessionStorage.getItem("taskProgressRisk")=="2") {
+        document.getElementById("taskRisk").innerHTML = "Completed";
+        document.getElementById("taskRisk").className = "govuk-tag app-task-list__tag";
     }
     if(sessionStorage.getItem("taskProgressAppealHistory")=="2") {
         document.getElementById("taskAppealHistory").innerHTML = "Completed";

@@ -2186,15 +2186,15 @@ router.post('/timeline/eating-drinking', function(request, response) {
 
   var decisionType = request.session.data['decisionType']
   if (decisionType == "LCW"){
-      response.redirect("/timeline/summary-points-copy")
+      response.redirect("/timeline/Otherissues/other-reasons-for-appeal")
   } else {
-      response.redirect("/timeline/treated-as-question")
+      response.redirect("/timeline/Otherissues/other-reasons-for-appeal")
   }
 })
 
 
 router.post('/timeline/Treated-as', (req, res) => {
-  res.redirect('/timeline/summary-points-copy')
+  res.redirect('/timeline/01-task-list-new')
 })
 
 router.post('/timeline/points-for-each-activity', (req, res) => {
@@ -2382,8 +2382,27 @@ router.post('/timeline/eating-drinkingUC50', (req, res) => {
   res.redirect('/timeline/foc/index');
 })
 
+//routes for other issues
 
+router.post('/timeline/otherissues/other-reasons-for-appeal', (req, res) => {
+  res.redirect('/timeline/otherissues/call-appellant')
+})
 
+router.post('/timeline/otherissues/call-appellant', (req, res) => {
+  res.redirect('/timeline/otherissues/add-issue')
+})
+
+router.post('/timeline/otherissues/add-issue', (req, res) => {
+  res.redirect('/timeline/otherissues/activities-and-issues-summary')
+})
+
+router.post('/timeline/otherissues/add-issue-2', (req, res) => {
+  res.redirect('/timeline/otherissues/activities-and-issues-summary-2')
+})
+
+router.post('/timeline/otherissues/remove-issue-2', (req, res) => {
+  res.redirect('/timeline/otherissues/activities-and-issues-summary-2')
+})
 module.exports = router;
 
 

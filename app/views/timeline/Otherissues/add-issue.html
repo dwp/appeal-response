@@ -1,0 +1,93 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+
+
+<form novalidation method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+   
+<h1 class="govuk-heading-l">Confirm your response to issue 1</h1>
+
+      {{ govukTextarea({
+
+        name: "[timeline][Otherissue][description]",
+        id: "[timeline][Otherissue][description]",
+        label: {
+          text: "Description of issue"
+        }
+      }) }}
+
+      {{ govukTextarea({
+        name: "[timeline][Otherissue][response]",
+        id: "[timeline][Otherissue][response]",
+        label: {
+          text: "Response "
+        }
+      }) }}
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefrix:"[timeline][source]",
+        name: "[timeline][Otherissue][source]",
+        fieldset: {
+          legend: {
+            text: "Where was this raised?",
+            isPageHeading: false,
+            classes: "govuk-paragraph-body"
+          }
+        },
+       
+        items: [
+          {
+            value: "Notice of appeal",
+            text: "Notice of appeal"
+          },
+          {
+            value: "Phone call",
+            text: "Phone call"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+  
+</div>
+<div class="govuk-grid-column-one-third">
+  
+</div>
+</div>
+  </form>
+
+{% endblock %}
+
+

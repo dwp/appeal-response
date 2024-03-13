@@ -27,13 +27,13 @@
         <ol class="app-task-list">
           <li>
             <h2 class="app-task-list__section">
-              <span class="app-task-list__section-number">1. </span> Check appeal information
+              <span class="app-task-list__section-number">1. </span> Personal details
             </h2>
             <ul class="app-task-list__items">
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="appellant" class="govuk-link govuk-link--no-visited-state" aria-describedby="eligibility-status">
-                    Appellant details
+                    Check appellant details
                   </a>
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskAppellantDetails">Not started</strong>
@@ -42,7 +42,7 @@
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="representative" class="govuk-link govuk-link--no-visited-state" aria-describedby="read-declaration-status">
-                    Representative details
+                    Add representative details
                   </a>
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskRepDetails">Not started</strong>
@@ -55,7 +55,7 @@
 
           <li>
             <h2 class="app-task-list__section">
-              <span class="app-task-list__section-number">2. </span> Prepare response
+              <span class="app-task-list__section-number">2. </span> The facts
             </h2>
             <ul class="app-task-list__items">
               <li class="app-task-list__item">
@@ -66,6 +66,16 @@
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskFOC">Not started</strong>
               </li>
+              
+            </ul>
+          </li>
+
+           <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number">3. </span> Reasons for appeal and responses
+            </h2>
+            <ul class="app-task-list__items">
+              
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   
@@ -74,20 +84,39 @@
                   {% if data.decisionType == 'LCW' %}
                     href="./activities-considered"
                   {% else %}
-                    href="./activities-considered""
+                    href="./activities-considered"
                   {% endif %}
                   aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
-                    Add activities and points
+                    Respond to the appeal
                   </a>
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="points">Not started</strong>
               </li>
+
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  
+                  <!--because I'm not saving data we can do it in the HTML,LCW value on decision type page -->
+                  <a 
+                  {% if data.decisionType == 'LCW' %}
+                    href="./treated-as"
+                  {% else %}
+                    href="./treated-as"
+                  {% endif %}
+                  aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                  Treated as provisions
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskRisk">Not started</strong>
+              </li>
             </ul>
           </li>
 
+
+
           <li>
             <h2 class="app-task-list__section">
-              <span class="app-task-list__section-number">3. </span> Create response
+              <span class="app-task-list__section-number">4. </span> Create response
             </h2>
             <ul class="app-task-list__items">
               <li class="app-task-list__item">
@@ -148,12 +177,17 @@
           document.getElementById("taskFOC").className = "govuk-tag govuk-tag--blue app-task-list__tag";
       }
 
+      if(sessionStorage.getItem("taskProgressRisk")=="2") {
+          document.getElementById("taskRisk").innerHTML = "Completed";
+          document.getElementById("taskRisk").className = "govuk-tag app-task-list__tag"; 
+      }
+
      
       // when adding stuff to task list, add here... :) 
 
       //if(sessionStorage.getItem("taskProgressPoints")=="2" && sessionStorage.getItem("taskProgressAppellantDetails")=="2" && sessionStorage.getItem("taskProgressRepDetails")=="2" && sessionStorage.getItem("taskProgressFOC")=="2" ) 
       
-      if(sessionStorage.getItem("taskProgressPoints")=="2"  ) 
+      if(sessionStorage.getItem("taskProgressRisk")=="2"  ) 
       { 
         document.getElementById("cya-link").style.display="block"; 
         document.getElementById("cya-nolink").style.display="none"; 
