@@ -2382,25 +2382,25 @@ router.post('/timeline/eating-drinkingUC50', (req, res) => {
   res.redirect('/timeline/foc/index');
 })
 
-//routes for other issues 
+//routes for other issues 5.4
 
-router.post('/timeline/otherissues/other-reasons-for-appeal', (req, res) => {
+router.post('/timeline/Otherissues/other-reasons-for-appeal', (req, res) => {
   res.redirect('/timeline/otherissues/add-issue')
 })
 
-router.post('/timeline/otherissues/call-appellant', (req, res) => {
+router.post('/timeline/Otherissues/call-appellant', (req, res) => {
   res.redirect('/timeline/otherissues/add-issue')
 })
 
-router.post('/timeline/otherissues/add-issue', (req, res) => {
+router.post('/timeline/Otherissues/add-issue', (req, res) => {
   res.redirect('/timeline/otherissues/activities-and-issues-summary')
 })
 
-router.post('/timeline/otherissues/add-issue-2', (req, res) => {
+router.post('/timeline/Otherissues/add-issue-2', (req, res) => {
   res.redirect('/timeline/otherissues/activities-and-issues-summary-2')
 })
 
-router.post('/timeline/otherissues/remove-issue-2', (req, res) => {
+router.post('/timeline/Otherissues/remove-issue-2', (req, res) => {
   res.redirect('/timeline/otherissues/activities-and-issues-summary-2')
 })
 module.exports = router;
