@@ -34,29 +34,34 @@
     <div class="govuk-grid-column-two-thirds">
       
    
-<h1 class="govuk-heading-l">Confirm your response to issue 1</h1>
-
+<h1 class="govuk-heading-l">Respond to a reason for appeal </h1>
       {{ govukTextarea({
 
         name: "[timeline][Otherissue][description]",
         id: "[timeline][Otherissue][description]",
+        rows: "2",
         label: {
-          text: "Description of issue"
-        }
+          text: "Describe one of the reasons for appeal"
+        },
+        value: data.timeline.Otherissue.description
       }) }}
 
       {{ govukTextarea({
         name: "[timeline][Otherissue][response]",
         id: "[timeline][Otherissue][response]",
+        rows: "10",
         label: {
-          text: "Response "
-        }
+          text: "What is your response?"
+        },
+        value: data.timeline.Otherissue.response
+
       }) }}
 
       {{ govukRadios({
         classes: "govuk-radios--inline",
         idPrefrix:"[timeline][source]",
         name: "[timeline][Otherissue][source]",
+        value: data.timeline.Otherissue.source,
         fieldset: {
           legend: {
             text: "Where was this raised?",

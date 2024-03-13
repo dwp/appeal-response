@@ -34,15 +34,17 @@
     <div class="govuk-grid-column-two-thirds">
       
    
-<h1 class="govuk-heading-l">Confirm your response to issue 2</h1>
+<h1 class="govuk-heading-l">Respond to a reason for appeal</h1>
 
       {{ govukTextarea({
 
         name: "[timeline][Otherissues][description2]",
         id: "[timeline][Otherissues][description2]",
+        rows: "2",
         label: {
-          text: "Description of issue"
-        }
+          text: "Respond to a reason for appeal"
+        },
+        value: data.timeline.Otherissues.description2
       }) }}
 
    
@@ -50,15 +52,18 @@
       {{ govukTextarea({
         name: "[timeline][Otherissues][response2]",
         id: "[timeline][Otherissues][response2]",
+        rows: "10",
         label: {
-          text: "Response "
-        }
+          text: "What is your response? "
+        },
+        value: data.timeline.Otherissues.response2
       }) }}
 
       {{ govukRadios({
         classes: "govuk-radios--inline",
         idPrefrix:"[timeline][Otherissues][source2]",
         name: "[timeline][Otherissues][source2]",
+        value: data.timeline.Otherissues.source2,
         fieldset: {
           legend: {
             text: "Where was this raised?",

@@ -159,7 +159,7 @@
         rows: [
         {
           key: {
-            text: "Issue 1"
+            text: "Reason 1 and response"
             
           },
           
@@ -167,12 +167,12 @@
             items: [
               {
                 href: "/timeline/Otherissues/add-issue",
-                text: "Edit",
+                text: "Change",
                 visuallyHiddenText: "Item label"
               },
               {
-                href: "/timeline/Otherissues/remove-issue",
-                text: "Remove",
+                href: "",
+                text: "Delete",
                 visuallyHiddenText: "Item label"
               }
             ]
@@ -182,7 +182,8 @@
       
         {
           key: {
-            html: "Description of issue"
+            html: "Description of issue",
+            classes: "govuk-!-font-weight-regular"
           },
           
           value: {
@@ -202,7 +203,8 @@
 
         {
           key: {
-            html: "Response"
+            html: "Response",
+            classes: "govuk-!-font-weight-regular"
           },
           
           value: {
@@ -222,7 +224,8 @@
 
         {
           key: {
-            html: "Raised"
+            html: "Where was this raised?",
+            classes: "govuk-!-font-weight-regular"
           },
           
           value: {
@@ -255,7 +258,7 @@
       
   <div class="govuk-button-group">
   <a href="/timeline/Otherissues/add-issue-2" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-    Add a new health condition
+    Respond to another reason
   </a>   
         <!-- when they click continue - change to '2,copy to endblock -->
   <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
