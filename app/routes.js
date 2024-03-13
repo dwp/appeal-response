@@ -2385,7 +2385,7 @@ router.post('/timeline/eating-drinkingUC50', (req, res) => {
 //routes for other issues 5.4
 
 router.post('/timeline/Otherissues/other-reasons-for-appeal', (req, res) => {
-  res.redirect('/timeline/otherissues/add-issue')
+  res.redirect('/timeline/Otherissues/add-issue')
 })
 
 router.post('/timeline/Otherissues/call-appellant', (req, res) => {
