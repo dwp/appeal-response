@@ -2389,15 +2389,15 @@ router.post('/timeline/Otherissues/other-reasons-for-appeal', (req, res) => {
 })
 
 router.post('/timeline/Otherissues/call-appellant', (req, res) => {
-  res.redirect('/timeline/otherissues/add-issue')
+  res.redirect('/timeline/Otherissues/add-issue')
 })
 
 router.post('/timeline/Otherissues/add-issue', (req, res) => {
-  res.redirect('/timeline/otherissues/activities-and-issues-summary')
+  res.redirect('/timeline/Otherissues/activities-and-issues-summary')
 })
 
 router.post('/timeline/Otherissues/add-issue-2', (req, res) => {
-  res.redirect('/timeline/otherissues/activities-and-issues-summary-2')
+  res.redirect('/timeline/Otherissues/activities-and-issues-summary-2')
 })
 
 router.post('/timeline/Otherissues/remove-issue-2', (req, res) => {
