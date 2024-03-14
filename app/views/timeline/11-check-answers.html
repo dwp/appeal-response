@@ -487,7 +487,9 @@
             rows: [
               {
                 key: {
-                  text: "Problems eating or drinking"
+                  text: "
+                  Do they have problems eating or drinking?",
+                  classes: "govuk-!-font-weight-regular"
                 },
                 value: {
                   text: data.timeline.eatingorDrinking
@@ -507,13 +509,13 @@
             ]
           }) }}
     
-          <h1 class="govuk-heading-m">Other issues raised </h1>
+          
     
           {{ govukSummaryList({
             rows: [
             {
               key: {
-                text: "Issue 1"
+                text: "Reason 1 and response"
                 
               },
   
@@ -531,7 +533,8 @@
           
             {
               key: {
-                html: "Description of issue"
+                html: "Reason for appeal",
+                classes: "govuk-!-font-weight-regular"
               },
               
               value: {
@@ -551,7 +554,8 @@
     
             {
               key: {
-                html: "Response"
+                html: "Response",
+                classes: "govuk-!-font-weight-regular"
               },
               
               value: {
@@ -571,7 +575,8 @@
     
             {
               key: {
-                html: "Raised"
+                html: "Where was this raised?",
+                classes: "govuk-!-font-weight-regular"
               },
               
               value: {
@@ -602,7 +607,7 @@
           rows: [
           {
             key: {
-              text: "Issue 2"
+              text: "Reason 2 and response"
               
             },
             
@@ -621,7 +626,8 @@
           
           {
             key: {
-              html: "Description of issue"
+              html: "Reason for appeal",
+              classes: "govuk-!-font-weight-regular"
             },
             
             value: {
@@ -642,7 +648,8 @@
           {
             key: {
              
-              html: "Response"
+              html: "Response",
+              classes: "govuk-!-font-weight-regular"
               
             },
     
@@ -665,7 +672,8 @@
     
           {
             key: {
-              html: "Raised"
+              html: "Where was this raised?",
+              classes: "govuk-!-font-weight-regular"
             },
             
             value: {
