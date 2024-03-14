@@ -86,7 +86,7 @@
           rows: [
           {
             key: {
-              text: "Activities"
+              text: "Activities identified as reasons for appeal"
             },
             
             actions: {
@@ -133,7 +133,8 @@
         rows: [
           {
             key: {
-              text: "Problems eating or drinking"
+              text: "Do they have problems eating or drinking?",
+              classes: "govuk-!-font-weight-regular"
             },
             value: {
               text: data.timeline.eatingorDrinking
@@ -153,7 +154,7 @@
         ]
       }) }}
 
-      <h1 class="govuk-heading-m">Other issues raised </h1>
+      
 
       {{ govukSummaryList({
         rows: [
@@ -182,7 +183,7 @@
       
         {
           key: {
-            html: "Description of issue",
+            html: "Reason for appeal",
             classes: "govuk-!-font-weight-regular"
           },
           
