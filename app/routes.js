@@ -2186,15 +2186,15 @@ router.post('/timeline/eating-drinking', function(request, response) {
 
   var decisionType = request.session.data['decisionType']
   if (decisionType == "LCW"){
-      response.redirect("/timeline/Otherissues/other-reasons-for-appeal")
+      response.redirect("/timeline/otherissues/activities-and-issues-summary-2")
   } else {
-      response.redirect("/timeline/Otherissues/other-reasons-for-appeal")
+      response.redirect("/timeline/Treated-as")
   }
 })
 
 
 router.post('/timeline/Treated-as', (req, res) => {
-  res.redirect('/timeline/01-task-list-new')
+  res.redirect('/timeline/otherissues/activities-and-issues-summary-2')
 })
 
 router.post('/timeline/points-for-each-activity', (req, res) => {
@@ -2382,7 +2382,15 @@ router.post('/timeline/eating-drinkingUC50', (req, res) => {
   res.redirect('/timeline/foc/index');
 })
 
-//routes for other issues 5.4
+//routes for common reasons 5.4
+
+router.post('/timeline/commonreasons/reasons-notice-of-appeal', (req, res) => {
+  res.redirect('/timeline/commonreasons/reasons-telephone')
+})
+
+router.post('/timeline/commonreasons/reasons-telephone', (req, res) => {
+  res.redirect('/timeline/01-task-list-new')
+})
 
 router.post('/timeline/Otherissues/other-reasons-for-appeal', (req, res) => {
   res.redirect('/timeline/Otherissues/add-issue')

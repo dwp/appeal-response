@@ -76,7 +76,7 @@
         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Reasons for appeal and responses
+              Check your answers
             </h1>
           </legend>
 
@@ -86,14 +86,14 @@
           rows: [
           {
             key: {
-              text: "Activities identified as reasons for appeal"
+              text: "Activities identified in the appeal"
             },
             
             actions: {
               items: [
                 {
                   href: "",
-                  text: "Change",
+                  
                   visuallyHiddenText: "Item label"
                 }
               ]
@@ -106,8 +106,9 @@
               html: activitiespoints
             },
             value: {
-              html: points 
+              html: '<a href="#" class="govuk-link">Enter the points per activity</a>'
             },
+            
             
             actions: {
               items: [
@@ -154,204 +155,44 @@
         ]
       }) }}
 
-      
-
       {{ govukSummaryList({
         rows: [
-        {
-          key: {
-            text: "Reason 1 and response"
-            
-          },
-          
-          actions: {
-            items: [
-              {
-                href: "/timeline/Otherissues/add-issue",
-                text: "Change",
-                visuallyHiddenText: "Item label"
-              },
-              {
-                href: "",
-                text: "Delete",
-                visuallyHiddenText: "Item label"
-              }
-            ]
+          {
+            key: {
+              text: "Provision under schedule 8", 
+              classes: "govuk-!-font-weight-bold"
+            },
+            value: {
+              text: "No provisions was met"
+            },
+            actions: {
+              items: [
+                {
+                  href: "",
+                  text: "Change",
+                  visuallyHiddenText: "Item label"
+                }
+              ]
+            }
           }
-        },
+          
+          
+        ]
+      }) }}
 
       
-        {
-          key: {
-            html: "Reason for appeal",
-            classes: "govuk-!-font-weight-regular"
-          },
-          
-          value: {
-            text: data.timeline.Otherissue.description
-          },
-          
-          actions: {
-            items: [
-              {
-                href: "/points-awarded-question",
-                text: "",
-                visuallyHiddenText: "Item label"
-              }
-            ]
-          }
-        }, 
 
-        {
-          key: {
-            html: "Response",
-            classes: "govuk-!-font-weight-regular"
-          },
-          
-          value: {
-            text: data.timeline.Otherissue.response
-          },
-          
-          actions: {
-            items: [
-              {
-                href: "/points-awarded-question",
-                text: "",
-                visuallyHiddenText: "Item label"
-              }
-            ]
-          }
-        },
-
-        {
-          key: {
-            html: "Where was this raised?",
-            classes: "govuk-!-font-weight-regular"
-          },
-          
-          value: {
-            text: data.timeline.Otherissue.source
-          },
-          
-          actions: {
-            items: [
-              {
-                href: "/points-awarded-question",
-                text: "",
-                visuallyHiddenText: "Item label"
-              }
-            ]
-          }
-        }
-
-        
-        
-        
-        
-      ]
-    }) }}
-
+     
+     
     
 
-    {{ govukSummaryList({
-      rows: [
-      {
-        key: {
-          text: "Reason 2 and response"
-          
-        },
-        
-        actions: {
-          items: [
-            {
-              href: "/timeline/Otherissues/add-issue-2",
-              text: "Change",
-              visuallyHiddenText: "Item label"
-            },
-            {
-              href: "",
-              text: "Delete",
-              visuallyHiddenText: "Item label"
-            }
-          ]
-        }
-      },
-
-
-      
-      {
-        key: {
-          html: "Reason for appeal",
-          classes: "govuk-!-font-weight-regular"
-        },
-        
-        value: {
-          text: data.timeline.Otherissues.description2
-        },
-        
-        actions: {
-          items: [
-            {
-              href: "/points-awarded-question",
-              text: "",
-              visuallyHiddenText: "Item label"
-            }
-          ]
-        }
-      }, 
-
-      {
-        key: {
-         
-          html: "Response",
-          classes: "govuk-!-font-weight-regular"
-          
-        },
-
          
         
-        value: {
-          text: data.timeline.Otherissues.response2
-        },
-        
-        actions: {
-          items: [
-            {
-              href: "/points-awarded-question",
-              text: "",
-              visuallyHiddenText: "Item label"
-            }
-          ]
-        }
-      },
-
-      {
-        key: {
-          html: "Where was this raised?",
-          classes: "govuk-!-font-weight-regular"
-        },
-        
-        value: {
-          text: data.timeline.Otherissues.source2
-        },
-        
-        actions: {
-          items: [
-            {
-              href: "/points-awarded-question",
-              text: "",
-              visuallyHiddenText: "Item label"
-            }
-          ]
-        }
-      }
-
+     
       
       
       
       
-    ]
-  }) }}
 
   
   
@@ -360,10 +201,7 @@
     
                  
       
-  <div class="govuk-button-group">
-  <a href="/timeline/Otherissues/add-issue-2" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-    Respond to another reason
-  </a>   
+  
         <!-- when they click continue - change to '2,copy to endblockk -->
   <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
     Continue

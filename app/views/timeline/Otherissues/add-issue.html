@@ -34,14 +34,27 @@
     <div class="govuk-grid-column-two-thirds">
       
    
-<h1 class="govuk-heading-l">Respond to a reason for appeal </h1>
-      {{ govukTextarea({
+<h1 class="govuk-heading-l">Respond to one of the reasons for appeal </h1>
+      
+{{ govukTextarea({
+
+  name: "[timeline][Otherissue][description]",
+  id: "[timeline][Otherissue][description]",
+  rows: "1",
+  label: {
+    text: "Give this reason a title (optional)"
+  },
+  value: data.timeline.Otherissue.description
+}) }}
+
+
+{{ govukTextarea({
 
         name: "[timeline][Otherissue][description]",
         id: "[timeline][Otherissue][description]",
         rows: "2",
         label: {
-          text: "Describe one of the reasons for appeal"
+          text: "Describe the reason for appeal"
         },
         value: data.timeline.Otherissue.description
       }) }}
@@ -57,30 +70,7 @@
 
       }) }}
 
-      {{ govukRadios({
-        classes: "govuk-radios--inline",
-        idPrefrix:"[timeline][source]",
-        name: "[timeline][Otherissue][source]",
-        value: data.timeline.Otherissue.source,
-        fieldset: {
-          legend: {
-            text: "Where was this raised?",
-            isPageHeading: false,
-            classes: "govuk-paragraph-body"
-          }
-        },
-       
-        items: [
-          {
-            value: "Notice of appeal",
-            text: "Notice of appeal"
-          },
-          {
-            value: "Phone call",
-            text: "Phone call"
-          }
-        ]
-      }) }}
+     
 
       {{ govukButton({
         text: "Continue"

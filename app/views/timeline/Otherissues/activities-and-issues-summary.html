@@ -83,6 +83,11 @@
       
 
         {{ govukSummaryList({
+          card: {
+            title: {
+              text: "some text"
+            }
+          },
           rows: [
           {
             key: {
@@ -156,8 +161,7 @@
 
       
 
-      {{ govukSummaryList({
-        
+      {{ govukSummaryList({              
         rows: [
         {
           key: {

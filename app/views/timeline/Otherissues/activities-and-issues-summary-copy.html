@@ -1,0 +1,202 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    
+    
+    
+      <form class="form" action="/timeline/01-task-list-new" method="post">
+
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Reasons for appeal and responses
+            </h1>
+          </legend>
+
+          
+
+         
+          
+
+          
+
+          {{ govukSummaryList({
+            card: {
+              title: {
+                text: "Reason 1 and response"
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "of University of Gloucestershire"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "from University of Gloucestershire"
+                }
+              ]
+            }
+          },
+            rows: [
+              {
+                key: {
+                  text: "Reason for appeal"
+                },
+                value: {
+                  html: "The appellant believes that the Health Care Professional's report is inaccurate
+                  "
+                }
+                
+              },
+              {
+                key: {
+                  text: "Response"
+                },
+                value: {
+                  html: " 
+                  The Work Capability Assessment is a test of a person's ability to perform everyday activities and functions. The questions are designed to be relevant to that purpose. <br> <br>
+
+The report is not a detailed record of the assessment but a statement of a person's ability to work. It reflects the Health Care Professional's opinion of the appellant's functional ability after they have considered all available evidence. <br> <br>
+
+The Work Capability Assessment was completed by a Health Care Professional approved by the Secretary of State of Work and Pensions. They were fully aware of the appellant's medical conditions and how they affect them. <br> <br>
+
+We are satisfied with the accuracy and integrity of their report. <br> <br>
+
+The report contains detailed medical, social and occupational histories. It contains the appellant's own account of their typical day, And it contains the mental state examination results and the Health Care Professionals own observations. <br> <br>
+
+We are satisfied that all of the appellant's medical conditions have been taken into account when reaching our decision.
+                  "
+                }
+               
+              },
+
+             {
+                key: {
+                  text: "Source"
+                },
+                value: {
+                  html: "Telephone
+                  "
+                }
+                
+              } 
+              
+            ]
+          }) }}
+
+
+          {{ govukSummaryList({
+            card: {
+              title: {
+                text: "Reason 2 and response"
+              
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "of University of Gloucestershire"
+                },
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "from University of Gloucestershire"
+                }
+              ]
+            }
+          },
+            rows: [
+              {
+                key: {
+                  text: "Reason for appeal"
+                },
+                value: {
+                  html: "The appellant has asked that we contact their GP for an alternative view on their capability for work. They say that their GP has evidence that their condition is stopping them from working."
+                }
+                
+              },
+              {
+                key: {
+                  text: "Response"
+                },
+                value: {
+                  html: " It is not the responsibility of the decision maker to contact the appellant's GP. </br> </br>
+
+                  It is for the appellant to consider whether they want to provide further medical evidence in support of this appeal."
+                  
+                }
+               
+              },
+
+              {
+                key: {
+                  text: "Source"
+                },
+                value: {
+                  html: "Notice of appeal
+                  "
+                }
+                
+              } 
+              
+            ]
+          }) }}
+
+               
+      
+  <div class="govuk-button-group">
+  <a href="/timeline/Otherissues/add-issue-2" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Respond to another reason
+  </a>   
+        <!-- when they click continue - change to '2,copy to endblock -->
+  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button>
+  </div>
+</form>
+</div>
+</div>
+{% endblock %}
+
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressPoints","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}

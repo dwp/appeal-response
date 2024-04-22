@@ -57,6 +57,32 @@
     
     </ul> 
     {% endset %} 
+
+    {% set telephone %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.commonreasons.telephonereasons %}
+      <li>
+        {{item}} <br/><br />
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
+
+    {% set reasons %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.commonreasons.notice %}
+      <li>
+        {{item}} <br/><br />
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 <a href="01-task-list-new" class="govuk-back-link">Back to tasks</a>
@@ -434,19 +460,20 @@
             </table>
           
 
-            <h2 class="govuk-heading-m">Reasons for appeal and responses</h2>
+            <h2 class="govuk-heading-m">Activities disputed in the appeal</h2>
+
 
             {{ govukSummaryList({
               rows: [
               {
                 key: {
-                  text: "Activities"
+                  text: "Activities identified in the appeal"
                 },
                 
                 actions: {
                   items: [
                     {
-                      href: "/timeline/points-for-each-activity",
+                      href: "",
                       text: "Change",
                       visuallyHiddenText: "Item label"
                     }
@@ -466,7 +493,7 @@
                 actions: {
                   items: [
                     {
-                      href: "/points-awarded-question",
+                      href: "",
                       text: "",
                       visuallyHiddenText: "Item label"
                     }
@@ -487,8 +514,7 @@
             rows: [
               {
                 key: {
-                  text: "
-                  Do they have problems eating or drinking?",
+                  text: "Do they have problems eating or drinking?", 
                   classes: "govuk-!-font-weight-regular"
                 },
                 value: {
@@ -497,7 +523,7 @@
                 actions: {
                   items: [
                     {
-                      href: "/timeline/eating-drinking",
+                      href: "",
                       text: "Change",
                       visuallyHiddenText: "Item label"
                     }
@@ -509,194 +535,100 @@
             ]
           }) }}
     
-          
-    
           {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Provision under schedule 8", 
+                  classes: "govuk-!-font-weight-bold"
+                },
+                value: {
+                  text: "No provisions was met"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "",
+                      text: "Change",
+                      visuallyHiddenText: "Item label"
+                    }
+                  ]
+                }
+              }
+              
+              
+            ]
+          }) }}
+
+          <h2 class="govuk-heading-m">Common reasons for appeal</h2>
+
+
+          {{ govukSummaryList({
+            classes: "common-reason-for-appeal",
             rows: [
             {
               key: {
-                text: "Reason 1 and response"
-                
-              },
-  
-                  actions: {
-                    items: [
-                      {
-                        href: "/timeline/Otherissues/activities-and-issues-summary-2",
-                        text: "Change",
-                        visuallyHiddenText: "Item label"
-                      }
-                    ]
-                  }
-                },
-    
-          
-            {
-              key: {
-                html: "Reason for appeal",
-                classes: "govuk-!-font-weight-regular"
-              },
-              
-              value: {
-                text: data.timeline.Otherissue.description
+                text: "Raised in Notice of Appeal"
               },
               
               actions: {
                 items: [
                   {
-                    href: "/points-awarded-question",
-                    text: "",
-                    visuallyHiddenText: "Item label"
-                  }
-                ]
-              }
-            }, 
-    
-            {
-              key: {
-                html: "Response",
-                classes: "govuk-!-font-weight-regular"
-              },
-              
-              value: {
-                text: data.timeline.Otherissue.response
-              },
-              
-              actions: {
-                items: [
-                  {
-                    href: "/points-awarded-question",
-                    text: "",
+                    href: "",
+                    text: "Change",
                     visuallyHiddenText: "Item label"
                   }
                 ]
               }
             },
-    
+  
+          
             {
               key: {
-                html: "Where was this raised?",
+                html: reasons,
                 classes: "govuk-!-font-weight-regular"
-              },
-              
-              value: {
-                text: data.timeline.Otherissue.source
-              },
-              
-              actions: {
-                items: [
-                  {
-                    href: "/points-awarded-question",
-                    text: "",
-                    visuallyHiddenText: "Item label"
-                  }
-                ]
               }
+
+           
             }
-    
-            
-            
-            
+  
             
           ]
         }) }}
-    
-        
-    
+
         {{ govukSummaryList({
+          classes: "common-reason-for-appeal",
           rows: [
           {
             key: {
-              text: "Reason 2 and response"
-              
+              text: "Raised on the phone"
             },
             
             actions: {
               items: [
                 {
-                  href: "/timeline/Otherissues/activities-and-issues-summary-2",
+                  href: "",
                   text: "Change",
                   visuallyHiddenText: "Item label"
                 }
               ]
             }
           },
-    
-    
-          
+
+        
           {
             key: {
-              html: "Reason for appeal",
+              html: telephone,
               classes: "govuk-!-font-weight-regular"
-            },
-            
-            value: {
-              text: data.timeline.Otherissues.description2
-            },
-            
-            actions: {
-              items: [
-                {
-                  href: "/points-awarded-question",
-                  text: "",
-                  visuallyHiddenText: "Item label"
-                }
-              ]
             }
-          }, 
-    
-          {
-            key: {
-             
-              html: "Response",
-              classes: "govuk-!-font-weight-regular"
-              
-            },
-    
-             
-            
-            value: {
-              text: data.timeline.Otherissues.response2
-            },
-            
-            actions: {
-              items: [
-                {
-                  href: "/points-awarded-question",
-                  text: "",
-                  visuallyHiddenText: "Item label"
-                }
-              ]
-            }
-          },
-    
-          {
-            key: {
-              html: "Where was this raised?",
-              classes: "govuk-!-font-weight-regular"
-            },
-            
-            value: {
-              text: data.timeline.Otherissues.source2
-            },
-            
-            actions: {
-              items: [
-                {
-                  href: "/points-awarded-question",
-                  text: "",
-                  visuallyHiddenText: "Item label"
-                }
-              ]
-            }
+
+         
           }
-    
-          
-          
-          
+
           
         ]
       }) }}
+            
     
                     
         

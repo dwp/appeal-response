@@ -18,6 +18,12 @@
 {% block header %}
 {{header.header(serviceName,'Jane Doe')}}
 {% endblock %}
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
 
 {% block content %}
 {% if data.error %}
@@ -36,15 +42,7 @@
   </div>
   </div>
 {% endif %}
-<a href="
-{% if (data.edit == 1 and data.target == 'index') %}
-  index
-{% elif (data.edit == 1 and data.target == 'index3') %}
-  index3
-{% else %}
-  javascript:history.back()
-{% endif %}
-" class="govuk-back-link">Back</a>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="/timeline/foc/addAssessment?target={{data.target}}" method="post" id="form">
@@ -121,7 +119,16 @@
                     checked
                     {% endif %}>
                   <label class="govuk-label govuk-radios__label" for="assessmentF2F">
-                    Face to face
+                    Face-to-face
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="assessmentF2F" name="assessmentType" type="radio" value="Face to face"
+                    {% if data.events[data.editIndex].details.assessmentType == "Face to face" %}
+                    checked
+                    {% endif %}>
+                  <label class="govuk-label govuk-radios__label" for="assessmentF2F">
+                    Paper
                   </label>
                 </div>
             </div>
@@ -168,7 +175,7 @@
       {% else %}
         javascript:history.back()
       {% endif %}
-      ">Back</a></p>
+      "></a></p>
     </form>
   </div>
 </div>

@@ -234,3 +234,9 @@ $govuk-breakpoints: (
   border: 2px solid black;
   padding: 2rem;
 }
+
+.common-reason-for-appeal {
+  .govuk-summary-list__key {
+    width: 100%;
+  }
+}

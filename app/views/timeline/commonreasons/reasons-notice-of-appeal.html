@@ -1,0 +1,136 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    
+    
+    <form novalidation method="post">
+      
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select reasons mentioned in the Notice of appeal
+
+            </h1>
+          </legend>
+          
+          <div id="event-name-hint" class="govuk-hint">
+
+            Select all issues that apply.
+           
+          </div>
+         
+
+          {{ govukCheckboxes({
+            id: "[timeline][commonreasons][notice]",
+            name: "[timeline][commonreasons][notice]",
+            fieldset: {
+              legend: {
+                text: "Which activities are you considering for this appeal?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+           
+            fieldset:{
+            
+          },
+            values: data.timeline.commonreasons.notice,
+
+            items: [
+              {
+                value: "They have pain and discomfort",
+                text: "They have pain and discomfort"
+              },
+              {
+                value: "They are taking medication",
+                text: "They are taking medication"
+              },
+              {
+                value: "There’s a specific job they cannot do",
+                text: "There’s a specific job they cannot do"
+              },
+              {
+                value: "Their health has changed or worsened",
+                text: "Their health has changed or worsened"
+              },
+            
+              
+              {
+                value: "They have trouble sleeping or are too tired to work",
+                text: "They have trouble sleeping or are too tired to work"
+              },
+              {
+                value: "They want us to contact their doctor",
+                text: "They want us to contact their doctor"
+              },
+              {
+                value: "We did not fully consider all their health conditions",
+                text: "We did not fully consider all their health conditions"
+              },
+
+              {
+                value: "The HCP’s findings are different from their doctor’s",
+                text: "The HCP’s findings are different from their doctor’s"
+              },
+              
+              {
+                value: "We have not understood how their health condition stops them from working",
+                text: "We have not understood how their health condition stops them from working"
+              },
+              {
+                value: "The report is inaccurate",
+                text: "The report is inaccurate"
+              }, 
+              {
+                divider: "or"
+              },
+              {
+                value: "none",
+                text: "None of these reasons were given",
+                behaviour: "exclusive"
+              }
+
+              ]
+            }) }}
+
+              
+         
+        </div>
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+</form>
+</div>
+</div>
+{% endblock %}
+
+//when they click continue - change to '2,copy to endblock
+

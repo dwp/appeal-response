@@ -66,13 +66,24 @@
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskFOC">Not started</strong>
               </li>
+
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="./activities-considered" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                    Record activities disputed in the appeal
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="points">Not started</strong>
+              </li>
               
             </ul>
+
+            
           </li>
 
            <li>
             <h2 class="app-task-list__section">
-              <span class="app-task-list__section-number">3. </span> Reasons for appeal and responses
+              <span class="app-task-list__section-number">3. </span> Reasons for the appeal
             </h2>
             <ul class="app-task-list__items">
               
@@ -82,35 +93,18 @@
                   <!--because I'm not saving data we can do it in the HTML,LCW value on decision type page -->
                   <a 
                   {% if data.decisionType == 'LCW' %}
-                    href="./activities-considered"
+                    href="./commonreasons/reasons-notice-of-appeal"
                   {% else %}
-                    href="./activities-considered"
+                    href="./commonreasons/reasons-notice-of-appeal"
                   {% endif %}
                   aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
-                    Respond to the appeal
+                  Select common reasons for appeal
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="points">Not started</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="reasons">Not started</strong>
               </li>
 
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  
-                  <!--because I'm not saving data we can do it in the HTML,LCW value on decision type page -->
-                  <a 
-                  {% if data.decisionType == 'LCW' %}
-                    href="./Treated-as"
-                  {% else %}
-                    href="./Treated-as"
-                  {% endif %}
-                  aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
-                  Treated as provisions
-                  </a>
-                </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskRisk">Not started</strong>
-              </li>
-            </ul>
-          </li>
+            </ul> 
 
 
 
@@ -163,6 +157,12 @@
         
       }
 
+      if(sessionStorage.getItem("taskProgressReasons")=="2") {
+          document.getElementById("reasons").innerHTML = "Completed"; //'complete - changed the label name'
+          document.getElementById("reasons").className = "govuk-tag app-task-list__tag"; //pulling in GDS style label- check design system
+        
+      }
+
 
       if(sessionStorage.getItem("taskProgressRepDetails")=="2") {
           document.getElementById("taskRepDetails").innerHTML = "Completed";
@@ -182,12 +182,14 @@
           document.getElementById("taskRisk").className = "govuk-tag app-task-list__tag"; 
       }
 
+      
+
      
       // when adding stuff to task list, add here... :) 
 
       //if(sessionStorage.getItem("taskProgressPoints")=="2" && sessionStorage.getItem("taskProgressAppellantDetails")=="2" && sessionStorage.getItem("taskProgressRepDetails")=="2" && sessionStorage.getItem("taskProgressFOC")=="2" ) 
       
-      if(sessionStorage.getItem("taskProgressRisk")=="2"  ) 
+      if(sessionStorage.getItem("taskProgressReasons")=="2"  ) 
       { 
         document.getElementById("cya-link").style.display="block"; 
         document.getElementById("cya-nolink").style.display="none"; 
