@@ -47,6 +47,18 @@
         value: data.timeline.Otherissues.description2
       }) }}
 
+    
+
+      {{ govukTextarea({
+        name: "[timeline][Otherissues][response2]",
+        id: "[timeline][Otherissues][response2]",
+        rows: "10",
+        label: {
+          text: "What is your response? "
+        },
+        value: data.timeline.Otherissues.response2
+      }) }}
+
       {{ govukRadios({
         classes: "govuk-radios",
         idPrefrix:"[timeline][Otherissues][source2]",
@@ -71,18 +83,6 @@
           }
         ]
       }) }}
-
-      {{ govukTextarea({
-        name: "[timeline][Otherissues][response2]",
-        id: "[timeline][Otherissues][response2]",
-        rows: "10",
-        label: {
-          text: "What is your response? "
-        },
-        value: data.timeline.Otherissues.response2
-      }) }}
-
-      
 
       {{ govukButton({
         text: "Continue"
