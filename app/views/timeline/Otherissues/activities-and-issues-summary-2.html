@@ -45,10 +45,11 @@
 
     <ul class="govuk-list  ">
       {% for item in data.timeline.activities %}
+      {% if item !== 'none' %}
       <li>
         {{item}} 
       </li>
-
+      {% endif %}
       {%endfor%}
     
     </ul> 
@@ -58,10 +59,11 @@
 
     <ul class="govuk-list ">
       {% for item in data.timeline.activities %}
+      {% if item !== 'none' %}
       <li>
          {{data.activitypoints[item]}}
       </li>
-
+      {% endif %}
       {%endfor%}
       
     
