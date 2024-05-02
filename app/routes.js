@@ -2186,7 +2186,7 @@ router.post('/timeline/eating-drinking', function(request, response) {
 
   var decisionType = request.session.data['decisionType']
   if (decisionType == "LCW"){
-      response.redirect("/timeline/otherissues/activities-and-issues-summary-2")
+      response.redirect("/timeline/Otherissues/activities-and-issues-summary-2")
   } else {
       response.redirect("/timeline/Treated-as")
   }
