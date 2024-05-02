@@ -38,11 +38,14 @@
               Select the activities you want to include as context for your response
 
             </h1>
+            
           </legend>
-          
+
           <div id="event-name-hint" class="govuk-hint">
-           
+            Select all that you want to include in 5.1
           </div>
+        
+        
          
 
           {{ govukCheckboxes({
@@ -50,7 +53,7 @@
             name: "[timeline][activities]",
             fieldset: {
               legend: {
-                text: "Select relevant activities you want to address in the appeal?",
+                text: "Select relevant activities you want to address in the appeal",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
               }
@@ -110,10 +113,22 @@
               {
                 value: "Consciousness",
                 text: "Consciousness"
-              }
+              },
 
-              ]
-            }) }}
+              {
+                divider: "or"
+              },
+              {
+                value: "none",
+                text: "No physical activities to record",
+                checked: true
+                
+                
+              }
+            ]
+          }) }}
+
+             
 
               {{ govukCheckboxes({
                 id: "[timeline][activities]",
@@ -167,9 +182,22 @@
               {
                 value: "Appropriateness of behaviour  ",
                 text: "Appropriateness of behaviour  "
+              }, 
+
+              {
+                divider: "or"
+              },
+
+              {
+                value: "none",
+                text: " No mental, cognitive and intellectual activities to record",
+                checked: true
+                
+                
               }
             ]
           }) }}
+           
          
         </div>
 

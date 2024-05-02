@@ -73,9 +73,9 @@
                 key: {
                   text: "Reason for appeal"
                 },
+
                 value: {
-                  html: "The appellant has highlighted that they are in receipt of PIP
-                  "
+                  text: data.timeline.Otherissues.description
                 }
                 
               },
@@ -84,20 +84,24 @@
                 key: {
                   text: "Raised"
                 },
+
                 value: {
-                  html: "On phone call
-                  "
+                  text: data.timeline.Otherissues.source
+
+                  console.log 
+                  
                 }
-                
+             
               },
+
               {
                 key: {
                   text: "Response"
                 },
+
                 value: {
-                  html: " 
-                  They are getting PIP, but this is irrelevant to their claim. The criteria for that benefit are different.
-                  "
+                 
+                  text: data.timeline.Otherissues.response
                 }
                
               }
@@ -108,63 +112,7 @@
           }) }}
 
 
-          {{ govukSummaryList({
-            card: {
-              title: {
-                text: "Reason 2 and response"
-              
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "of University of Gloucestershire"
-                },
-                {
-                  href: "#",
-                  text: "Remove",
-                  visuallyHiddenText: "from University of Gloucestershire"
-                }
-              ]
-            }
-          },
-            rows: [
-              {
-                key: {
-                  text: "Reason for appeal"
-                },
-                value: {
-                  html: "The appellant has asked that we contact their GP for an alternative view on their capability for work. They say that their GP has evidence that their condition is stopping them from working."
-                }
-                
-              },
-              {
-                key: {
-                  text: "Raised"
-                },
-                value: {
-                  html: "Notice of appeal"
-                  
-                }
-               
-              },
-
-              {
-                key: {
-                  text: "Response"
-                },
-                value: {
-                  html: " It is not the responsibility of the decision maker to contact the appellant's GP. </br> </br>
-
-                  It is for the appellant to consider whether they want to provide further medical evidence in support of this appeal.
-                  "
-                }
-                
-              } 
-              
-            ]
-          }) }}
+         
 
                
       

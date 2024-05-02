@@ -1,0 +1,180 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <form novalidation method="post">
+
+    
+
+ 
+  <h1 class="govuk-heading-l">
+    The effect of the appellant's condition</h1>
+
+ {{ govukCheckboxes({
+  idPrefrix:"[timeline][activitiesphysical]",
+  name: "[timeline][activitiesphysical]",
+  fieldset: {
+    legend: {
+      text: "Record physical activities the appellant had difficulty with",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  values: data.timeline.activitesphysical,
+  items: [
+    {
+      value: "Moving around",
+      text: "Moving around"
+    },
+    {
+      value: "Using steps",
+      text: "Using steps"
+    },
+    {
+      value: "Standing and sitting",
+      text: "Standing and sitting"
+    },
+    {
+      value: "Reaching",
+      text: "Reaching"
+    },
+    {
+      value: "Picking up and moving things",
+      text: "Picking up and moving things"
+    },
+    {
+      value: "Manual dexterity (using their hands)",
+      text: "Manual dexterity (using their hands)"
+    },
+    {
+      value: "Communicating - speaking, writing and typing",
+      text: "Communicating - speaking, writing and typing"
+    },
+    {
+      value: "Communicating - hearing and reading",
+      text: "Communicating - hearing and reading"
+    },
+    {
+      value: "Getting around safely",
+      text: "Getting around safely"
+    },
+    {
+      value: "Controlling their bowels and bladder using a collecting device",
+      text: "Controlling their bowels and bladder using a collecting device"
+    },
+    {
+      value: "GStaying conscious when awake",
+      text: "Staying conscious when awake"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "No",
+      text: "No physical activities to record",
+      behaviour: "exclusive"
+    }
+  ]
+ }) }},
+
+ 
+
+ {{ govukCheckboxes({
+ 
+  name: "[timeline][activitiesmental]",
+  
+  fieldset: {
+    legend: {
+      text: "Record mental, cognitive and intellectual activities the appellant had difficulty with",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply"
+  },
+  value: data.timeline.activitiesmental,
+  items: [
+    {
+      value: "Learning how to do tasks",
+      text: "Learning how to do tasks"
+    },
+    {
+      value: "Awareness of hazards or danger",
+      text: "Awareness of hazards or danger"
+    },
+    {
+      value: "Starting and finishing tasks",
+      text: "Starting and finishing tasks"
+    },
+    {
+      value: "Coping with changes",
+      text: "Coping with changes"
+    },
+    {
+      value: "Going out",
+      text: "Going out"
+    },
+    {
+      value: "Coping with social situations",
+      text: "Coping with social situations"
+    },
+    {
+      value: "Behaving appropriately",
+      text: "Behaving appropriately"
+    },
+    {
+      value: "Eating or drinking",
+      text: "Eating or drinking"
+    },
+    
+    {
+      divider: "or"
+    },
+    {
+      value: "No",
+      text: "No mental, cognitive or intellectual activities to record",
+      behaviour: "exclusive"
+    }
+  ]
+ }) }}
+
+
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    
+    
+{% endblock %}
+
+{% block pageScripts %}
+ 
+{% endblock %}

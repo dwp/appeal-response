@@ -37,19 +37,18 @@
     
     <form novalidation method="post">
 <h1 class="govuk-heading-l">Enter points awarded for each activity</h1>
-        {% for activity in data.timeline.activities %}
-        {{ govukInput({
-          label: {
-  
-            html: activity
-          },
-          classes: "govuk-input--width-2",
-          name: "activitypoints["+activity+"]",
-          value: data.activitypoints[activity]
-          
-        }) }}
-  
-        {%endfor%}
+{% for activity in data.timeline.activities %}
+{% if activity !== 'none' %}
+  {{ govukInput({
+    label: {
+      html: activity
+    },
+    classes: "govuk-input--width-2",
+    name: "activitypoints["+activity+"]",
+    value: data.activitypoints[activity]
+  }) }}
+{% endif %}
+{%endfor%}
        
       <!--
       <div class="govuk-form-group">

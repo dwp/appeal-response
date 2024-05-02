@@ -34,54 +34,68 @@
     <div class="govuk-grid-column-two-thirds">
       
    
-<h1 class="govuk-heading-l">Respond to one of the reasons for appeal </h1>
-      
+<h1 class="govuk-heading-l">Respond to one of the reasons for appeal</h1>
+
+
 {{ govukTextarea({
 
-  name: "[timeline][Otherissue][description]",
-  id: "[timeline][Otherissue][description]",
-  rows: "1",
+  name: "[timeline][Otherissues][description]",
+  id: "[timeline][Otherissues][description]",
+  rows: "2",
   label: {
-    text: "Give this reason a title (optional)"
+    text: "Describe the reason for appeal"
   },
-  value: data.timeline.Otherissue.description
+  value: data.timeline.Otherissues.description
 }) }}
 
 
+
 {{ govukTextarea({
-
-        name: "[timeline][Otherissue][description]",
-        id: "[timeline][Otherissue][description]",
-        rows: "2",
-        label: {
-          text: "Describe the reason for appeal"
-        },
-        value: data.timeline.Otherissue.description
-      }) }}
-
-      {{ govukTextarea({
-        name: "[timeline][Otherissue][response]",
-        id: "[timeline][Otherissue][response]",
-        rows: "10",
-        label: {
-          text: "What is your response?"
-        },
-        value: data.timeline.Otherissue.response
-
-      }) }}
-
-     
-
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+  name: "[timeline][Otherissues][response]",
+  id: "[timeline][Otherissues][response]",
+  rows: "10",
+  label: {
+    text: "What is your response? "
+  },
+  value: data.timeline.Otherissues.response
   
+}) }}
+
+{{ govukRadios({
+  classes: "govuk-radios",
+  idPrefrix:"[timeline][Otherissues][source]",
+  name: "[timeline][Otherissues][source]",
+  value: data.timeline.Otherissues.source,
+  fieldset: {
+    legend: {
+      text: "Where was this raised?",
+      isPageHeading: false,
+      classes: "govuk-paragraph-body"
+    }
+  },
+ 
+  items: [
+    {
+      value: "Notice of appeal",
+      text: "Notice of appeal"
+    },
+    {
+      value: "Phone call",
+      text: "Phone call"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
 </div>
 <div class="govuk-grid-column-one-third">
-  
+
 </div>
 </div>
-  </form>
+</form>
 
 {% endblock %}
 

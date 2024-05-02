@@ -2401,7 +2401,7 @@ router.post('/timeline/Otherissues/call-appellant', (req, res) => {
 })
 
 router.post('/timeline/Otherissues/add-issue', (req, res) => {
-  res.redirect('/timeline/Otherissues/activities-and-issues-summary')
+  res.redirect('/timeline/Otherissues/activities-and-issues-summary-copy')
 })
 
 router.post('/timeline/Otherissues/add-issue-2', (req, res) => {
@@ -2416,11 +2416,45 @@ module.exports = router;
 
 
 
-//routes for 5.1 
+//routes for UC50 
+
+
+router.post('/timeline/foc/uc50date', (req, res) => {
+  res.redirect('/timeline/foc/uc50activities')
+})
+
+
+
+router.post('/timeline/foc/uc50activities', (req, res) => { 
+
+  console.log(req.body)
+  if (req.body.timeline.activitiesmental?.includes("No") && req.body.timeline.activitiesphysical?.includes("No")){
+    res.redirect('/timeline/foc/uc50noactivities')
+
+  } else {
+
+  res.redirect('/timeline/foc/index')
+  }
+})
 
 
 
 
 
+router.post('/timeline/foc/uc50noactivities', (req, res) => {
+  res.redirect('/timeline/foc/index')
+})
 
 
+
+
+
+router.post('/timeline/foc/mr-secondpage', (req, res) => {
+  if (req.body.timeline.orginaldecision == 'No'){
+    res.redirect('/timeline/foc/mr-thirdpage')
+
+  } else {
+
+  res.redirect('/timeline/foc/mr-forthpage')
+  }
+})
