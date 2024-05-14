@@ -2473,15 +2473,15 @@ router.post('/timeline/foc/uc50noactivities', (req, res) => {
 })
 
 
-router.post('/timeline/foc/UC50activities', (req, res) => {
-  res.redirect('/timeline/foc/UC50Eatingordrinking')
+router.post('/timeline/foc/uc50activities', (req, res) => {
+  res.redirect('/timeline/foc/uc50Eatingordrinking')
 })
 
-router.post('/timeline/foc/UC50Eatingordrinking', (req, res) => {
+router.post('/timeline/foc/uc50Eatingordrinking', (req, res) => {
   res.redirect('/timeline/foc/index')
 })
 
-router.post('/timeline/foc/UC50Issued', (req, res) => {
+router.post('/timeline/foc/uc50Issued', (req, res) => {
   res.redirect('/timeline/foc/index')
 })
 
