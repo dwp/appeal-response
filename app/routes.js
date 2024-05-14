@@ -2447,7 +2447,7 @@ router.post('/timeline/foc/uc50Access', (req, res) => {
 
   } else {
 
-  res.redirect('/timeline/foc/UC50Returned')
+  res.redirect('/timeline/foc/uc50Returned')
   }
 })
 
@@ -2458,8 +2458,8 @@ router.post('/timeline/foc/uc50Access', (req, res) => {
 
 
 
-router.post('/timeline/foc/UC50Returned', (req, res) => {
-  res.redirect('/timeline/foc/UC50activities')
+router.post('/timeline/foc/uc50Returned', (req, res) => {
+  res.redirect('/timeline/foc/uc50activities')
 })
 
 
