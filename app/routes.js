@@ -2425,15 +2425,29 @@ router.post('/timeline/foc/uc50date', (req, res) => {
 
 
 
-router.post('/timeline/foc/uc50activities', (req, res) => { 
+//router.post('/timeline/foc/uc50activities', (req, res) => { 
+
+
+  //console.log(req.body)
+ // if (req.body.timeline.activitiesmental?.includes("No") && req.body.timeline.activitiesphysical?.includes("No")){
+ //   res.redirect('/timeline/foc/uc50noactivities')
+
+ // } else {
+
+ // res.redirect('/timeline/foc/UC50Eatingordrinking')
+ // }
+//})
+
+
+router.post('/timeline/foc/uc50Access', (req, res) => { 
 
   console.log(req.body)
-  if (req.body.timeline.activitiesmental?.includes("No") && req.body.timeline.activitiesphysical?.includes("No")){
-    res.redirect('/timeline/foc/uc50noactivities')
+  if (req.body.timeline.accessUC50?.includes("No") ){
+    res.redirect('/timeline/foc/uc50Issued')
 
   } else {
 
-  res.redirect('/timeline/foc/index')
+  res.redirect('/timeline/foc/UC50Returned')
   }
 })
 
@@ -2441,7 +2455,33 @@ router.post('/timeline/foc/uc50activities', (req, res) => {
 
 
 
+
+
+
+router.post('/timeline/foc/UC50Returned', (req, res) => {
+  res.redirect('/timeline/foc/UC50activities')
+})
+
+
+
+
+
+
+
 router.post('/timeline/foc/uc50noactivities', (req, res) => {
+  res.redirect('/timeline/foc/index')
+})
+
+
+router.post('/timeline/foc/UC50activities', (req, res) => {
+  res.redirect('/timeline/foc/UC50Eatingordrinking')
+})
+
+router.post('/timeline/foc/UC50Eatingordrinking', (req, res) => {
+  res.redirect('/timeline/foc/index')
+})
+
+router.post('/timeline/foc/UC50Issued', (req, res) => {
   res.redirect('/timeline/foc/index')
 })
 
