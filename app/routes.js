@@ -2458,3 +2458,25 @@ router.post('/timeline/foc/mr-secondpage', (req, res) => {
   res.redirect('/timeline/foc/mr-forthpage')
   }
 })
+
+
+
+router.post('/timeline/foc/outcomeDecisionV2', (req, res) => { 
+
+  console.log(req.body)
+  if (req.body.timeline.outcomedecision?.includes("No")){
+    res.redirect('/timeline/foc/outcomeDecisionNotification')
+
+  } else {
+
+  res.redirect('/timeline/foc/outcomeDecisionPoints')
+  }
+})
+
+router.post('/timeline/foc/outcomeDecisionNotification', (req, res) => {
+  res.redirect('/timeline/foc/outcomeDecisionPoints')
+})
+
+router.post('/timeline/foc/outcomeDecisionPoints', (req, res) => {
+  res.redirect('/timeline/foc/index')
+})

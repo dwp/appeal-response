@@ -52,6 +52,28 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h2 class="govuk-heading-l">Original decision</h2>
+
+      {{ govukRadios({
+        name: "",
+        fieldset: {
+          legend: {
+            text: "Was a decision assurance call made?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        value: data.decisioncall,
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}
       
       <form action="/timeline/foc/addOutcomeDecision?target={{data.target}}" method="post" class="form" id="form">
             <div class="govuk-form-group">
