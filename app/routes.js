@@ -2443,11 +2443,22 @@ router.post('/timeline/foc/uc50Access', (req, res) => {
 
   console.log(req.body)
   if (req.body.timeline.accessUC50?.includes("No") ){
-    res.redirect('/timeline/foc/uc50Issued')
-
+    res.redirect('/timeline/foc/uc50Issued') 
+  } else if (req.body.timeline.accessUC50?.includes("Yes") ){
+      res.redirect('/timeline/foc/uc50Signed')
   } else {
+    res.redirect('/timeline/foc/uc50Returned')
+  }
+})
 
-  res.redirect('/timeline/foc/uc50Returned')
+
+router.post('/timeline/uc50Returned', function(request, response) {
+
+  var decisionType = request.session.data['accessUC50']
+  if (accessUC50 == "HCP"){
+      response.redirect("/timeline/Otherissues/activities-and-issues-summary-2")
+  } else {
+      response.redirect("/timeline/Treated-as")
   }
 })
 
@@ -2456,11 +2467,9 @@ router.post('/timeline/foc/uc50Access', (req, res) => {
 
 
 
-
-
-router.post('/timeline/foc/uc50Returned', (req, res) => {
-  res.redirect('/timeline/foc/uc50activities')
-})
+//router.post('/timeline/foc/uc50Returned', (req, res) => {
+//  res.redirect('/timeline/foc/uc50activities')
+//})
 
 
 
@@ -2474,7 +2483,38 @@ router.post('/timeline/foc/uc50noactivities', (req, res) => {
 
 
 router.post('/timeline/foc/uc50activities', (req, res) => {
-  res.redirect('/timeline/foc/uc50Eatingordrinking')
+  const { data } = req.session;
+
+  console.log("****TIMELINE****** ");
+  console.log(req.body.timeline);
+  
+  const physicalActivities = req.body.timeline.activitiesphysical.filter(value => value !== '_unchecked') || [];
+  const mentalActivities = req.body.timeline.activitiesmental.filter(value => value !== '_unchecked') || [];
+  console.log(physicalActivities);
+
+  console.log(mentalActivities);
+
+
+  if(physicalActivities.length === 0 || mentalActivities.length == 0)     
+  {
+
+    if(physicalActivities.length) {
+      data.activitiesphysicalError = true;      
+    } 
+
+    if(mentalActivities.length == 0) {
+      data.activitiesmentalError = true;      
+    } 
+
+    res.redirect('/timeline/foc/uc50activities')
+  }
+  else {
+    data.activitiesphysicalError = false;
+    data.activitiesmentalError = false;
+    res.redirect('/timeline/foc/uc50Eatingordrinking')
+  }
+  
+  
 })
 
 router.post('/timeline/foc/uc50Eatingordrinking', (req, res) => {
@@ -2512,6 +2552,8 @@ router.post('/timeline/foc/outcomeDecisionV2', (req, res) => {
   res.redirect('/timeline/foc/outcomeDecisionPoints')
   }
 })
+
+
 
 router.post('/timeline/foc/outcomeDecisionNotification', (req, res) => {
   res.redirect('/timeline/foc/outcomeDecisionPoints')

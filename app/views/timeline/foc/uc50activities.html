@@ -24,6 +24,27 @@
   {% endblock %}
 
 {% block content %}
+
+
+
+
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Select a fact you would like to add</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
   <form novalidation method="post">
@@ -35,6 +56,10 @@
     Activities the appellant had difficulty with</h1>
 
  {{ govukCheckboxes({
+  errorMessage: {
+    text: "The date your passport was issued must be in the past"
+  } if(data.activitiesphysicalError),
+
   idPrefrix:"[timeline][activitiesphysical]",
   name: "[timeline][activitiesphysical]",
   fieldset: {
@@ -47,7 +72,7 @@
   hint: {
     text: "Select all that apply"
   },
-  values: data.timeline.activitesphysical,
+  values: data.timeline.activitiesphysical,
   items: [
     {
       value: "Moving around",
@@ -113,7 +138,9 @@
  {{ govukCheckboxes({
  
   name: "[timeline][activitiesmental]",
-  
+  errorMessage: {
+    text: "The date your passport was issued must be in the past"
+  } if(data.activitiesmentalError),
   fieldset: {
     legend: {
       text: "Record mental, cognitive and intellectual activities the appellant had difficulty with",
