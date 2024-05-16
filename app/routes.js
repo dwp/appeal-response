@@ -2544,5 +2544,5 @@ router.post('/timeline/foc/outcomeDecisionPoints', (req, res) => {
 })
 
 router.post('/timeline/foc/uc50Signed', (req, res) => {
-  res.redirect('/timeline/foc/uc50Activities')
+  res.redirect('/timeline/foc/uc50activities')
 })
