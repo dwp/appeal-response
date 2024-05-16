@@ -34,7 +34,7 @@
     <div class="govuk-error-summary__body">
       <ul class="govuk-list govuk-error-summary__list">
         <li>
-          <a href="#">Select a fact you would like to add</a>
+          <a href="#">Select an activity or select none</a>
         </li>
       </ul>
     </div>
@@ -69,7 +69,7 @@
             id: "[timeline][activities][physical]",
             name: "[timeline][activities][physical]",
             errorMessage: {
-              text: "The date your passport was issued must be in the past"
+              text: "Select a physical activity or select none"
             } if(data.timeline.activities.physicalError),
             fieldset:{
               legend: {
@@ -137,7 +137,7 @@
             id: "[timeline][activities][mental]",
             name: "[timeline][activities][mental]",
             errorMessage: {
-              text: "The date your passport was issued must be in the past"
+              text: "Select a mental, cognitive and intellectual activity or select none"
             } if(data.timeline.activities.mentalError),
             fieldset:{
               legend: {
