@@ -19,7 +19,7 @@
 {% block beforeContent %}
   {{govukBackLink({
     text: "Back",
-    href: "javascript:window.history.back()"
+    href: "javascript:location.replace(document.referrer)"
   })}}
   {% endblock %}
 

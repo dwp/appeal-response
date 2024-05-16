@@ -26,47 +26,60 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-
-
-    {% set activities %}
-
-    <ul class="govuk-list ">
-      {% for item in data.timeline.activities %}
-      <li>
-        {{item}} 
-      </li>
-
-      {%endfor%}
     
-    </ul> 
+    {% set activities %}
+      <ul class="govuk-list ">
+        {% for item in data.timeline.activities.physical %}
+        <li>
+          {{item}} 
+        </li>
+        {%endfor%}    
+
+        {% for item in data.timeline.activities.mental %}
+        <li>
+          {{item}} 
+        </li>
+        {%endfor%}            
+      </ul> 
     {% endset %} 
 
     {% set activitiespoints %}
+    <ul class="govuk-list">
+      {% for item in data.timeline.activities.physical %}
+        {% if item !== 'none' %}
+        <li>
+          {{item}} 
+        </li>
+        {% endif %}
+      {%endfor%}    
 
-    <ul class="govuk-list  ">
-      {% for item in data.timeline.activities %}
-      {% if item !== 'none' %}
-      <li>
-        {{item}} 
-      </li>
-      {% endif %}
-      {%endfor%}
-    
+      {% for item in data.timeline.activities.mental %}
+        {% if item !== 'none' %}
+        <li>
+          {{item}} 
+        </li>
+        {% endif %}
+      {%endfor%}          
     </ul> 
     {% endset %} 
 
     {% set points %}
-
     <ul class="govuk-list ">
-      {% for item in data.timeline.activities %}
-      {% if item !== 'none' %}
-      <li>
-         {{data.activitypoints[item]}}
-      </li>
-      {% endif %}
-      {%endfor%}
-      
-    
+      {% for item in data.timeline.activities.physical %}
+        {% if item !== 'none' %}
+        <li>
+          {{data.activitypoints[item]}}
+        </li>
+        {% endif %}
+      {%endfor%} 
+
+      {% for item in data.timeline.activities.mental %}
+        {% if item !== 'none' %}
+        <li>
+          {{data.activitypoints[item]}}
+        </li>
+        {% endif %}
+      {%endfor%}                
     </ul> 
     {% endset %} 
     
@@ -82,27 +95,22 @@
             </h1>
           </legend>
 
-      
 
         {{ govukSummaryList({
           rows: [
           {
             key: {
               text: "Activities identified in the appeal"
-            },
-            
+            },            
             actions: {
               items: [
                 {
-                  href: "Change",
-                  
+                  href: "Change",                  
                   visuallyHiddenText: "Item label"
                 }
               ]
             }
           },
-
-        
           {
             key: {
               html: activitiespoints
@@ -110,8 +118,6 @@
             value: {
               html: points 
             },
-            
-            
             actions: {
               items: [
                 {
@@ -122,11 +128,6 @@
               ]
             }
           }
-
-          
-          
-          
-          
         ]
       }) }}
 

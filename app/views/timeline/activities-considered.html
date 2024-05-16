@@ -24,6 +24,25 @@
   {% endblock %}
 
 {% block content %}
+
+{% if (data.timeline.activities.mentalError === true or data.timeline.activities.physicalError === true) %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Select a fact you would like to add</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     
@@ -46,29 +65,20 @@
           </div>
         
         
-         
-
           {{ govukCheckboxes({
-            id: "[timeline][activities]",
-            name: "[timeline][activities]",
-            fieldset: {
+            id: "[timeline][activities][physical]",
+            name: "[timeline][activities][physical]",
+            errorMessage: {
+              text: "The date your passport was issued must be in the past"
+            } if(data.timeline.activities.physicalError),
+            fieldset:{
               legend: {
-                text: "Select relevant activities you want to address in the appeal",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
+                text:"Select physical activities to include",
+                isPageHeading:false,
+                classes: "govuk-fieldset__legend--m"            
               }
             },
-           
-            fieldset:{
-            legend: {
-              text:"Select physical activities to include",
-              isPageHeading:false,
-              classes: "govuk-fieldset__legend--m"
-            
-            }
-          },
-            values: data.timeline.activities,
-
+            values: data.timeline.activities.physical,
             items: [
               {
                 value: "Mobilising",
@@ -86,8 +96,6 @@
                 value: "Picking up and moving",
                 text: "Picking up and moving"
               },
-            
-              
               {
                 value: "Manual dexterity",
                 text: "Manual dexterity"
@@ -114,47 +122,32 @@
                 value: "Consciousness",
                 text: "Consciousness"
               },
-
               {
                 divider: "or"
               },
               {
                 value: "none",
                 text: "No physical activities to include"
-                
-                
-                
               }
             ]
           }) }}
 
-             
 
-              {{ govukCheckboxes({
-                id: "[timeline][activities]",
-                name: "[timeline][activities]",
-                fieldset: {
-                  legend: {
-                    text: "Which activities are you considering?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
-                  }
-                },
-                
-                fieldset:{
-                legend: {
-                  text:"Select mental, cognitive and intellectual activities to include",
-                  isPageHeading:false,
-                  classes: "govuk-fieldset__legend--m"
-                
-                }
-              },
-                values: data.timeline.activities,
-    
-                items: [
-             
-              
-
+          {{ govukCheckboxes({
+            id: "[timeline][activities][mental]",
+            name: "[timeline][activities][mental]",
+            errorMessage: {
+              text: "The date your passport was issued must be in the past"
+            } if(data.timeline.activities.mentalError),
+            fieldset:{
+              legend: {
+                text:"Select mental, cognitive and intellectual activities to include",
+                isPageHeading:false,
+                classes: "govuk-fieldset__legend--m"              
+              }
+            },
+            values: data.timeline.activities.mental,    
+            items: [
               {
                 value: "Learning new tasks ",
                 text: "Learning new tasks "
@@ -190,10 +183,7 @@
 
               {
                 value: "none",
-                text: "No mental, cognitive or intellectual activities to include"
-                
-                
-                
+                text: "No mental, cognitive or intellectual activities to include"                
               }
             ]
           }) }}

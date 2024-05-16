@@ -2163,14 +2163,30 @@ router.post('/timeline/treated-as-question', (req, res) => {
 
 
 router.post('/timeline/activities-considered', (req, res) => {
- res.redirect('/timeline/points-awarded-question')
+  const {data} = req.session;
+  
+  if(!data.timeline.activities.physical) {
+    data.timeline.activities.physicalError = true;
+  } else {
+    data.timeline.activities.physicalError = false;
+  }
+
+  if(!data.timeline.activities.mental) {
+    data.timeline.activities.mentalError = true;
+  } else {
+    data.timeline.activities.mentalError = false;
+  }
+
+  if(!data.timeline.activities.mental || !data.timeline.activities.physical) {
+    return res.redirect('/timeline/activities-considered');
+  }
+
+ return res.redirect('/timeline/points-awarded-question')
 })
 
 router.post('/timeline/points-awarded-question', (req, res) => {
   res.redirect('/timeline/eating-drinking')
 })
-
-
 
 //router.post('/timeline/eating-drinking', (req, res) => {
   //if (data.decisionType == 'lcw'){
