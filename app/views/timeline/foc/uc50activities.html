@@ -34,7 +34,7 @@
     <div class="govuk-error-summary__body">
       <ul class="govuk-list govuk-error-summary__list">
         <li>
-          <a href="#">Select a fact you would like to add</a>
+          <a href="#">Select an activity or select none</a>
         </li>
       </ul>
     </div>
@@ -51,7 +51,7 @@
 
     {{ govukCheckboxes({
       errorMessage: {
-        text: "The date your passport was issued must be in the past"
+        text: "Select a physical activity or none to record"
       } if(data.timeline.activitiesphysicalError),
       idPrefrix:"[timeline][activitiesphysical]",
       name: "[timeline][activitiesphysical]",
@@ -129,7 +129,7 @@
     {{ govukCheckboxes({ 
       name: "[timeline][activitiesmental]",
       errorMessage: {
-        text: "The date your passport was issued must be in the past"
+        text: "Select a mental, cognitive and intellectual activity or none to record"
       } if(data.timeline.activitiesmentalError),
       fieldset: {
         legend: {

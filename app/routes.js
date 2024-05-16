@@ -2542,3 +2542,7 @@ router.post('/timeline/foc/outcomeDecisionNotification', (req, res) => {
 router.post('/timeline/foc/outcomeDecisionPoints', (req, res) => {
   res.redirect('/timeline/foc/index')
 })
+
+router.post('/timeline/foc/uc50Signed', (req, res) => {
+  res.redirect('/timeline/foc/uc50Activities')
+})

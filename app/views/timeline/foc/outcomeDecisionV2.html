@@ -96,7 +96,7 @@
                 name: "",
                 fieldset: {
                   legend: {
-                    text: "Was a decision assurance call made?",
+                    text: "Was the appellant successfully contacted by phone?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--s"
                   }
@@ -108,12 +108,15 @@
                     text: "Yes"
                   },
                   {
-                    value: "Yes, but not answered",
-                    text: "Yes, but not answered"
+                    value: "No",
+                    text: "No"
+                  },
+                  {
+                    divider: "or"
                   },
                   {
                     value: "No call made",
-                    text: "No call made"
+                    text: "No call was attempted"
                   }
                 ]
               }) }}
