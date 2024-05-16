@@ -19,15 +19,13 @@
 {% block beforeContent %}
   {{govukBackLink({
     text: "Back",
-    href: "javascript:window.history.back()"
+    href: "javascript:window.history.back();"
   })}}
   {% endblock %}
-
 {% block content %}
 
 
-
-
+{% if (data.timeline.activitiesmentalError === true or data.timeline.activitiesmentalError === true) %}
   <div class="govuk-error-summary" data-module="govuk-error-summary">
   <div role="alert">
     <h2 class="govuk-error-summary__title">
@@ -42,165 +40,155 @@
     </div>
   </div>
   </div>
-
+{% endif %}
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
   <form novalidation method="post">
 
+  <h1 class="govuk-heading-l">Activities the appellant had difficulty with</h1>
+
+    {{ govukCheckboxes({
+      errorMessage: {
+        text: "The date your passport was issued must be in the past"
+      } if(data.timeline.activitiesphysicalError),
+      idPrefrix:"[timeline][activitiesphysical]",
+      name: "[timeline][activitiesphysical]",
+      fieldset: {
+        legend: {
+          text: "Record physical activities the appellant had difficulty with",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      values: data.timeline.activitiesphysical,  
+      items: [
+        {
+          value: "Moving around",
+          text: "Moving around"
+        },
+        {
+          value: "Using steps",
+          text: "Using steps"
+        },
+        {
+          value: "Standing and sitting",
+          text: "Standing and sitting"
+        },
+        {
+          value: "Transferring between seats",
+          text: "Transferring between seats"
+        },
+        {
+          value: "Reaching",
+          text: "Reaching"
+        },
+        {
+          value: "Picking up and moving things",
+          text: "Picking up and moving things"
+        },
+        {
+          value: "Manual dexterity (using their hands)",
+          text: "Manual dexterity (using their hands)"
+        },
+        {
+          value: "Communicating - speaking, writing and typing",
+          text: "Communicating - speaking, writing and typing"
+        },
+        {
+          value: "Communicating - hearing and reading",
+          text: "Communicating - hearing and reading"
+        },
+        {
+          value: "Getting around safely",
+          text: "Getting around safely"
+        },
+        {
+          value: "Controlling their bowels and bladder using a collecting device",
+          text: "Controlling their bowels and bladder using a collecting device"
+        },
+        {
+          value: "GStaying conscious when awake",
+          text: "Staying conscious when awake"
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "No",
+          text: "No physical activities to record",
+          behaviour: "exclusive"
+        }
+      ]
+    }) }}
     
-
- 
-  <h1 class="govuk-heading-l">
-    Activities the appellant had difficulty with</h1>
-
- {{ govukCheckboxes({
-  errorMessage: {
-    text: "The date your passport was issued must be in the past"
-  } if(data.activitiesphysicalError),
-
-  idPrefrix:"[timeline][activitiesphysical]",
-  name: "[timeline][activitiesphysical]",
-  fieldset: {
-    legend: {
-      text: "Record physical activities the appellant had difficulty with",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: "Select all that apply"
-  },
-  values: data.timeline.activitiesphysical,
-  items: [
-    {
-      value: "Moving around",
-      text: "Moving around"
-    },
-    {
-      value: "Using steps",
-      text: "Using steps"
-    },
-    {
-      value: "Standing and sitting",
-      text: "Standing and sitting"
-    },
-    {
-      value: "Transferring between seats",
-      text: "Transferring between seats"
-    },
-    {
-      value: "Reaching",
-      text: "Reaching"
-    },
-    {
-      value: "Picking up and moving things",
-      text: "Picking up and moving things"
-    },
-    {
-      value: "Manual dexterity (using their hands)",
-      text: "Manual dexterity (using their hands)"
-    },
-    {
-      value: "Communicating - speaking, writing and typing",
-      text: "Communicating - speaking, writing and typing"
-    },
-    {
-      value: "Communicating - hearing and reading",
-      text: "Communicating - hearing and reading"
-    },
-    {
-      value: "Getting around safely",
-      text: "Getting around safely"
-    },
-    {
-      value: "Controlling their bowels and bladder using a collecting device",
-      text: "Controlling their bowels and bladder using a collecting device"
-    },
-    {
-      value: "GStaying conscious when awake",
-      text: "Staying conscious when awake"
-    },
-    {
-      divider: "or"
-    },
-    {
-      value: "No",
-      text: "No physical activities to record",
-      behaviour: "exclusive"
-    }
-  ]
- }) }},
-
- 
-
- {{ govukCheckboxes({
- 
-  name: "[timeline][activitiesmental]",
-  errorMessage: {
-    text: "The date your passport was issued must be in the past"
-  } if(data.activitiesmentalError),
-  fieldset: {
-    legend: {
-      text: "Record mental, cognitive and intellectual activities the appellant had difficulty with",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: "Select all that apply"
-  },
-  value: data.timeline.activitiesmental,
-  items: [
-    {
-      value: "Learning how to do tasks",
-      text: "Learning how to do tasks"
-    },
-    {
-      value: "Awareness of hazards or danger",
-      text: "Awareness of hazards or danger"
-    },
-    {
-      value: "Starting and finishing tasks",
-      text: "Starting and finishing tasks"
-    },
-    {
-      value: "Coping with changes",
-      text: "Coping with changes"
-    },
-    {
-      value: "Going out",
-      text: "Going out"
-    },
-    {
-      value: "Coping with social situations",
-      text: "Coping with social situations"
-    },
-    {
-      value: "Behaving appropriately",
-      text: "Behaving appropriately"
-    },
-   
-    
-    {
-      divider: "or"
-    },
-    {
-      value: "No",
-      text: "No mental, cognitive or intellectual activities to record",
-      behaviour: "exclusive"
-    }
-  ]
- }) }}
-
-
+    {{ govukCheckboxes({ 
+      name: "[timeline][activitiesmental]",
+      errorMessage: {
+        text: "The date your passport was issued must be in the past"
+      } if(data.timeline.activitiesmentalError),
+      fieldset: {
+        legend: {
+          text: "Record mental, cognitive and intellectual activities the appellant had difficulty with",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Select all that apply"
+      },
+      values: data.timeline.activitiesmental,
+      items: [
+        {
+          value: "Learning how to do tasks",
+          text: "Learning how to do tasks"
+        },
+        {
+          value: "Awareness of hazards or danger",
+          text: "Awareness of hazards or danger"
+        },
+        {
+          value: "Starting and finishing tasks",
+          text: "Starting and finishing tasks"
+        },
+        {
+          value: "Coping with changes",
+          text: "Coping with changes"
+        },
+        {
+          value: "Going out",
+          text: "Going out"
+        },
+        {
+          value: "Coping with social situations",
+          text: "Coping with social situations"
+        },
+        {
+          value: "Behaving appropriately",
+          text: "Behaving appropriately"
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "No",
+          text: "No mental, cognitive or intellectual activities to record",
+          behaviour: "exclusive"
+        }
+      ]
+    }) }}
 
     {{ govukButton({
       text: "Continue"
     }) }}
     
-    
+  </form>
+</div>
+</div>
 {% endblock %}
 
 {% block pageScripts %}

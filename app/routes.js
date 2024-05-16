@@ -2463,18 +2463,9 @@ router.post('/timeline/uc50Returned', function(request, response) {
 })
 
 
-
-
-
-
 //router.post('/timeline/foc/uc50Returned', (req, res) => {
 //  res.redirect('/timeline/foc/uc50activities')
 //})
-
-
-
-
-
 
 
 router.post('/timeline/foc/uc50noactivities', (req, res) => {
@@ -2484,38 +2475,27 @@ router.post('/timeline/foc/uc50noactivities', (req, res) => {
 
 router.post('/timeline/foc/uc50activities', (req, res) => {
   const { data } = req.session;
-
-  console.log("****TIMELINE****** ");
-  console.log(req.body.timeline);
   
-  const physicalActivities = req.body.timeline.activitiesphysical.filter(value => value !== '_unchecked') || [];
-  const mentalActivities = req.body.timeline.activitiesmental.filter(value => value !== '_unchecked') || [];
-  console.log(physicalActivities);
-
-  console.log(mentalActivities);
-
-
-  if(physicalActivities.length === 0 || mentalActivities.length == 0)     
-  {
-
-    if(physicalActivities.length) {
-      data.activitiesphysicalError = true;      
-    } 
-
-    if(mentalActivities.length == 0) {
-      data.activitiesmentalError = true;      
-    } 
-
-    res.redirect('/timeline/foc/uc50activities')
+  if(!data.timeline.activitiesphysical) {
+    data.timeline.activitiesphysicalError = true;
+  } else {
+    data.timeline.activitiesphysicalError = false;
   }
-  else {
-    data.activitiesphysicalError = false;
-    data.activitiesmentalError = false;
-    res.redirect('/timeline/foc/uc50Eatingordrinking')
+
+  if(!data.timeline.activitiesmental) {
+    data.timeline.activitiesmentalError = true;
+  } else {
+    data.timeline.activitiesmentalError = false;
   }
-  
-  
+
+  if(!data.timeline.activitiesmental || !data.timeline.activitiesphysical){
+    return res.redirect('/timeline/foc/uc50activities');
+  }
+
+  return res.redirect('/timeline/foc/uc50Eatingordrinking')
 })
+
+
 
 router.post('/timeline/foc/uc50Eatingordrinking', (req, res) => {
   res.redirect('/timeline/foc/index')
