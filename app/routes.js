@@ -2455,9 +2455,7 @@ router.post('/timeline/foc/uc50date', (req, res) => {
 //})
 
 
-router.post('/timeline/foc/uc50Access', (req, res) => { 
-
-  console.log(req.body)
+router.post('/timeline/foc/uc50Access', (req, res) => {   
   if (req.body.timeline.accessUC50?.includes("No") ){
     res.redirect('/timeline/foc/uc50Issued') 
   } else if (req.body.timeline.accessUC50?.includes("Yes") ){
@@ -2468,15 +2466,10 @@ router.post('/timeline/foc/uc50Access', (req, res) => {
 })
 
 
-router.post('/timeline/uc50Returned', function(request, response) {
-
-  var decisionType = request.session.data['accessUC50']
-  if (accessUC50 == "HCP"){
-      response.redirect("/timeline/Otherissues/activities-and-issues-summary-2")
-  } else {
-      response.redirect("/timeline/Treated-as")
+router.post('/timeline/foc/uc50Returned', function(req, res) {
+      res.redirect("/timeline/foc/index");
   }
-})
+)
 
 
 //router.post('/timeline/foc/uc50Returned', (req, res) => {
@@ -2520,10 +2513,6 @@ router.post('/timeline/foc/uc50Eatingordrinking', (req, res) => {
 router.post('/timeline/foc/uc50Issued', (req, res) => {
   res.redirect('/timeline/foc/index')
 })
-
-
-
-
 
 router.post('/timeline/foc/mr-secondpage', (req, res) => {
   if (req.body.timeline.orginaldecision == 'No'){
