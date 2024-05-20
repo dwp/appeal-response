@@ -2527,8 +2527,7 @@ router.post('/timeline/foc/mr-secondpage', (req, res) => {
 
 
 router.post('/timeline/foc/outcomeDecisionV2', (req, res) => { 
-
-  console.log(req.body)
+  
   if (req.body.timeline.outcomedecision?.includes("No")){
     res.redirect('/timeline/foc/outcomeDecisionNotification')
 

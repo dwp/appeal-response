@@ -93,7 +93,7 @@
 
               {{ govukRadios({
                 classes: "govuk-radios",
-                name: "",
+                name: "[timeline][outcomedecision][contactedByPhone]",
                 fieldset: {
                   legend: {
                     text: "Was the appellant successfully contacted by phone?",
@@ -101,7 +101,7 @@
                     classes: "govuk-fieldset__legend--s"
                   }
                 },
-                value: data.decisioncall,
+                value: data.timeline.contactedByPhone,
                 items: [
                   {
                     value: "Yes",
