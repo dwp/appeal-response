@@ -24,6 +24,37 @@
 
 {% block content %}
 
+{% if (errorMessage) %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        {% if (errorMessage.decisionDate) %}
+        <li>
+          <a href="#">{{errorMessage.decisionDate}}</a>
+        </li>
+        {% endif %}        
+
+        {% if (errorMessage.contactedByPhone) %}
+        <li>
+          <a href="#">{{errorMessage.contactedByPhone}}</a>
+        </li>
+        {% endif %}
+
+        {% if (errorMessage.notificationSentSameDate) %}
+        <li>
+          <a href="#">{{errorMessage.notificationSentSameDate}}</a>
+        </li>
+        {% endif %}        
+
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -33,7 +64,11 @@
     
       
     {{ govukDateInput({
-      id: "Decisiondate",
+      id: "decisionDate",
+      namePrefix: "decision",
+      errorMessage: {
+        text: errorMessage.decisionDate
+      } if(errorMessage.decisionDate),
       fieldset: {
         legend: {
           text: "Decision date",
@@ -46,19 +81,19 @@
       },
       items: [
         {
-          name: "date",
+          name: "day",
           label: "Day",
           value: data.day,
           classes: "govuk-input--width-2"
         },
         {
-          name: "date",
+          name: "month",
           label: "Month",
           value: data.month,
           classes: "govuk-input--width-2"
         },
         {
-          name: "date",
+          name: "year",
           label: "Year",
           value: data.year,
           classes: "govuk-input--width-4"
@@ -68,8 +103,11 @@
    
               {{ govukRadios({
                 classes: "govuk-radios",
-                idPrefrix:"[timeline][outcomedecision]",
-                name: "[timeline][outcomedecision]",
+                errorMessage: {
+                  text: errorMessage.notificationSentSameDate
+                } if(errorMessage.notificationSentSameDate),
+                idPrefrix:"notificationSentSameDate",
+                name: "notificationSentSameDate",
                 fieldset: {
                   legend: {
                     text: "Was the notification sent on the same date?",
@@ -78,7 +116,7 @@
                     classes: "govuk-fieldset__legend--s"
                   }
                 },
-                values: data.timline.outcomedecision,
+                values: data.notificationSentSameDate,
                 items: [
                   {
                     value: "Yes",
@@ -93,7 +131,10 @@
 
               {{ govukRadios({
                 classes: "govuk-radios",
-                name: "[timeline][outcomedecision][contactedByPhone]",
+                errorMessage: {
+                  text: errorMessage.contactedByPhone
+                } if(errorMessage.contactedByPhone),
+                name: "contactedByPhone",
                 fieldset: {
                   legend: {
                     text: "Was the appellant successfully contacted by phone?",
@@ -101,7 +142,7 @@
                     classes: "govuk-fieldset__legend--s"
                   }
                 },
-                value: data.timeline.contactedByPhone,
+                value: data.contactedByPhone,
                 items: [
                   {
                     value: "Yes",

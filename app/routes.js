@@ -2527,24 +2527,80 @@ router.post('/timeline/foc/mr-secondpage', (req, res) => {
 
 
 router.post('/timeline/foc/outcomeDecisionV2', (req, res) => { 
+  const errorMessage = {};  
+  const {data } = req.session;
+  console.log("********** data: ", data)
+
+  if(!data.contactedByPhone) {    
+    errorMessage.contactedByPhone = `Select if the appellant was successfully contacted by phone`;
+  }
+
+  if(!data.notificationSentSameDate) {
+    errorMessage.notificationSentSameDate = `Select yes if the notification was sent on the decision date`;
+  }
+
+  if(!data['decision-day'] || !data['decision-month'] || !data['decision-year']) {
+    errorMessage.decisionDate = `Enter the date of decision`;
+  }
   
-  if (req.body.timeline.outcomedecision?.includes("No")){
-    res.redirect('/timeline/foc/outcomeDecisionNotification')
 
+  if(Object.keys(errorMessage).length) {
+    return res.render('./timeline/foc/outcomeDecisionV2', { errorMessage})
+  }
+
+  if (data.notificationSentSameDate === "No"){
+    return res.redirect('/timeline/foc/outcomeDecisionNotification')
   } else {
-
-  res.redirect('/timeline/foc/outcomeDecisionPoints')
+    return res.redirect('/timeline/foc/outcomeDecisionPoints')
   }
 })
 
 
+// router.get('/timeline/foc/outcomeDecisionNotification', (req, res) => {
+//   const { data } = req.session;
+//   console.log("********* data: ", data.outcomeNotificationDecisionError);
+//   res.render('./timeline/foc/outcomeDecisionNotification')
+// })
+
 
 router.post('/timeline/foc/outcomeDecisionNotification', (req, res) => {
+  const { data } = req.session;
+  console.log("********* data: ", data )
+  
+  if (!data['notificationSent-year'] || !data['notificationSent-month'] || !data['notificationSent-day']) {
+    return res.render('./timeline/foc/outcomeDecisionNotification', {notificationSentError: `Please enter a date` })
+  }
+
+
+  const decisionDate = new Date(data['decision-year'], Number(data['decision-month']) - 1 , data['decision-day']);
+  const notificationSentDate = new Date(data['notificationSent-year'], Number(data['notificationSent-month']) - 1, data['notificationSent-day']);
+  
+  if(notificationSentDate.getTime() < decisionDate.getTime()) {
+    return res.render('./timeline/foc/outcomeDecisionNotification', {notificationSentError: `The date the notification was sent must be the same as or after ${decisionDate.toLocaleString('en-GB').slice(0, 10)}` })
+  } 
+  
+
   res.redirect('/timeline/foc/outcomeDecisionPoints')
 })
 
 router.post('/timeline/foc/outcomeDecisionPoints', (req, res) => {
-  res.redirect('/timeline/foc/index')
+  const {data } = req.session;
+  const errorMessage = {};
+  
+
+  if(!data.physicalPoints) {
+    errorMessage.physicalPoints = `Enter the total points awarded for physical activities`;
+  }
+
+  if(!data.mentalPoints) {
+    errorMessage.mentalPoints = `Enter the total points awarded for mental, cognitive and intellectual activities`;
+  }  
+
+  if(Object.keys(errorMessage).length) {
+    return res.render('./timeline/foc/outcomeDecisionPoints', {errorMessage})
+  }
+
+  return res.redirect('/timeline/foc/index')
 })
 
 router.post('/timeline/foc/uc50Signed', (req, res) => {
