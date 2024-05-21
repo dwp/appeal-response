@@ -33,9 +33,16 @@
     </h2>
     <div class="govuk-error-summary__body">
       <ul class="govuk-list govuk-error-summary__list">
+        {% if data.timeline.activitiesphysicalError %}
         <li>
-          <a href="#">Select an activity or select none</a>
+          <a href="#">Select a physical activity or select ‘No difficulty with physical activities’</a>
         </li>
+        {% endif %}
+        {% if data.timeline.activitiesmentalError %}
+        <li>
+          <a href="#">Select a mental, cognitive or intellectual activity or select ‘No difficulty with mental, cognitive, or intellectual activities’</a>
+        </li>
+        {% endif %}        
       </ul>
     </div>
   </div>
@@ -51,13 +58,13 @@
 
     {{ govukCheckboxes({
       errorMessage: {
-        text: "Select a physical activity or none to record"
+        text: "Select a physical activity or select ‘No difficulty with physical activities’"
       } if(data.timeline.activitiesphysicalError),
       idPrefrix:"[timeline][activitiesphysical]",
       name: "[timeline][activitiesphysical]",
       fieldset: {
         legend: {
-          text: "Record physical activities the appellant had difficulty with",
+          text: "Which physical activities did the appellant say they had difficulty with?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--m"
         }
@@ -120,7 +127,7 @@
         },
         {
           value: "No",
-          text: "No physical activities to record",
+          text: "No difficulty with physical activities",
           behaviour: "exclusive"
         }
       ]
@@ -129,11 +136,11 @@
     {{ govukCheckboxes({ 
       name: "[timeline][activitiesmental]",
       errorMessage: {
-        text: "Select a mental, cognitive and intellectual activity or none to record"
+        text: "Select a mental, cognitive or intellectual activity or select ‘No difficulty with mental, cognitive, or intellectual activities’"
       } if(data.timeline.activitiesmentalError),
       fieldset: {
         legend: {
-          text: "Record mental, cognitive and intellectual activities the appellant had difficulty with",
+          text: "Which mental, cognitive and intellectual activities did the appellant say they had difficulty with?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--m"
         }
@@ -176,7 +183,7 @@
         },
         {
           value: "No",
-          text: "No mental, cognitive or intellectual activities to record",
+          text: "No difficulty with mental, cognitive, or intellectual activities",
           behaviour: "exclusive"
         }
       ]
