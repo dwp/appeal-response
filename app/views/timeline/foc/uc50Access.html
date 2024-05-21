@@ -24,6 +24,27 @@
   {% endblock %}
 
 {% block content %}
+
+
+{% if errorMessage %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        {% if (errorMessage) %}
+        <li>
+          <a href="#">{{errorMessage}}</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
   <form novalidation method="post">
@@ -32,8 +53,11 @@
 
 {{ govukRadios({
 
-  id: "[timeline][accessUC50]",
-  name: "[timeline][accessUC50]",
+  id: "accessUC50",
+  name: "accessUC50",
+  errorMessage: {
+    text: errorMessage
+  } if(errorMessage),
   fieldset: {
     legend: {
       text: " Can you access information from the UC50?",
@@ -41,7 +65,7 @@
       classes: "govuk-fieldset__legend--l"
     }
   },
-  values: data.timeline.accessUC50,
+  values: data.accessUC50,
   items: [
     {
       value: "Yes",
@@ -65,7 +89,7 @@
       text: "Continue"
     }) }}
     
-    
+    </form>
 {% endblock %}
 
 {% block pageScripts %}

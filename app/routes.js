@@ -2455,13 +2455,19 @@ router.post('/timeline/foc/uc50date', (req, res) => {
 //})
 
 
-router.post('/timeline/foc/uc50Access', (req, res) => {   
-  if (req.body.timeline.accessUC50?.includes("No") ){
-    res.redirect('/timeline/foc/uc50Issued') 
-  } else if (req.body.timeline.accessUC50?.includes("Yes") ){
-      res.redirect('/timeline/foc/uc50Signed')
+router.post('/timeline/foc/uc50Access', (req, res) => {     
+  const {data} = req.session;
+
+  if(!data.accessUC50) {
+    return res.render('./timeline/foc/uc50Access', {errorMessage: 'Select if you can access information from the UC50'} )
+  }
+
+  if (data.accessUC50 === "No") {
+    return res.redirect('/timeline/foc/uc50Issued') ;
+  } else if(data.accessUC50 === "Yes") {
+      return res.redirect('/timeline/foc/uc50Signed');
   } else {
-    res.redirect('/timeline/foc/uc50Returned')
+    return res.redirect('/timeline/foc/uc50Returned')
   }
 })
 
