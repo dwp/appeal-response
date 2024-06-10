@@ -987,11 +987,18 @@ router.post('/timeline/addAppellant',(req,res) => {
   if(data.target =="cya")
     res.redirect('/timeline/11-check-answers');
   else
-    res.redirect('/timeline/01-task-list-new');
+    res.redirect('/timeline/benefits');
 })
 
+router.post('/timeline/benefits',(req,res) => {
+  res.redirect('/timeline/work-group');
+})
+
+router.post('/timeline/work-group',(req,res) => {
+  res.redirect('/timeline/representative');
+})
 router.post('/timeline/decisionType',(req,res) => {
-  res.redirect('/timeline/01-task-list-new');
+  res.redirect('/timeline/02-find-appellant');
 })
 
 router.get('/timeline/foc/index',(req,res,next) => {
@@ -2120,12 +2127,30 @@ router.post('/timeline/rep-present', function(request, response) {
 
   var representative = request.session.data['representative']
   if (representative == "Yes"){
-      response.redirect("/timeline/add-representative")
+      response.redirect("/timeline/representative-type")
   } else {
       response.redirect("/timeline/01-task-list-new")
   }
 })
 
+router.post('/timeline/representative-type', (req, res) => { 
+
+  console.log(req.body)
+  if (req.body.timeline.representativeType?.includes("Org") ){
+    res.redirect('/timeline/representative-organisation') 
+  
+  } else {
+    res.redirect('/timeline/representative-individual')
+  }
+})
+
+router.post('/timeline/representative-individual', (req, res) => {
+  res.redirect('/timeline/01-task-list-new')
+})
+
+router.post('/timeline/representative-organisation', (req, res) => {
+  res.redirect('/timeline/01-task-list-new')
+})
 
 router.post('/timeline/add-representative', function(request, response) {
 console.log("********************* ");
@@ -2611,4 +2636,8 @@ router.post('/timeline/foc/outcomeDecisionPoints', (req, res) => {
 
 router.post('/timeline/foc/uc50Signed', (req, res) => {
   res.redirect('/timeline/foc/uc50activities')
+})
+
+router.post('/timeline/02-appellant-details', (req, res) => {
+  res.redirect('/timeline/foc/benefits')
 })

@@ -1,0 +1,135 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form class="form" action="/timeline/rep-present" method="post">
+  
+
+  <h1 class="govuk-heading-l">Enter representative details</h1>
+
+
+  {{ govukInput({
+    label: {
+      text: "Full name of representative"
+    },
+    id: "Organisation-rep",
+    name: "Organisation-rep",
+    autocomplete: "name",
+    spellcheck: false
+  }) }}
+  
+  {% call govukFieldset({
+    legend: {
+      text: "Address",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  }) %}
+  
+    {{ govukInput({
+      id: "address-line-1",
+      name: "address[line1]",
+      label: {
+        text: "Address line 1"
+      },
+      value: data.address.line1,
+      autocomplete: "address-line1"
+    }) }}
+  
+    {{ govukInput({
+      id: "address-line-2",
+      name: "address[line2]",
+      label: {
+        text: "Address line 2 (optional)"
+      },
+      value: data.address.line2,
+      autocomplete: "address-line2"
+    }) }}
+  
+    {{ govukInput({
+      id: "address-town",
+      name: "address[town]",
+      label: {
+        text: "Town or city"
+      },
+      value: data.address.town,
+      autocomplete: "address-level2",
+      classes: "govuk-!-width-two-thirds"
+    }) }}
+  
+    {{ govukInput({
+      id: "address-county",
+      name: "address[county]",
+      label: {
+        text: "County (optional)"
+      },
+      value: data.address.county,
+      classes: "govuk-!-width-two-thirds"
+    }) }}
+  
+    {{ govukInput({
+      id: "address-postcode",
+      name: "address[postcode]",
+      label: {
+        text: "Postcode"
+      },
+      value: data.address.postcode,
+      autocomplete: "postal-code",
+      classes: "govuk-input--width-10"
+    }) }}
+  
+  {% endcall %}
+
+  
+  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button>
+
+
+  
+  </form>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressRepDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}

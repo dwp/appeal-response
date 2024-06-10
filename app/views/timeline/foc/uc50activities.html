@@ -54,7 +54,14 @@
   <div class="govuk-grid-column-two-thirds">
   <form novalidation method="post">
 
-  <h1 class="govuk-heading-l">Activities the appellant had difficulty with</h1>
+  <h1 class="govuk-heading-l">Select all activities the appellant said they had difficulty with</h1>
+
+  <div id="event-name-hint" class="govuk-hint">
+    Select all that apply
+
+  </div>
+
+
 
     {{ govukCheckboxes({
       errorMessage: {
@@ -66,11 +73,11 @@
         legend: {
           text: "Which physical activities did the appellant say they had difficulty with?",
           isPageHeading: true,
-          classes: "govuk-fieldset__legend--m"
+          classes: "govuk-fieldset__legend--s"
         }
       },
       hint: {
-        text: "Select all that apply"
+        text: ""
       },
       values: data.timeline.activitiesphysical,  
       items: [
@@ -115,11 +122,11 @@
           text: "Getting around safely"
         },
         {
-          value: "Controlling their bowels and bladder using a collecting device",
-          text: "Controlling their bowels and bladder using a collecting device"
+          value: "Controlling their bowels and bladder and using a collecting device",
+          text: "Controlling their bowels and bladder and using a collecting device"
         },
         {
-          value: "GStaying conscious when awake",
+          value: "Staying conscious when awake",
           text: "Staying conscious when awake"
         },
         {
@@ -130,6 +137,7 @@
           text: "No difficulty with physical activities",
           behaviour: "exclusive"
         }
+        
       ]
     }) }}
     
@@ -142,11 +150,11 @@
         legend: {
           text: "Which mental, cognitive and intellectual activities did the appellant say they had difficulty with?",
           isPageHeading: true,
-          classes: "govuk-fieldset__legend--m"
+          classes: "govuk-fieldset__legend--s"
         }
       },
       hint: {
-        text: "Select all that apply"
+        text: ""
       },
       values: data.timeline.activitiesmental,
       items: [
@@ -186,6 +194,7 @@
           text: "No difficulty with mental, cognitive, or intellectual activities",
           behaviour: "exclusive"
         }
+        
       ]
     }) }}
 

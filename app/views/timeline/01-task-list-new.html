@@ -27,29 +27,29 @@
         <ol class="app-task-list">
           <li>
             <h2 class="app-task-list__section">
-              <span class="app-task-list__section-number">1. </span> Personal details
+              <span class="app-task-list__section-number">1. </span> Appellant details
             </h2>
             <ul class="app-task-list__items">
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="appellant" class="govuk-link govuk-link--no-visited-state" aria-describedby="eligibility-status">
-                    Check appellant details
+                  <a href="02-appellant-details" class="govuk-link govuk-link--no-visited-state" aria-describedby="eligibility-status">
+                    Add appellant details
                   </a>
                 </span>
                 <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="taskAppellantDetails">Not started</strong>
               </li>
               
-              <li class="app-task-list__item">
+             <!-- <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   <a href="representative" class="govuk-link govuk-link--no-visited-state" aria-describedby="read-declaration-status">
                     Add representative details
                   </a>
                 </span>
                 <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="taskRepDetails">Not started</strong>
-              </li>
+              </li> -->
               
-            </ul>
-          </li>
+            </ul> 
+          </li> 
 
 
 
@@ -60,7 +60,7 @@
             <ul class="app-task-list__items">
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="./foc/index" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                  <a href="./foc/originalClaim" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
                     Build facts of the case
                   </a>
                 </span>
@@ -164,10 +164,10 @@
       }
 
 
-      if(sessionStorage.getItem("taskProgressRepDetails")=="2") {
-          document.getElementById("taskRepDetails").innerHTML = "Completed";
-          document.getElementById("taskRepDetails").className = "govuk-tag app-task-list__tag"; 
-      }
+     // if(sessionStorage.getItem("taskProgressRepDetails")=="2") {
+      //    document.getElementById("taskRepDetails").innerHTML = "Completed";
+      //    document.getElementById("taskRepDetails").className = "govuk-tag app-task-list__tag"; 
+     // }
       if(sessionStorage.getItem("taskProgressFOC")=="2") {
           document.getElementById("taskFOC").innerHTML = "Completed";
           document.getElementById("taskFOC").className = "govuk-tag app-task-list__tag";

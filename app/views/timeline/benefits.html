@@ -1,0 +1,80 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    
+    <form novalidation method="post">
+      
+
+        {{ govukCheckboxes({
+          name: "[timeline][provisions]",
+          fieldset: {
+            legend: {
+              text: "Do they receive any of these benefits?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          value: data.timeline.benefits,
+          items: [
+            {
+              value: "Personal Independant Payment (PIP)",
+              text: "Personal Independant Payment (PIP)"
+            },
+            {
+              value: "Adult Disability Payment (ADP)",
+              text: "Adult Disability Payment (ADP)"
+            },
+            {
+              value: "Disability Living Allowance (DLA)",
+              text: "Disability Living Allowance (DLA)"
+            }
+          ]
+        }) }}
+      
+         {{ govukButton({
+          text: "Continue"
+         }) }} 
+
+  
+</form>
+</div>
+</div>
+<!--{% endblock %}-->
+
+<!--//when they click continue - change to '2,copy to endblock
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressRepDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}
