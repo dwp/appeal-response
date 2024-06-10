@@ -136,12 +136,4 @@
     document.getElementById('form').submit();
   }
 
-  /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-  {% if data.edit != 1 %}
-    autocomplete(document.getElementById("condition"), conditions);
-  {% endif %}
-  {% if data.edit != 1 %}
-    populate(itemsToPopulate,'conditionsContainer');
-  {% endif %}
-</script>
-{% endblock %}
+
