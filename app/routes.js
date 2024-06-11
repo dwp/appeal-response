@@ -2741,5 +2741,5 @@ router.post('/timeline/focV2/index', (req, res) => {
 })
 
 router.post('/timeline/appealDates', (req, res) => {
-  res.redirect('/timeline/Benefits')
+  res.redirect('/timeline/benefits')
 })
