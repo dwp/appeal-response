@@ -1,0 +1,202 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  UC 50 questionnaire - Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<!--{% if error %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Enter all mandatory data</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}-->
+<a href="
+{% if (data.edit == 1 and data.target == 'index') %}
+  index
+{% elif (data.edit == 1 and data.target == 'index3') %}
+  index3
+{% else %}
+  javascript:history.back()
+{% endif %}
+" class="govuk-back-link">Back</a>
+
+
+<form action="/timeline/foc/addUC50?target={{data.target}}" method="post" class="form" id="uc50Form">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-9">
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="uc50hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Capability for work questionnaire (UC50)
+          </h1>
+        </legend>
+        <h3 class="govuk-heading-s">Date used for facts of the case</h3>
+        <div id="uc50hint" class="govuk-hint">
+          For example, 27 3 2007
+        </div>
+        <div class="govuk-date-input" id="passport-issued">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="uc50day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50day" name="uc50day" type="text" inputmode="numeric" value={{data.events[data.editIndex].day}}>
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="uc50month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="uc50month" name="uc50month" type="text" inputmode="numeric" value={{data.events[data.editIndex].month}}>
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="uc50year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="uc50year" name="uc50year" type="text" inputmode="numeric" value={{data.events[data.editIndex].year}}>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-label govuk-!-font-weight-bold">
+            What date is this?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uc50Date1" name="uc50DateType" type="radio" value="UC50 issued"
+              {% if data.events[data.editIndex].details.uc50DateType == "UC50 issued" %}
+              checked
+              {% endif %}>
+              <label class="govuk-label govuk-radios__label" for="uc50Date1">
+                UC50 signed by the appellant
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uc50Date2" name="uc50DateType" type="radio" value="UC50 signed by the appellant"
+              {% if data.events[data.editIndex].details.uc50DateType == "UC50 signed by the appellant" %}
+              checked
+              {% endif %}>
+              <label class="govuk-label govuk-radios__label" for="uc50Date2">
+                UC50 issued
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uc50Date3" name="uc50DateType" type="radio" value="UC50 received into DWP"
+              {% if data.events[data.editIndex].details.uc50DateType == "UC50 received into DWP" %}
+              checked
+              {% endif %}>
+              <label class="govuk-label govuk-radios__label" for="uc50Date3">
+                UC50 received into DWP
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      
+    
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-label govuk-!-font-weight-bold">
+            Are the details of the UC50 available?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uc50Exists1" name="uc50Exists" type="radio" value="Yes"
+              {% if data.events[data.editIndex].details.uc50Exists == "Yes" %}
+              checked
+              {% endif %}>
+              <label class="govuk-label govuk-radios__label" for="uc50Exists1">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uc50Exists2" name="uc50Exists" type="radio" value="No, it was not returned"
+              {% if data.events[data.editIndex].details.uc50Exists == "No, it was not returned" %}
+              checked
+              {% endif %}>
+              <label class="govuk-label govuk-radios__label" for="uc50Exists2">
+                No, it was not returned
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="uc50Exists3" name="uc50Exists" type="radio" value="No, we no longer have a copy on record"
+              {% if data.events[data.editIndex].details.uc50Exists == "No, we no longer have a copy on record" %}
+              checked
+              {% endif %}>
+              <label class="govuk-label govuk-radios__label" for="uc50Exists3">
+                No, we no longer have a copy on record
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+      Continue
+    </button>
+    {% if data.edit == 1 %}
+      <p>
+        <a class="govuk-body govuk-link govuk-link--no-visited-state redText" href="/remove?id={{data.events[data.editIndex].id}}">Remove this fact</a>
+      </p>
+    {% endif %}
+    <p><a href="
+    {% if (data.edit == 1 and data.target == 'index') %}
+      index
+    {% elif (data.edit == 1 and data.target == 'index3') %}
+      index3
+    {% else %}
+      javascript:history.back()
+    {% endif %}
+    ">Back</a></p>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+
+    function saveData(){
+      if($('input[type=radio]:checked').size() > 0){
+        sessionStorage.setItem("taskProgressUC50","2");
+      }
+      else{
+        sessionStorage.setItem("taskProgressUC50","0");
+      }
+      document.getElementById("uc50Form").submit();
+    }
+
+</script>
+{% endblock %}

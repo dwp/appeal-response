@@ -1,0 +1,93 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form novalidation method="post">
+
+
+<h1 class="govuk-heading-l">Health assessment Outcome</h1>
+
+       {{ govukRadios({
+        name: "",
+        fieldset: {
+          legend: {
+            text: "Did the Health Care Professional find any restriction of capability?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        value: data.healthassessmentoutcome,
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+       }) }}, 
+
+       {{ govukRadios({
+        name: "",
+        fieldset: {
+          legend: {
+            text: "Did the Health Care Professional recommend any 'treated as' provisions?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        value: data.healthassessmentoutcome,
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+       }) }}
+
+       {{ govukButton({
+        text: "Continue"
+      }) }}
+      
+      </form>
+      
+      </div>
+      </div>
+      
+      {% endblock %}

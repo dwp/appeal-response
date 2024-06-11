@@ -1,0 +1,110 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form novalidation method="post">
+
+
+<h1 class="govuk-heading-l">Date of claim</h1>
+      
+        <div class="govuk-form-group">
+          <h3 class="govuk-heading-m">Health conditions</h3>
+          <div class="" id="conditionsContainer">
+            <div class="govuk-input__wrapper autocomplete ">
+              {% if data.edit != 1 %}
+                <input class="govuk-input govuk-input--width-20 conditionInput" id="condition" name="condition" type="text">
+              {% endif %}
+            </div>
+          </div>
+          <p class="govuk-!-margin-top-2"><a href="#" onclick="addCondtionInput('conditionsContainer')">Add another condition</a></p>
+        </div>
+        <input class="govuk-input" id="conditionsString" name="conditionsString" type="text" style="display:none">
+        <input class="govuk-input" id="claimID" name="claimID" type="text" style="display:none" value={{data.originalClaim.id}}>
+      
+        {{ govukRadios({
+          name: "",
+          fieldset: {
+            legend: {
+              text: "Did the appellant declare the conditions restricted their ability to work?
+              ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          value: data.restrictsabilitytowork,
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukRadios({
+          name: "",
+          fieldset: {
+            legend: {
+              text: "Did they provide valid medical evidence?
+              ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          value: data.medicalevidence,
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+ 
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+        
+        </div>
+        </div>
+        
+        {% endblock %}
+ 

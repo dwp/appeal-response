@@ -124,16 +124,16 @@
 
   */
 
-  var itemsToPopulate = "{{ data.events[data.editOClaimIndex].details.OCConditions }}";
+ // var itemsToPopulate = "{{ data.events[data.editOClaimIndex].details.OCConditions }}";
 
-  function submitForm(){
-    var conditionsString = "";
-    const allConditions = document.getElementsByClassName("conditionInput");
-    for (var i = 0; i < allConditions.length; i++) {
-      conditionsString += allConditions[i].value+", ";
-    }
-    document.getElementById('conditionsString').value = conditionsString;
-    document.getElementById('form').submit();
-  }
+ // function submitForm(){
+  //  var conditionsString = "";
+  //  const allConditions = document.getElementsByClassName("conditionInput");
+  //  for (var i = 0; i < allConditions.length; i++) {
+  //    conditionsString += allConditions[i].value+", ";
+  //  }
+  //  document.getElementById('conditionsString').value = conditionsString;
+  //  document.getElementById('form').submit();
+  //}
 
-
+//{% endblock %}

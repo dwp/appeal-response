@@ -1,0 +1,90 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <form novalidation method="post" action='/timeline/foc/date-of-change'>
+        
+        
+       {{ govukDateInput({
+        id: "healthDisabilityChangeDate",
+        fieldset: {
+          legend: {
+            text: "Date of health or disability change",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2007"
+
+        }, 
+        
+       
+        items: [
+          {
+            name: "healthDisabilityChangeDay",
+            label: "Day",
+            value: data.events[data.editChangeHealthDisabilityIndex].day,
+            classes: "govuk-input--width-2"
+          },
+          {
+            name: "healthDisabilityChangeMonth",
+            label: "Month",
+            value: data.events[data.editChangeHealthDisabilityIndex].month,
+            classes: "govuk-input--width-2"
+          },
+          {
+            name: "healthDisabilityChangeYear",
+            label: "Year",
+            value: data.events[data.editChangeHealthDisabilityIndex].year,
+            classes: "govuk-input--width-4"
+          }
+        ]
+       }) }}
+        
+                
+        <!-- LINK NOT BUTTON WHEN NO DATA NEEDS TO BE SENT-->
+        
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}

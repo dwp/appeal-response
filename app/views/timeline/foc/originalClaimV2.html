@@ -1,0 +1,134 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+{% if data.error %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Enter all mandatory data</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+<a href="
+{% if (data.edit == 1 and data.target == 'index') %}
+  index
+{% elif (data.edit == 1 and data.target == 'index3') %}
+  index3
+{% else %}
+  javascript:history.back()
+{% endif %}
+" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Date of claim</h2>
+      <form action="/timeline/foc/originalClaimConditions" method="post" class="form" id="form">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-!-font-weight-bold" for="event-name">
+                Appellant first made a claim to UC
+              </label>
+                  <div class="govuk-date-input" id="date-original-decision">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="claimDay">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="claimDay" name="claimDay" type="text" inputmode="numeric" value={{ data.events[data.editOClaimIndex].day }}>
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="claimMonth">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="claimMonth" name="claimMonth" type="text" inputmode="numeric" value={{ data.events[data.editOClaimIndex].month }}>
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="claimYear">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="claimYear" name="claimYear" type="text" inputmode="numeric" value={{ data.events[data.editOClaimIndex].year }}>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-!-font-weight-bold">
+                    Did the appellant declare any health conditions which restricted their ability to work?
+                  </legend>
+                  <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="originalClaimConditionsExistYes" name="originalClaimConditionsExist" type="radio" value="Yes"
+                      {% if data.events[data.editOClaimIndex].details.conditionsExists == "Yes"%}
+                        Checked
+                      {% endif%}>
+                      <label class="govuk-label govuk-radios__label" for="originalClaimConditionsExistYes">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="originalClaimConditionsExistNo" name="originalClaimConditionsExist" type="radio" value="No"
+                      {% if data.events[data.editOClaimIndex].details.conditionsExists == "No"%}
+                        Checked
+                      {% endif%}>
+                      <label class="govuk-label govuk-radios__label" for="originalClaimConditionsExistNo">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      {% if data.edit == 1 %}
+        <p>
+          <a class="govuk-body govuk-link govuk-link--no-visited-state redText" href="/remove?id={{data.events[data.editIndex].id}}">Remove this fact</a>
+        </p>
+      {% endif %}
+      <p><a href="
+      {% if (data.edit == 1 and data.target == 'index') %}
+        index
+      {% elif (data.edit == 1 and data.target == 'index3') %}
+        index3
+      {% else %}
+        javascript:history.back()
+      {% endif %}
+      ">Back</a></p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+</script>
+{% endblock %}

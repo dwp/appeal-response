@@ -987,7 +987,7 @@ router.post('/timeline/addAppellant',(req,res) => {
   if(data.target =="cya")
     res.redirect('/timeline/11-check-answers');
   else
-    res.redirect('/timeline/benefits');
+    res.redirect('/timeline/appealDates');
 })
 
 router.post('/timeline/benefits',(req,res) => {
@@ -2640,4 +2640,106 @@ router.post('/timeline/foc/uc50Signed', (req, res) => {
 
 router.post('/timeline/02-appellant-details', (req, res) => {
   res.redirect('/timeline/foc/benefits')
+})
+
+
+//newFOCrouting 
+
+
+
+
+router.post('/timeline/focV2/originalClaim', (req, res) => { 
+
+  console.log(req.body)
+  if (req.body.timeline.abilityToWork?.includes("No") ){
+    res.redirect('/timeline/representative-organisation') 
+  
+  } else {
+    res.redirect('/timeline/focV2/originalClaimConditions')
+  }
+})
+
+
+router.post('/timeline/focV2/originalClaimConditions', (req, res) => {
+  res.redirect('/timeline/focV2/uc50Access')
+})
+
+
+router.post('/timeline/focV2/uc50Access', (req, res) => {     
+  const {data} = req.session;
+
+  if(!data.accessUC50) {
+    return res.render('./timeline/focV2/uc50Access', {errorMessage: 'Select if you can access information from the UC50'} )
+  }
+
+  if (data.accessUC50 === "No") {
+    return res.redirect('/timeline/focV2/uc50Issued') ;
+  } else if(data.accessUC50 === "Yes") {
+      return res.redirect('/timeline/focV2/uc50Signed');
+  } else {
+    return res.redirect('/timeline/focV2/uc50Returned')
+  }
+})
+
+router.post('/timeline/focV2/uc50Signed', (req, res) => {
+  res.redirect('/timeline/focV2/uc50activities')
+})
+
+router.post('/timeline/focV2/uc50activities', (req, res) => {
+  res.redirect('/timeline/focV2/uc50Eatingordrinking')
+})
+
+router.post('/timeline/focV2/uc50Eatingordrinking', (req, res) => {
+  res.redirect('/timeline/focV2/Healthassessment')
+})
+
+router.post('/timeline/focV2/uc50Eatingordrinking', (req, res) => {
+  res.redirect('/timeline/focV2/Healthassessment')
+})
+
+router.post('/timeline/focV2/Healthassessment', (req, res) => {
+  res.redirect('/timeline/focV2/assessmentOutcomes')
+})
+
+router.post('/timeline/focV2/assessmentOutcomes', (req, res) => {
+  res.redirect('/timeline/focV2/outcomeDecisionV2')
+})
+
+router.post('/timeline/focV2/outcomeDecisionV2', (req, res) => { 
+
+  console.log(req.body)
+  if (req.body.notificationSentSameDate?.includes("No") ){
+    res.redirect('/foc/outcomeDecisionNotification') 
+  
+  } else {
+    res.redirect('/timeline/focV2/outcomeDecisionPoints')
+  }
+})
+
+
+router.post('/timeline/focV2/outcomeDecisionPoints', (req, res) => {
+  res.redirect('/timeline/focV2/mr')
+})
+
+
+router.post('/timeline/focV2/mr', (req, res) => {
+  res.redirect('/timeline/focV2/index')
+})
+
+
+router.post('/timeline/focV2/uc113', (req, res) => {
+  res.redirect('/timeline/focV2/index-coc')
+})
+
+
+router.post('/timeline/focV2/index-coc', (req, res) => {
+  res.redirect('/timeline/01-task-list-new')
+})
+
+router.post('/timeline/focV2/index', (req, res) => {
+  res.redirect('/timeline/01-task-list-new')
+})
+
+router.post('/timeline/appealDates', (req, res) => {
+  res.redirect('/timeline/Benefits')
 })

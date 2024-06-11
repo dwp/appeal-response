@@ -1,0 +1,128 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <form novalidation method="post">
+
+
+       
+
+      {{ govukDateInput({
+        id: "date",
+        fieldset: {
+          legend: {
+            text: "When was the Mandatory Reconsideration notification sent?",
+            text: "When was the Mandatory Reconsideration notification sent?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "For example, 31 3 1980"
+        },
+        items: [
+          {
+            name: "date",
+            label: "Day",
+            value: data.day,
+            classes: "govuk-input--width-2"
+          },
+          {
+            name: "date",
+            label: "Month",
+            value: data.month,
+            classes: "govuk-input--width-2"
+          },
+          {
+            name: "date",
+            label: "Year",
+            value: data.year,
+            classes: "govuk-input--width-4"
+          }
+        ]
+      }) }}, 
+
+     
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+      </form>
+    </div>
+  </div>
+
+  {% endblock %}
+
+  {% block pageScripts %}
+  <script type="text/javascript">
+  /*
+    var selectedConditions = [];
+    var itemsToPopulate = "{{ data.events[data.editOClaimIndex].details.OCConditions }}";
+  
+    function submitForm(){
+      var conditionsString = "";
+      for (var i = 0; i < selectedConditions.length; i++) {
+        conditionsString += selectedConditions[i]+", ";
+      }
+      document.getElementById('conditionsString').value = conditionsString;
+      document.getElementById('form').submit();
+    }
+    initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:
+    autocomplete(document.getElementById("condition"), conditions);
+    if ({{data.edit}} != -1) {
+      populate(itemsToPopulate);
+    }
+  
+    */
+  
+    var itemsToPopulate = "{{ data.events[data.editOClaimIndex].details.OCConditions }}";
+  
+    function submitForm(){
+      var conditionsString = "";
+      const allConditions = document.getElementsByClassName("conditionInput");
+      for (var i = 0; i < allConditions.length; i++) {
+        conditionsString += allConditions[i].value+", ";
+      }
+      document.getElementById('conditionsString').value = conditionsString;
+      document.getElementById('form').submit();
+    }
+  
+    /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+    {% if data.edit != 1 %}
+      autocomplete(document.getElementById("condition"), conditions);
+    {% endif %}
+    {% if data.edit != 1 %}
+      populate(itemsToPopulate,'conditionsContainer');
+    {% endif %}
+  </script>
+  {% endblock %}
+  

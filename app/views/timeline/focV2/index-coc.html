@@ -1,0 +1,185 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      
+
+
+
+
+<form novalidation method="post">
+
+
+
+
+<h1 class="govuk-heading-xl">Facts of the case</h1>
+
+
+  
+  <div class="govuk-grid-column-one-third">
+
+    
+
+{% from "side-navigation/macro.njk" import dwpSideNavigation %}
+
+<h1 class="govuk-heading-m">Other facts</h1>
+
+{{ 
+    dwpSideNavigation({
+        pageId: "side-navigation-2",
+ 
+
+        items: [
+            {
+              text: "Change to health or disability",
+              href: "#d-item-1",
+              id: "d-item-1"
+            },
+            {
+              text: "GP report (UC113)",
+              href: "#d-item-2",
+              id: "d-item-2"
+            },
+            {
+              text: "Previous decision",
+              href: "#d-item-3",
+              id: "d-item-3"
+            },
+            {
+              text: "Other fact",
+              href: "#d-item-4",
+              id: "d-item-4"
+            }
+          
+        ]
+    })
+}}
+<br>
+
+<br>
+
+
+<button class="govuk-button" href="#" onclick="saveData()">Finish adding facts</button><br>
+
+
+</div>
+
+<div class="govuk-grid-column-two-thirds">
+  
+
+  
+
+  <div class="dwp-timeline">
+    <h1 class="govuk-heading-m">Facts history</h1>
+    <ol class="dwp-timeline__events">
+
+      <li class="dwp-timeline__events--entry">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">GP report (UC113)</h2>
+        <p class="govuk-caption-m govuk-!-margin-bottom-1">20 Oct 2023</p>
+        <p class="govuk-body">
+         <a href="#" class="govuk-link">Change</a>
+        </p>
+
+      <li class="dwp-timeline__events--entry">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Mandatory reconsideration</h2>
+        <p class="govuk-caption-m govuk-!-margin-bottom-1">11 Oct 2023</p>
+        <p class="govuk-body">
+         <a href="#" class="govuk-link">Change</a>
+        </p>
+      
+
+      <li class="dwp-timeline__events--entry">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Orginal Decision</h2>
+        <p class="govuk-caption-m govuk-!-margin-bottom-1">01 Oct 2023</p>
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Change</a>
+         </p>
+       
+      </li>
+
+      <li class="dwp-timeline__events--entry">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Health assessment</h2>
+        <p class="govuk-caption-m govuk-!-margin-bottom-1">25 Sep 2023</p>
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Change</a>
+         </p>
+      </li>
+
+      <li class="dwp-timeline__events--entry">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Capability for work questionnaire UC50</h2>
+        <p class="govuk-caption-m govuk-!-margin-bottom-1">13 Sep 2023</p>
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Change</a>
+         </p>
+      </li>
+
+      <li class="dwp-timeline__events--entry">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">UC50</h2>
+        <p class="govuk-caption-m govuk-!-margin-bottom-1">01 Sep 2023</p>
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Change</a>
+         </p>
+      </li>
+
+    <li class="dwp-timeline__events--entry">
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Date of claim</h2>
+      <p class="govuk-caption-m govuk-!-margin-bottom-1">20 Aug 2023</p>
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Change</a>
+       </p>
+    </li>
+    
+
+   
+    </ol>
+    </div>
+
+    
+    
+</div>
+
+</div>
+
+
+</form>
+
+
+{% endblock %}
+
+
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressFOC","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}
+
+
