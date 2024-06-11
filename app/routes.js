@@ -2690,7 +2690,7 @@ router.post('/timeline/focV2/uc50activities', (req, res) => {
 })
 
 router.post('/timeline/focV2/uc50Eatingordrinking', (req, res) => {
-  res.redirect('/timeline/focV2/Healthassessment')
+  res.redirect('/timeline/focV2/healthAssessment')
 })
 
 router.post('/timeline/focV2/uc50Eatingordrinking', (req, res) => {
