@@ -88,7 +88,7 @@
                 value: {
                   text: data.timeline.Otherissues.source
 
-                  console.log 
+               
                   
                 }
              
@@ -117,7 +117,7 @@
                
       
   <div class="govuk-button-group">
-  <a href="/timeline/Otherissues/add-issue-2" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  <a href="" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
     Respond to another reason
   </a>   
         <!-- when they click continue - change to '2,copy to endblock -->
@@ -134,7 +134,7 @@
 {% block pageScripts %}
 <script type="text/javascript">
   function saveData(){
-    sessionStorage.setItem("taskProgressPoints","2");
+    sessionStorage.setItem("taskProgressReasons","2");
     document.getElementById("form").submit();
   }
 

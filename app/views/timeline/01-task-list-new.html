@@ -90,20 +90,14 @@
               
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  
-                  <!--because I'm not saving data we can do it in the HTML,LCW value on decision type page -->
-                  <a 
-                  {% if data.decisionType == 'LCW' %}
-                    href="./Otherissues/other-reasons-for-appeal"
-                  {% else %}
-                    href="./Otherissues/other-reasons-for-appeal"
-                  {% endif %}
-                  aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
-                  Respond to other reasons for the appeal
+                  <a href="./Otherissues/other-reasons-for-appeal" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                    Respond to other reasons for the appeal
                   </a>
                 </span>
                 <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="reasons">Not started</strong>
               </li>
+              
+            </ul>
 
             </ul> 
             <li>
