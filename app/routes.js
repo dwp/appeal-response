@@ -2714,14 +2714,17 @@ router.post('/timeline/focV2/assessmentOutcomes', (req, res) => {
 router.post('/timeline/focV2/outcomeDecisionV2', (req, res) => { 
 
   console.log(req.body)
-  if (req.body.notificationSentSameDate?.includes("No") ){
-    res.redirect('/foc/outcomeDecisionNotification') 
+  if (req.body.notificationSentSameDate2?.includes("No") ){
+    res.redirect('/timeline/focV2/outcomeDecisionNotification') 
   
   } else {
     res.redirect('/timeline/focV2/outcomeDecisionPoints')
   }
 })
 
+router.post('/timeline/focV2/outcomeDecisionNotification', (req, res) => {
+  res.redirect('/timeline/focV2/outcomeDecisionPoints')
+})
 
 router.post('/timeline/focV2/outcomeDecisionPoints', (req, res) => {
   res.redirect('/timeline/focV2/mr')

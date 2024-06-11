@@ -104,10 +104,10 @@
               {{ govukRadios({
                 classes: "govuk-radios",
                 errorMessage: {
-                  text: errorMessage.notificationSentSameDate
+                  text: errorMessage.notificationSentSameDate2
                 } if(errorMessage.notificationSentSameDate),
                 idPrefrix:"notificationSentSameDate",
-                name: "notificationSentSameDate",
+                name: "notificationSentSameDate2",
                 fieldset: {
                   legend: {
                     text: "Was the notification sent on the same date?",
@@ -116,7 +116,7 @@
                     classes: "govuk-fieldset__legend--m"
                   }
                 },
-                value: data.notificationSentSameDate,
+                value: data.notificationSentSameDate2,
                 items: [
                   {
                     value: "Yes",
