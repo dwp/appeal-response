@@ -61,6 +61,27 @@
     
 {% endblock %}
 
+
+
 {% block pageScripts %}
- 
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+    const radioButtons = document.querySelectorAll('input[name="UCeatingordrinking"]');
+    for(const radioButton of radioButtons){
+      if(radioButton.value == sessionStorage.getItem("UCeatingordrinking")){
+        radioButton.checked = true;
+      }
+    }
+  });
+
+  function saveData(){
+    const radioButtons = document.querySelectorAll('input[name="UCeatingordrinking"]');
+    for(const radioButton of radioButtons){
+      if(radioButton.checked){
+        sessionStorage.setItem("UCeatingordrinking",radioButton.value);
+      }
+    }
+    window.location.href = "01-task-list-new.html";
+  }
+</script>
 {% endblock %}

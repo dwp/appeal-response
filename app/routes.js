@@ -2742,11 +2742,11 @@ router.post('/timeline/focV2/uc113', (req, res) => {
 
 
 router.post('/timeline/focV2/index-coc', (req, res) => {
-  res.redirect('/timeline/01-task-list-new')
+  res.redirect('/timeline/01-task-list-new-copy')
 })
 
 router.post('/timeline/focV2/index', (req, res) => {
-  res.redirect('/timeline/01-task-list-new')
+  res.redirect('/timeline/01-task-list-new-copy')
 })
 
 router.post('/timeline/appealDates', (req, res) => {
