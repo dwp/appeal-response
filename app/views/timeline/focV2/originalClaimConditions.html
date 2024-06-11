@@ -34,10 +34,10 @@
 <form novalidation method="post">
 
 
-<h1 class="govuk-heading-l">Date of claim</h1>
+<h1 class="govuk-heading-l">Health conditions at date of claim</h1>
       
         <div class="govuk-form-group">
-          <h3 class="govuk-heading-m">Health conditions</h3>
+          <h3 class="govuk-heading-m">Health condition</h3>
           <div class="" id="conditionsContainer">
             <div class="govuk-input__wrapper autocomplete ">
               {% if data.edit != 1 %}
@@ -51,7 +51,7 @@
         <input class="govuk-input" id="claimID" name="claimID" type="text" style="display:none" value={{data.originalClaim.id}}>
       
         {{ govukRadios({
-          name: "",
+          name: "[timeline][restrictabilitytowork]",
           fieldset: {
             legend: {
               text: "Did the appellant declare the conditions restricted their ability to work?
@@ -74,7 +74,7 @@
         }) }}
 
         {{ govukRadios({
-          name: "",
+          name: "[timeline][medicalevidence]",
           fieldset: {
             legend: {
               text: "Did they provide valid medical evidence?

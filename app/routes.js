@@ -2639,7 +2639,7 @@ router.post('/timeline/foc/uc50Signed', (req, res) => {
 })
 
 router.post('/timeline/02-appellant-details', (req, res) => {
-  res.redirect('/timeline/foc/benefits')
+  res.redirect('/timeline/benefits')
 })
 
 
@@ -2652,14 +2652,20 @@ router.post('/timeline/focV2/originalClaim', (req, res) => {
 
   console.log(req.body)
   if (req.body.timeline.abilityToWork?.includes("No") ){
-    res.redirect('/timeline/representative-organisation') 
+    res.redirect('/timeline/focV2/uc50Access') 
   
   } else {
     res.redirect('/timeline/focV2/originalClaimConditions')
   }
 })
 
+router.post('/timeline/focV2/uc50Returned', (req, res) => {
+  res.redirect('/timeline/focV2/healthAssessment')
+})
 
+router.post('/timeline/focV2/uc50Issued', (req, res) => {
+  res.redirect('/timeline/focV2/healthAssessment')
+})
 router.post('/timeline/focV2/originalClaimConditions', (req, res) => {
   res.redirect('/timeline/focV2/uc50Access')
 })

@@ -34,13 +34,13 @@
 <form novalidation method="post">
 
 
-<h1 class="govuk-heading-l">Date of claim</h1>
+<h1 class="govuk-heading-l">Appellant's first claim to Universal Credit</h1>
 
 {{ govukDateInput({
   id: "date.dateofclaim",
   fieldset: {
     legend: {
-      text: "Appellant first made a claim to Universal Credit",
+      text: "Date of claim",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
     }
@@ -76,7 +76,7 @@
   values: data.timeline.abilityToWork,
   fieldset: {
     legend: {
-      text: "Did the appellant declare any health conditions which restricted their ability to work?
+      text: "Did the appellant declare any health conditions?
       ",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"

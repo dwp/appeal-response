@@ -38,7 +38,7 @@
 <h1 class="govuk-heading-l">Health assessment Outcome</h1>
 
        {{ govukRadios({
-        name: "",
+        name: "[timeline][healthassessmentoutcome]",
         fieldset: {
           legend: {
             text: "Did the Health Care Professional find any restriction of capability?",
@@ -60,7 +60,7 @@
        }) }}, 
 
        {{ govukRadios({
-        name: "",
+        name: "[timeline][hcptreatedas]",
         fieldset: {
           legend: {
             text: "Did the Health Care Professional recommend any 'treated as' provisions?",
@@ -68,7 +68,7 @@
             classes: "govuk-fieldset__legend--m"
           }
         },
-        value: data.healthassessmentoutcome,
+        value: data.hcptreatedas,
         items: [
           {
             value: "Yes",
