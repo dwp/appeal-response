@@ -1,0 +1,195 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    
+    
+    
+      <form novalidation method="post">
+
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Evidence of the appellant's capability
+            </h1>
+          </legend>
+
+          
+
+         
+          
+
+          
+
+          {{ govukSummaryList({
+            card: {
+              title: {
+                text: data.timeline.section52.activitycategories
+              
+            },
+            actions: {
+              items: [
+                
+               
+              ]
+            }
+          },
+            rows: [
+              {
+                key: {
+                  text: "Evidence"
+                },
+
+                value: {
+                  text: data.timeline.section52.evidence
+                },
+
+                actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "address"
+          },
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
+         
+              },
+
+              
+
+              {
+                key: {
+                  text: "Document"
+                },
+
+                value: {
+                  text: data.timeline.section52.document
+
+               
+                  
+                }
+             
+              }
+
+              
+
+          
+              
+            ]
+          }) }},
+
+          {{ govukSummaryList({
+            card: {
+              title: {
+                text: data.timeline.section52.activitycategories2
+              
+            },
+            actions: {
+              items: [
+                
+               
+              ]
+            }
+          },
+            rows: [
+              {
+                key: {
+                  text: "Evidence"
+                },
+
+                value: {
+                  text: data.timeline.section52.evidence2
+                },
+
+                actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "address"
+          },
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
+         
+              },
+
+              
+
+              {
+                key: {
+                  text: "Document"
+                },
+
+                value: {
+                  text: data.timeline.section52.document2
+
+               
+                  
+                }
+             
+              }
+
+              
+
+          
+              
+            ]
+          }) }}
+
+
+         
+          
+               
+      
+  <div class="govuk-button-group">
+  <a href="/timeline/section52/add-evidence2" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Add more evidence
+  </a>   
+        <!-- when they click continue - change to '2,copy to endblock -->
+  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button>
+  </div>
+</form>
+</div>
+</div>
+{% endblock %}
+
+

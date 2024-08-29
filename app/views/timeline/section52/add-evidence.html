@@ -1,0 +1,120 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+
+
+<form novalidation method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+   
+<h1 class="govuk-heading-l">Evidence of the appellant's capabilities</h1>
+
+    
+
+    {{ govukSelect({
+      id: "[timeline][section52][activitycategories]",
+      name: "[timeline][section52][activitycategories]",
+      label: {
+        text: "What activity grouping are we talking about:",
+        isPageHeading: true,
+        classes: "govuk-paragraph-body"
+      },
+      
+      value: data.timeline.section52.activitycategories,
+      items: [
+        {
+          value: "Lower limbs",
+          text: "Lower limbs"
+        },
+        {
+          value: "Upper limbs",
+          text: "Upper limbs"
+        },
+        {
+          value: "Vision, speech, hearing",
+          text: "Vision, speech, hearing"
+        },
+        {
+          value: "Continence",
+          text: "Continence"
+        },
+        {
+          value: "Understanding and focus",
+          text: "Understanding and focus"
+        },
+        {
+          value: "Adapting to change",
+          text: "Adapting to change"
+        },
+        {
+          value: "Social interaction",
+          text: "Adapting to change"
+        }
+      ]
+    }) }}
+
+      {{ govukTextarea({
+        name: "[timeline][section52][evidence]",
+        id: "[timeline][section52][evidence]",
+        rows: "5",
+        label: {
+          text: "Describe something the appellant could do which is 
+          indicative of their capabilities "
+        },
+        value: data.timeline.section52.evidence
+      }) }}
+
+      {{ govukTextarea({
+
+        name: "[timeline][section52][document]",
+        id: "[timeline][section52][document]",
+        rows: "1",
+        label: {
+          text: "Where is this action described?"
+        },
+        value: data.timeline.section52.document
+      }) }}
+       
+       
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+  
+</div>
+<div class="govuk-grid-column-one-third">
+  
+</div>
+</div>
+  </form>
+
+{% endblock %}
+
+

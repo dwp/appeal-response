@@ -2639,7 +2639,7 @@ router.post('/timeline/foc/uc50Signed', (req, res) => {
 })
 
 router.post('/timeline/02-appellant-details', (req, res) => {
-  res.redirect('/timeline/benefits')
+  res.redirect('/timeline/section52/add-evidence')
 })
 
 
@@ -2751,4 +2751,45 @@ router.post('/timeline/focV2/index', (req, res) => {
 
 router.post('/timeline/appealDates', (req, res) => {
   res.redirect('/timeline/benefits')
+})
+
+
+router.post('/timeline/section52/add-evidence', (req, res) => {
+  res.redirect('/timeline/section52/summary')
+})
+
+router.post('/timeline/section52/summary', (req, res) => {
+  res.redirect('/timeline/section52/call-appellant')
+})
+
+router.post('/timeline/section52/call-appellant', (req, res) => {
+  res.redirect('/timeline/section52/lapse')
+})
+
+
+router.post('/timeline/section52/add-evidence2', (req, res) => {
+  res.redirect('/timeline/section52/summary2')
+})
+
+
+router.post('/timeline/section52/summary2', (req, res) => {
+  res.redirect('/timeline/section52/call-appellant')
+})
+
+
+
+
+router.post('/timeline/section52/lapse', (req, res) => { 
+
+  console.log(req.body)
+  if (req.body.timeline.section52.lapse?.includes("No") ){
+    res.redirect('/timeline/01-task-list-new') 
+  
+  } else {
+    res.redirect('/timeline/section52/reasons-for-lapse')
+  }
+})
+
+router.post('/timeline/section52/reasons-for-lapse', (req, res) => {
+  res.redirect('/timeline/section52/lapseresponse')
 })

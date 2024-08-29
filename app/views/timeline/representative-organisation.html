@@ -48,8 +48,20 @@
 
   {{ govukInput({
     label: {
-      text: "Representative's full name (optional)"
+      text: "First name (optional)"
     },
+    
+    id: "Organisation-rep",
+    name: "Organisation-rep",
+    autocomplete: "name",
+    spellcheck: false
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Last name (optional)"
+    },
+   
     id: "Organisation-rep",
     name: "Organisation-rep",
     autocomplete: "name",
@@ -95,15 +107,7 @@
       classes: "govuk-!-width-two-thirds"
     }) }}
   
-    {{ govukInput({
-      id: "address-county",
-      name: "address[county]",
-      label: {
-        text: "County (optional)"
-      },
-      value: data.address.county,
-      classes: "govuk-!-width-two-thirds"
-    }) }}
+    
   
     {{ govukInput({
       id: "address-postcode",

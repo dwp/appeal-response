@@ -1,0 +1,102 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+
+
+<form novalidation method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+   
+<h1 class="govuk-heading-l">Respond to one of the reasons for appeal</h1>
+
+
+{{ govukTextarea({
+
+  name: "[timeline][Otherissues][description]",
+  id: "[timeline][Otherissues][description]",
+  rows: "2",
+  label: {
+    text: "Describe the reason for appeal"
+  },
+  value: data.timeline.Otherissues.description
+}) }}
+
+
+
+{{ govukTextarea({
+  name: "[timeline][Otherissues][response]",
+  id: "[timeline][Otherissues][response]",
+  rows: "10",
+  label: {
+    text: "What is your response? "
+  },
+  value: data.timeline.Otherissues.response
+  
+}) }}
+
+{{ govukRadios({
+  classes: "govuk-radios",
+  idPrefrix:"[timeline][Otherissues][source]",
+  name: "[timeline][Otherissues][source]",
+  value: data.timeline.Otherissues.source,
+  fieldset: {
+    legend: {
+      text: "Where was this raised?",
+      isPageHeading: false,
+      classes: "govuk-paragraph-body"
+    }
+  },
+ 
+  items: [
+    {
+      value: "Notice of appeal",
+      text: "Notice of appeal"
+    },
+    {
+      value: "Phone call",
+      text: "Phone call"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</div>
+<div class="govuk-grid-column-one-third">
+
+</div>
+</div>
+</form>
+
+{% endblock %}
+
+
