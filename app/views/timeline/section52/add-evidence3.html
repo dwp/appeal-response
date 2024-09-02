@@ -34,80 +34,84 @@
     <div class="govuk-grid-column-two-thirds">
       
    
-<h1 class="govuk-heading-l">Evidence of the appellant's capabilities</h1>
-
-    
-
-    {{ govukSelect({
-      id: "[timeline][section52][activitycategories3]",
-      name: "[timeline][section52][activitycategories3]",
-      label: {
-        text: "What activity grouping are we talking about:",
-        isPageHeading: true,
-        classes: "govuk-paragraph-body"
-      },
+      <h1 class="govuk-heading-l">Add evidence of the appellant's 
+        capabilities</h1>
       
-      value: data.timeline.section52.activitycategories3,
-      items: [
-        {
-          value: "Lower limbs",
-          text: "Lower limbs"
-        },
-        {
-          value: "Upper limbs",
-          text: "Upper limbs"
-        },
-        {
-          value: "Vision, speech, hearing",
-          text: "Vision, speech, hearing"
-        },
-        {
-          value: "Continence",
-          text: "Continence"
-        },
-        {
-          value: "Understanding and focus",
-          text: "Understanding and focus"
-        },
-        {
-          value: "Adapting to change",
-          text: "Adapting to change"
-        },
-        {
-          value: "Social interaction",
-          text: "Social interaction"
-        }
-      ]
-    }) }}
-
-      {{ govukTextarea({
-        name: "[timeline][section52][evidence3]",
-        id: "[timeline][section52][evidence3]",
-        rows: "5",
-        label: {
-          text: "Describe something the appellant could do which is 
-          indicative of their capabilities "
-        },
-        value: data.timeline.section52.evidence3
-      }) }}
-
-      {{ govukTextarea({
-
-        name: "[timeline][section52][document3]",
-        classes: "govuk-input--width-20",
-        id: "[timeline][section52][document3]",
-        rows: "1",
-        label: {
-          text: "Where is this action described?"
-        },
-        value: data.timeline.section52.document3
-      }) }}
-       
-       
-
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+          
+      
+          {{ govukSelect({
+            id: "[timeline][section52][activitycategories3]",
+            name: "[timeline][section52][activitycategories3]",
+            label: {
+              text: "What does the evidence relate to?",
+              isPageHeading: true,
+              classes: "govuk-paragraph-body"
+            },
+            
+            value: data.timeline.section52.activitycategories3,
+            items: [
+              {
+                value: "Lower limbs",
+                text: "Lower limbs"
+              },
+              {
+                value: "Upper limbs",
+                text: "Upper limbs"
+              },
+              {
+                value: "Vision, speech, hearing",
+                text: "Vision, speech, hearing"
+              },
+              {
+                value: "Continence",
+                text: "Continence"
+              },
+              {
+                value: "Understanding and focus",
+                text: "Understanding and focus"
+              },
+              {
+                value: "Adapting to change",
+                text: "Adapting to change"
+              },
+              {
+                value: "Social interaction",
+                text: "Social interaction"
+              }
+            ]
+          }) }}
+      
+            {{ govukTextarea({
+              name: "[timeline][section52][evidence3]",
+              id: "[timeline][section52][evidence3]",
+              rows: "5",
+              label: {
+                text: "Describe something the appellant could do  "
+              },
+              value: data.timeline.section52.evidence3
+            }) }}
+      
+            {{ govukTextarea({
+      
+              name: "[timeline][section52][document3]",
+              classes: "govuk-input--width-20",
+              id: "[timeline][section52][document3]",
+              rows: "1",
+              
+              label: {
+                text: "Which document is this evidenced in?"
+              },
+              value: data.timeline.section52.document3
+              
+      
+            }) }}
+             
+           
+      
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+      
   
 </div>
 <div class="govuk-grid-column-one-third">

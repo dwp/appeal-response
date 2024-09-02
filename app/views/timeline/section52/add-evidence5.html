@@ -34,7 +34,9 @@
     <div class="govuk-grid-column-two-thirds">
       
    
-<h1 class="govuk-heading-l">Evidence of the appellant's capabilities</h1>
+
+<h1 class="govuk-heading-l">Add evidence of the appellant's 
+  capabilities</h1>
 
     
 
@@ -42,7 +44,7 @@
       id: "[timeline][section52][activitycategories5]",
       name: "[timeline][section52][activitycategories5]",
       label: {
-        text: "What activity grouping are we talking about:",
+        text: "What does the evidence relate to?",
         isPageHeading: true,
         classes: "govuk-paragraph-body"
       },
@@ -85,8 +87,7 @@
         id: "[timeline][section52][evidence5]",
         rows: "5",
         label: {
-          text: "Describe something the appellant could do which is 
-          indicative of their capabilities "
+          text: "Describe something the appellant could do  "
         },
         value: data.timeline.section52.evidence5
       }) }}
@@ -97,17 +98,21 @@
         classes: "govuk-input--width-20",
         id: "[timeline][section52][document5]",
         rows: "1",
+        
         label: {
-          text: "Where is this action described?"
+          text: "Which document is this evidenced in?"
         },
-        value: data.timeline.section52.document5
+        value: data.timeline.section52.document
+        
+
       }) }}
        
-       
+     
 
       {{ govukButton({
         text: "Continue"
       }) }}
+
   
 </div>
 <div class="govuk-grid-column-one-third">

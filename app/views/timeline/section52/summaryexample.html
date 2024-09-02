@@ -1,0 +1,585 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+    
+    
+    
+      <form novalidation method="post">
+
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Review added evidence
+            </h1>
+          </legend>
+
+          
+
+         
+          
+
+          
+
+          {{ govukSummaryList({
+            card: {
+              title: {
+                text: "Understanding and Focus"
+              
+            },
+            actions: {
+              items: [
+                
+               
+              ]
+            }
+          },
+            rows: [
+              {
+                key: {
+                  text: "Evidence"
+                },
+
+                value: {
+                  text: "Takes medication independently"
+                },
+
+                actions: {
+        items: [
+          {
+            href: "/timeline/section52/add-evidence",
+            text: "Change",
+            visuallyHiddenText: "address"
+          },
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
+              },
+              {
+                key: {
+                  text: "Source"
+                },
+
+                value: {
+                  text: "Medical Report"                
+                }            
+              },
+              
+              {
+                key: {
+                  text: "Evidence"
+                },
+
+                value: {
+                  text: "Washes hands face and teether everyday"                
+                }, 
+                
+                actions: {
+        items: [
+          {
+            href: "/timeline/section52/add-evidence",
+            text: "Change",
+            visuallyHiddenText: "address"
+          },
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
+              }, 
+              
+              {
+                key: {
+                  text: "Source"
+                },
+
+                value: {
+                  text: "Medical Report"                
+                }, 
+                
+                actions: {
+        items: [
+         
+          {
+            
+          }
+        ]
+      }
+              }, 
+              {
+                key: {
+                  text: "Evidence"
+                },
+
+                value: {
+                  text: "Cooks and has no safety issues in the kitchen "                
+                }, 
+                
+                actions: {
+        items: [
+          {
+            href: "/timeline/section52/add-evidence",
+            text: "Change",
+            visuallyHiddenText: "address"
+          },
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
+              },
+              {
+                key: {
+                  text: "Source"
+                },
+
+                value: {
+                  text: "Medical Report"                
+                }, 
+                
+                actions: {
+        items: [
+        
+          {
+            
+          }
+        ]
+      }
+              }, 
+              
+              {
+                key: {
+                  text: "Evidence"
+                },
+
+                value: {
+                  text: "Manages all tasks at home"                
+                }, 
+                
+                actions: {
+        items: [
+          {
+            href: "/timeline/section52/add-evidence",
+            text: "Change",
+            visuallyHiddenText: "address"
+          },
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
+              }, 
+              
+              {
+                key: {
+                  text: "Source"
+                },
+
+                value: {
+                  text: "Medical Report"                
+                }, 
+                
+                actions: {
+        items: [
+          
+          {
+           
+          }
+        ]
+      }
+              }     
+            ]
+          
+          })
+        }},
+
+
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Adapting to Change"
+            
+          },
+          actions: {
+            items: [
+              
+             
+            ]
+          }
+        },
+          rows: [
+            {
+              key: {
+                text: "Evidence"
+              },
+
+              value: {
+                text: "Walks children to school alone 5 days a week"
+              },
+
+              actions: {
+      items: [
+        {
+          href: "/timeline/section52/add-evidence",
+          text: "Change",
+          visuallyHiddenText: "address"
+        },
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "address"
+        }
+      ]
+    }
+            },
+            {
+              key: {
+                text: "Source"
+              },
+
+              value: {
+                text: "Medical Report"                
+              }            
+            },
+            
+            {
+              key: {
+                text: "Evidence"
+              },
+
+              value: {
+                text: "Can go alone to the corner shop or the surgery but feels
+                too anxious to go alone to town or other shops"                
+              }, 
+              
+              actions: {
+      items: [
+        {
+          href: "/timeline/section52/add-evidence",
+          text: "Change",
+          visuallyHiddenText: "address"
+        },
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "address"
+        }
+      ]
+    }
+            }, 
+            
+            {
+              key: {
+                text: "Source"
+              },
+
+              value: {
+                text: "Medical Report"                
+              }, 
+              
+              actions: {
+      items: [
+       
+        {
+          
+        }
+      ]
+    }
+            }, 
+            {
+              key: {
+                text: "Evidence"
+              },
+
+              value: {
+                text: "Can cope with changes to appointment times"                
+              }, 
+              
+              actions: {
+      items: [
+        {
+          href: "/timeline/section52/add-evidence",
+          text: "Change",
+          visuallyHiddenText: "address"
+        },
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "address"
+        }
+      ]
+    }
+            },
+            {
+              key: {
+                text: "Source"
+              },
+
+              value: {
+                text: "Medical Report"                
+              }
+             
+            }
+
+            
+
+        
+            
+          ]
+        }) }}, 
+            
+            
+              
+          
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Social Interaction"
+            
+          },
+          actions: {
+            items: [
+              
+             
+            ]
+          }
+        },
+          rows: [
+            {
+              key: {
+                text: "Evidence"
+              },
+
+              value: {
+                text: "Can speak with teachers on the phone"
+              },
+
+              actions: {
+      items: [
+        {
+          href: "/timeline/section52/add-evidence",
+          text: "Change",
+          visuallyHiddenText: "address"
+        },
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "address"
+        }
+      ]
+    }
+            },
+            {
+              key: {
+                text: "Source"
+              },
+
+              value: {
+                text: "Medical Report"                
+              }            
+            },
+            
+            {
+              key: {
+                text: "Evidence"
+              },
+
+              value: {
+                text: "Can speak and cope with family members"                
+              }, 
+              
+              actions: {
+      items: [
+        {
+          href: "/timeline/section52/add-evidence",
+          text: "Change",
+          visuallyHiddenText: "address"
+        },
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "address"
+        }
+      ]
+    }
+            }, 
+            
+            {
+              key: {
+                text: "Source"
+              },
+
+              value: {
+                text: "Medical Report"                
+              }, 
+              
+              actions: {
+      items: [
+       
+        {
+          
+        }
+      ]
+    }
+            }, 
+            {
+              key: {
+                text: "Evidence"
+              },
+
+              value: {
+                text: "Has friend and speaks with her everyday"                
+              }, 
+              
+              actions: {
+      items: [
+        {
+          href: "/timeline/section52/add-evidence",
+          text: "Change",
+          visuallyHiddenText: "address"
+        },
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "address"
+        }
+      ]
+    }
+            },
+            {
+              key: {
+                text: "Source"
+              },
+
+              value: {
+                text: "Medical Report"                
+              }, 
+              
+              actions: {
+      items: [
+      
+        {
+          
+        }
+      ]
+    }
+            }, 
+            
+            {
+              key: {
+                text: "Evidence"
+              },
+
+              value: {
+                text: "Feels to anxious to speak to any parents or strangers"                
+              }, 
+              
+              actions: {
+      items: [
+        {
+          href: "/timeline/section52/add-evidence",
+          text: "Change",
+          visuallyHiddenText: "address"
+        },
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "address"
+        }
+      ]
+    }
+            }, 
+            
+            {
+              key: {
+                text: "Source"
+              },
+
+              value: {
+                text: "Medical Report"                
+              }, 
+              
+              actions: {
+      items: [
+        
+        {
+         
+        }
+      ]
+    }
+            }     
+          ]
+        
+        })
+      }},     
+        
+     
+
+
+
+
+
+     
+
+        
+         
+       
+        
+
+
+
+         
+          
+               
+      
+  <div class="govuk-button-group">
+  <a href="" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Add more evidence
+  </a>   
+        <!-- when they click continue - change to '2,copy to endblock -->
+  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button>
+  </div>
+</form>
+</div>
+</div>
+{% endblock %}
+
+

@@ -2800,6 +2800,9 @@ router.post('/timeline/section52/summary5', (req, res) => {
   res.redirect('/timeline/section52/call-appellant')
 })
 
+router.post('/timeline/section52/summaryexample', (req, res) => {
+  res.redirect('/timeline/section52/call-appellant')
+})
 
 
 
