@@ -2771,11 +2771,26 @@ router.post('/timeline/section52/add-evidence2', (req, res) => {
   res.redirect('/timeline/section52/summary2')
 })
 
+router.post('/timeline/section52/add-evidence3', (req, res) => {
+  res.redirect('/timeline/section52/summary3')
+})
+
+router.post('/timeline/section52/add-evidence4', (req, res) => {
+  res.redirect('/timeline/section52/summary4')
+})
+
+router.post('/timeline/section52/add-evidence5', (req, res) => {
+  res.redirect('/timeline/section52/summary5')
+})
+
 
 router.post('/timeline/section52/summary2', (req, res) => {
   res.redirect('/timeline/section52/call-appellant')
 })
 
+router.post('/timeline/section52/summary3', (req, res) => {
+  res.redirect('/timeline/section52/call-appellant')
+})
 
 
 

@@ -39,15 +39,15 @@
     
 
     {{ govukSelect({
-      id: "[timeline][section52][activitycategories]",
-      name: "[timeline][section52][activitycategories]",
+      id: "[timeline][section52][activitycategories3]",
+      name: "[timeline][section52][activitycategories3]",
       label: {
         text: "What activity grouping are we talking about:",
         isPageHeading: true,
         classes: "govuk-paragraph-body"
       },
       
-      value: data.timeline.section52.activitycategories,
+      value: data.timeline.section52.activitycategories3,
       items: [
         {
           value: "Lower limbs",
@@ -81,38 +81,33 @@
     }) }}
 
       {{ govukTextarea({
-        name: "[timeline][section52][evidence]",
-        id: "[timeline][section52][evidence]",
+        name: "[timeline][section52][evidence3]",
+        id: "[timeline][section52][evidence3]",
         rows: "5",
         label: {
           text: "Describe something the appellant could do which is 
           indicative of their capabilities "
         },
-        value: data.timeline.section52.evidence
+        value: data.timeline.section52.evidence3
       }) }}
 
       {{ govukTextarea({
 
-        name: "[timeline][section52][document]",
+        name: "[timeline][section52][document3]",
         classes: "govuk-input--width-20",
-        id: "[timeline][section52][document]",
+        id: "[timeline][section52][document3]",
         rows: "1",
-        
         label: {
           text: "Where is this action described?"
         },
-        value: data.timeline.section52.document
-        
-
+        value: data.timeline.section52.document3
       }) }}
        
-     
+       
 
       {{ govukButton({
         text: "Continue"
       }) }}
-
-     
   
 </div>
 <div class="govuk-grid-column-one-third">
