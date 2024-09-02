@@ -2792,6 +2792,15 @@ router.post('/timeline/section52/summary3', (req, res) => {
   res.redirect('/timeline/section52/call-appellant')
 })
 
+router.post('/timeline/section52/summary4', (req, res) => {
+  res.redirect('/timeline/section52/call-appellant')
+})
+
+router.post('/timeline/section52/summary5', (req, res) => {
+  res.redirect('/timeline/section52/call-appellant')
+})
+
+
 
 
 router.post('/timeline/section52/lapse', (req, res) => { 
