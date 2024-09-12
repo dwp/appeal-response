@@ -2836,7 +2836,7 @@ router.post('/timeline/section52V2/activities', (req, res) => {
     res.redirect('/timeline/section52V2/lowerlimbs') 
   
   } else {
-    res.redirect('/timeline/section52/reasons-for-lapse')
+    res.redirect('')
   }
 })
 
