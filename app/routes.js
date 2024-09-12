@@ -2804,6 +2804,9 @@ router.post('/timeline/section52/summaryexample', (req, res) => {
   res.redirect('/timeline/section52/call-appellant')
 })
 
+router.post('/timeline/section52V2/lowerlimbsevidence', (req, res) => {
+  res.redirect('/timeline/section52V2/summary')
+})
 
 
 router.post('/timeline/section52/lapse', (req, res) => { 
@@ -2820,3 +2823,20 @@ router.post('/timeline/section52/lapse', (req, res) => {
 router.post('/timeline/section52/reasons-for-lapse', (req, res) => {
   res.redirect('/timeline/section52/lapseresponse')
 })
+
+router.post('/timeline/section52V2/lowerlimbs', (req, res) => {
+  res.redirect('/timeline/section52V2/lowerlimbsevidence')
+})
+
+
+router.post('/timeline/section52V2/activities', (req, res) => { 
+
+  console.log(req.body)
+  if (req.body.timeline.section52.activities?.includes("Lower limbs") ){
+    res.redirect('/timeline/section52V2/lowerlimbs') 
+  
+  } else {
+    res.redirect('/timeline/section52/reasons-for-lapse')
+  }
+})
+
