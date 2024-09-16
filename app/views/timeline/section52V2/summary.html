@@ -36,7 +36,7 @@
             </h1>
           </legend>
 
-<!-- Duplicate this for other activites BEGIN -->
+<!-- BEGIN lowerlimb -->
         {% set lowerLimbRows = [] %}
         {% for randomID, item in data.timeline.section52.lowerlimb %}
           {% if (item.document and item.page and item.evidence) %}
@@ -99,9 +99,76 @@
           rows: lowerLimbRows
         }) }}
         {% endif %}
-
-<!-- Duplicate this for other activites END -->
+<!-- END lowerlimb -->
         
+<!-- BEGIN upperlimb -->
+
+
+{% set upperlimbRows = [] %}
+{% for randomID, item in data.timeline.section52.upperlimb %}
+  {% if (item.document and item.page and item.evidence) %}
+  
+    {% set upperlimbRows = (upperlimbRows.push({
+      key: {
+        text: "Evidence"
+      },
+      value: {
+        text: data.timeline.section52.upperlimb[randomID].evidence
+      },
+      actions: {
+        items: [
+          {
+            href: "/timeline/section52/add-evidence",
+            text: "Change",
+            visuallyHiddenText: "address"
+          },
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
+    }), upperlimbRows) %}
+
+    {% set upperlimbRows = (upperlimbRows.push({ 
+      key: {
+        text: "Source"
+      },
+      value: {
+        text: data.timeline.section52.upperlimb[randomID].document
+      }
+    }), upperlimbRows) %}
+
+
+    {% set upperlimbRows = (upperlimbRows.push({
+      key: {
+        text: "Page"
+      },
+      value: {
+        text: data.timeline.section52.upperlimb[randomID].page
+      }             
+    }), upperlimbRows) %}
+
+  {% endif %}
+{% endfor %}
+
+{% if data.timeline.section52.upperlimb %}
+{{ govukSummaryList({
+    card: {
+      title: {
+        text: "Upper limbs"              
+    },
+    actions: {
+      items: []
+    }
+  },
+  rows: upperlimbRows
+}) }}
+{% endif %}
+<!-- END upperlimb -->
+
+
   <div class="govuk-button-group">
   <a href="/timeline/section52V2/activities" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
     Add more evidence

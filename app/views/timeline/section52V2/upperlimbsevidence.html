@@ -24,7 +24,7 @@
   {% endblock %}
 
 {% block content %}
-
+    {% set randomID = range(1, 99999) | random %}
     <form novalidation method="post">
 
       <div class="govuk-grid-row">
@@ -35,9 +35,8 @@
       Upper limbs activities</h1>
 
       
-      {{ govukTextarea({
-    
-        name: "[timeline][section52][document]",
+      {{ govukTextarea({    
+        name: "[timeline][section52][upperlimb][" + randomID + "][document]",
         classes: "govuk-input--width-20",
         id: "[timeline][section52][document]",
         rows: "1",
@@ -45,8 +44,7 @@
         label: {
           text: "Which document are you taking evidence from?"
         },
-        value: data.timeline.section52.document
-
+        value: data.timeline.section52.upperlimb[randomID].document
       }) }}
 
       {{ govukInput({
@@ -55,8 +53,8 @@
         },
         classes: "govuk-input--width-3",
         id: "[timeline][section52][page]",
-        name: "[timeline][section52][page]",
-        value: data.timeline.section52.page
+        name: "[timeline][section52][upperlimb][" + randomID +"][page]",
+        value: data.timeline.section52.upperlimb[randomID].page
         
       }) }}
 
@@ -76,22 +74,20 @@
 
         
     
-          {{ govukTextarea({
-            name: "[timeline][section52][evidence]",
-            id: "[timeline][section52][evidence]",
-            rows: "4",
-           
-            value: data.timeline.section52.evidence
-          }) }}
+    {{ govukTextarea({
+      name: "[timeline][section52][upperlimb][" + randomID + "][evidence]",
+      id: "[timeline][section52][evidence]",
+      rows: "4",           
+      value: data.timeline.section52.upperlimb[randomID].evidence
+    }) }}
     
-         
-           
-         
-    
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-    
+        
+
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
          
       
     </div>
