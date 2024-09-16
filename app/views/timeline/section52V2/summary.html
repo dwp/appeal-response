@@ -27,10 +27,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-
-    
-    
-    
       <form novalidation method="post">
 
         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -40,95 +36,72 @@
             </h1>
           </legend>
 
+<!-- Duplicate this for other activites BEGIN -->
+        {% set lowerLimbRows = [] %}
+        {% for randomID, item in data.timeline.section52.lowerlimb %}
+          {% if (item.document and item.page and item.evidence) %}
           
+            {% set lowerLimbRows = (lowerLimbRows.push({
+              key: {
+                text: "Evidence"
+              },
+              value: {
+                text: data.timeline.section52.lowerlimb[randomID].evidence
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/timeline/section52/add-evidence",
+                    text: "Change",
+                    visuallyHiddenText: "address"
+                  },
+                  {
+                    href: "#",
+                    text: "Remove",
+                    visuallyHiddenText: "address"
+                  }
+                ]
+              }
+            }), lowerLimbRows) %}
 
-         
-          
+            {% set lowerLimbRows = (lowerLimbRows.push({ 
+              key: {
+                text: "Source"
+              },
+              value: {
+                text: data.timeline.section52.lowerlimb[randomID].document
+              }
+            }), lowerLimbRows) %}
 
-          
 
-          {{ govukSummaryList({
+            {% set lowerLimbRows = (lowerLimbRows.push({
+              key: {
+                text: "Page"
+              },
+              value: {
+                text: data.timeline.section52.lowerlimb[randomID].page
+              }             
+            }), lowerLimbRows) %}
+
+          {% endif %}
+        {% endfor %}
+
+        {% if data.timeline.section52.lowerlimb %}
+        {{ govukSummaryList({
             card: {
               title: {
-                text: "Lower limbs"
-              
+                text: "Lower limbs"              
             },
             actions: {
-              items: [
-                
-               
-              ]
+              items: []
             }
           },
-            rows: [
-              {
-                key: {
-                  text: "Evidence"
-                },
+          rows: lowerLimbRows
+        }) }}
+        {% endif %}
 
-                value: {
-                  text: data.timeline.section52.evidence
-                },
-
-                actions: {
-        items: [
-          {
-            href: "/timeline/section52/add-evidence",
-            text: "Change",
-            visuallyHiddenText: "address"
-          },
-          {
-            href: "#",
-            text: "Remove",
-            visuallyHiddenText: "address"
-          }
-        ]
-      }
-         
-              },
-
-              
-
-              {
-                key: {
-                  text: "Source"
-                },
-
-                value: {
-                  text: data.timeline.section52.document
-
-               
-                  
-                }
-             
-              }, 
-
-              {
-                key: {
-                  text: "Page"
-                },
-
-                value: {
-                  text: data.timeline.section52.page
-
-               
-                  
-                }
-             
-              }
-
-              
-
-          
-              
-            ]
-          }) }}
-
-
-         
-          
-               
-      
+<!-- Duplicate this for other activites END -->
+        
   <div class="govuk-button-group">
   <a href="/timeline/section52V2/activities" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
     Add more evidence
