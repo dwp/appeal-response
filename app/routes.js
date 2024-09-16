@@ -2808,6 +2808,24 @@ router.post('/timeline/section52V2/lowerlimbsevidence', (req, res) => {
   res.redirect('/timeline/section52V2/summary')
 })
 
+router.post('/timeline/section52V2/upperlimbs', (req, res) => {
+  res.redirect('/timeline/section52V2/upperlimbsevidence')
+})
+
+router.post('/timeline/section52V2/visionspeechhearing', (req, res) => {
+  res.redirect('/timeline/section52V2/visionspeechearingevidence')
+})
+
+router.post('/timeline/section52V2/visionspeechearingevidence', (req, res) => {
+  res.redirect('/timeline/section52V2/summary')
+})
+
+
+
+router.post('/timeline/section52V2/upperlimbsevidence', (req, res) => {
+  res.redirect('/timeline/section52V2/summary')
+})
+
 
 router.post('/timeline/section52/lapse', (req, res) => { 
 
@@ -2828,15 +2846,36 @@ router.post('/timeline/section52V2/lowerlimbs', (req, res) => {
   res.redirect('/timeline/section52V2/lowerlimbsevidence')
 })
 
+router.post('/timeline/section52V2/upperlimbs', (req, res) => {
+  res.redirect('/timeline/section52V2/upperlimbsevidence')
+})
+
 
 router.post('/timeline/section52V2/activities', (req, res) => { 
 
   console.log(req.body)
   if (req.body.timeline.section52.activities?.includes("Lower limbs") ){
     res.redirect('/timeline/section52V2/lowerlimbs') 
+     
   
-  } else {
-    res.redirect('')
+  }else if (req.body.timeline.section52.activities?.includes("Upper limbs") ){
+    res.redirect('/timeline/section52V2/Upperlimbs') 
+     
+  
+  }else if (req.body.timeline.section52.activities?.includes("Vision, speech, hearing") ){
+    res.redirect('/timeline/section52V2/visionspeechhearing') 
+     
+  
+  }else if (req.body.timeline.section52.activities?.includes("Continence") ){
+    res.redirect('/timeline/section52V2/Continence') 
+     
+  
+  } else if (req.body.timeline.section52.activities?.includes("Upper limbs") ){
+    res.redirect('/timeline/section52V2/Upperlimbs') 
+     
+  
+  }else {
+    res.redirect('/timeline/section52/reasons-for-lapse')
   }
 })
 
