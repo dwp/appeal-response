@@ -183,5 +183,16 @@
 </div>
 {% endblock %}
 
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressPoints","2");
+    console.log("========= ");
+    document.getElementById("points").submit();
+  }
+
+</script>
+{% endblock %}
+
 
 

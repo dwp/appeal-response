@@ -2850,6 +2850,14 @@ router.post('/timeline/section52V2/upperlimbs', (req, res) => {
   res.redirect('/timeline/section52V2/upperlimbsevidence')
 })
 
+router.post('/timeline/section52V2/minicya', (req, res) => {
+  res.redirect('/timeline/01-task-list-new')
+})
+
+router.post('/timeline/section52V2/eatingordrinking', (req, res) => {
+  res.redirect ('/timeline/section52V2/minicya')
+})
+
 
 router.post('/timeline/section52V2/activities', (req, res) => { 
 
