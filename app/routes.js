@@ -2639,7 +2639,7 @@ router.post('/timeline/foc/uc50Signed', (req, res) => {
 })
 
 router.post('/timeline/02-appellant-details', (req, res) => {
-  res.redirect('/timeline/section52/add-evidence')
+  res.redirect('/timeline/representative')
 })
 
 
