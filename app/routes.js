@@ -2865,7 +2865,7 @@ router.post('/timeline/section52V2/activities', (req, res) => {
     if(req.session.data.timeline?.section52?.upperlimb) {
       res.redirect('/timeline/section52V2/upperlimbsevidence')
     } else {
-      res.redirect('/timeline/section52V2/Upperlimbs') 
+      res.redirect('/timeline/section52V2/upperlimbs') 
     }
   
   } else if (req.body.timeline.section52.activities?.includes("Vision, speech, hearing") ){
@@ -2881,3 +2881,7 @@ router.post('/timeline/section52V2/activities', (req, res) => {
   }
 })
 
+
+router.post('/timeline/section52V2/summary', (req, res) => {
+  res.redirect('/timeline/section52V2/eatingordrinking')
+})
