@@ -2877,15 +2877,15 @@ router.post('/timeline/section52V2/activities', (req, res) => {
     }
   
   } else if (req.body.timeline.section52.activities?.includes("Vision, speech, hearing") ){
-    res.redirect('/timeline/section52V2/visionspeechhearing') 
+    res.redirect('') 
      
   
   } else if (req.body.timeline.section52.activities?.includes("Continence") ){
-    res.redirect('/timeline/section52V2/Continence') 
+    res.redirect('') 
      
   
   } else {
-    res.redirect('/timeline/section52/reasons-for-lapse')
+    res.redirect('')
   }
 })
 
