@@ -24,7 +24,7 @@
   {% endblock %}
 
 {% block content %}
-    {% set randomID = range(1, 99999) | random %}
+
     <form novalidation method="post">
 
       <div class="govuk-grid-row">
@@ -32,11 +32,12 @@
           
        
     <h1 class="govuk-heading-l">Justify the descriptor points awarded for 
-      Upper limbs activities</h1>
+      vision speech and hearing activities</h1>
 
       
-      {{ govukTextarea({    
-        name: "[timeline][section52][upperlimb][" + randomID + "][document]",
+      {{ govukTextarea({
+    
+        name: "[timeline][section52][document]",
         classes: "govuk-input--width-20",
         id: "[timeline][section52][document]",
         rows: "1",
@@ -44,7 +45,8 @@
         label: {
           text: "Which document are you taking evidence from?"
         },
-        value: data.timeline.section52.upperlimb[randomID].document
+        value: data.timeline.section52.document
+
       }) }}
 
       {{ govukInput({
@@ -53,35 +55,43 @@
         },
         classes: "govuk-input--width-3",
         id: "[timeline][section52][page]",
-        name: "[timeline][section52][upperlimb][" + randomID +"][page]",
-        value: data.timeline.section52.upperlimb[randomID].page
+        name: "[timeline][section52][page]",
+        value: data.timeline.section52.page
         
       }) }}
 
       <h1 class="govuk-heading-s">Provide evidence from this document, showing the appellant could do 
         one or more of the following:</h1>
 
-        <ul class="govuk-list govuk-list--bullet">
-          <li> Transfer a light but bulky object such as an empty cardboard box</li>
-          <li>Single-handedly use a suitable keyboard or mouse</li>
-        </ul>
+<ul class="govuk-list govuk-list--bullet">
+  <li>Go up or down two steps without the help of another person,</li>
+  <li>Move more than 100 metres on level ground without stopping to avoid 
+    significant discomfort or exhaustion, and can do it repeatedly within a 
+    reasonable timescale</li>
+  <li>For the majority of the time, can remain at a workstation (either 
+    standing without help from another person or sitting) for more than 30 
+    minutes before needing to move away in order to avoid significant 
+    discomfort.</li>
+</ul>
 
         
     
-    {{ govukTextarea({
-      name: "[timeline][section52][upperlimb][" + randomID + "][evidence]",
-      id: "[timeline][section52][evidence]",
-      rows: "4",           
-      value: data.timeline.section52.upperlimb[randomID].evidence
-    }) }}
+          {{ govukTextarea({
+            name: "[timeline][section52][evidence]",
+            id: "[timeline][section52][evidence]",
+            rows: "4",
+           
+            value: data.timeline.section52.evidence
+          }) }}
     
-        
-
-
-    {{ govukButton({
-      text: "Continue"
-    }) }}
-
+         
+           
+         
+    
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+    
          
       
     </div>

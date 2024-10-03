@@ -2804,6 +2804,21 @@ router.post('/timeline/section52/summaryexample', (req, res) => {
   res.redirect('/timeline/section52/call-appellant')
 })
 
+router.post('/timeline/section52/lapse', (req, res) => { 
+
+  console.log(req.body)
+  if (req.body.timeline.section52.lapse?.includes("No") ){
+    res.redirect('/timeline/01-task-list-new') 
+  
+  } else {
+    res.redirect('/timeline/section52/reasons-for-lapse')
+  }
+})
+
+router.post('/timeline/section52/reasons-for-lapse', (req, res) => {
+  res.redirect('/timeline/section52/lapseresponse')
+})
+
 router.post('/timeline/section52V2/lowerlimbsevidence', (req, res) => {
   res.redirect('/timeline/section52V2/summary')
 })
@@ -2821,26 +2836,10 @@ router.post('/timeline/section52V2/visionspeechearingevidence', (req, res) => {
 })
 
 
-
 router.post('/timeline/section52V2/upperlimbsevidence', (req, res) => {
   res.redirect('/timeline/section52V2/summary')
 })
 
-
-router.post('/timeline/section52/lapse', (req, res) => { 
-
-  console.log(req.body)
-  if (req.body.timeline.section52.lapse?.includes("No") ){
-    res.redirect('/timeline/01-task-list-new') 
-  
-  } else {
-    res.redirect('/timeline/section52/reasons-for-lapse')
-  }
-})
-
-router.post('/timeline/section52/reasons-for-lapse', (req, res) => {
-  res.redirect('/timeline/section52/lapseresponse')
-})
 
 router.post('/timeline/section52V2/lowerlimbs', (req, res) => {
   res.redirect('/timeline/section52V2/lowerlimbsevidence')
@@ -2892,4 +2891,113 @@ router.post('/timeline/section52V2/activities', (req, res) => {
 
 router.post('/timeline/section52V2/summary', (req, res) => {
   res.redirect('/timeline/section52V2/eatingordrinking')
+})
+
+
+//=============================== section52V2b ======================================//
+// router.get('/timeline/01-task-list-new-b', (req, res) => {
+//   console.log(req.session)
+// })
+
+
+router.post('/timeline/section52V2b/record-evidence', (req, res) => {  
+  if(req.body.recordEvidence === 'yes') {
+    res.redirect('/timeline/section52V2b/activities')
+  } else {
+    res.redirect('/timeline/01-task-list-new-b')    
+  }  
+})
+
+
+router.get('/timeline/section52V2b/activities', (req, res) => {  
+  
+  const { activites } = req.session.data;
+
+  res.render('./timeline/section52V2b/activities', {activites})  
+})
+
+router.post('/timeline/section52V2b/activities', (req, res) => {  
+  if(req.body.activities.length > 0) {
+    res.redirect('/timeline/section52V2b/evidences')
+  }
+})
+
+router.get('/timeline/section52V2b/evidences', (req, res) => {  
+  const { activities, evidences } = req.session.data;
+console.log(evidences);
+  res.render('./timeline/section52V2b/evidences', { activities, evidences });
+})
+
+router.post('/timeline/section52V2b/evidences', (req, res) => {  
+  res.redirect('/timeline/01-task-list-new-b');
+})
+
+
+router.get('/timeline/section52V2b/add-evidence', (req, res) => {
+  let { group, id } = req.query;
+  if(!id) {
+    id = Math.floor(Math.random() * 1000);    
+    res.render('./timeline/section52V2b/add-evidence', {group, id});
+  } else {
+    const { evidences } = req.session.data;    
+    const evidenceForCurrentGroup = evidences[group];
+    
+    const currentEvidence = evidenceForCurrentGroup.filter(item => item.id === id) || {};
+    
+    res.render('./timeline/section52V2b/add-evidence', {group, id, currentEvidence});
+  }  
+})
+
+router.post('/timeline/section52V2b/add-evidence', (req, res) => {  
+  const { id, group, document, page, evidence } = req.body;
+  
+  let { evidences } = req.session.data;
+
+  if(!evidences) {
+    evidences = {};      
+  }
+
+  if(!evidences[group]) {
+    evidences[group] = [] 
+  };    
+  
+  const existingEvidenceIndex = evidences[group].findIndex(item => item.id === id);
+  
+  if(existingEvidenceIndex > -1) {
+    evidences[group][existingEvidenceIndex] = { id, document, page, evidence}
+  } else {
+    evidences[group].push({id, document, page, evidence})
+  }
+      
+  req.session.data.evidences = evidences;
+  
+
+  res.redirect('/timeline/section52V2b/evidences')
+})
+
+router.get('/timeline/section52V2b/remove-evidence', (req, res) => {  
+  let { group, id } = req.query;
+
+  res.render('./timeline/section52V2b/remove-evidence', {group, id})
+})
+
+router.post('/timeline/section52V2b/remove-evidence', (req, res) => {    
+  let { group, id, removeEvidence } = req.body;
+  let { evidences } = req.session.data;
+
+  if(removeEvidence === 'yes') {
+    const existingEvidenceIndex = evidences[group].findIndex(item => item.id === id);  
+    evidences[group].splice(existingEvidenceIndex, 1);  
+    req.session.data.evidences = evidences;  
+  }
+
+  res.redirect('/timeline/section52V2b/evidences')
+})
+
+
+router.get('/timeline/section52V2b/check-your-answers', (req, res) => {  
+  const { activities, evidences } = req.session.data;
+
+  console.log("========", activities);
+  res.render('./timeline/section52V2b/check-your-answers', { allActivities: activities, evidences });
 })

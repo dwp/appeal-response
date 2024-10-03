@@ -1,0 +1,88 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">        
+        <form method="post" class="form" id="form">
+        <div class="govuk-form-group">
+            {{ govukRadios({
+            name: "recordEvidence",
+            value: data.recordEvidence,
+            fieldset: {
+                legend: {
+                    text: "Do you want to record any evidence for activities?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                value: "yes",
+                text: "Yes"
+                },
+                {
+                value: "no",
+                text: "No"
+                }
+            ]
+            }) }}
+        </div>
+        <div class="govuk-button-group">
+          <button class="govuk-button" id="addButton">
+            Continue
+          </button>
+        </div>
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+    const radioButtons = document.querySelectorAll('input[name="decisonType"]');
+    for(const radioButton of radioButtons){
+      if(radioButton.value == sessionStorage.getItem("decisonType")){
+        radioButton.checked = true;
+      }
+    }
+  });
+
+  function saveData(){
+    const radioButtons = document.querySelectorAll('input[name="decisonType"]');
+    for(const radioButton of radioButtons){
+      if(radioButton.checked){
+        sessionStorage.setItem("decisonType",radioButton.value);
+      }
+    }
+    window.location.href = "01-task-list-new.html";
+  }
+</script>
+{% endblock %}

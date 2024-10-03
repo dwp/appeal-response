@@ -28,17 +28,20 @@
   <div class="govuk-grid-column-two-thirds">
   <form novalidation method="post">
     
-    <h1 class="govuk-heading-l">Enter points awarded for each Upper limbs activity </h1>
+    <h1 class="govuk-heading-l">Enter points awarded for vision speech and hearing </h1>
     
     {{ govukInput({
-        label: {
-          text: "Reaching"
-        },
-        classes: "govuk-input--width-3",
-        id: "width-3",
-        name: "Reaching"
-      }) 
-    }}
+      label: {
+        text: "Reaching"
+      },
+      classes: "govuk-input--width-3",
+      id: "width-3",
+      name: "Reaching"
+    }) 
+    
+  
+  
+  }}, 
 
     {{ govukInput({
       label: {
@@ -47,7 +50,7 @@
       classes: "govuk-input--width-3",
       id: "width-3",
       name: "Picking up and moving"
-    }) }}
+    }) }}, 
 
     {{ govukInput({
       label: {
@@ -56,7 +59,27 @@
       classes: "govuk-input--width-3",
       id: "width-3",
       name: "Manual dexterity"
-    }) }}      
+    }) }}, 
+
+    {{ govukInput({
+      label: {
+        text: "Making self understood"
+      },
+      classes: "govuk-input--width-3",
+      id: "width-3",
+      name: "Making self understood"
+    }) }}, 
+
+    {{ govukInput({
+      label: {
+        text: "Understanding communication"
+      },
+      classes: "govuk-input--width-3",
+      id: "width-3",
+      name: "Understanding communication"
+    }) }}
+      
+         
 
  {{ govukButton({
   text: "Continue"

@@ -1,0 +1,86 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+  <form novalidation method="post">    
+    <h1 class="govuk-heading-l">Enter a piece of evidence for {{group}}</h1>
+    <div class="govuk-grid-column-one-half govuk-!-padding-left-0">
+        <div class="govuk-grid-column-two-thirds govuk-!-padding-left-0">
+            {{ govukInput({
+                label: {
+                    text: "Document",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                },
+                value: currentEvidence[0].document,
+                classes: "govuk-input--width-15",
+                id: "event-name",
+                name: "document"
+            }) }}
+        </div>    
+        <div class="govuk-grid-column-one-third govuk-!-padding-right-0">
+            {{ govukInput({
+                label: {
+                    text: "Page",
+                    classes: "govuk-label--s",
+                    isPageHeading: true
+                },
+                classes: "govuk-input--width-6",
+                id: "event-name",
+                name: "page",
+                value: currentEvidence[0].page
+            }) }}
+        </div>
+    </div>
+    <div class="govuk-grid-column-one-half">
+        {{ govukTextarea({
+            name: "evidence",
+            value: currentEvidence[0].evidence,
+            id: "more-detail",
+            rows: 3,            
+            label: {
+              text: "Evidence",
+              classes: "govuk-label--s",
+              isPageHeading: true
+            }
+          }) }}
+    </div>
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <input type="hidden" name="group" value="{{group}}" />
+    <input type="hidden" name="id" value="{{id}}" />
+</form>
+</div>
+</div>
+{% endblock %}
+
+

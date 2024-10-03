@@ -28,35 +28,36 @@
   <div class="govuk-grid-column-two-thirds">
   <form novalidation method="post">
     
-    <h1 class="govuk-heading-l">Enter points awarded for each Upper limbs activity </h1>
     
-    {{ govukInput({
-        label: {
-          text: "Reaching"
+    
+     
+   
+
+      {{ govukRadios({
+        idPrefrix:"[timeline][section52][activities]",
+        name: "[timeline][section52][activities]",
+        fieldset: {
+          legend: {
+            text: "Do they have any problems eating or drinking?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
         },
-        classes: "govuk-input--width-3",
-        id: "width-3",
-        name: "Reaching"
-      }) 
-    }}
-
-    {{ govukInput({
-      label: {
-        text: "Picking up and moving"
-      },
-      classes: "govuk-input--width-3",
-      id: "width-3",
-      name: "Picking up and moving"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Manual dexterity"
-      },
-      classes: "govuk-input--width-3",
-      id: "width-3",
-      name: "Manual dexterity"
-    }) }}      
+        value: data.timeline.section52.eating,
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          } 
+          
+        ]
+      }) }}  
+      
+         
 
  {{ govukButton({
   text: "Continue"
