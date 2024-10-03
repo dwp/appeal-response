@@ -2893,6 +2893,13 @@ router.post('/timeline/section52V2/summary', (req, res) => {
   res.redirect('/timeline/section52V2/eatingordrinking')
 })
 
+router.post('/timeline/otherbenefits/evidence', (req, res) => {
+  res.redirect('/timeline/otherbenefits/assessment')
+})
+
+router.post('/timeline/otherbenefits/assessment', (req, res) => {
+  res.redirect('/timeline/01-task-list-new-b')
+})
 
 //=============================== section52V2b ======================================//
 // router.get('/timeline/01-task-list-new-b', (req, res) => {
@@ -2921,6 +2928,8 @@ router.post('/timeline/section52V2b/activities', (req, res) => {
     res.redirect('/timeline/section52V2b/evidences')
   }
 })
+
+
 
 router.get('/timeline/section52V2b/evidences', (req, res) => {  
   const { activities, evidences } = req.session.data;

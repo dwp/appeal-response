@@ -1,0 +1,63 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <form novalidation method="post">
+    
+
+  
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  rows: 20, 
+  value: "Although entitled to PIP, this is not evidence that they have limited capability for work. 
+
+PIP has a different purpose and has different assessment criteria than the test for LCW. PIP is awarded to a claimant to meet requirements and costs arising from their disability. Whereas the Work Capability Assessment considers their ability to complete various activities despite their disabilities. 
+  
+  It is only the medical evidence used to determine PIP entitlement which should be considered in this appeal, and not the entitlement itself (see ML V SSWP (ESA) [2013] UKUT 174 AAC.)", 
+  label: {
+    text: "Provide relevant details of the PIP assessment",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "Provide details of the PIP assessment, the standard paragraph can be used as an aid."
+  }
+}) }}
+      
+         
+
+ {{ govukButton({
+  text: "Continue"
+ }) }}
+</form>
+</div>
+</div>
+{% endblock %}
+
+//when they click continue - change to '2,copy to endblock
+
