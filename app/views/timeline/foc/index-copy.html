@@ -1,0 +1,444 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Facts of the case – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName)}}
+{% endblock %}
+
+{% block content %}
+{% if data.error %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#form">Select if you would like to add another fact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+<a href="../01-task-list-new" class="govuk-back-link">Back to tasks</a>
+  <div class="govuk-grid-row">
+    <h1 class="govuk-heading-xl govuk-!-margin-left-3">
+      Build facts of the case
+    </h1>
+
+    <div class="govuk-grid-column-two-thirds">
+      <p class="">
+        <a href="#" class="govuk-link govuk-link--no-visited-state" onclick="toggleAll()" id="toggler">Expand all</a>
+      </p>
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          
+            <tr class="govuk-table__row
+
+            
+              fact
+            
+
+            
+            " id="e3899ce5-07ef-410e-b8b7-ae47bcc76146" style="transition: all 10s ease 0s; background: rgb(255, 255, 255);">
+              <td class="govuk-table__cell govuk-!-font-weight-regular ">
+                <span id="icon-e3899ce5-07ef-410e-b8b7-ae47bcc76146" class="icon govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>
+                <span class="govuk-!-margin-left-1">02 March 1993</span>
+              </td>
+              <td class="govuk-table__cell" style="width:60% !important;">
+                <span class="govuk-body govuk-!-font-weight-bold">Date of claim</span>
+                                    
+                
+                  <div class="listOfDetails">
+                    
+                      <div class="details-e3899ce5-07ef-410e-b8b7-ae47bcc76146 detail" style="display:none;">
+                        
+                        <p class="govuk-body govuk-!-font-weight-bold">
+                          
+                            Did the appellant declare any health conditions?<br>
+                          
+
+                          
+                            
+                              <span class="govuk-body">Yes</span>
+                            
+                                                        
+                        </p>
+                      </div>
+                    
+                  </div>
+                
+              </td>
+              <td class="govuk-table__cell govuk-!-text-align-right">
+                <a class="govuk-body govuk-link govuk-link--no-visited-state" href="/edit?id=e3899ce5-07ef-410e-b8b7-ae47bcc76146">Edit</a>
+              </td>
+            </tr>
+          
+            <tr class="govuk-table__row
+
+            
+              fact
+            
+
+            
+              rowHighlight
+            
+            " id="5d055023-5b32-4676-b069-9368adbe0729" style="transition: all 10s ease 0s; background: rgb(255, 255, 255);">
+              <td class="govuk-table__cell govuk-!-font-weight-regular ">
+                <span id="icon-5d055023-5b32-4676-b069-9368adbe0729" class="icon govuk-accordion-nav__chevron govuk-accordion-nav__chevron--up"></span>
+                <span class="govuk-!-margin-left-1">02 February 2002</span>
+              </td>
+              <td class="govuk-table__cell" style="width:60% !important;">
+                <span class="govuk-body govuk-!-font-weight-bold">Personal Independence payment </span>
+                                    
+                
+                  <div class="listOfDetails">
+                    
+                      <div class="details-5d055023-5b32-4676-b069-9368adbe0729 detail" style="display: block;">
+                        
+                        <p class="govuk-body govuk-!-font-weight">
+                          
+                          An application for Personal Independence Payment has been made. <br> <br>
+
+
+                          They were not entitled to an award.    
+                                                        
+                        </p>
+                      </div>              
+                      <div class="details-5d055023-5b32-4676-b069-9368adbe0729 detail" style="display: block;">
+                        
+                        <p class="govuk-body govuk-!-font-weight-bold">
+                     
+                          Decision date<br>
+                            
+                              <span class="govuk-body"></span>
+                                                    
+                        </p>
+                        <p class="govuk-body govuk-!-font-weight">
+                          
+                          5 March 2023<br>
+
+                              <span class="govuk-body"></span>
+                            
+                                                        
+                        </p>
+                      </div>
+                    
+                  </div>
+                
+              </td>
+              <td class="govuk-table__cell govuk-!-text-align-right">
+                <a class="govuk-body govuk-link govuk-link--no-visited-state" href="/edit?id=5d055023-5b32-4676-b069-9368adbe0729">Edit</a>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+        
+    {% if (data.events | length) > 0 %}
+        <div class="govuk-grid-column-two-thirds">
+          <p class="">
+            <a href="#" class="govuk-link govuk-link--no-visited-state" onclick="toggleAll()" id="toggler">Expand all</a>
+          </p>
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              {% for event in data.events %}
+                <tr class="govuk-table__row
+
+                {% if event.details %}
+                  fact
+                {% endif %}
+
+                {% if event.id == data.lastAdded or event.groupID == data.lastAdded %}
+                  rowHighlight
+                {% endif %}
+                "
+                
+                id={{event.id}}>
+                  <td class="govuk-table__cell govuk-!-font-weight-regular ">
+                    <span id="icon-{{event.id}}" class="icon govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"
+                      {% if event.details%}
+                      {% else %}
+                        style="visibility:hidden;"
+                      {% endif %}
+                    ></span>
+                    
+                    <span class="govuk-!-margin-left-1">{{ event.date }}</span>
+                  </td>
+                  <td class="govuk-table__cell" style="width:60% !important;">
+                    <span class="govuk-body govuk-!-font-weight-bold">Personal Indepedance payment</span>
+
+                 
+                                        
+                    {% if event.details %}
+                      <div class="listOfDetails">
+                        {% for key,value in event.details %}
+                          <div class="details-{{event.id}} detail" style="display:none;">
+                            {% if event.type == "changeHealthDisability" and key == "newHealthConditions" %}
+                            <p class="govuk-body govuk-!-font-weight-bold">
+                              Existing conditions
+                              <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0">                                
+                                  <li class="govuk-body" >Kidney failure</li>
+                                  <li class="govuk-body" >Carpal tunnel syndrome</li>
+                                  
+                              </ul>                          
+                            </p>
+                            {% endif %}
+                            <p class="govuk-body govuk-!-font-weight-bold" >
+                              {% if key == 'mentalPoints' %}
+                                Descriptor points awarded by the decision maker for mental, cognitive and intellectual function <br>
+                              {% elif key == 'physicalPoints'%}
+                                Descriptor points awarded by the decision maker for physical activities <br>
+                              {% elif key == 'treatedAs'%}
+                                Were any 'treated as' provisions identified? <br>
+                              {% elif key == 'OCConditions' %}
+                                Health conditions<br>
+                              {% elif key == 'conditionsExists' %}
+                                Did the appellant declare any health conditions?<br>
+                              {% elif key == 'COCRestrict' %}
+                                Did this change restrict the appellant's ability to work?<br>
+                              {% elif key == 'COCEvidence' or key == 'OCEvidence' %}
+                                Did they provide valid medical evidence?<br>
+                              {% elif key == 'COCConditions' %}
+                                Health conditions declared on that date<br>
+                              {% elif key == 'assessmentType' %}
+                                Type of assessment<br>
+                              {% elif key == 'asessmentConditions' %}
+                                Health conditions identified by the healthcare professional (HCP)<br>
+                              {% elif key == 'uc50DateType' %}
+                                Which date is this?<br>
+                              {% elif key == 'uc50Exists' %}
+                                Are the details of the UC50 available?<br>
+                              {% elif key == 'uc50Physical' %}
+                                Physical functions the appellant have difficulty with<br>
+                              {% elif key == 'eatingorDrinkingUC50' %}
+                                Eating or drinking<br>
+                              {% elif key == 'uc50Mental' %}
+                                Mental, cognitive and intellectual capabilities the appellant have difficulty with<br>
+                              {% elif key == 'agree' %}
+                                Did the MR decision maker agree with the original decision?<br>
+                              {% elif key == 'newHealthConditions' %}
+                                New health condition<br>
+                              {% endif %}
+
+                              {% if event.type == "other"%}
+                                <span class="govuk-body">{{value}}</span>
+                              {% else %}
+                                {% if (key == 'uc50Physical' or key == 'uc50Mental') %}
+                                  <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0">
+                                    {% for item in value %}
+                                      <li class="govuk-body" >{{item}}</li>
+                                    {% endfor %}
+                                  </ul>
+                                {% else %}
+                                  <span class="govuk-body">{{value}}</span>
+                                {% endif %}
+                              {% endif %}                              
+                            </p>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                  </td>
+                  <td class="govuk-table__cell govuk-!-text-align-right">
+                    <a class="govuk-body govuk-link govuk-link--no-visited-state" href="/edit?id={{event.id}}">Edit</a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% else %}
+          <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-warning-text warning-text-box">
+              <span class="govuk-warning-text__icon govuk-!-margin-left-5" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text govuk-!-margin-bottom-5">
+                  <span class="govuk-warning-text__assistive">Warning</span>
+                  Add facts to build the timeline
+                </strong>
+                <p class="govuk-warning-text__text govuk-!-font-weight-regular govuk-!-margin-bottom-0">
+                  Add as many as needed, in any order. We will display them chronologically in a timeline.
+                </p>
+            </div>
+          </div>
+        {% endif %}
+
+
+    <div class="govuk-grid-column-one-third">
+      <div class="addPanel">
+        <h4 class="govuk-heading-m">Add a fact</h4>
+        <ul class="govuk-list">
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-2">Always add</h4>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="originalClaim?target=index">Date of claim</a>
+            {% if data.noOfEvents.originalClaim > 0%}
+              ({{data.noOfEvents.originalClaim}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="uc50Access">Capability for work questionnaire (UC50)</a>
+            {% if data.noOfEvents.uc50 > 0%}
+              ({{data.noOfEvents.uc50}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="assessment?target=index">Health assessment</a>
+            {% if data.noOfEvents.assessment > 0%}
+              ({{data.noOfEvents.assessment}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="outcomeDecisionV2">Original decision</a>
+            {% if data.noOfEvents.outcomeDecision > 0%}
+              ({{data.noOfEvents.outcomeDecision}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="mr">Mandatory reconsideration</a>
+            {% if data.noOfEvents.mr > 0%}
+              ({{data.noOfEvents.mr}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="appealDates.html">Appeal dates</a>
+            {% if data.noOfEvents.appeals > 0%}
+              ({{data.noOfEvents.appeals}} added)
+            {% endif %}
+          </li>
+
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-6">Add if needed</h4>
+
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="date-of-change">Change to health or disability</a>
+            {% if data.noOfEvents.changeHealthDisability > 0%}
+              ({{data.noOfEvents.changeHealthDisability}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="uc113?target=index">GP report (UC113)</a>
+            {% if data.noOfEvents.uc113 > 0%}
+              ({{data.noOfEvents.uc113}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="decision?target=index">Previous decision</a>
+            {% if data.noOfEvents.decision > 0%}
+              ({{data.noOfEvents.decision}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="other?target=index">Other fact</a>
+            {% if data.noOfEvents.other > 0%}
+              ({{data.noOfEvents.other}} added)
+            {% endif %}
+          </li>
+          <!--
+            <li class="govuk-!-margin-bottom-2">
+              <a class="govuk-link govuk-link--no-visited-state" href="dualClaim?target=index">ESA claim (dual claim)</a>
+              {% if data.noOfEvents.dualClaim > 0%}
+                ({{data.noOfEvents.dualClaim}} added)
+              {% endif %}
+            </li>
+          -->
+        </ul>
+        <div class="narrowCTA1">
+          <div class="govuk-checkboxes__item govuk-!-margin-bottom-5 govuk-!-margin-top-9">
+            <input class="govuk-checkboxes__input" id="FOCconfirmation" name="FOCconfirmation" type="checkbox" value="FOCconfirm" {{ checked('FOCconfirmation','FOCconfirm') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="confirmation">
+              I have added all the facts I need
+            </label>
+          </div>
+          <button class="govuk-button" href="#" onclick="saveData()">Continue</button><br>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+    $("tr").css("transition", "10s");
+    $("tr").css("background", "#fff");
+    location.hash = "{{data.lastAdded}}";
+  });
+
+  function saveData(){
+    if (document.getElementById('FOCconfirmation').checked) {
+      sessionStorage.setItem("taskProgressFOC","2");
+    } else {
+      sessionStorage.setItem("taskProgressFOC","1");
+    }
+    window.location.href = "../01-task-list-new";
+  }
+
+  function toggleAll(){
+    var panels = document.getElementsByClassName('detail');
+    var toggleLink = document.getElementById('toggler');
+    var icons = document.getElementsByClassName('icon');
+    var targetState = "";
+    var j=0;
+
+    if (toggleLink.text == "Expand all"){
+      targetState = "block";
+      toggleLink.text = "Collapse all";
+      for (var j = 0; j < icons.length; j++) {
+        icons[j].classList.remove("govuk-accordion-nav__chevron--down");
+        icons[j].classList.add("govuk-accordion-nav__chevron--up");
+      }
+    }
+    else {
+      targetState = "none";
+      toggleLink.text = "Expand all";
+      for (var j = 0; j < icons.length; j++) {
+        icons[j].classList.remove("govuk-accordion-nav__chevron--up");
+        icons[j].classList.add("govuk-accordion-nav__chevron--down");
+      }
+    }
+
+    for(j=0; j < panels.length; j++){
+      panels[j].style.display = targetState;
+    }
+  }
+
+  var acc = document.getElementsByClassName("fact");
+  var i,j;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      /* Toggle between hiding and showing the active panels */
+      var icon = document.getElementById('icon-'+this.id);
+      var panels = document.getElementsByClassName('details-'+this.id);
+      console.log(panels.length);
+      for(j=0;j < panels.length;j++){
+        if (panels[j].style.display === "block") {
+          panels[j].style.display = "none";
+          icon.classList.remove("govuk-accordion-nav__chevron--up");
+          icon.classList.add("govuk-accordion-nav__chevron--down");
+        } else {
+          panels[j].style.display = "block";
+          icon.classList.remove("govuk-accordion-nav__chevron--down");
+          icon.classList.add("govuk-accordion-nav__chevron--up");
+        }
+      }
+    });
+  }
+</script>
+{% endblock %}
