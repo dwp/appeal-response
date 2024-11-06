@@ -8,6 +8,12 @@
   {% include "includes/head.html" %}
   <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
 {% endblock %}
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back to tasklist",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
 
 {% block pageTitle %}
   Facts of the case – Prepare an appeal response
@@ -34,11 +40,14 @@
   </div>
   </div>
 {% endif %}
-<a href="../01-task-list-new" class="govuk-back-link">Back to tasks</a>
+
   <div class="govuk-grid-row">
-    <h1 class="govuk-heading-xl govuk-!-margin-left-3">
-      Build facts of the case
+    <h1 class="govuk-heading-l govuk-!-margin-left-3">
+      The health and benefits history
     </h1>
+
+    <p class="govuk-body govuk-!-margin-left-3">This history will be used to build different parts of the appeal response </p>
+    
 
     <div class="govuk-grid-column-two-thirds">
       <p class="">
@@ -47,46 +56,6 @@
       <table class="govuk-table">
         <tbody class="govuk-table__body">
           
-            <tr class="govuk-table__row
-
-            
-              fact
-            
-
-            
-            " id="e3899ce5-07ef-410e-b8b7-ae47bcc76146" style="transition: all 10s ease 0s; background: rgb(255, 255, 255);">
-              <td class="govuk-table__cell govuk-!-font-weight-regular ">
-                <span id="icon-e3899ce5-07ef-410e-b8b7-ae47bcc76146" class="icon govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>
-                <span class="govuk-!-margin-left-1">02 March 1993</span>
-              </td>
-              <td class="govuk-table__cell" style="width:60% !important;">
-                <span class="govuk-body govuk-!-font-weight-bold">Date of claim</span>
-                                    
-                
-                  <div class="listOfDetails">
-                    
-                      <div class="details-e3899ce5-07ef-410e-b8b7-ae47bcc76146 detail" style="display:none;">
-                        
-                        <p class="govuk-body govuk-!-font-weight-bold">
-                          
-                            Did the appellant declare any health conditions?<br>
-                          
-
-                          
-                            
-                              <span class="govuk-body">Yes</span>
-                            
-                                                        
-                        </p>
-                      </div>
-                    
-                  </div>
-                
-              </td>
-              <td class="govuk-table__cell govuk-!-text-align-right">
-                <a class="govuk-body govuk-link govuk-link--no-visited-state" href="/edit?id=e3899ce5-07ef-410e-b8b7-ae47bcc76146">Edit</a>
-              </td>
-            </tr>
           
             <tr class="govuk-table__row
 
@@ -103,7 +72,7 @@
                 <span class="govuk-!-margin-left-1">02 February 2002</span>
               </td>
               <td class="govuk-table__cell" style="width:60% !important;">
-                <span class="govuk-body govuk-!-font-weight-bold">Personal Independence payment </span>
+                <span class="govuk-body govuk-!-font-weight-bold">Personal independence payment</span>
                                     
                 
                   <div class="listOfDetails">
@@ -112,10 +81,10 @@
                         
                         <p class="govuk-body govuk-!-font-weight">
                           
-                          An application for Personal Independence Payment has been made. <br> <br>
+                          An application for Personal Independence Payment has been made. <br> <br> 
 
+They were not entitled to an award.
 
-                          They were not entitled to an award.    
                                                         
                         </p>
                       </div>              
@@ -123,14 +92,35 @@
                         
                         <p class="govuk-body govuk-!-font-weight-bold">
                      
-                          Decision date<br>
+                          Award start date<br>
                             
                               <span class="govuk-body"></span>
                                                     
                         </p>
                         <p class="govuk-body govuk-!-font-weight">
                           
-                          5 March 2023<br>
+                          11 October 2020<br>
+
+                              <span class="govuk-body"></span>
+                            
+                                                        
+                        </p>
+                      </div>
+
+                      <div class="details-5d055023-5b32-4676-b069-9368adbe0729 detail" style="display: block;">
+                        
+                        <p class="govuk-body govuk-!-font-weight-bold">
+                     
+                          Award details<br>
+                            
+                              <span class="govuk-body"></span>
+                                                    
+                        </p>
+                        <p class="govuk-body govuk-!-font-weight">
+                          
+                          Mobility component: Higher rate <br>
+Care component: Middle rate
+
 
                               <span class="govuk-body"></span>
                             
@@ -142,7 +132,7 @@
                 
               </td>
               <td class="govuk-table__cell govuk-!-text-align-right">
-                <a class="govuk-body govuk-link govuk-link--no-visited-state" href="/edit?id=5d055023-5b32-4676-b069-9368adbe0729">Edit</a>
+                <a class="govuk-body govuk-link govuk-link--no-visited-state" href="/edit?id=5d055023-5b32-4676-b069-9368adbe0729"></a>
               </td>
             </tr>
           
@@ -256,7 +246,6 @@
                     {% endif %}
                   </td>
                   <td class="govuk-table__cell govuk-!-text-align-right">
-                    <a class="govuk-body govuk-link govuk-link--no-visited-state" href="/edit?id={{event.id}}">Edit</a>
                   </td>
                 </tr>
               {% endfor %}
@@ -264,24 +253,13 @@
           </table>
         </div>
         {% else %}
-          <div class="govuk-grid-column-two-thirds">
-            <div class="govuk-warning-text warning-text-box">
-              <span class="govuk-warning-text__icon govuk-!-margin-left-5" aria-hidden="true">!</span>
-                <strong class="govuk-warning-text__text govuk-!-margin-bottom-5">
-                  <span class="govuk-warning-text__assistive">Warning</span>
-                  Add facts to build the timeline
-                </strong>
-                <p class="govuk-warning-text__text govuk-!-font-weight-regular govuk-!-margin-bottom-0">
-                  Add as many as needed, in any order. We will display them chronologically in a timeline.
-                </p>
-            </div>
-          </div>
+ 
         {% endif %}
 
 
     <div class="govuk-grid-column-one-third">
       <div class="addPanel">
-        <h4 class="govuk-heading-m">Add a fact</h4>
+        <h4 class="govuk-heading-m">Add an item</h4>
         <ul class="govuk-list">
           <h4 class="govuk-heading-s govuk-!-margin-bottom-2">Always add</h4>
           <li class="govuk-!-margin-bottom-2">

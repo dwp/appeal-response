@@ -35,11 +35,31 @@
   </div>
 {% endif %}
 <a href="../01-task-list-new" class="govuk-back-link">Back to tasks</a>
-  <div class="govuk-grid-row">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+  <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Important
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <p class="govuk-notification-banner__heading">
+        Eliza is getting married!
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-column-two-thirds">
+
     <h1 class="govuk-heading-xl govuk-!-margin-left-3">
-      Build facts of the case
+      Build the case history
     </h1>
         
+  </div>
     {% if (data.events | length) > 0 %}
         <div class="govuk-grid-column-two-thirds">
           <p class="">
@@ -168,7 +188,7 @@
 
     <div class="govuk-grid-column-one-third">
       <div class="addPanel">
-        <h4 class="govuk-heading-m">Add a fact</h4>
+        <h4 class="govuk-heading-m">Add an item</h4>
         <ul class="govuk-list">
           <h4 class="govuk-heading-s govuk-!-margin-bottom-2">Always add</h4>
           <li class="govuk-!-margin-bottom-2">
@@ -226,6 +246,12 @@
             <a class="govuk-link govuk-link--no-visited-state" href="decision?target=index">Previous decision</a>
             {% if data.noOfEvents.decision > 0%}
               ({{data.noOfEvents.decision}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="other?target=index">Adult Disability Payment</a>
+            {% if data.noOfEvents.other > 0%}
+              ({{data.noOfEvents.other}} added)
             {% endif %}
           </li>
           <li class="govuk-!-margin-bottom-2">

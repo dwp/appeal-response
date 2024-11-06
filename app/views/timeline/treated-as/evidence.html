@@ -27,31 +27,35 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
   <form novalidation method="post">
+
+
+    <h1 class="govuk-heading-l">Reference evidence to support why schedule 8 Provisions haven't been met for paragraphs 1,2,3,5 & 6</h1>
+
     
 
     
-    {{ govukRadios({
-      name: "Do you want to respond to the PIP health assessment report?",
-      fieldset: {
-        legend: {
-          text: "Do you want to respond to the PIP health assessment report?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
+    {{ govukInput({
+      label: {
+        text: "Document name"
       },
-      value: data.assessment,
-      items: [
-        {
-          value: "Yes",
-          text: "Yes"
-        },
-        {
-          value: "No",
-          text: "No"
-        }
-      ]
+      classes: "govuk-input--width-20",
+      id: "width-20",
+      name: "width20"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Page number"
+      },
+      classes: "govuk-input--width-5",
+      id: "width-5",
+      name: "width5"
     }) }}
       
+
+    <p class="govuk-body">
+      <a href="#" class="govuk-link govuk-link--no-visited-state">Add another document</a>
+    </p>
          
 
  {{ govukButton({

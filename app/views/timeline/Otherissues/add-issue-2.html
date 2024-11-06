@@ -1,0 +1,127 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+
+
+<form novalidation method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+   
+<h1 class="govuk-heading-l">Respond to one of the reasons for appeal</h1>
+    </div>
+
+<div class="govuk-grid-column-two-thirds">
+{{ govukTextarea({
+
+  name: "[timeline][Otherissues][description]",
+  id: "[timeline][Otherissues][description]",
+  rows: "2",
+  label: {
+    text: "Describe the reason for appeal"
+  },
+  value: data.timeline.Otherissues.description
+}) }}
+
+
+
+{{ govukTextarea({
+  name: "[timeline][Otherissues][response]",
+  id: "[timeline][Otherissues][response]",
+  rows: "10",
+  label: {
+    text: "What is your response? "
+  },
+  value: data.timeline.Otherissues.response
+  
+}) }}
+
+ 
+
+{{ govukDetails({
+  summaryText: "Inaccuracies in the report",
+  text: "The WCA whether by telephone or in person, is designed to be able to assess to what extent a person’s illness or disability affects their ability to work, and the questions are designed to be relevant for this purpose, regardless of the illness. The assessment report shows that the HCP discussed the claimant’s health issues with them and that they also asked questions about their ‘typical day’, in order to gain further understanding of how their health issues affect their abilities. The HCP will consider the effects of the claimant’s health issues on their functional abilities over time, so that their opinion will not be based on a ‘snapshot’ of their condition on the day of the telephone assessment. The claimant gave the HCP details of the history of their health issues, and the medications that they currently take. In this case, I am satisfied that the assessment was properly completed and that the HCP was able to obtain sufficient information."
+}) }}
+{{ govukDetails({
+  summaryText: "Medication",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+{{ govukDetails({
+  summaryText: "Pain",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+{{ govukDetails({
+  summaryText: "New condition/significant worsening",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+{{ govukDetails({
+  summaryText: "Unfit to do own occupation",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+{{ govukDetails({
+  summaryText: "GP vs HCP",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+{{ govukDetails({
+  summaryText: "Health conditions not fully considered",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+{{ govukDetails({
+  summaryText: "What work can do",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+{{ govukDetails({
+  summaryText: "Request to contact doctor",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+{{ govukDetails({
+  summaryText: "Lack of Restful Sleep",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</div>
+<div class="govuk-grid-column-one-third">
+  
+
+
+  
+  </div>
+
+</div>
+</div>
+</form>
+
+{% endblock %}
+
+

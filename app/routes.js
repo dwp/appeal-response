@@ -2129,7 +2129,7 @@ router.post('/timeline/rep-present', function(request, response) {
   if (representative == "Yes"){
       response.redirect("/timeline/representative-type")
   } else {
-      response.redirect("/timeline/01-task-list-new")
+      response.redirect("/timeline/01-task-list-new-b")
   }
 })
 
@@ -2894,7 +2894,7 @@ router.post('/timeline/section52V2/summary', (req, res) => {
 })
 
 router.post('/timeline/otherbenefits/evidence', (req, res) => {
-  res.redirect('/timeline/otherbenefits/assessment')
+  res.redirect('/timeline/otherbenefits/assessmentV2')
 })
 
 router.post('/timeline/otherbenefits/assessment', (req, res) => {
@@ -3009,4 +3009,35 @@ router.get('/timeline/section52V2b/check-your-answers', (req, res) => {
 
   console.log("========", activities);
   res.render('./timeline/section52V2b/check-your-answers', { allActivities: activities, evidences });
+})
+
+
+router.post('/timeline/treated-as/risk', (req, res) => {
+  res.redirect('/timeline/treated-as/work')
+})
+
+router.post('/timeline/treated-as/risk2', (req, res) => {
+  res.redirect('/timeline/treated-as/work')
+})
+
+router.post('/timeline/treated-as/risk3', (req, res) => {
+  res.redirect('/timeline/treated-as/work')
+})
+
+
+router.post('/timeline/treated-as/work', (req, res) => {
+  res.redirect('/timeline/treated-as/schedule8')
+})
+
+router.post('/timeline/treated-as/work2', (req, res) => {
+  res.redirect('/timeline/treated-as/schedule8')
+})
+
+router.post('/timeline/treated-as/work3', (req, res) => {
+  res.redirect('/timeline/treated-as/schedule8')
+})
+
+
+router.post('/timeline/treated-as/schedule8', (req, res) => {
+  res.redirect('/timeline/treated-as/evidence')
 })

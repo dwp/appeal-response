@@ -35,8 +35,9 @@
       
    
 <h1 class="govuk-heading-l">Respond to one of the reasons for appeal</h1>
+    </div>
 
-
+<div class="govuk-grid-column-two-thirds">
 {{ govukTextarea({
 
   name: "[timeline][Otherissues][description]",
@@ -53,7 +54,7 @@
 {{ govukTextarea({
   name: "[timeline][Otherissues][response]",
   id: "[timeline][Otherissues][response]",
-  rows: "10",
+  rows: "20",
   label: {
     text: "What is your response? "
   },
@@ -92,6 +93,58 @@
 
 </div>
 <div class="govuk-grid-column-one-third">
+  <h1 class="govuk-heading-m">Example responses</h1>
+
+  <details class="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Inaccuracies in the report
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      The Respondent notes that much of the appeal request is concerned with what {Appellant Full Name} perceives as inaccuracies in the report. However, it should be noted that the report is not a detailed record of what was discussed at the interview. Instead, the report reflects the HCP’s professional opinion of {Appellant Full Name}’s functional ability. 
+    </div>
+  </details>
+
+
+  {{ govukDetails({
+    summaryText: "Medication",
+    text: "The fact that {Appellant Full Name} is taking medication does not, I submit, necessarily mean <he/she> is incapable of work. Many people are on medication but continue in or seek remunerative work employment."
+  }) }}
+  {{ govukDetails({
+    summaryText: "Pain",
+    text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+  }) }}
+  {{ govukDetails({
+    summaryText: "New condition/significant worsening",
+    text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+  }) }}
+  {{ govukDetails({
+    summaryText: "Unfit to do own occupation",
+    text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+  }) }}
+  {{ govukDetails({
+    summaryText: "GP vs HCP",
+    text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+  }) }}
+  {{ govukDetails({
+    summaryText: "Health conditions not fully considered",
+    text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+  }) }}
+  {{ govukDetails({
+    summaryText: "What work can do",
+    text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+  }) }}
+  {{ govukDetails({
+    summaryText: "Request to contact doctor",
+    text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+  }) }}
+  {{ govukDetails({
+    summaryText: "Lack of Restful Sleep",
+    text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+  }) }}
+
+  </div>
 
 </div>
 </div>

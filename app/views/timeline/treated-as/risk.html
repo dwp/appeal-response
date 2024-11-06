@@ -1,4 +1,4 @@
-{% extends "dwp-layout.html" %}
+sc{% extends "dwp-layout.html" %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% import "includes/templates/header/macro.html" as header%}
@@ -28,29 +28,31 @@
   <div class="govuk-grid-column-two-thirds">
   <form novalidation method="post">
     
+    
+    
+    {{ govukInput({
+      label: {
+        text: "Add supporting evidence showing there would be no risk to the appellent or others",
+        classes: "govuk-label--l",
+        isPageHeading: true
+      },
+      hint: {
+        text: "Considered evidence of activities the appellant could safely undertake"
+      },
+      id: "event-name",
+      name: "eventName"
+    }) }}
+
+    <p class="govuk-body">
+      <a href="/timeline/treated-as/risk2" class="govuk-link govuk-link--no-visited-state">Add another evidence</a>
+    </p>
+      
+    
+    
+    
+   
 
     
-    {{ govukRadios({
-      name: "Do you want to respond to the PIP health assessment report?",
-      fieldset: {
-        legend: {
-          text: "Do you want to respond to the PIP health assessment report?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-      value: data.assessment,
-      items: [
-        {
-          value: "Yes",
-          text: "Yes"
-        },
-        {
-          value: "No",
-          text: "No"
-        }
-      ]
-    }) }}
       
          
 

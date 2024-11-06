@@ -1,4 +1,4 @@
-{% extends "dwp-layout.html" %}
+sc{% extends "dwp-layout.html" %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/table/macro.njk" import govukTable %}
 {% import "includes/templates/header/macro.html" as header%}
@@ -28,29 +28,35 @@
   <div class="govuk-grid-column-two-thirds">
   <form novalidation method="post">
     
+    
+    
+     
+   {{ govukRadios({
+    name: "",
+    fieldset: {
+      legend: {
+        text: "Do you want to provide evidence of why we cannot apply other Schedule 8 paragraphs to this case?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    value: data.schedule8,
+    items: [
+      {
+        value: "Yes",
+        text: "Yes"
+      },
+      {
+        value: "No",
+        text: "No"
+      }
+    ]
+   }) }}
+    
+    
+   
 
     
-    {{ govukRadios({
-      name: "Do you want to respond to the PIP health assessment report?",
-      fieldset: {
-        legend: {
-          text: "Do you want to respond to the PIP health assessment report?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-      value: data.assessment,
-      items: [
-        {
-          value: "Yes",
-          text: "Yes"
-        },
-        {
-          value: "No",
-          text: "No"
-        }
-      ]
-    }) }}
       
          
 
