@@ -240,3 +240,36 @@ $govuk-breakpoints: (
     width: 100%;
   }
 }
+
+.js-add-another-input-container {
+  .govuk-form-group {
+    float: left;
+  }
+
+  .js-add-another-remove-button {
+    float: left;
+    margin-bottom: 0;
+  }
+}
+
+.js-add-another-container {
+  .js-add-another-button {
+    display: none;
+
+    .js-enabled & {
+      display: inline-block;
+    }
+  }
+}
+
+.button--text {  
+  background: none;
+  border: 0;
+  color: #1d70b8;
+  padding: 0;
+  text-decoration: underline;
+
+  &:hover {
+    color: #003078;
+  }
+}

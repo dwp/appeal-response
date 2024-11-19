@@ -27,20 +27,20 @@ sc{% extends "dwp-layout.html" %}
 {% block content %}
 
 
-{% macro addAnotherInput(args) %}
+{% macro addAnotherworkplaceAdjustmentInput(args) %}
   {% set index = args.index if args.index else '' %}
   {% set id = args.prefix + ('inputTemplate' if args.isTemplate else ('input' + index if index else 'input')) %}
   {% set name = args.prefix + ('inputTemplate' if args.isTemplate else 'input') %}
    
-  <div id="f-{{id}}" class="govuk-form-group govuk-!-width-two-thirds govuk-!-margin-right-2 js-add-another-form-group {%- if formErrors[args.prefix + 'description'].length %} govuk-form-group--error {% endif %}">
+  <div id="f-{{id}}" class="govuk-form-group govuk-!-width-two-thirds govuk-!-margin-right-2 js-add-another-form-group {%- if formErrors[args.prefix + 'workplaceAdjustment'].length %} govuk-form-group--error {% endif %}">
     <input class="govuk-input js-add-another-input" id="f-{{id}}-input" name="{{name}}" type="text" value="{{args.value}}">
   </div>
     
 {% endmacro %}
 
 <div class="js-add-another-template govuk-!-display-none" id="addAnotherTemplate">
-  {{ addAnotherInput({
-    prefix: 'description',    
+  {{ addAnotherworkplaceAdjustmentInput({
+    prefix: 'workplaceAdjustment',    
     label: {
       classes: 'govuk-visually-hidden'
     },
@@ -54,34 +54,28 @@ sc{% extends "dwp-layout.html" %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form novalidation method="post">
-      <h1 class="govuk-heading-l govuk-!-static-margin-bottom-0">Describe something about the appellant that shows either:</h1>
-      <ul class="govuk-heading-l govuk-!-static-margin-top-2">
-        <li>skills relevant to work</li>
-        <li>that they pose no substantial risk to themselves or others</li>
-      </ul>
+      <h1 class="govuk-heading-l ">What work-place adjustments would the appellant need in order to work?</h1>
 
-      {# Begin add another description #}
+      {# Begin add another workplaceAdjustment #}
       <div class="govuk-form-group">
         <div class="js-add-another-container" aria-live="assertive">
-          <div class="js-add-another-input-container govuk-clearfix"> 
-            
-            
-            {% if not data.descriptioninput %}
-              {{ addAnotherInput({
-                prefix: 'description',
+          <div class="js-add-another-input-container govuk-clearfix">        
+            {% if not data.workplaceAdjustmentinput %}
+              {{ addAnotherworkplaceAdjustmentInput({
+                prefix: 'workplaceAdjustment',                
                 casaErrors: formErrors
               }) }}
             {% else %}
-              {% for values in data.descriptioninput %}
+              {% for values in data.workplaceAdjustmentinput %}
                 {% if loop.first %}
-                  {{ addAnotherInput({
-                    prefix: 'description',                    
+                  {{ addAnotherworkplaceAdjustmentInput({
+                    prefix: 'workplaceAdjustment',                    
                     casaErrors: formErrors,
                     value: values
                   }) }}
                 {% else %}
-                  {{ addAnotherInput({
-                    prefix: 'description',
+                  {{ addAnotherworkplaceAdjustmentInput({
+                    prefix: 'workplaceAdjustment',                    
                     index: loop.index,
                     label: {
                       classes: "govuk-visually-hidden"
@@ -95,10 +89,10 @@ sc{% extends "dwp-layout.html" %}
             {% endif %} 
           </div>
   
-          <button type="button" class="govuk-body button--text govuk-!-margin-top-2 js-add-another-button">Add another description</button>
+          <button type="button" class="govuk-body button--text govuk-!-margin-top-2 js-add-another-button">Add another adjustment</button>
         </div>
       </div>
-      {# End add another description #}
+      {# End add another workplaceAdjustment #}
     
       {{ govukButton({
         text: "Continue"

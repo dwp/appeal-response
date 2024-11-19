@@ -2153,8 +2153,6 @@ router.post('/timeline/representative-organisation', (req, res) => {
 })
 
 router.post('/timeline/add-representative', function(request, response) {
-console.log("********************* ");
-
   response.redirect("/timeline/01-task-list-new")
 })
 
@@ -3006,14 +3004,40 @@ router.post('/timeline/section52V2b/remove-evidence', (req, res) => {
 
 router.get('/timeline/section52V2b/check-your-answers', (req, res) => {  
   const { activities, evidences } = req.session.data;
-
-  console.log("========", activities);
+  
   res.render('./timeline/section52V2b/check-your-answers', { allActivities: activities, evidences });
 })
 
 
+//========================== treated as ===========================
+router.get('/timeline/treated-as/work-place-adjustments', (req, res) => {
+  console.log(req.session.data);
+  res.render('./timeline/treated-as/work-place-adjustments')
+})
+
 router.post('/timeline/treated-as/risk', (req, res) => {
-  res.redirect('/timeline/treated-as/work')
+  res.redirect('/timeline/treated-as/evidence')
+})
+
+router.post('/timeline/treated-as/evidence', (req, res) => {
+  res.redirect('/timeline/treated-as/work-place-adjustments')
+})
+
+router.post('/timeline/treated-as/work-place-adjustments', (req, res) => {
+  res.redirect('/timeline/treated-as/type-of-work')
+})
+
+router.post('/timeline/treated-as/type-of-work', (req, res) => {
+  res.redirect('/timeline/treated-as/direct-tribunal-to-evidence')
+})
+
+router.post('/timeline/treated-as/direct-tribunal-to-evidence', (req, res) => {  
+  const { directTribunalToEvidence } = req.body;
+  if (directTribunalToEvidence == "Yes"){
+    res.redirect('/timeline/treated-as/where-tribunal-find-evidence')
+} else {
+    res.redirect("/timeline/01-task-list-new-b")
+} 
 })
 
 router.post('/timeline/treated-as/risk2', (req, res) => {

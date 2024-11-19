@@ -25,10 +25,10 @@
   {% endblock %}
 
 {% block content %}
-{% macro addAnotherEvidenceInput(args) %}
+{% macro addAnotherDescriptionInput(args) %}
   {% set index = args.index if args.index else '' %}
-  {% set id = args.prefix + ('inputTemplate' if args.isTemplate else ('input' + index if index else 'input')) %}
-  {% set name = args.prefix + ('inputTemplate' if args.isTemplate else 'input') %}
+  {% set id = args.prefix + ('descriptionTemplate' if args.isTemplate else ('description' + index if index else 'description')) %}
+  {% set name = args.prefix + ('descriptionTemplate' if args.isTemplate else 'description') %}
  
 
   <div>
@@ -41,7 +41,7 @@
         <label class="govuk-label govuk-label--s" for="event-name">
           Document name
         </label>
-        <input class="govuk-input govuk-input--width-20 js-add-another-input" id="f-{{id}}-input" name="{{name}}DocumentName" type="text" value="{{args.value}}">    
+        <input class="govuk-input govuk-input--width-20 js-add-another-input" id="f-{{id}}-input" name="{{name}}" type="text" value="{{args.value}}">    
       </h1>
     </div>
 
@@ -50,7 +50,7 @@
         <label class="govuk-label govuk-label--s" for="event-name">
           Page number
         </label>
-        <input class="govuk-input govuk-input--width-5 js-add-another-input" id="f-{{id}}-input" name="{{name}}PageNumber" type="text" value="{{args.value}}">    
+        <input class="govuk-input govuk-input--width-5 js-add-another-input" id="f-{{id}}-input" name="{{name}}" type="text" value="{{args.value}}">    
       </h1>
     </div>
   </div>
@@ -60,8 +60,8 @@
 
 <div class="js-add-another-template govuk-!-display-none " id="addAnotherTemplate">
   
-    {{ addAnotherEvidenceInput({
-      prefix: 'evidences',    
+    {{ addAnotherDescriptionInput({
+      prefix: 'description',    
       label: {
         classes: 'govuk-visually-hidden'
       },
@@ -75,35 +75,35 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form novalidation method="post">
-      <h1 class="govuk-heading-l ">Where can this evidence be found in the bundle?</h1>
+    
+      <h1 class="govuk-heading-l ">Where can the tribunal find evidence that the other Schedule 8 or 9 provisions cannot be applied?</h1>
 
       {# Begin add another document #}
       <div class="govuk-form-group">
         <div class="js-add-another-container" aria-live="assertive">
           
-            {% if not data.evidences %}
+            {% if not formData.whereCanTribunalFindEvidence %}
               <div class="js-add-another-input-container govuk-clearfix govuk-!-margin-top-5">        
-                {{ addAnotherEvidenceInput({
-                  prefix: 'evidences',                
+                {{ addAnotherDescriptionInput({
+                  prefix: 'whereCanTribunalFindEvidence',                
                   casaErrors: formErrors,
                   hideDivider: true
                 }) }}
               </div>                            
             {% else %}
-              {% for values in data.evidences %}
+              {% for values in formData.whereCanTribunalFindEvidence %}
                 {% if loop.first %}
                   <div class="js-add-another-input-container govuk-clearfix">        
-                    {{ addAnotherEvidenceInput({
-                      prefix: 'evidences',                    
+                    {{ addAnotherDescriptionInput({
+                      prefix: 'whereCanTribunalFindEvidence',                    
                       casaErrors: formErrors,
                       value: values
                     }) }}
                   </div>
                 {% else %}      
                   <div class="js-add-another-input-container govuk-clearfix">        
-                    {{ addAnotherEvidenceInput({
-                      prefix: 'evidences',                    
+                    {{ addAnotherDescriptionInput({
+                      prefix: 'whereCanTribunalFindEvidence',                    
                       index: loop.index,
                       label: {
                         classes: "govuk-visually-hidden"
@@ -126,10 +126,10 @@
       {{ govukButton({
         text: "Continue"
       }) }}
-    </form>
+    
   </div>
 </div>
 {% endblock %}
 
-//when they click continue - change to '2,copy to endblock
+
 
