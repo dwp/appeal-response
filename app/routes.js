@@ -3016,11 +3016,25 @@ router.get('/timeline/treated-as/work-place-adjustments', (req, res) => {
 })
 
 router.post('/timeline/treated-as/risk', (req, res) => {
+  res.redirect('/timeline/treated-as/where-tribunal-find-evidence-support-description')
+})
+
+router.post('/timeline/treated-as/where-tribunal-find-evidence-support-description', (req, res) => {
   res.redirect('/timeline/treated-as/evidence')
 })
 
+router.post('/timeline/treated-as/where-tribunal-find-evidence-support-description2', (req, res) => {
+  res.redirect('/timeline/treated-as/evidence')
+})
+
+
 router.post('/timeline/treated-as/evidence', (req, res) => {
-  res.redirect('/timeline/treated-as/work-place-adjustments')
+  const {data} = req.session;
+  if(data.decisionType === 'LCW') {
+    res.redirect('/timeline/treated-as/work-place-adjustments')
+  } else {
+    res.redirect('/timeline/treated-as/type-of-work')  
+  }  
 })
 
 router.post('/timeline/treated-as/work-place-adjustments', (req, res) => {
@@ -3034,7 +3048,7 @@ router.post('/timeline/treated-as/type-of-work', (req, res) => {
 router.post('/timeline/treated-as/direct-tribunal-to-evidence', (req, res) => {  
   const { directTribunalToEvidence } = req.body;
   if (directTribunalToEvidence == "Yes"){
-    res.redirect('/timeline/treated-as/where-tribunal-find-evidence')
+    res.redirect('/timeline/treated-as/where-tribunal-find-evidence-section-89-not-applied')
 } else {
     res.redirect("/timeline/01-task-list-new-b")
 } 

@@ -27,12 +27,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     
+    
+
     <form novalidation method="post">      
       {{ govukRadios({
         name: "directTribunalToEvidence",
         fieldset: {
           legend: {
-            text: "Do you want to direct the tribunal to evidence about the other Schedule 8 or 9 paragraphs?",
+            text: "Do you want to direct the tribunal to evidence about the other Schedule 8 or 9 paragraphs?" if data.decisionType === 'LCW' else "Do you want to direct the tribunal to evidence about the other Schedule 9 paragraphs?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }

@@ -59,24 +59,26 @@
 {% endmacro %}
 
 <div class="js-add-another-template govuk-!-display-none " id="addAnotherTemplate">
-  
-    {{ addAnotherDescriptionInput({
-      prefix: 'description',    
-      label: {
-        classes: 'govuk-visually-hidden'
-      },
-      casaErrors: formErrors,
-      value: values,
-      isTemplate: true
-    }) }}
-    <button aria-label="Remove" type="button"  class="govuk-body button--text js-add-another-remove-button govuk-!-padding-top-1 govuk-!-padding-bottom-1">Remove</button>
-  
+  {{ addAnotherDescriptionInput({
+    prefix: 'description',    
+    label: {
+      classes: 'govuk-visually-hidden'
+    },
+    casaErrors: formErrors,
+    value: values,
+    isTemplate: true
+  }) }}
+  <button aria-label="Remove" type="button"  class="govuk-body button--text js-add-another-remove-button govuk-!-padding-top-1 govuk-!-padding-bottom-1">Remove</button>  
 </div> 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     
-      <h1 class="govuk-heading-l ">Where can the tribunal find evidence that the other Schedule 8 or 9 provisions cannot be applied?</h1>
+    {% if data.decisionType === 'LCW' %}
+      <h1 class="govuk-heading-l">Where can the tribunal find evidence that the other Schedule 8 or 9 provisions cannot be applied?</h1>
+    {% else %}
+      <h1 class="govuk-heading-l">Where can the tribunal find evidence that the other 9 provisions cannot be applied?</h1>
+    {% endif %}
 
       {# Begin add another document #}
       <div class="govuk-form-group">
@@ -102,16 +104,18 @@
                   </div>
                 {% else %}      
                   <div class="js-add-another-input-container govuk-clearfix">        
-                    {{ addAnotherDescriptionInput({
-                      prefix: 'whereCanTribunalFindEvidence',                    
-                      index: loop.index,
-                      label: {
-                        classes: "govuk-visually-hidden"
-                      },
-                      casaErrors: formErrors,
-                      value: values
-                    }) }}
-                    <button aria-label="Remove" type="button" class="govuk-body button--text js-add-another-remove-button govuk-!-padding-top-1 govuk-!-padding-bottom-1">Remove</button>
+                    
+                      {{ addAnotherDescriptionInput({
+                        prefix: 'whereCanTribunalFindEvidence',                    
+                        index: loop.index,
+                        label: {
+                          classes: "govuk-visually-hidden"
+                        },
+                        casaErrors: formErrors,
+                        value: values
+                      }) }}
+                      <button aria-label="Remove" type="button" class="govuk-body button--text js-add-another-remove-button govuk-!-padding-top-1 govuk-!-padding-bottom-1">Remove</button>
+                    
                   </div>                                                                                             
                 {% endif %}
               {% endfor %}
