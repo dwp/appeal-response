@@ -73,7 +73,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    
+    <form novalidation method="post">
     {% if data.decisionType === 'LCW' %}
       <h1 class="govuk-heading-l">Where can the tribunal find evidence that the other Schedule 8 or 9 provisions cannot be applied?</h1>
     {% else %}
@@ -130,7 +130,7 @@
       {{ govukButton({
         text: "Continue"
       }) }}
-    
+    </form>
   </div>
 </div>
 {% endblock %}

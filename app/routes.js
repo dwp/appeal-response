@@ -3020,11 +3020,23 @@ router.post('/timeline/treated-as/risk', (req, res) => {
 })
 
 router.post('/timeline/treated-as/where-tribunal-find-evidence-support-description', (req, res) => {
-  res.redirect('/timeline/treated-as/evidence')
+  // res.redirect('/timeline/treated-as/evidence')
+  const {data} = req.session;
+  if(data.decisionType === 'LCW') {
+    res.redirect('/timeline/treated-as/work-place-adjustments')
+  } else {
+    res.redirect('/timeline/treated-as/type-of-work')  
+  }  
 })
 
 router.post('/timeline/treated-as/where-tribunal-find-evidence-support-description2', (req, res) => {
-  res.redirect('/timeline/treated-as/evidence')
+  // res.redirect('/timeline/treated-as/evidence')
+  const {data} = req.session;
+  if(data.decisionType === 'LCW') {
+    res.redirect('/timeline/treated-as/work-place-adjustments')
+  } else {
+    res.redirect('/timeline/treated-as/type-of-work')  
+  }  
 })
 
 
@@ -3052,6 +3064,10 @@ router.post('/timeline/treated-as/direct-tribunal-to-evidence', (req, res) => {
 } else {
     res.redirect("/timeline/01-task-list-new-b")
 } 
+})
+
+router.post('/timeline/treated-as/where-tribunal-find-evidence-section-89-not-applied', (req, res) => {
+  res.redirect("/timeline/01-task-list-new-b")
 })
 
 router.post('/timeline/treated-as/risk2', (req, res) => {
