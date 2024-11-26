@@ -3096,26 +3096,26 @@ router.post('/timeline/treated-as/schedule8', (req, res) => {
   res.redirect('/timeline/treated-as/evidence')
 })
 
-router.post('/timeline/treated-asv2/type-of-work', (req, res) => {
-  res.redirect('/timeline/treated-asv2/risk')
+router.post('/timeline/treated-asV2/type-of-work', (req, res) => {
+  res.redirect('/timeline/treated-asV2/risk')
 })
 
-router.post('/timeline/treated-asv2/risk', (req, res) => {
-  res.redirect('/timeline/treated-asv2/evidence')
+router.post('/timeline/treated-asV2/risk', (req, res) => {
+  res.redirect('/timeline/treated-asV2/evidence')
 })
 
-router.post('/timeline/treated-asv2/risk', (req, res) => {
-  res.redirect('/timeline/treated-asv2/evidence')
+router.post('/timeline/treated-asV2/risk', (req, res) => {
+  res.redirect('/timeline/treated-asV2/evidence')
 })
 
-router.post('/timeline/treated-asv2/evidence', (req, res) => {
-  res.redirect('/timeline/treated-asv2/examplesofwork')
+router.post('/timeline/treated-asV2/evidence', (req, res) => {
+  res.redirect('/timeline/treated-asV2/examplesofwork')
 })
 
-router.post('/timeline/treated-asv2/examplesofwork', (req, res) => {
-  res.redirect('/timeline/treated-asv2/work-place-adjustments')
+router.post('/timeline/treated-asV2/examplesofwork', (req, res) => {
+  res.redirect('/timeline/treated-asV2/work-place-adjustments')
 })
 
-router.post('/timeline/treated-asv2/work-place-adjustments', (req, res) => {
-  res.redirect('/timeline/treated-asv2/where-tribunal-find-evidence-section-89-not-applied')
+router.post('/timeline/treated-asV2/work-place-adjustments', (req, res) => {
+  res.redirect('/timeline/treated-asV2/where-tribunal-find-evidence-section-89-not-applied')
 })
