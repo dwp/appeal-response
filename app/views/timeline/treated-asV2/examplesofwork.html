@@ -1,0 +1,93 @@
+sc{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <form novalidation method="post">
+    
+    
+    
+<h1 class="govuk-heading-l">Why is the appellant suited to this work?</h1>
+    <p class="govuk-body"> You have told us that the appellant could do work like: 
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        Run a laundrette
+      </li>
+      <li>
+        Move packaging
+      </li>
+     
+    </ul>
+  </p>
+  
+    <p class="govuk-body"> They can do with work without risk to themselves or others. This is demonstrated by the following relevant facts about the appellant: </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        Does an online shop
+
+      </li>
+      <li>
+        Travels by bus for an hour
+      </li>
+      <li>
+        Writes lengthy emails to the council
+      </li>
+     
+    </ul>
+
+    <h1 class="govuk-heading-m">Give further description of how these facts make the appellant suitable for the suggested work:</h1>
+
+    {{ govukTextarea({
+      name: "moreDetail",
+      id: "more-detail",
+      label: {
+        
+      }
+    }) }}
+
+
+ 
+      
+    
+    
+    
+   
+
+    
+      
+         
+
+ {{ govukButton({
+  text: "Continue"
+ }) }}
+</form>
+</div>
+</div>
+{% endblock %}
+
+//when they click continue - change to '2,copy to endblock
+

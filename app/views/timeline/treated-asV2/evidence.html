@@ -1,0 +1,135 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="/public/javascripts/add-another.js"></script>
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+{% macro addAnotherEvidenceInput(args) %}
+  {% set index = args.index if args.index else '' %}
+  {% set id = args.prefix + ('inputTemplate' if args.isTemplate else ('input' + index if index else 'input')) %}
+  {% set name = args.prefix + ('inputTemplate' if args.isTemplate else 'input') %}
+ 
+
+  <div>
+    {%if(args.hideDivider !== true) %}
+    <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-top-5" style="float:left; width: 100%">
+    {% endif %}
+
+    <div id="f-{{id}}" class="govuk-!-margin-top-5 govuk-form-group govuk-!-width-two-thirds govuk-!-margin-right-2 js-add-another-form-group {%- if formErrors[args.prefix + 'description'].length %} govuk-form-group--error {% endif %}">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--" for="event-name">
+          Document name
+        </label>
+        <input class="govuk-input govuk-input--width-20 js-add-another-input" id="f-{{id}}-input" name="{{name}}DocumentName" type="text" value="{{args.value}}">    
+      </h1>
+    </div>
+
+    <div id="f-{{id}}" class="govuk-form-group govuk-!-width-two-thirds govuk-!-margin-right-2 js-add-another-form-group {%- if formErrors[args.prefix + 'description'].length %} govuk-form-group--error {% endif %}">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--" for="event-name">
+          Page number
+        </label>
+        <input class="govuk-input govuk-input--width-5 js-add-another-input" id="f-{{id}}-input" name="{{name}}PageNumber" type="text" value="{{args.value}}">    
+      </h1>
+    </div>
+  </div>
+
+  
+{% endmacro %}
+
+<div class="js-add-another-template govuk-!-display-none " id="addAnotherTemplate">
+  
+    {{ addAnotherEvidenceInput({
+      prefix: 'evidences',    
+      label: {
+        classes: 'govuk-visually-hidden'
+      },
+      casaErrors: formErrors,
+      value: values,
+      isTemplate: true
+    }) }}
+    <button aria-label="Remove" type="button"  class="govuk-body button--text js-add-another-remove-button govuk-!-padding-top-1 govuk-!-padding-bottom-1">Remove</button>
+  
+</div> 
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form novalidation method="post">
+      <h1 class="govuk-heading-l ">Where can the tribunal find evidence to support these facts?</h1>
+
+      {# Begin add another document #}
+      <div class="govuk-form-group">
+        <div class="js-add-another-container" aria-live="assertive">
+          
+            {% if not data.evidences %}
+              <div class="js-add-another-input-container govuk-clearfix govuk-!-margin-top-5">        
+                {{ addAnotherEvidenceInput({
+                  prefix: 'evidences',                
+                  casaErrors: formErrors,
+                  hideDivider: true
+                }) }}
+              </div>                            
+            {% else %}
+              {% for values in data.evidences %}
+                {% if loop.first %}
+                  <div class="js-add-another-input-container govuk-clearfix">        
+                    {{ addAnotherEvidenceInput({
+                      prefix: 'evidences',                    
+                      casaErrors: formErrors,
+                      value: values
+                    }) }}
+                  </div>
+                {% else %}      
+                  <div class="js-add-another-input-container govuk-clearfix">        
+                    {{ addAnotherEvidenceInput({
+                      prefix: 'evidences',                    
+                      index: loop.index,
+                      label: {
+                        classes: "govuk-visually-hidden"
+                      },
+                      casaErrors: formErrors,
+                      value: values
+                    }) }}
+                    <button aria-label="Remove" type="button" class="govuk-body button--text js-add-another-remove-button govuk-!-padding-top-1 govuk-!-padding-bottom-1">Remove</button>
+                  </div>                                                                                             
+                {% endif %}
+              {% endfor %}
+            {% endif %}             
+          
+
+          <button type="button" class="govuk-body button--text govuk-!-margin-top-5 js-add-another-button">Add another document</button>
+        </div>
+      </div>
+      {# End add another document #}
+    
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+//when they click continue - change to '2,copy to endblock
+

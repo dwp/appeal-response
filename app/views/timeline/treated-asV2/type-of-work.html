@@ -1,0 +1,108 @@
+sc{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="/public/javascripts/add-another.js"></script>
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+{% macro addAnothertypeOfWorkInput(args) %}
+  {% set index = args.index if args.index else '' %}
+  {% set id = args.prefix + ('inputTemplate' if args.isTemplate else ('input' + index if index else 'input')) %}
+  {% set name = args.prefix + ('inputTemplate' if args.isTemplate else 'input') %}
+   
+  <div id="f-{{id}}" class="govuk-form-group govuk-!-width-two-thirds govuk-!-margin-right-2 js-add-another-form-group {%- if formErrors[args.prefix + 'typeOfWork'].length %} govuk-form-group--error {% endif %}">
+    <input class="govuk-input js-add-another-input" id="f-{{id}}-input" name="{{name}}" type="text" value="{{args.value}}">
+  </div>
+    
+{% endmacro %}
+
+<div class="js-add-another-template govuk-!-display-none" id="addAnotherTemplate">
+  {{ addAnothertypeOfWorkInput({
+    prefix: 'typeOfWork',    
+    label: {
+      classes: 'govuk-visually-hidden'
+    },
+    casaErrors: formErrors,
+    value: values,
+    isTemplate: true
+  }) }}
+  <button aria-label="Remove" type="button" class="govuk-body button--text js-add-another-remove-button govuk-!-padding-top-1 govuk-!-padding-bottom-1">Remove</button>
+</div> 
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form novalidation method="post">
+        {% if data.decisionType === 'LCW' %}
+        <h1 class="govuk-heading-l ">What types of  work could the appellant do without risk to themselves or others?</h1>
+        {% else %} 
+        <h1 class="govuk-heading-l ">What types of work-related activity could the appellant do?</h1>
+        {% endif %}
+      {# Begin add another typeOfWork #}
+      <div class="govuk-form-group">
+        <div class="js-add-another-container" aria-live="assertive">
+          <div class="js-add-another-input-container govuk-clearfix">        
+            {% if not data.typeOfWorkinput %}
+              {{ addAnothertypeOfWorkInput({
+                prefix: 'typeOfWork',                
+                casaErrors: formErrors
+              }) }}
+            {% else %}
+              {% for values in data.typeOfWorkinput %}
+                {% if loop.first %}
+                  {{ addAnothertypeOfWorkInput({
+                    prefix: 'typeOfWork',                    
+                    casaErrors: formErrors,
+                    value: values
+                  }) }}
+                {% else %}
+                  {{ addAnothertypeOfWorkInput({
+                    prefix: 'typeOfWork',                    
+                    index: loop.index,
+                    label: {
+                      classes: "govuk-visually-hidden"
+                    },
+                    casaErrors: formErrors,
+                    value: values
+                  }) }}
+                  <button aria-label="Remove" type="button" class="govuk-body button--text js-add-another-remove-button govuk-!-padding-top-1 govuk-!-padding-bottom-1">Remove</button>
+                {% endif %}
+              {% endfor %}
+            {% endif %} 
+          </div>
+  
+          <button type="button" class="govuk-body button--text govuk-!-margin-top-2 js-add-another-button">Add another type of work</button>
+        </div>
+      </div>
+      {# End add another typeOfWork #}
+    
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+
