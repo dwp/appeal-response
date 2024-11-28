@@ -29,8 +29,12 @@ sc{% extends "dwp-layout.html" %}
   <form novalidation method="post">
     
     
-    
-<h1 class="govuk-heading-l">Explain why the appellant can work without risk to themselves or others</h1>  
+    {% if data.decisionType === 'LCW' %}
+      <h1 class="govuk-heading-l">Explain why the appellant can work without risk to themselves or others</h1>
+    {% else %}
+      <h1 class="govuk-heading-l">Explain why the appellant can do work-related activity without risk to themselves or others</h1>
+    {% endif %}
+      
   <p class="govuk-body"> You have told us that the appellant: 
     <ul class="govuk-list govuk-list--bullet">
       {% for work in typeOfWork %}
@@ -41,7 +45,7 @@ sc{% extends "dwp-layout.html" %}
     </ul>
   </p>
   
-    <p class="govuk-body"> Suggesting they could do work similar to: </p>
+    <p class="govuk-body"> Suggesting they could do activities similar to: </p>
 
     <ul class="govuk-list govuk-list--bullet">
       {% for fact in facts %}
