@@ -35,7 +35,7 @@ sc{% extends "dwp-layout.html" %}
       <h1 class="govuk-heading-l">Explain why the appellant can do work-related activity without risk to themselves or others</h1>
     {% endif %}
       
-  <p class="govuk-body"> You have told us that the appellant: 
+  <p class="govuk-body"> You told us the appellant could do activities similar to:
     <ul class="govuk-list govuk-list--bullet">
       {% for work in typeOfWork %}
       <li>
@@ -45,7 +45,7 @@ sc{% extends "dwp-layout.html" %}
     </ul>
   </p>
   
-    <p class="govuk-body"> Suggesting they could do activities similar to: </p>
+    <p class="govuk-body"> Because they currently: </p>
 
     <ul class="govuk-list govuk-list--bullet">
       {% for fact in facts %}
