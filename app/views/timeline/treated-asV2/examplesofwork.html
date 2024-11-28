@@ -30,36 +30,26 @@ sc{% extends "dwp-layout.html" %}
     
     
     
-<h1 class="govuk-heading-l">Explain why the appellant can work without risk to themselves or others
- 
-
-   </h1>
-    <p class="govuk-body"> You have told us that the appellant: 
+<h1 class="govuk-heading-l">Explain why the appellant can work without risk to themselves or others</h1>  
+  <p class="govuk-body"> You have told us that the appellant: 
     <ul class="govuk-list govuk-list--bullet">
+      {% for work in typeOfWork %}
       <li>
-        Run a laundrette
+        {{work}}
       </li>
-      <li>
-        Move packaging
-      </li>
-     
+      {% endfor %}
     </ul>
   </p>
   
     <p class="govuk-body"> Suggesting they could do work similar to: </p>
 
     <ul class="govuk-list govuk-list--bullet">
+      {% for fact in facts %}
       <li>
-        Does an online shop
+        {{fact}}
 
       </li>
-      <li>
-        Travels by bus for an hour
-      </li>
-      <li>
-        Writes lengthy emails to the council
-      </li>
-     
+      {% endfor %}     
     </ul>
 
     {{ govukTextarea({
@@ -69,18 +59,6 @@ sc{% extends "dwp-layout.html" %}
         
       }
     }) }}
-
-
- 
-      
-    
-    
-    
-   
-
-    
-      
-         
 
  {{ govukButton({
   text: "Continue"

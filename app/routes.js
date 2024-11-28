@@ -3112,8 +3112,20 @@ router.post('/timeline/treated-asV2/evidence', (req, res) => {
   res.redirect('/timeline/treated-asV2/examplesofwork')
 })
 
-router.post('/timeline/treated-asV2/examplesofwork', (req, res) => {
-  res.redirect('/timeline/treated-asV2/work-place-adjustments')
+
+router.get('/timeline/treated-asV2/examplesofwork', (req, res) => {    
+  console.log(req.session.data);
+  const {data} = req.session;  
+  res.render('./timeline/treated-asV2/examplesofwork', {typeOfWork: data.typeOfWorkinput, facts: data.descriptioninput})
+})
+
+router.post('/timeline/treated-asV2/examplesofwork', (req, res) => {    
+  const {data} = req.session;
+  if(data.decisionType === 'LCW') {
+    return res.redirect('/timeline/treated-asV2/work-place-adjustments')
+  } else {
+    return res.redirect('/timeline/treated-asV2/where-tribunal-find-evidence-section-89-not-applied')
+  }  
 })
 
 router.post('/timeline/treated-asV2/work-place-adjustments', (req, res) => {
