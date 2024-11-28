@@ -30,8 +30,11 @@ sc{% extends "dwp-layout.html" %}
     
     
     
-<h1 class="govuk-heading-l">Why is the appellant suited to this work?</h1>
-    <p class="govuk-body"> You have told us that the appellant could do work like: 
+<h1 class="govuk-heading-l">Explain why the appellant can work without risk to themselves or others
+ 
+
+   </h1>
+    <p class="govuk-body"> You have told us that the appellant: 
     <ul class="govuk-list govuk-list--bullet">
       <li>
         Run a laundrette
@@ -43,7 +46,7 @@ sc{% extends "dwp-layout.html" %}
     </ul>
   </p>
   
-    <p class="govuk-body"> They can do with work without risk to themselves or others. This is demonstrated by the following relevant facts about the appellant: </p>
+    <p class="govuk-body"> Suggesting they could do work similar to: </p>
 
     <ul class="govuk-list govuk-list--bullet">
       <li>
@@ -58,8 +61,6 @@ sc{% extends "dwp-layout.html" %}
       </li>
      
     </ul>
-
-    <h1 class="govuk-heading-m">Give further description of how these facts make the appellant suitable for the suggested work:</h1>
 
     {{ govukTextarea({
       name: "moreDetail",

@@ -54,8 +54,11 @@ sc{% extends "dwp-layout.html" %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form novalidation method="post">
-      <h1 class="govuk-heading-l govuk-!-static-margin-bottom-0">Add facts about the appellant, supporting that they can do this work without risk?</h1>
-      <ul class="govuk-heading-l govuk-!-static-margin-top-2">
+      {% if data.decisionType === 'LCW' %}
+      <h1 class="govuk-heading-l "> What facts about the appellant show this work is possible for them?</h1>
+      {% else %} 
+      <h1 class="govuk-heading-l "> What facts about the appellant show these activities are possible for them?</h1>
+      {% endif %}      <ul class="govuk-heading-l govuk-!-static-margin-top-2">
       
       </ul>
 
