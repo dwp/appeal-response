@@ -3116,7 +3116,7 @@ router.post('/timeline/treated-asV2/evidence', (req, res) => {
 router.get('/timeline/treated-asV2/examplesofwork', (req, res) => {    
   console.log(req.session.data);
   const {data} = req.session;  
-  res.render('./timeline/treated-asV2/examplesofwork', {typeOfWork: data.typeOfWorkinput, facts: data.descriptioninput})
+  res.render('./timeline/treated-asV2/examplesofwork', {typeOfWork: [data.typeOfWorkinput], facts: [data.descriptioninput]})
 })
 
 router.post('/timeline/treated-asV2/examplesofwork', (req, res) => {    
