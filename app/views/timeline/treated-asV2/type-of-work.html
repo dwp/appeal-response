@@ -56,6 +56,7 @@ sc{% extends "dwp-layout.html" %}
     <form novalidation method="post">
         {% if data.decisionType === 'LCW' %}
         <h1 class="govuk-heading-l ">What work can the appellant do without risk to themselves or others?</h1>
+        
         {% else %} 
         <h1 class="govuk-heading-l ">What work-related activity can the appellant do without risk to themselves or others?</h1>
         {% endif %}
@@ -63,8 +64,10 @@ sc{% extends "dwp-layout.html" %}
         <div id="event-name-hint" class="govuk-hint">
           For example, complete an online IT course
         </div>
-        <input class="govuk-input" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
-      </div>
+      
+
+       
+
       {# Begin add another typeOfWork #}
       <div class="govuk-form-group">
         <div class="js-add-another-container" aria-live="assertive">
