@@ -59,6 +59,12 @@ sc{% extends "dwp-layout.html" %}
         {% else %} 
         <h1 class="govuk-heading-l ">What work-related activity can the appellant do without risk to themselves or others?</h1>
         {% endif %}
+
+        <div id="event-name-hint" class="govuk-hint">
+          For example, complete an online IT course
+        </div>
+        <input class="govuk-input" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
+      </div>
       {# Begin add another typeOfWork #}
       <div class="govuk-form-group">
         <div class="js-add-another-container" aria-live="assertive">
