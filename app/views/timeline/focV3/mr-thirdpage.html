@@ -1,0 +1,86 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <form novalidation method="post">
+                  <h2 class="govuk-heading-l" for="event-name">
+                    When was the Mandatory Reconsideration Notice sent?
+                  </h2>
+                  <div id="passport-issued-hint" class="govuk-hint">
+                    For example, 27 3 2007
+                  </div>
+                      <div class="govuk-date-input" id="date-original-decision">
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateMrDecisionDay">
+                              Day
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateMrDecisionDay" name="dateMrDecisionDay" type="text" inputmode="numeric" value={{ data.events[data.editMRDecisionIndex].day }}>
+                          </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateMrDecisionMonth">
+                              Month
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateMrDecisionMonth" name="dateMrDecisionMonth" type="text" inputmode="numeric" value={{ data.events[data.editMRDecisionIndex].month }}>
+                          </div>
+                        </div>
+                        <div class="govuk-date-input__item">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="dateMrDecisionYear">
+                              Year
+                            </label>
+                            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateMrDecisionYear" name="dateMrDecisionYear" type="text" inputmode="numeric" value={{ data.events[data.editMRDecisionIndex].year }}>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+
+                
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      {% if data.edit == 1 %}
+        <p>
+          <a class="govuk-body govuk-link govuk-link--no-visited-state redText" href="/remove?id={{data.events[data.editIndex].id}}">Remove this fact</a>
+        </p>
+      {% endif %}
+      
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}

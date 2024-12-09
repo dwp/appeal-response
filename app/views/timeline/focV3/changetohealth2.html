@@ -1,0 +1,66 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form novalidation method="post">
+
+
+<h1 class="govuk-heading-l">Appellant reported a change to their health and disability on 1st September 2023</h1>
+
+<p class="govuk-body">They declared having conditions:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>Pain in leg</li>
+  <li>Broken toe</li>
+  <li>Swollen ankles</li>
+
+</ul>
+
+<p class="govuk-body"> Fitnote was provided</p>
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "Get help if this data is not correct",
+  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+}) }}
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}

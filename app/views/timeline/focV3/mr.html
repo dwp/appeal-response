@@ -1,0 +1,185 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form novalidation method="post">
+
+
+<h1 class="govuk-heading-l">Mandatory reconsideration</h1>
+
+{{ govukDateInput({
+  id: "dateRequested",
+  fieldset: {
+    legend: {
+      text: "Date requested by appellant (optional)
+      ",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 31 3 1980"
+  },
+  items: [
+    {
+      name: "Requested",
+      label: "Day",
+      value: data.dayRequested,
+      classes: "govuk-input--width-2"
+    },
+    {
+      name: "Requested",
+      label: "Month",
+      value: data.month,
+      classes: "govuk-input--width-2"
+    },
+    {
+      name: "Requested",
+      label: "Year",
+      value: data.year,
+      classes: "govuk-input--width-4"
+    }
+  ]
+}) }}
+
+
+{{ govukDateInput({
+  id: "dateDecisionmade",
+  fieldset: {
+    legend: {
+      text: "Decision date
+      ",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 31 3 1980"
+  },
+  items: [
+    {
+      name: "Decisionmade",
+      label: "Day",
+      value: data.dayRequested,
+      classes: "govuk-input--width-2"
+    },
+    {
+      name: "Decisionmade",
+      label: "Month",
+      value: data.month,
+      classes: "govuk-input--width-2"
+    },
+    {
+      name: "Decisionmade",
+      label: "Year",
+      value: data.year,
+      classes: "govuk-input--width-4"
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "[timeline][agreeDecision]",
+  fieldset: {
+    legend: {
+      text: "Did the mandatory reconsideration agree with the original decision?
+
+      ",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  value: data.agreeDecision,
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+
+{{ govukDateInput({
+  id: "date.notification",
+  fieldset: {
+    legend: {
+      text: "Notification sent
+      ",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 31 3 1980"
+  },
+  items: [
+    {
+      name: "date.notification",
+      label: "Day",
+      value: data.day,
+      classes: "govuk-input--width-2"
+    },
+    {
+      name: "date.notification",
+      label: "Month",
+      value: data.month,
+      classes: "govuk-input--width-2"
+    },
+    {
+      name: "date.notification",
+      label: "Year",
+      value: data.year,
+      classes: "govuk-input--width-4"
+    }
+  ]
+}) }}
+
+
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}
+
+      
+         
+     

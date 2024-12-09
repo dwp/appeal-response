@@ -1,0 +1,127 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Facts of the case – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+{% if data.error %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#">Select a fact you would like to add</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+<a href="index" class="govuk-back-link">Back</a>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/timeline/foc/addAnother" method="post" class="form" id="addAnotherForm">
+          <div class="govuk-form-group govuk-!-padding-top-5">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend--xl">
+                Select a fact to add
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="factToAddOriginalClaim" name="factToAdd" type="radio" value="Original claim">
+                <label class="govuk-label govuk-radios__label" for="factToAddOriginalClaim">
+                  Original claim and decision
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="factToAddCoC" name="factToAdd" type="radio" value="Change of circumstances">
+                <label class="govuk-label govuk-radios__label" for="factToAddCoC">
+                  Change to health or disability
+                </label>
+              </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="factToAddUC50" name="factToAdd" type="radio" value="Capability of work questionnaire (UC50)">
+                  <label class="govuk-label govuk-radios__label" for="factToAddUC50">
+                    Capability of work questionnaire (UC50)
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="factToAddMR" name="factToAdd" type="radio" value="Mandatory reconsideration">
+                  <label class="govuk-label govuk-radios__label" for="factToAddMR">
+                    Mandatory reconsideration
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="factToAddDecision" name="factToAdd" type="radio" value="Decision">
+                  <label class="govuk-label govuk-radios__label" for="factToAddDecision">
+                    Decision
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="factToAddAssessment" name="factToAdd" type="radio" value="Assessment">
+                  <label class="govuk-label govuk-radios__label" for="factToAddAssessment">
+                    Health assessment
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="factToAddDualClaim" name="factToAdd" type="radio" value="Dual claim">
+                  <label class="govuk-label govuk-radios__label" for="factToAddDualClaim">
+                    Dual claim
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="factToAddUC113" name="factToAdd" type="radio" value="GP report (UC113)">
+                  <label class="govuk-label govuk-radios__label" for="factToAddUC113">
+                    GP report (UC113)
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="factToAddOther" name="factToAdd" type="radio" value="Other fact">
+                  <label class="govuk-label govuk-radios__label" for="factToAddOther">
+                    Other fact
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button><br>
+          <a href="index" class="govuk-body govuk-link govuk-link--no-visited-state">Back</a>
+        </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}

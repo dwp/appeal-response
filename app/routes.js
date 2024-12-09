@@ -3108,9 +3108,7 @@ router.post('/timeline/treated-asV2/risk', (req, res) => {
   res.redirect('/timeline/treated-asV2/evidence')
 })
 
-router.post('/timeline/treated-asV2/evidence', (req, res) => {
-  res.redirect('/timeline/treated-asV2/examplesofwork')
-})
+
 
 
 router.get('/timeline/treated-asV2/examplesofwork', (req, res) => {    
@@ -3119,7 +3117,7 @@ router.get('/timeline/treated-asV2/examplesofwork', (req, res) => {
   res.render('./timeline/treated-asV2/examplesofwork', {typeOfWork: data.typeOfWorkinput, facts: data.descriptioninput})
 })
 
-router.post('/timeline/treated-asV2/examplesofwork', (req, res) => {    
+router.post('/timeline/treated-asV2/evidence', (req, res) => {    
   const {data} = req.session;
   if(data.decisionType === 'LCW') {
     return res.redirect('/timeline/treated-asV2/work-place-adjustments')
@@ -3130,4 +3128,25 @@ router.post('/timeline/treated-asV2/examplesofwork', (req, res) => {
 
 router.post('/timeline/treated-asV2/work-place-adjustments', (req, res) => {
   res.redirect('/timeline/treated-asV2/where-tribunal-find-evidence-section-89-not-applied')
+})
+
+
+
+router.post('/timeline/treated-asV2/Know-when-last-worked', (req, res) => {     
+  const {data} = req.session;
+
+ 
+
+  if (data.lastWorked === "Yes") {
+    return res.redirect('/timeline/treated-asV2/date-worked') ;
+ 
+  } else {
+    return res.redirect('/timeline/treated-asV2/type-of-work')
+  }
+})
+
+
+
+router.post('/timeline/treated-asV2/date-worked', (req, res) => {
+  res.redirect('/timeline/treated-asV2/type-of-work')
 })

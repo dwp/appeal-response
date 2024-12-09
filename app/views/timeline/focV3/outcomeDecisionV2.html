@@ -1,0 +1,179 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+{% if (errorMessage) %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        {% if (errorMessage.decisionDate) %}
+        <li>
+          <a href="#">{{errorMessage.decisionDate}}</a>
+        </li>
+        {% endif %}        
+
+        {% if (errorMessage.contactedByPhone) %}
+        <li>
+          <a href="#">{{errorMessage.contactedByPhone}}</a>
+        </li>
+        {% endif %}
+
+        {% if (errorMessage.notificationSentSameDate) %}
+        <li>
+          <a href="#">{{errorMessage.notificationSentSameDate}}</a>
+        </li>
+        {% endif %}        
+
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form novalidation method="post">
+      <h2 class="govuk-heading-l">Original decision</h2>
+
+    
+      
+    {{ govukDateInput({
+      id: "decisionDate",
+      namePrefix: "decision",
+      errorMessage: {
+        text: errorMessage.decisionDate
+      } if(errorMessage.decisionDate),
+      fieldset: {
+        legend: {
+          text: "Decision date",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "For example, 31 3 1980"
+      },
+      items: [
+        {
+          name: "day",
+          label: "Day",
+          value: data['decision-day'],
+          classes: "govuk-input--width-2"
+        },
+        {
+          name: "month",
+          label: "Month",
+          value: data['decision-month'],
+          classes: "govuk-input--width-2"
+        },
+        {
+          name: "year",
+          label: "Year",
+          value: data['decision-year'],
+          classes: "govuk-input--width-4"
+        }
+      ]
+    }) }}
+   
+              {{ govukRadios({
+                classes: "govuk-radios",
+                errorMessage: {
+                  text: errorMessage.notificationSentSameDate2
+                } if(errorMessage.notificationSentSameDate),
+                idPrefrix:"notificationSentSameDate",
+                name: "notificationSentSameDate2",
+                fieldset: {
+                  legend: {
+                    text: "Was the notification sent on the same date?",
+                    text: "Was the notification sent on the same date?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                value: data.notificationSentSameDate2,
+                items: [
+                  {
+                    value: "Yes",
+                    text: "Yes"
+                  },
+                  {
+                    value: "No",
+                    text: "No"
+                  }
+                ]
+              }) }}
+
+              {{ govukRadios({
+                classes: "govuk-radios",
+                errorMessage: {
+                  text: errorMessage.contactedByPhone
+                } if(errorMessage.contactedByPhone),
+                name: "contactedByPhone",
+                fieldset: {
+                  legend: {
+                    text: "Was the appellant successfully contacted by phone?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                value: data.contactedByPhone,
+                items: [
+                  {
+                    value: "Yes",
+                    text: "Yes"
+                  },
+                  {
+                    value: "No",
+                    text: "No"
+                  },
+                  {
+                    divider: "or"
+                  },
+                  {
+                    value: "No call made",
+                    text: "No call was attempted"
+                  }
+                ]
+              }) }}
+
+                
+                 
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+      
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}

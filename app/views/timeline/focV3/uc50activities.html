@@ -1,0 +1,198 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back();"
+  })}}
+  {% endblock %}
+{% block content %}
+
+
+{% if (data.timeline.activitiesmentalError === true or data.timeline.activitiesphysicalError === true) %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        {% if data.timeline.activitiesphysicalError %}
+        <li>
+          <a href="#">Select a physical activity or select ‘No difficulty with physical activities’</a>
+        </li>
+        {% endif %}
+        {% if data.timeline.activitiesmentalError %}
+        <li>
+          <a href="#">Select a mental, cognitive or intellectual activity or select ‘No difficulty with mental, cognitive, or intellectual activities’</a>
+        </li>
+        {% endif %}        
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <form novalidation method="post">
+
+  <h1 class="govuk-heading-l">Select all activities the appellant said they had difficulty with</h1>
+
+  <div id="event-name-hint" class="govuk-hint">
+    Select all that apply
+
+  </div>
+
+
+
+    {{ govukCheckboxes({
+      errorMessage: {
+        text: "Select a physical activity or select ‘No difficulty with physical activities’"
+      } if(data.timeline.activitiesphysicalError),
+      idPrefrix:"[timeline][activitiesphysical]",
+      name: "[timeline][activitiesphysical]",
+      fieldset: {
+        legend: {
+          text: "Physical",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: ""
+      },
+      values: data.timeline.activitiesphysical,  
+      items: [
+        {
+          value: "Moving around",
+          text: "Moving around"
+        },
+        {
+          value: "Using steps",
+          text: "Using steps"
+        },
+        {
+          value: "Standing and sitting",
+          text: "Standing and sitting"
+        },
+        {
+          value: "Transferring between seats",
+          text: "Transferring between seats"
+        },
+        {
+          value: "Reaching",
+          text: "Reaching"
+        },
+        {
+          value: "Picking up and moving things",
+          text: "Picking up and moving things"
+        },
+        {
+          value: "Manual dexterity (using their hands)",
+          text: "Manual dexterity (using their hands)"
+        },
+        {
+          value: "Communicating - speaking, writing and typing",
+          text: "Communicating - speaking, writing and typing"
+        },
+        {
+          value: "Communicating - hearing and reading",
+          text: "Communicating - hearing and reading"
+        },
+        {
+          value: "Getting around safely",
+          text: "Getting around safely"
+        },
+        {
+          value: "Controlling their bowels and bladder and using a collecting device",
+          text: "Controlling their bowels and bladder and using a collecting device"
+        },
+        {
+          value: "Staying conscious when awake",
+          text: "Staying conscious when awake"
+        }
+        
+        
+      ]
+    }) }}
+    
+    {{ govukCheckboxes({ 
+      name: "[timeline][activitiesmental]",
+      errorMessage: {
+        text: "Select a mental, cognitive or intellectual activity or select ‘No difficulty with mental, cognitive, or intellectual activities’"
+      } if(data.timeline.activitiesmentalError),
+      fieldset: {
+        legend: {
+          text: "Mental, cognitive and intellectual",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: ""
+      },
+      values: data.timeline.activitiesmental,
+      items: [
+        {
+          value: "Learning how to do tasks",
+          text: "Learning how to do tasks"
+        },
+        {
+          value: "Awareness of hazards or danger",
+          text: "Awareness of hazards or danger"
+        },
+        {
+          value: "Starting and finishing tasks",
+          text: "Starting and finishing tasks"
+        },
+        {
+          value: "Coping with changes",
+          text: "Coping with changes"
+        },
+        {
+          value: "Going out",
+          text: "Going out"
+        },
+        {
+          value: "Coping with social situations",
+          text: "Coping with social situations"
+        },
+        {
+          value: "Behaving appropriately",
+          text: "Behaving appropriately"
+        }
+       
+        
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    
+  </form>
+</div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+ 
+{% endblock %}

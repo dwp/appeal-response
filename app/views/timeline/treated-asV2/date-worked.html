@@ -1,0 +1,93 @@
+sc{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <form novalidation method="post">
+    
+    
+    
+  {{ govukDateInput({
+    id: "date",
+    fieldset: {
+      legend: {
+        text: "What date did they last work?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    hint: {
+      text: "For example, 31 3 1980"
+    },
+    items: [
+      {
+        name: "date",
+        label: "Day",
+        value: data.day,
+        classes: "govuk-input--width-2"
+      },
+      {
+        name: "date",
+        label: "Month",
+        value: data.month,
+        classes: "govuk-input--width-2"
+      },
+      {
+        name: "date",
+        label: "Year",
+        value: data.year,
+        classes: "govuk-input--width-4"
+      }
+    ]
+  }) }}
+      
+    
+    
+   
+
+    
+      
+         
+
+ {{ govukButton({
+  text: "Continue"
+ }) }}
+</form>
+</div>
+</div>
+{% endblock %}
+
+//when they click continue - change to '2,copy to endblock
+
+    
+    
+   
+
+    
+      
+         
+
+

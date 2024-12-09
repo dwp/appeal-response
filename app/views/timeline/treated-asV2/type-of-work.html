@@ -60,13 +60,17 @@ sc{% extends "dwp-layout.html" %}
         {% else %} 
         <h1 class="govuk-heading-l ">What work-related activity can the appellant do without risk to themselves or others?</h1>
         {% endif %}
+        {% if data.decisionType === 'LCW' %}
+        <div id="event-name-hint" class="govuk-hint">
+          For example, work in a call centre
+        </div>
 
+        {% else %} 
+      
         <div id="event-name-hint" class="govuk-hint">
           For example, complete an online IT course
         </div>
-      
-
-       
+        {% endif %}
 
       {# Begin add another typeOfWork #}
       <div class="govuk-form-group">
@@ -99,10 +103,21 @@ sc{% extends "dwp-layout.html" %}
                 {% endif %}
               {% endfor %}
             {% endif %} 
+
+            {% if data.decisionType === 'LCW' %}
           </div>
   
-          <button type="button" class="govuk-body button--text govuk-!-margin-top-2 js-add-another-button">Add another activity</button>
+          <button type="button" class="govuk-body button--text govuk-!-margin-top-2 js-add-another-button">Add another type of work</button>
         </div>
+        {% else %} 
+
+      </div>
+  
+      <button type="button" class="govuk-body button--text govuk-!-margin-top-2 js-add-another-button">Add another activity</button>
+    </div>
+
+    {% endif %}
+
       </div>
       {# End add another typeOfWork #}
     
