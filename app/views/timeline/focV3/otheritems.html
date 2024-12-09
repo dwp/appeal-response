@@ -34,28 +34,50 @@
 <form novalidation method="post">
 
 
-<h1 class="govuk-heading-l">Appellant reported a change to their health and disability on 1st September 2023</h1>
+  {{ govukRadios({
+    name: "[timeline][events]",
+    fieldset: {
+      legend: {
+        text: "Do you want to record any other items?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    value: data.events,
+  items: [
+    {
+      value: "GP report (UC113) ",
+      text: "GP report(UC113)"
+    },
+    {
+      value: "Previous decision",
+      text: "Previous decision"
+    },
+    {
+      value: "Other fact",
+      text: "Other fact"
+    }, 
 
-<p class="govuk-body">They declared having conditions:</p>
-<ul class="govuk-list govuk-list--bullet">
-  <li>Pain in leg</li>
-  <li>Broken toe</li>
-  <li>Swollen ankles</li>
+    {
+      divider: "or"
+    },
+    {
+      value: "abroad",
+      text: "No"
+    }
+  ]
+}) }}
+    
 
-</ul>
 
-<p class="govuk-body"> Fitnote was provided 7th till the 11th of August </p>
+
+
+
+
 
 
 {{ govukButton({
   text: "Continue"
-}) }}
-
-{% from "govuk/components/details/macro.njk" import govukDetails %}
-
-{{ govukDetails({
-  summaryText: "Get help if this data is not correct",
-  text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
 }) }}
 
 </form>
@@ -64,3 +86,7 @@
 </div>
 
 {% endblock %}
+
+      
+         
+     

@@ -17,32 +17,17 @@
 {% endblock %}
 
 {% block content %}
-{% if data.error %}
-  <div class="govuk-error-summary" data-module="govuk-error-summary">
-  <div role="alert">
-    <h2 class="govuk-error-summary__title">
-      There is a problem
-    </h2>
-    <div class="govuk-error-summary__body">
-      <ul class="govuk-list govuk-error-summary__list">
-        <li>
-          <a href="#">Enter all mandatory data</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  </div>
-{% endif %}
+
 <a href="javascript:history.back()" class="govuk-back-link">Back</a>
   <div class="govuk-grid-row">
+    <form novalidation method="post">
     <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-7">
       
       <h2 class="govuk-heading-l">Which activities does the appellant claim affects their health?</h2>
         
       <!--this is what I'd look for in routes (before the ?) -->
         
-        <form action="/timeline/foc/addUC50Details?target={{data.target}}" method="post" id="form">
-          <input class="govuk-input" id="uc50ID" name="uc50ID" type="text" style="display:none" value={{data.uc50.id}}>
+      
           
           <div id="passport-issued-hint" class="govuk-hint">
             Select all that apply
@@ -50,7 +35,7 @@
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-           <h1 class="govuk-heading-m">Physical</h1>
+           <h1 class="govuk-heading-s">Physical</h1>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="op1" name="physical" type="checkbox" value="Moving around and using steps"
@@ -178,12 +163,7 @@
       <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
         Continue
       </button>
-      {% if data.edit == 1 %}
-        <p>
-          <a class="govuk-body govuk-link govuk-link--no-visited-state redText" href="/remove?id={{data.events[data.editIndex].id}}">Remove this fact</a>
-        </p>
-      {% endif %}
-      <p><a href="javascript:history.back()">Back</a></p>
+      
       </form>
 
     </div>

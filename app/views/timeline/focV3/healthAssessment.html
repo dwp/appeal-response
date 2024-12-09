@@ -37,17 +37,22 @@
 
 <h1 class="govuk-heading-l">Health assessment</h1>
 
-govuk-body
+<p class="govuk-body">
+The appellant was found to not have sufficient restriction of capability 
+</p>
+<p class="govuk-body">
+  No 'treated as' provisions were met.
+  </p>
 
         
 {{ govukDateInput({
   id: "dateofAssessment",
   fieldset: {
     legend: {
-      text: "Date of assessment
+      text: "Enter the date of the assessment
       ",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
+      classes: "govuk-fieldset__legend--s"
     }
   },
   hint: {
@@ -75,14 +80,18 @@ govuk-body
   ]
 }) }}
 
+
+
 {{ govukRadios({
   name: "[Timeline][TypeofAssessment]",
   fieldset: {
     legend: {
-      text: "Type of assessment
-      ",
+      text: "Select the type of assessment
+      ", 
+      
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
+      classes: "govuk-fieldset__legend--s"
+     
     }
   },
   value: data.assessmentType,

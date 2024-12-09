@@ -34,13 +34,15 @@
 <form novalidation method="post">
 
 
-<h1 class="govuk-heading-l">Mandatory reconsideration</h1>
+<h1 class="govuk-heading-l">Mandatory reconsideration decision made on the 20th October 2023</h1>
+
+<p class="govuk-body">The original decision was not changed.</p>
 
 {{ govukDateInput({
   id: "dateRequested",
   fieldset: {
     legend: {
-      text: "Date requested by appellant (optional)
+      text: "What date was it requested by appellant? (optional)
       ",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--m"
@@ -72,46 +74,14 @@
 }) }}
 
 
-{{ govukDateInput({
-  id: "dateDecisionmade",
-  fieldset: {
-    legend: {
-      text: "Decision date
-      ",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: "For example, 31 3 1980"
-  },
-  items: [
-    {
-      name: "Decisionmade",
-      label: "Day",
-      value: data.dayRequested,
-      classes: "govuk-input--width-2"
-    },
-    {
-      name: "Decisionmade",
-      label: "Month",
-      value: data.month,
-      classes: "govuk-input--width-2"
-    },
-    {
-      name: "Decisionmade",
-      label: "Year",
-      value: data.year,
-      classes: "govuk-input--width-4"
-    }
-  ]
-}) }}
+
 
 {{ govukRadios({
   name: "[timeline][agreeDecision]",
   fieldset: {
     legend: {
-      text: "Did the mandatory reconsideration agree with the original decision?
+      text: "Was the mandatory reconsideration notice sent on the 13 September 2023?
+
 
       ",
       isPageHeading: true,
@@ -132,40 +102,7 @@
 }) }}
 
 
-{{ govukDateInput({
-  id: "date.notification",
-  fieldset: {
-    legend: {
-      text: "Notification sent
-      ",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  hint: {
-    text: "For example, 31 3 1980"
-  },
-  items: [
-    {
-      name: "date.notification",
-      label: "Day",
-      value: data.day,
-      classes: "govuk-input--width-2"
-    },
-    {
-      name: "date.notification",
-      label: "Month",
-      value: data.month,
-      classes: "govuk-input--width-2"
-    },
-    {
-      name: "date.notification",
-      label: "Year",
-      value: data.year,
-      classes: "govuk-input--width-4"
-    }
-  ]
-}) }}
+
 
 
 

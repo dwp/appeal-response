@@ -3150,3 +3150,44 @@ router.post('/timeline/treated-asV2/Know-when-last-worked', (req, res) => {
 router.post('/timeline/treated-asV2/date-worked', (req, res) => {
   res.redirect('/timeline/treated-asV2/type-of-work')
 })
+
+
+router.post('/timeline/focV3/originalClaim', (req, res) => {
+  res.redirect('/timeline/focV3/changetohealth')
+})
+
+router.post('/timeline/focV3/changetohealth', (req, res) => {
+  res.redirect('/timeline/focV3/uc50access')
+})
+
+router.post('/timeline/focV3/uc50access', (req, res) => {
+  res.redirect('/timeline/focV3/uc50Signed')
+})
+
+router.post('/timeline/focV3/uc50Signed', (req, res) => {
+  res.redirect('/timeline/focV3/uc50')
+})
+
+router.post('/timeline/focV3/uc50', (req, res) => {
+  res.redirect('/timeline/focV3/uc50Eatingordrinking')
+})
+
+router.post('/timeline/focV3/uc50Eatingordrinking', (req, res) => {
+  res.redirect('/timeline/focV3/healthAssessment')
+})
+
+router.post('/timeline/focV3/healthAssessment', (req, res) => {
+  res.redirect('/timeline/focV3/outcomeDecisionV3')
+})
+
+router.post('/timeline/focV3/outcomeDecisionV3', (req, res) => {
+  res.redirect('/timeline/focV3/mr')
+})
+
+router.post('/timeline/focV3/mr', (req, res) => {
+  res.redirect('/timeline/focV3/otheritems')
+})
+
+router.post('/timeline/focV3/otheritems', (req, res) => {
+  res.redirect('/timeline/01-task-list-new-b2')
+})
