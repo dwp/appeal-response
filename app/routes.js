@@ -3210,7 +3210,7 @@ router.post('/timeline/decision-under-appeal', (req, res) => {
 })
 
 router.post('/timeline/health-declarations', (req, res) => {
-  res.redirect('/timeline/evidence')
+  res.redirect('/timeline/fitnotes')
 })
 
 router.post('/timeline/evidence', (req, res) => {
@@ -3218,7 +3218,12 @@ router.post('/timeline/evidence', (req, res) => {
 })
 
 router.post('/timeline/fitnotes', (req, res) => {
-  res.redirect('/timeline/FOCV3/uc50access')
+  res.redirect('/timeline/focV3/uc50access')
+})
+
+
+router.post('/timeline/previous-decisions', (req, res) => {
+  res.redirect('/timeline/health-declarations')
 })
 
 
