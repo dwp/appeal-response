@@ -2149,8 +2149,17 @@ router.post('/timeline/representative-individual', (req, res) => {
 })
 
 router.post('/timeline/date-of-claim', (req, res) => {
-  res.redirect('/timeline/decision-under-appeal')
+  res.redirect('/timeline/od-decision-under-appeal')
 })
+
+router.post('/timeline/od-decision-under-appeal', (req, res) => {
+  res.redirect('/timeline/mr-decision-under-appeal')
+})
+
+router.post('/timeline/mr-decision-under-appeal', (req, res) => {
+  res.redirect('/timeline/previous-decisions')
+})
+
 
 router.post('/timeline/representative-organisation', (req, res) => {
   res.redirect('/timeline/date-of-claim')
