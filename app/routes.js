@@ -3218,7 +3218,7 @@ router.post('/timeline/evidence', (req, res) => {
 })
 
 router.post('/timeline/fitnotes', (req, res) => {
-  res.redirect('/timeline/focV3/uc50access')
+  res.redirect('/timeline/focV3/uc50Access')
 })
 
 
