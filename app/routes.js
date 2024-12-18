@@ -2129,7 +2129,7 @@ router.post('/timeline/rep-present', function(request, response) {
   if (representative == "Yes"){
       response.redirect("/timeline/representative-type")
   } else {
-      response.redirect("/timeline/01-task-list-new-b")
+      response.redirect("/timeline/date-of-claim")
   }
 })
 
@@ -2145,15 +2145,19 @@ router.post('/timeline/representative-type', (req, res) => {
 })
 
 router.post('/timeline/representative-individual', (req, res) => {
-  res.redirect('/timeline/01-task-list-new')
+  res.redirect('/timeline/date-of-claim')
+})
+
+router.post('/timeline/date-of-claim', (req, res) => {
+  res.redirect('/timeline/decision-under-appeal')
 })
 
 router.post('/timeline/representative-organisation', (req, res) => {
-  res.redirect('/timeline/01-task-list-new')
+  res.redirect('/timeline/date-of-claim')
 })
 
 router.post('/timeline/add-representative', function(request, response) {
-  response.redirect("/timeline/01-task-list-new")
+  response.redirect("/timeline/date-of-claim")
 })
 
 // No points 5.1
@@ -3189,5 +3193,23 @@ router.post('/timeline/focV3/mr', (req, res) => {
 })
 
 router.post('/timeline/focV3/otheritems', (req, res) => {
-  res.redirect('/timeline/01-task-list-new-b2')
+  res.redirect('/timeline/case-details')
 })
+
+router.post('/timeline/decision-under-appeal', (req, res) => {
+  res.redirect('/timeline/health-declarations')
+})
+
+router.post('/timeline/health-declarations', (req, res) => {
+  res.redirect('/timeline/evidence')
+})
+
+router.post('/timeline/evidence', (req, res) => {
+  res.redirect('/timeline/fitnotes')
+})
+
+router.post('/timeline/fitnotes', (req, res) => {
+  res.redirect('/timeline/FOCV3/uc50access')
+})
+
+

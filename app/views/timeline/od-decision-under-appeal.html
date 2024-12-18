@@ -32,61 +32,61 @@
 
 
 <form novalidation method="post">
+  
+  
+    
+ 
 
-
-  {{ govukRadios({
-    name: "[timeline][events]",
-    fieldset: {
-      legend: {
-        text: "Is there anything else relevant to the appellents case history?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    value: data.events,
+ {{ govukRadios({
+  name: "decisions",
+  fieldset: {
+    legend: {
+      text: "What was the date of the original decision?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  value: data.decision,
   items: [
-    {
-      value: "GP report (UC113) ",
-      text: "GP report(UC113)"
-    },
-    {
-      value: "Previous decision",
-      text: "Previous decision"
-    },
-    {
-      value: "Other fact",
-      text: "Other fact"
-    }, 
+
 
     {
-      divider: "or"
+      value: " 11th Feburary 2023",
+      text: "11th Feburary 2023 "
     },
     {
-      value: "abroad",
-      text: "Nothing new to add"
+      value: "8th March 2022 (First tier decision)",
+      text: "8th March 2022"
+    },
+
+    {
+      value: "2nd November 2021 (first tier decision)",
+      text: "12th November 2021"
     }
   ]
-}) }}
-    
+ }) }}
+
+  
+  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button>
 
 
-
-
-
-
-
-
-{{ govukButton({
-  text: "Continue"
-}) }}
-
-</form>
+  
+  </form>
 
 </div>
+
 </div>
 
 {% endblock %}
 
-      
-         
-     
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressRepDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}

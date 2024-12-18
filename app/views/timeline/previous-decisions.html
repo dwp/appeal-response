@@ -1,0 +1,93 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form novalidation method="post">
+  
+  
+    
+ 
+
+ {{ govukCheckboxes({
+  name: "decisions",
+  fieldset: {
+    legend: {
+      text: "Do you want to include any previous decisions in your appeal?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  value: data.decision,
+  items: [
+
+
+   
+    {
+      value: "8th March 2022 (First tier decision)",
+      text: "8th March 2022 (first tier decision)"
+    },
+    {
+      value: "12th December 2021 (mandatory reconsideration)",
+      text: "12th December 2021 (mandatory reconsideration)"
+    },
+
+    {
+      value: "2nd November 2021 (first tier decision)",
+      text: "12th November 2021 (first tier decision)"
+    }
+  ]
+ }) }}
+
+  
+  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button>
+
+
+  
+  </form>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressRepDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}

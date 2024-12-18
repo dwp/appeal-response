@@ -17,57 +17,45 @@
 {{header.header(serviceName,'Jane Doe')}}
 {% endblock %}
 
-{% block content %}
+{% block beforeContent %}
+
 
 {% from "horizontal-navigation/macro.njk" import dwpHorizontalNavigation %}
 
 {{ 
   dwpHorizontalNavigation({
+    selectedItem: "#/timeline/01-task-list-new-d",
         items: [
             {
               text: "Case history",
-              href: "#l-item-1",
+              href: "/timeline/case-details",
               id: "l-item-1"
             },
             {
-              text: "The response",
-              href: "#l-item-2",
+              href: "#/timeline/01-task-list-new-d",
+              text: "Complete response",
               id: "l-item-2"
             }
         ]
     })
 }}
-<br><br>
+  {% endblock %}
 
+{% block content %}
+
+
+{% from "horizontal-navigation/macro.njk" import dwpHorizontalNavigation %}
+
+
+  
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">
-          Tasks to complete
+          Complete the response
         </h1>
         <ol class="app-task-list">
-          <li>
-            <h2 class="app-task-list__section">
-              <span class="app-task-list__section-number">1. </span> Personal details
-            </h2>
-            <ul class="app-task-list__items">
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="02-appellant-details" class="govuk-link govuk-link--no-visited-state" aria-describedby="eligibility-status">
-                    Decision under appeal
-                  </a>
-                </span>
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="taskAppellantDetails">Not started</strong>
-              </li>
-
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="02-appellant-details" class="govuk-link govuk-link--no-visited-state" aria-describedby="eligibility-status">
-                    Change appellant and representative details
-                  </a>
-                </span>
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="taskAppellantDetails">Not started</strong>
-              </li>
+       
               
              <!-- <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
@@ -85,17 +73,10 @@
 
           <li>
             <h2 class="app-task-list__section">
-              <span class="app-task-list__section-number">2. </span> Case history and the appeal
+              <span class="app-task-list__section-number"> </span> The appeal
             </h2>
             <ul class="app-task-list__items">
-              <li class="app-task-list__item">
-                <span class="app-task-list__task-name">
-                  <a href="./focV3/originalClaim" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
-                    Build the case history
-                  </a>
-                </span>
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="taskFOC">Not started</strong>
-              </li>
+           
 
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
@@ -109,7 +90,7 @@
 
            <li>
             <h2 class="app-task-list__section">
-              <span class="app-task-list__section-number">3. </span> The response
+              <span class="app-task-list__section-number"> </span> The response
             </h2>
             <ul class="app-task-list__items">              
               <li class="app-task-list__item">
@@ -182,7 +163,7 @@
 
           <li>
             <h2 class="app-task-list__section">
-              <span class="app-task-list__section-number">4. </span> Create response
+              <span class="app-task-list__section-number"> </span> Create response
             </h2>
             <ul class="app-task-list__items">
               <li class="app-task-list__item">

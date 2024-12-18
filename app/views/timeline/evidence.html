@@ -1,0 +1,140 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Which changes did the appellent provided medical evidence for?</h1>
+
+        <table class="govuk-table" data-module="moj-multi-select" data-multi-select-checkbox="#select-all" data-multi-select-idprefix="mountains-">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col" id="select-all"></th>
+              <th class="govuk-table__header" scope="col">Date</th>
+              <th class="govuk-table__header" scope="col">Conditions</th>
+             
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row govuk-table__row--selected">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                  <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                  <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                    <span class="govuk-visually-hidden">Select Aconcagua</span>
+                  </label>
+                </div>
+              </td>
+              <td class="govuk-table__cell">12th March 2023</td>
+              <td class="govuk-table__cell">Backpain, kneepain, fracture, depression</td>
+          
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                  <input type="checkbox" class="govuk-checkboxes__input" id="mountain-denali" value="denali">
+                  <label class="govuk-label govuk-checkboxes__label" for="mountain-denali">
+                    <span class="govuk-visually-hidden">Select Denali</span>
+                  </label>
+                </div>
+              </td>
+              </td>
+              <td class="govuk-table__cell">1st March 2023</td>
+              <td class="govuk-table__cell">Backpain, kneepain, fracture, migranes</td>
+        
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                  <input type="checkbox" class="govuk-checkboxes__input" id="mountain-elbrus" value="elbrus">
+                  <label class="govuk-label govuk-checkboxes__label" for="mountain-elbrus">
+                    <span class="govuk-visually-hidden">Select Elbrus</span>
+                  </label>
+                </div>
+              </td>
+              <td class="govuk-table__cell">22nd Feburary 2023</td>
+              <td class="govuk-table__cell">Backpain, kneepain, fracture</td>
+        
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                  <input type="checkbox" class="govuk-checkboxes__input" id="mountain-everest" value="everest">
+                  <label class="govuk-label govuk-checkboxes__label" for="mountain-everest">
+                    <span class="govuk-visually-hidden">Select Everest</span>
+                  </label>
+                </div>
+              </td>
+              <td class="govuk-table__cell">2nd Feburary 2023</td>
+              <td class="govuk-table__cell">Backpain, kneepain, fracture</td>
+         
+            
+              
+            
+            </tr>
+          </tbody>
+        </table>
+
+
+<form novalidation method="post">
+  
+  
+  
+ 
+ 
+    
+      
+    
+    </tr>
+  </tbody>
+</table>
+
+
+  
+  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button>
+
+
+  
+  </form>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressRepDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}
