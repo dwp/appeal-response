@@ -134,6 +134,34 @@
      </div>
    </dl>
 
+   <h1 class="govuk-heading-m">Work group</h1> 
+
+   {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Group"
+        },
+        value: {
+          text: "Light touch work"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "",
+              visuallyHiddenText: "name"
+            }
+          ]
+        }
+      }
+
+      
+      
+      
+    ]
+  }) }}
+
    <h1 class="govuk-heading-m">Benefit details </h1> 
 
    {{ govukSummaryList({
@@ -368,26 +396,8 @@
           }
         ]
       }
-    }, 
-
-    {
-      key: {
-        text: "Medical evidence"
-      },
-    
-      value: {
-        text: "Provided"
-      },
-      actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "name"
-          }
-        ]
-      }
     }
+
     
   ]
 }) }}
@@ -429,25 +439,6 @@
           {
             href: "#",
             text: "",
-            visuallyHiddenText: "name"
-          }
-        ]
-      }
-    }, 
-
-    {
-      key: {
-        text: "Medical evidence"
-      },
-    
-      value: {
-        text: "Provided"
-      },
-      actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
             visuallyHiddenText: "name"
           }
         ]
@@ -499,26 +490,9 @@
           }
         ]
       }
-    }, 
+    } 
 
-    {
-      key: {
-        text: "Medical evidence"
-      },
     
-      value: {
-        text: "Provided"
-      },
-      actions: {
-        items: [
-          {
-            href: "#",
-            text: "Change",
-            visuallyHiddenText: "name"
-          }
-        ]
-      }
-    }
     
   ]
 }) }}
@@ -529,7 +503,7 @@
   rows: [
     {
       key: {
-        text: "Start date"
+        text: "Reported date"
       },
     
       value: {
@@ -544,26 +518,9 @@
           }
         ]
       }
-    }, 
+    }
 
-    {
-      key: {
-        text: "End date"
-      },
     
-      value: {
-        text: "12th March 2023"
-      },
-      actions: {
-        items: [
-          {
-            href: "#",
-            text: "",
-            visuallyHiddenText: "name"
-          }
-        ]
-      }
-    } 
 
     
   ]
