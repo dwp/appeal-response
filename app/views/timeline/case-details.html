@@ -162,6 +162,8 @@
     ]
   }) }}
 
+  <br>
+
    <h1 class="govuk-heading-m">Benefit details </h1> 
 
    {{ govukSummaryList({
@@ -224,6 +226,8 @@
     ]
   }) }}
 
+  <br>
+
    <h1 class="govuk-heading-m">Case details </h1> 
 
    {{ govukSummaryList({
@@ -233,13 +237,13 @@
            text: "Date of claim"
          },
          value: {
-           text: "14th March 2023"
+           text: "1st January 2023"
          },
          actions: {
            items: [
              {
                href: "#",
-               text: "Change",
+               text: "",
                visuallyHiddenText: "name"
              }
            ]
@@ -247,10 +251,10 @@
        },
        {
          key: {
-           text: "Decision under appeal"
+           text: "Original Decision"
          },
          value: {
-           text: "8th April 2023"
+           text: "11th Feburary 2023"
          },
          actions: {
            items: [
@@ -267,7 +271,7 @@
            text: "Mandatory reconsideration"
          },
          value: {
-           html: "8th April 2023"
+           html: "5th June 2023"
          },
          actions: {
            items: [
@@ -278,29 +282,84 @@
              }
            ]
          }
-       }, 
-
-       {
-        key: {
-          text: "Previous Mandatory reconsideration"
-        },
-        value: {
-          html: "10th April 2023"
-        },
-        actions: {
-          items: [
-            {
-              href: "#",
-              text: "",
-              visuallyHiddenText: "address"
-            }
-          ]
-        }
-      }
+       }
        
        
      ]
    }) }}
+
+   <br>
+
+   <h1 class="govuk-heading-m">Previous decisions </h1>
+   
+   {{ govukSummaryList({
+    classes: "common-reason-for-appeal", 
+    
+    rows: [
+    {
+      key: {
+        text: "8th March 2020 (first tier decision)"
+      },
+      
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "contact details"
+          }
+          
+        ]
+      }
+    }
+  
+    
+  ]
+  }) }}
+
+   {{ govukSummaryList({
+     rows: [
+       
+       {
+         key: {
+           text: "Date of health assessment"
+         },
+         value: {
+           text: "20th March 2022"
+         },
+         actions: {
+           items: [
+             {
+               href: "#",
+               text: "Change",
+               visuallyHiddenText: "date of birth"
+             }
+           ]
+         }
+       },
+       {
+         key: {
+           text: "Date of appeal"
+         },
+         value: {
+           html: "14th May 2022"
+         },
+         actions: {
+           items: [
+             {
+               href: "#",
+               text: "Change",
+               visuallyHiddenText: "address"
+             }
+           ]
+         }
+       }
+       
+       
+     ]
+   }) }}
+
+   <br>
 
    <h1 class="govuk-heading-m">Health declaration </h1> 
 
@@ -338,6 +397,7 @@
   rows: [
   {
     key: {
+      classes: "govuk-body govuk-!-font-size-24",
       text: "Changes to health or disability"
     },
     
@@ -366,7 +426,7 @@
       },
     
       value: {
-        text: "4th March 2023"
+        text: "12th March 2023"
       },
       actions: {
         items: [
@@ -385,7 +445,26 @@
       },
     
       value: {
-        text: "Back pain, fracture, varicose veins"
+        text: "Back pain, fracture, varicose veins, depression"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }, 
+
+    {
+      key: {
+        text: "Ability to work"
+      },
+    
+      value: {
+        text: "Restricted ability"
       },
       actions: {
         items: [
@@ -403,6 +482,70 @@
 }) }}
 
 
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Date"
+      },
+    
+      value: {
+        text: "1st March 2023"
+      },
+      actions: {
+        items: [
+          
+          {
+            href: "#",
+            text: "Remove",
+            visuallyHiddenText: "contact details"
+          }
+        ]
+      }
+    }, 
+
+    {
+      key: {
+        text: "Conditions"
+      },
+    
+      value: {
+        text: "Back pain, fracture, varicose veins, migranes"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }, 
+
+    {
+      key: {
+        text: "Ability to work"
+      },
+    
+      value: {
+        text: "Restricted ability"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+    
+  ]
+}) }}
+    
+
 
 {{ govukSummaryList({
   rows: [
@@ -412,7 +555,7 @@
       },
     
       value: {
-        text: "4th March 2023"
+        text: "2nd Feburary 2023"
       },
       actions: {
         items: [
@@ -443,30 +586,72 @@
           }
         ]
       }
-    }
+    }, 
     
-  ]
-}) }},
-    
-
-
-
-{{ govukSummaryList({
-  rows: [
     {
       key: {
-        text: "Date"
+        text: "Ability to work"
       },
     
       value: {
-        text: "4th March 2023"
+        text: "Restricted ability"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+
+    
+    
+  ]
+}) }}
+
+<br>
+
+<h1 class="govuk-heading-m">UC 50</h1>
+
+{{ govukSummaryList({
+  rows: [
+
+  {
+    key: {
+      text: "Date signed"
+    },
+  
+    value: {
+      text: "14th April 2023"
+    },
+    actions: {
+      items: [
+        
+        {
+          href: "#",
+          text: "Change",
+          visuallyHiddenText: "contact details"
+        }
+      ]
+    }
+  }, 
+    {
+      key: {
+        text: "Physical activities"
+      },
+    
+      value: {
+        text: "Moving around, using steps"
       },
       actions: {
         items: [
           
           {
             href: "#",
-            text: "Remove",
+            text: "Change",
             visuallyHiddenText: "contact details"
           }
         ]
@@ -475,17 +660,17 @@
 
     {
       key: {
-        text: "Conditions"
+        text: "Mental, cognitive and intellectual activities"
       },
     
       value: {
-        text: "Back pain, fracture, varicose veins"
+        text: "Learning how to do tasks, awareness of hazards or danger"
       },
       actions: {
         items: [
           {
             href: "#",
-            text: "",
+            text: "Change",
             visuallyHiddenText: "name"
           }
         ]
@@ -497,7 +682,32 @@
   ]
 }) }}
 
-<h1 class="govuk-heading-m">Fit note </h1>
+{{ govukSummaryList({
+  classes: "common-reason-for-appeal", 
+  
+  rows: [
+  {
+    key: {
+
+      classes: "govuk-body govuk-!-font-size-24",
+      text: "Fit notes"
+    },
+    
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Add",
+          visuallyHiddenText: "contact details"
+        }
+        
+      ]
+    }
+  }
+
+  
+]
+}) }}
 
 {{ govukSummaryList({
   rows: [
@@ -507,7 +717,7 @@
       },
     
       value: {
-        text: "4th March 2023"
+        text: "14th September 2023"
       },
       actions: {
         items: [
@@ -525,6 +735,87 @@
     
   ]
 }) }}
+<br>
+
+<h1 class="govuk-heading-m">Additonal items</h1>
+
+{{ govukSummaryList({
+  classes: "common-reason-for-appeal", 
+  
+  rows: [
+  {
+    key: {
+      
+      text: "GP report (UC113) "
+    },
+    
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Add",
+          visuallyHiddenText: "contact details"
+        }
+        
+      ]
+    }
+  }
+
+  
+]
+}) }}
+
+{{ govukSummaryList({
+  classes: "common-reason-for-appeal", 
+  
+  rows: [
+  {
+    key: {
+      
+      text: "Written Statement of Reasons (WSOR) "
+    },
+    
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Add",
+          visuallyHiddenText: "contact details"
+        }
+        
+      ]
+    }
+  }
+
+  
+]
+}) }}
+
+{{ govukSummaryList({
+  classes: "common-reason-for-appeal", 
+  
+  rows: [
+  {
+    key: {
+      text: "Other fact "
+    },
+    
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Add",
+          visuallyHiddenText: "contact details"
+        }
+        
+      ]
+    }
+  }
+
+  
+]
+}) }}
+
 
 
 
@@ -537,9 +828,7 @@
 
 
   
-  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
-    Continue
-  </button>
+  
 
 
   

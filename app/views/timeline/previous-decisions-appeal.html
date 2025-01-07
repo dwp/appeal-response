@@ -34,34 +34,54 @@
 <form novalidation method="post">
   
   
-    
- 
 
- {{ govukRadios({
-  name: "decisions",
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set emailHtml %}
+<h1 class="govuk-heading-s">Enter date of the hearing</h1>
+{{ govukDateInput({
+  id: "contact-by-email",
+  name: "contactByEmail",
+  type: "Yes",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-two-third",
+  label: {
+    text: "Enter date of the hearing"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "contact",
   fieldset: {
     legend: {
-      text: "What was the date of the mandatory reconsideration?",
+      text: "Has the appeal for the previous decision made on the 8th March 2022 been heard?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
   },
-  value: data.decision,
+  
   items: [
-
-
     {
-      value: " 5th June 2023 (First tier decision)",
-      text: "5th June 2023 "
+      value: "email",
+      text: "Yes",
+      conditional: {
+        html: emailHtml
+      }
     },
-    
-
     {
-      value: "2nd November 2021 (first tier decision)",
-      text: "12th December 2021"
+      value: "phone",
+      text: "No",
+      conditional: {
+        html: phoneHtml
+      }
     }
   ]
- }) }}
+}) }}
 
   
   <button class="govuk-button" data-module="govuk-button" onclick="saveData()">

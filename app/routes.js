@@ -2152,6 +2152,10 @@ router.post('/timeline/date-of-claim', (req, res) => {
   res.redirect('/timeline/od-decision-under-appeal')
 })
 
+router.post('timeline/00-decision-type', (req, res) => {
+  res.redirect('/timeline/date-of-claim')
+})
+
 router.post('/timeline/od-decision-under-appeal', (req, res) => {
   res.redirect('/timeline/mr-decision-under-appeal')
 })
@@ -2650,7 +2654,7 @@ router.post('/timeline/foc/uc50Signed', (req, res) => {
 })
 
 router.post('/timeline/02-appellant-details', (req, res) => {
-  res.redirect('/timeline/representative')
+  res.redirect('/timeline/00-decision-type')
 })
 
 
@@ -3198,7 +3202,7 @@ router.post('/timeline/focV3/outcomeDecisionV3', (req, res) => {
 })
 
 router.post('/timeline/focV3/mr', (req, res) => {
-  res.redirect('/timeline/focV3/otheritems')
+  res.redirect('/timeline/otheritems')
 })
 
 router.post('/timeline/focV3/otheritems', (req, res) => {
@@ -3223,7 +3227,19 @@ router.post('/timeline/fitnotes', (req, res) => {
 
 
 router.post('/timeline/previous-decisions', (req, res) => {
+  res.redirect('/timeline/previous-decisions-detail')
+})
+
+router.post('/timeline/previous-decisions-detail', (req, res) => {
+  res.redirect('/timeline/previous-decisions-appeal')
+})
+
+
+router.post('/timeline/previous-decisions-appeal', (req, res) => {
   res.redirect('/timeline/health-declarations')
 })
 
+router.post('/timeline/otheritems', (req, res) => {
+  res.redirect('/timeline/case-details')
+})
 

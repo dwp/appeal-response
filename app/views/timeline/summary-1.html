@@ -1,0 +1,197 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form novalidation method="post">
+  
+  
+    
+ <h1 class="govuk-heading-l">Confirm case details</h1>
+
+ <p class="govuk-body">You won't be able to change these past this point.</p>
+
+ <h2 class="govuk-heading-m">Appellant details</h2>
+   <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+     <div class="govuk-summary-list__row">
+       <dt class="govuk-summary-list__key">
+         National Insurance number
+       </dt>
+       <dd class="govuk-summary-list__value">
+         QQ 12 34 45 Q
+       </dd>
+       <dd class="govuk-summary-list__actions">
+         
+         <a href="#">
+           Change
+           <span class="govuk-visually-hidden"> name</span>
+         </a>
+         
+       </dd>
+     </div>
+     <div class="govuk-summary-list__row">
+       <dt class="govuk-summary-list__key">
+         Name
+       </dt>
+       <dd class="govuk-summary-list__value">
+         Jane Doe
+       </dd>
+
+      <dd class="govuk-summary-list__actions">
+         <!-- <a href="02-appellant-details?target=cya">
+           Change
+           <span class="govuk-visually-hidden"> name</span>
+         </a>
+       </dd> -->
+     </div>
+     <div class="govuk-summary-list__row">
+       <dt class="govuk-summary-list__key">
+         Date of birth
+       </dt>
+       <dd class="govuk-summary-list__value">
+         4 June 1972
+       </dd>
+       <dd class="govuk-summary-list__actions">
+         <!--
+         <a href="#">
+           Change
+           <span class="govuk-visually-hidden"> name</span>
+         </a>
+         -->
+       </dd>
+     </div>
+     
+     <div class="govuk-summary-list__row">
+       <dt class="govuk-summary-list__key">
+         Address
+       </dt>
+       <dd class="govuk-summary-list__value" >
+         <div id="addressContainer">
+           72 Guild Street,<br>
+           London <br>
+           SE23 6FH
+         </div>
+       </dd>
+       <dd class="govuk-summary-list__actions">
+         <a class="govuk-visually-hidden" href="02-appellant-address-change.html">
+           Change
+           <span class="govuk-visually-hidden"> name</span>
+         </a>
+       </dd>
+     </div>
+   </dl>
+
+   <h1 class="govuk-heading-m">Decision under appeal </h1> 
+
+   {{ govukSummaryList({
+     rows: [
+       {
+         key: {
+           text: "Date of claim"
+         },
+         value: {
+           text: "14th March 2023"
+         },
+         actions: {
+           items: [
+             {
+               href: "#",
+               text: "Change",
+               visuallyHiddenText: "name"
+             }
+           ]
+         }
+       },
+       {
+         key: {
+           text: "Date of original decision"
+         },
+         value: {
+           text: "8th April 2023"
+         },
+         actions: {
+           items: [
+             {
+               href: "#",
+               text: "Change",
+               visuallyHiddenText: "date of birth"
+             }
+           ]
+         }
+       },
+       {
+         key: {
+           text: "Date of mandatory reconsideration"
+         },
+         value: {
+           html: "8th April 2023"
+         },
+         actions: {
+           items: [
+             {
+               href: "#",
+               text: "Change",
+               visuallyHiddenText: "address"
+             }
+           ]
+         }
+       } 
+
+       
+       
+     ]
+   }) }}
+
+  
+  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button>
+
+
+  
+  </form>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressRepDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}

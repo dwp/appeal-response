@@ -34,11 +34,11 @@
 <form novalidation method="post">
 
 
-  {{ govukRadios({
+  {{ govukCheckboxes({
     name: "[timeline][events]",
     fieldset: {
       legend: {
-        text: "Is there anything else relevant to the appellents case history?",
+        text: "Is there anything else relevant to add to the appellents case history?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--l"
       }
@@ -47,7 +47,11 @@
   items: [
     {
       value: "GP report (UC113) ",
-      text: "GP report(UC113)"
+      text: "GP report (UC113)"
+    },
+    {
+      value: "Written Statement of Reasons (WSOR) ",
+      text: "Written Statement of Reasons (WSOR)"
     },
     {
       value: "Adult disability payment",
@@ -63,7 +67,7 @@
     },
     {
       value: "abroad",
-      text: "Nothing new to add"
+      text: "Nothing additonal to add"
     }
   ]
 }) }}

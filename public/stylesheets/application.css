@@ -5518,6 +5518,7 @@ x:-moz-any-link {
 .govuk-summary-list__key {
   margin-bottom: 5px;
   font-weight: 700;
+  
 }
 @media (min-width: 56.25em) {
   .govuk-summary-list__key {
