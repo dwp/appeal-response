@@ -2203,25 +2203,7 @@ router.post('/timeline/treated-as-question', (req, res) => {
 
 
 router.post('/timeline/activities-considered', (req, res) => {
-  const {data} = req.session;
-  
-  if(!data.timeline.activities.physical) {
-    data.timeline.activities.physicalError = true;
-  } else {
-    data.timeline.activities.physicalError = false;
-  }
-
-  if(!data.timeline.activities.mental) {
-    data.timeline.activities.mentalError = true;
-  } else {
-    data.timeline.activities.mentalError = false;
-  }
-
-  if(!data.timeline.activities.mental || !data.timeline.activities.physical) {
-    return res.redirect('/timeline/activities-considered');
-  }
-
- return res.redirect('/timeline/points-awarded-question')
+  res.redirect('/timeline/points-awarded-question')
 })
 
 router.post('/timeline/points-awarded-question', (req, res) => {
@@ -2765,7 +2747,7 @@ router.post('/timeline/focV2/index', (req, res) => {
 })
 
 router.post('/timeline/appealDates', (req, res) => {
-  res.redirect('/timeline/benefits')
+  res.redirect('/timeline/01-task-list-new-d')
 })
 
 

@@ -51,8 +51,8 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">
-          Complete the response
+        <h1 class="govuk-heading-l">
+          Complete the appeal response
         </h1>
         <ol class="app-task-list">
        
@@ -80,15 +80,15 @@
 
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                  <a href="/timeline/appealDates" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
                     Appeal dates 
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="points">Not started</strong>
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="appealdate">Not started</strong>
               </li> 
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                  <a href="/timeline/activities-considered" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
                     Record activities disputed in the appeal
                   </a>
                 </span>
@@ -104,11 +104,11 @@
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                   {% if data.addedAllEvidence[0] === 'yes' %}
-                    <a href="" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                    <a href="./section52V2b/evidences" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
                       Record evidence for activities
                     </a>
                   {% else %}
-                    <a href="" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                    <a href="./section52V2b/record-evidence" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
                       Record evidence for activities
                     </a>
                   {% endif %}
@@ -132,7 +132,7 @@
               </li>
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                  <a href="" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                  <a href="./Otherissues/other-reasons-for-appeal" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
                     Respond to other reasons for the appeal
                   </a>
                 </span>
@@ -148,9 +148,9 @@
                       <!--because I'm not saving data we can do it in the HTML,LCW value on decision type page -->
                       <a 
                       {% if data.decisionType == 'LCW' %}
-                        href=""
+                        href="./treated-asV2/know-when-last-worked"
                       {% else %}
-                        href=""
+                        href="./treated-asV2/type-of-work"
                       {% endif %}
                       aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
                       Record evidence for 'treated as' provisions
@@ -208,4 +208,84 @@
 
 
   
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    window.addEventListener('load', (event) => {
+
+      sessionStorage.setItem("draftExists","1");
+      sessionStorage.setItem("appellantAddress","72 Guild Street <br>London <br>SE23 6FH");
+
+      if(sessionStorage.getItem("taskProgressAppellantDetails")=="2") {
+          document.getElementById("taskAppellantDetails").innerHTML = "Completed";
+          document.getElementById("taskAppellantDetails").className = "govuk-tag app-task-list__tag";
+        
+      }
+      
+//points
+//Flags - 
+
+
+if(sessionStorage.getItem("taskAppealdates")=="2") {
+          document.getElementById("appealdate").innerHTML = "Completed"; //'complete - changed the label name'
+          document.getElementById("appealdate").className = "govuk-tag app-task-list__tag"; //pulling in GDS style label- check design system
+        
+      }
+
+if(sessionStorage.getItem("taskProgressPoints")=="2") {
+          document.getElementById("points").innerHTML = "Completed"; //'complete - changed the label name'
+          document.getElementById("points").className = "govuk-tag app-task-list__tag"; //pulling in GDS style label- check design system
+        
+      }
+
+      if(sessionStorage.getItem("taskProgressReasons")=="2") {
+          document.getElementById("reasons").innerHTML = "Completed"; //'complete - changed the label name'
+          document.getElementById("reasons").className = "govuk-tag app-task-list__tag"; //pulling in GDS style label- check design system
+        
+      }
+
+
+     // if(sessionStorage.getItem("taskProgressRepDetails")=="2") {
+      //    document.getElementById("taskRepDetails").innerHTML = "Completed";
+      //    document.getElementById("taskRepDetails").className = "govuk-tag app-task-list__tag"; 
+     // }
+      if(sessionStorage.getItem("taskProgressFOC")=="2") {
+          document.getElementById("taskFOC").innerHTML = "Completed";
+          document.getElementById("taskFOC").className = "govuk-tag app-task-list__tag";
+      }
+      else if(sessionStorage.getItem("taskProgressFOC")=="1") {
+          document.getElementById("taskFOC").innerHTML = "In progress";
+          document.getElementById("taskFOC").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+      }
+
+      if(sessionStorage.getItem("taskProgressRisk")=="2") {
+          document.getElementById("taskRisk").innerHTML = "Completed";
+          document.getElementById("taskRisk").className = "govuk-tag app-task-list__tag"; 
+      }
+
+      
+
+     
+      // when adding stuff to task list, add here... :) 
+
+      //if(sessionStorage.getItem("taskProgressPoints")=="2" && sessionStorage.getItem("taskProgressAppellantDetails")=="2" && sessionStorage.getItem("taskProgressRepDetails")=="2" && sessionStorage.getItem("taskProgressFOC")=="2" ) 
+      
+      if(sessionStorage.getItem("taskProgressReasons")=="2"  ) 
+      { 
+        document.getElementById("cya-link").style.display="block"; 
+        document.getElementById("cya-nolink").style.display="none"; 
+        document.getElementById("cya-no-link-status").style.display= "none";
+        console.log("everything is complete");
+      }
+      else {
+        document.getElementById("cya-link").style.display="none"; 
+        document.getElementById("cya-nolink").style.display="block"; 
+        document.getElementById("cya-no-link-status").style.display= "block";
+        console.log("NOT everything is complete");
+      }
+      
+
+    });
+  </script>
 {% endblock %}

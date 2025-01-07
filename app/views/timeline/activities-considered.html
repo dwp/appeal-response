@@ -25,22 +25,6 @@
 
 {% block content %}
 
-{% if (data.timeline.activities.mentalError === true or data.timeline.activities.physicalError === true) %}
-  <div class="govuk-error-summary" data-module="govuk-error-summary">
-  <div role="alert">
-    <h2 class="govuk-error-summary__title">
-      There is a problem
-    </h2>
-    <div class="govuk-error-summary__body">
-      <ul class="govuk-list govuk-error-summary__list">
-        <li>
-          <a href="#">Select an activity or select none</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  </div>
-{% endif %}
 
 
 <div class="govuk-grid-row">
@@ -54,7 +38,7 @@
         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Activities to include as context for your response
+              Select relevant activities you want to address in the appeal
 
             </h1>
             
@@ -66,11 +50,9 @@
         
         
           {{ govukCheckboxes({
-            id: "[timeline][activities][physical]",
-            name: "[timeline][activities][physical]",
-            errorMessage: {
-              text: "Select a physical activity or select none"
-            } if(data.timeline.activities.physicalError),
+            id: "[timeline][activities]",
+            name: "[timeline][activities]",
+            
             fieldset:{
               legend: {
                 text:"Select physical activities to include",
@@ -78,7 +60,7 @@
                 classes: "govuk-fieldset__legend--m"            
               }
             },
-            values: data.timeline.activities.physical,
+            values: data.timeline.activities,
             items: [
               {
                 value: "Mobilising",
@@ -121,32 +103,23 @@
               {
                 value: "Consciousness",
                 text: "Consciousness"
-              },
-              {
-                divider: "or"
-              },
-              {
-                value: "none",
-                text: "No physical activities to include"
               }
             ]
           }) }}
 
 
           {{ govukCheckboxes({
-            id: "[timeline][activities][mental]",
-            name: "[timeline][activities][mental]",
-            errorMessage: {
-              text: "Select a mental, cognitive and intellectual activity or select none"
-            } if(data.timeline.activities.mentalError),
+            id: "[timeline][activities]",
+            name: "[timeline][activities]",
+          
             fieldset:{
               legend: {
-                text:"Select mental, cognitive and intellectual activities to include",
+                text:"Mental, cognitive and intellectual",
                 isPageHeading:false,
                 classes: "govuk-fieldset__legend--m"              
               }
             },
-            values: data.timeline.activities.mental,    
+            values: data.timeline.activities,    
             items: [
               {
                 value: "Learning new tasks ",
@@ -173,18 +146,10 @@
                 text: "Coping socially  "
               },
               {
-                value: "Appropriateness of behaviour  ",
+                value: "Appropriateness of behaviour ",
                 text: "Appropriateness of behaviour  "
-              }, 
-
-              {
-                divider: "or"
-              },
-
-              {
-                value: "none",
-                text: "No mental, cognitive or intellectual activities to include"                
               }
+              
             ]
           }) }}
            

@@ -29,31 +29,20 @@
     
     {% set activities %}
       <ul class="govuk-list ">
-        {% for item in data.timeline.activities.physical %}
+        {% for item in data.timeline.activities %}
         <li>
           {{item}} 
         </li>
         {%endfor%}    
-
-        {% for item in data.timeline.activities.mental %}
-        <li>
-          {{item}} 
-        </li>
-        {%endfor%}            
+        
       </ul> 
     {% endset %} 
 
     {% set activitiespoints %}
     <ul class="govuk-list">
-      {% for item in data.timeline.activities.physical %}
-        {% if item !== 'none' %}
-        <li>
-          {{item}} 
-        </li>
-        {% endif %}
-      {%endfor%}    
+       
 
-      {% for item in data.timeline.activities.mental %}
+      {% for item in data.timeline.activities %}
         {% if item !== 'none' %}
         <li>
           {{item}} 
@@ -65,15 +54,11 @@
 
     {% set points %}
     <ul class="govuk-list ">
-      {% for item in data.timeline.activities.physical %}
-        {% if item !== 'none' %}
-        <li>
-          {{data.activitypoints[item]}}
-        </li>
-        {% endif %}
+      {% for item in data.timeline.activities %}
+        
       {%endfor%} 
 
-      {% for item in data.timeline.activities.mental %}
+      {% for item in data.timeline.activities %}
         {% if item !== 'none' %}
         <li>
           {{data.activitypoints[item]}}
@@ -86,7 +71,7 @@
     
     
     
-      <form class="form" action="/timeline/01-task-list-new" method="post">
+      <form class="form" action="/timeline/01-task-list-new-d" method="post">
 
         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -97,9 +82,11 @@
 
 
         {{ govukSummaryList({
+          
           rows: [
           {
             key: {
+              classes: "common-reason-for-appeal",
               text: "Activities identified in the appeal"
             },            
             actions: {
