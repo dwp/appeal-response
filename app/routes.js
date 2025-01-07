@@ -2152,7 +2152,7 @@ router.post('/timeline/date-of-claim', (req, res) => {
   res.redirect('/timeline/od-decision-under-appeal')
 })
 
-router.post('timeline/00-decision-type', (req, res) => {
+router.post('/timeline/00-decision-type', (req, res) => {
   res.redirect('/timeline/date-of-claim')
 })
 
