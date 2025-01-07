@@ -372,9 +372,15 @@
         text: "Conditions at date of claim"
       },
     
-      value: {
-        text: "Back pain, fracture, varicose veins"
-      },
+      value: { 
+        
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>"Back pain"</li>
+          <li>"Fracture"</li>
+          <li>"Varicose veins"</li>
+        </ul>'
+
+    },
       actions: {
         items: [
           {
@@ -444,9 +450,16 @@
         text: "Conditions"
       },
     
-      value: {
-        text: "Back pain, fracture, varicose veins, depression"
-      },
+      value: { 
+        
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>"Back pain"</li>
+          <li>"Fracture"</li>
+          <li>"Varicose veins"</li>
+          <li>"depression"</li>
+        </ul>'
+
+    },
       actions: {
         items: [
           {
@@ -509,9 +522,16 @@
         text: "Conditions"
       },
     
-      value: {
-        text: "Back pain, fracture, varicose veins, migranes"
-      },
+      value: { 
+        
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>"Back pain"</li>
+          <li>"Fracture"</li>
+          <li>"Varicose veins"</li>
+          <li>"Migranes"</li>
+        </ul>'
+
+    },
       actions: {
         items: [
           {
@@ -574,9 +594,17 @@
         text: "Conditions"
       },
     
-      value: {
-        text: "Back pain, fracture, varicose veins"
-      },
+      value: { 
+        
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>"Back pain"</li>
+          <li>"Fracture"</li>
+          <li>"Varicose veins"</li>
+        </ul>'
+
+    },
+      
+     
       actions: {
         items: [
           {
@@ -614,7 +642,7 @@
 
 <br>
 
-<h1 class="govuk-heading-m">UC 50</h1>
+<h1 class="govuk-heading-m">Capability for work questionnaire (UC50)</h1>
 
 {{ govukSummaryList({
   rows: [
@@ -643,9 +671,16 @@
         text: "Physical activities"
       },
     
-      value: {
-        text: "Moving around, using steps"
-      },
+      value: { 
+        
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>Moving around</li>
+          <li>Using steps</li>
+        
+        </ul>'
+
+    },
+      
       actions: {
         items: [
           
@@ -662,10 +697,16 @@
       key: {
         text: "Mental, cognitive and intellectual activities"
       },
-    
-      value: {
-        text: "Learning how to do tasks, awareness of hazards or danger"
-      },
+      value: { 
+        
+        html: '<ul class="govuk-list govuk-list--bullet">
+          <li>Learning how to do tasks</li>
+          <li>Awareness of hazards or danger</li>
+        
+        </ul>'
+
+    },
+     
       actions: {
         items: [
           {
@@ -737,84 +778,71 @@
 }) }}
 <br>
 
-<h1 class="govuk-heading-m">Additonal items</h1>
+<h1 class="govuk-heading-m">Other facts</h1>
 
 {{ govukSummaryList({
-  classes: "common-reason-for-appeal", 
-  
   rows: [
-  {
-    key: {
-      
-      text: "GP report (UC113) "
+    {
+      key: {
+        text: "
+        GP report (UC113)"
+      },
+      value: {
+        text: "
+        2nd April 2023"
+      },
+      actions: {
+        items: [
+          {
+            href: "Item URL",
+            text: "Change",
+            visuallyHiddenText: "Item label"
+          }
+        ]
+      }
     },
-    
-    actions: {
-      items: [
-        {
-          href: "#",
-          text: "Add",
-          visuallyHiddenText: "contact details"
-        }
-        
-      ]
+    {
+      key: {
+        text: "Written Statement of Reasons"
+      },
+      value: {
+        text: "1st January 2023"
+      },
+      actions: {
+        items: [
+          {
+            href: "Item URL",
+            text: "Change",
+            visuallyHiddenText: "Item label"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Adult disability payment"
+      },
+      value: {
+        text: "Awarded 20th April 2020"
+      },
+      actions: {
+        items: [
+          {
+            href: "Item URL",
+            text: "Change",
+            visuallyHiddenText: "Item label"
+          }
+        ]
+      }
     }
-  }
-
-  
-]
+  ]
 }) }}
 
-{{ govukSummaryList({
-  classes: "common-reason-for-appeal", 
-  
-  rows: [
-  {
-    key: {
-      
-      text: "Written Statement of Reasons (WSOR) "
-    },
-    
-    actions: {
-      items: [
-        {
-          href: "#",
-          text: "Add",
-          visuallyHiddenText: "contact details"
-        }
-        
-      ]
-    }
-  }
 
-  
-]
-}) }}
 
-{{ govukSummaryList({
-  classes: "common-reason-for-appeal", 
-  
-  rows: [
-  {
-    key: {
-      text: "Other fact "
-    },
-    
-    actions: {
-      items: [
-        {
-          href: "#",
-          text: "Add",
-          visuallyHiddenText: "contact details"
-        }
-        
-      ]
-    }
-  }
 
-  
-]
-}) }}
+
+
 
 
 

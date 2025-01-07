@@ -34,49 +34,88 @@
 <form novalidation method="post">
 
 
-  {{ govukCheckboxes({
-    name: "[timeline][events]",
-    fieldset: {
-      legend: {
-        text: "Is there anything else relevant to add to the appellents case history?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    value: data.events,
+  {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set emailHtml %}
+<h1 class="govuk-heading-s">Enter date completed</h1>
+{{ govukDateInput ({
+  id: "contact-by-email",
+  name: "contactByEmail",
+  type: "email",
+  autocomplete: "email",
+  spellcheck: false,
+  classes: "govuk-!-width-two-third",
+  label: {
+    text: "Enter date"
+  }
+}) }}
+{% endset -%}
+
+{% set phoneHtml %}
+<h1 class="govuk-heading-s">Enter date requested</h1>
+{{ govukDateInput({
+  id: "contact-by-phone",
+  name: "contactByPhone",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-two-third",
+  label: {
+    text: "Phone number"
+  }
+}) }}
+{% endset -%}
+
+{% set textHtml %}
+<h1 class="govuk-heading-s">Enter entitlement date</h1>
+{{ govukDateInput({
+  id: "contact-by-text",
+  name: "contactByText",
+  type: "tel",
+  autocomplete: "tel",
+  classes: "govuk-!-width-two-third",
+  label: {
+    text: "Mobile phone number"
+  }
+}) }}
+{% endset -%}
+
+{{ govukCheckboxes({
+  name: "contact",
+  fieldset: {
+    legend: {
+      text: "Do you want to record any of the following?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ""
+  },
   items: [
     {
-      value: "GP report (UC113) ",
-      text: "GP report (UC113)"
+      value: "GP report (UC113)",
+      text: "GP report (UC113)",
+      conditional: {
+        html: emailHtml
+      }
     },
     {
-      value: "Written Statement of Reasons (WSOR) ",
-      text: "Written Statement of Reasons (WSOR)"
+      value: "Written Statement of Reasons (WSOR)",
+      text: "Written Statement of Reasons (WSOR)",
+      conditional: {
+        html: phoneHtml
+      }
     },
     {
       value: "Adult disability payment",
-      text: "Adult disability payment"
-    },
-    {
-      value: "Other fact",
-      text: "Other fact"
-    }, 
-
-    {
-      divider: "or"
-    },
-    {
-      value: "abroad",
-      text: "Nothing additonal to add"
+      text: "Adult disability payment",
+      conditional: {
+        html: textHtml
+      }
     }
   ]
 }) }}
-    
-
-
-
-
-
 
 
 
