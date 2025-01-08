@@ -35,30 +35,34 @@
   
   
     
- 
+ <h1 class="govuk-heading-l">The Mandatory Reconsideration decision was made on the 4th of May 2024 </h1>
 
- {{ govukRadios({
+ {{ govukCheckboxes({
   name: "decisions",
   fieldset: {
     legend: {
-      text: "What was the date of the mandatory reconsideration?",
+      text: "Do you want to include any previous decisions in your response?",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   value: data.decision,
   items: [
 
 
+   
     {
-      value: " 5th June 2024 (First tier decision)",
-      text: "5th June 2024 "
+      value: "8th March 2022 (First tier decision)",
+      text: "8th March 2022 (first tier decision)"
     },
-    
+    {
+      value: "12th December 2021 (mandatory reconsideration)",
+      text: "12th December 2021 (mandatory reconsideration)"
+    },
 
     {
-      value: "14th November 2024 (first tier decision)",
-      text: "14th November 2024"
+      value: "2nd November 2021 (first tier decision)",
+      text: "12th November 2021 (first tier decision)"
     }
   ]
  }) }}

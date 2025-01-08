@@ -32,45 +32,42 @@
 
 
 <form novalidation method="post">
-  
-  
-    
- 
 
- {{ govukRadios({
-  name: "decisions",
+
+
+{{ govukRadios({
+  name: "Is the appellant on Adult Disability Payment?",
   fieldset: {
     legend: {
-      text: "What was the date of the mandatory reconsideration?",
+      text: "Is the appellant on Adult Disability Payment?",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
   },
-  value: data.decision,
+  value: data.adp,
   items: [
-
-
     {
-      value: " 5th June 2024 (First tier decision)",
-      text: "5th June 2024 "
+      value: "Yes",
+      text: "Yes"
     },
-    
-
     {
-      value: "14th November 2024 (first tier decision)",
-      text: "14th November 2024"
+      value: "No",
+      text: "No"
     }
   ]
- }) }}
-
-  
-  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
-    Continue
-  </button>
+}) }}
 
 
-  
-  </form>
+
+
+
+<button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+  Continue
+</button>
+
+
+
+</form>
 
 </div>
 
@@ -80,10 +77,18 @@
 
 {% block pageScripts %}
 <script type="text/javascript">
-  function saveData(){
-    sessionStorage.setItem("taskProgressRepDetails","2");
-    document.getElementById("form").submit();
-  }
+function saveData(){
+  sessionStorage.setItem("taskProgressRepDetails","2");
+  document.getElementById("form").submit();
+}
 
 </script>
 {% endblock %}
+
+
+
+ 
+
+      
+         
+     

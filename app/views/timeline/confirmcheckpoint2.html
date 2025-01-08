@@ -32,18 +32,21 @@
 
 
 <form novalidation method="post">
-  
-  
-    
- 
 
- {{ govukRadios({
+
+
+<h1 class="govuk-heading-l">You've said the date of claim is 4th May 2024</h1>
+
+<p>There have been multiple decisions since the date of claim. 
+</p>
+
+{{ govukRadios({
   name: "decisions",
   fieldset: {
     legend: {
-      text: "What was the date of the mandatory reconsideration?",
+      text: "Select the orginal decision under appeal",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   value: data.decision,
@@ -51,26 +54,28 @@
 
 
     {
-      value: " 5th June 2024 (First tier decision)",
-      text: "5th June 2024 "
+      value: " 11th Feburary 2023",
+      text: "11th Feburary 2023 "
     },
-    
+    {
+      value: "8th March 2022 (First tier decision)",
+      text: "8th March 2022"
+    },
 
     {
-      value: "14th November 2024 (first tier decision)",
-      text: "14th November 2024"
+      value: "2nd November 2021 (first tier decision)",
+      text: "12th November 2021"
     }
   ]
  }) }}
 
-  
-  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
-    Continue
-  </button>
+<button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+  Continue
+</button>
 
 
-  
-  </form>
+
+</form>
 
 </div>
 
@@ -80,10 +85,18 @@
 
 {% block pageScripts %}
 <script type="text/javascript">
-  function saveData(){
-    sessionStorage.setItem("taskProgressRepDetails","2");
-    document.getElementById("form").submit();
-  }
+function saveData(){
+  sessionStorage.setItem("taskProgressRepDetails","2");
+  document.getElementById("form").submit();
+}
 
 </script>
 {% endblock %}
+
+
+
+ 
+
+      
+         
+     

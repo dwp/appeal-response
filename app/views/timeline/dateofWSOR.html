@@ -32,45 +32,55 @@
 
 
 <form novalidation method="post">
-  
-  
-    
- 
 
- {{ govukRadios({
-  name: "decisions",
+
+
+{{ govukDateInput({
+  id: "date",
   fieldset: {
     legend: {
-      text: "What was the date of the mandatory reconsideration?",
+      text: "Legend text",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--xl"
     }
   },
-  value: data.decision,
+  hint: {
+    text: "For example, 31 3 1980"
+  },
   items: [
-
-
     {
-      value: " 5th June 2024 (First tier decision)",
-      text: "5th June 2024 "
+      name: "date",
+      label: "Day",
+      value: data.day,
+      classes: "govuk-input--width-2"
     },
-    
-
     {
-      value: "14th November 2024 (first tier decision)",
-      text: "14th November 2024"
+      name: "date",
+      label: "Month",
+      value: data.month,
+      classes: "govuk-input--width-2"
+    },
+    {
+      name: "date",
+      label: "Year",
+      value: data.year,
+      classes: "govuk-input--width-4"
     }
   ]
- }) }}
-
-  
-  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
-    Continue
-  </button>
+}) }}
 
 
-  
-  </form>
+
+
+
+
+<button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+  Continue
+</button>
+
+
+
+</form>
 
 </div>
 
@@ -80,10 +90,18 @@
 
 {% block pageScripts %}
 <script type="text/javascript">
-  function saveData(){
-    sessionStorage.setItem("taskProgressRepDetails","2");
-    document.getElementById("form").submit();
-  }
+function saveData(){
+  sessionStorage.setItem("taskProgressRepDetails","2");
+  document.getElementById("form").submit();
+}
 
 </script>
 {% endblock %}
+
+
+
+ 
+
+      
+         
+     

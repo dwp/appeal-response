@@ -32,45 +32,26 @@
 
 
 <form novalidation method="post">
-  
-  
-    
+
+
+
+<h1 class="govuk-heading-l">You've said the date of claim is 4th May 2024</h1>
+
+<p>Based on this date the original decision under appeal was made the 10th June 2024. <p>
  
 
- {{ govukRadios({
-  name: "decisions",
-  fieldset: {
-    legend: {
-      text: "What was the date of the mandatory reconsideration?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  value: data.decision,
-  items: [
+
+<br>
 
 
-    {
-      value: " 5th June 2024 (First tier decision)",
-      text: "5th June 2024 "
-    },
-    
 
-    {
-      value: "14th November 2024 (first tier decision)",
-      text: "14th November 2024"
-    }
-  ]
- }) }}
-
-  
-  <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
-    Continue
-  </button>
+<button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+  Continue
+</button>
 
 
-  
-  </form>
+
+</form>
 
 </div>
 
@@ -80,10 +61,18 @@
 
 {% block pageScripts %}
 <script type="text/javascript">
-  function saveData(){
-    sessionStorage.setItem("taskProgressRepDetails","2");
-    document.getElementById("form").submit();
-  }
+function saveData(){
+  sessionStorage.setItem("taskProgressRepDetails","2");
+  document.getElementById("form").submit();
+}
 
 </script>
 {% endblock %}
+
+
+
+ 
+
+      
+         
+     
