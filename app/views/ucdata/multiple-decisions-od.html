@@ -33,43 +33,33 @@
 
 <form novalidation method="post">
   
+  <h1 class="govuk-heading-l">When was the first tier decision made?</h1>
   
-    
- 
+  <p class="govuk-body">The appellant first applied for Universal credit on 4 May 2024. <br> <br>
 
- {{ govukDateInput({
-  id: "date",
+    They are appealing a mandatory reconsideration decision made on 4 October 2024.</p>
+    
+{{ govukRadios({
+  name: "decisionunderappeal",
   fieldset: {
     legend: {
-      text: "When did the appellant first make a claim to Universal Credit?",
+      text: "",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
   },
-  hint: {
-    text: "For example, 31 3 1980"
-  },
+  value: data.decisionunderappeal,
   items: [
     {
-      name: "date",
-      label: "Day",
-      value: data.day,
-      classes: "govuk-input--width-2"
+      value: "8 March 2022",
+      text: "8 March 2022"
     },
     {
-      name: "date",
-      label: "Month",
-      value: data.month,
-      classes: "govuk-input--width-2"
-    },
-    {
-      name: "date",
-      label: "Year",
-      value: data.year,
-      classes: "govuk-input--width-4"
+      value: "12 November 2021",
+      text: "12 November 2021"
     }
   ]
- }) }}
+}) }}
 
   
   <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
@@ -87,11 +77,5 @@
 {% endblock %}
 
 {% block pageScripts %}
-<script type="text/javascript">
-  function saveData(){
-    sessionStorage.setItem("taskProgressRepDetails","2");
-    document.getElementById("form").submit();
-  }
 
-</script>
 {% endblock %}

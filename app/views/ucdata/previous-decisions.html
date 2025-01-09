@@ -34,62 +34,44 @@
 <form novalidation method="post">
   
   
-<h1 class="govuk-heading-l">Enter details of the previous decision made on the 8th March 2022</h1> 
-{{ govukDateInput({
-  id: "Date of the health assessment",
+  {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "countries",
   fieldset: {
     legend: {
-      text: "Date of the health assessment",
+      text: "Do you want to include any other decisions in your appeal response?",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
+      classes: "govuk-fieldset__legend--l"
     }
   },
   hint: {
-    text: "For example, 31 3 1980"
+    text: "Select all decisions that apply"
   },
   items: [
     {
-      name: "date",
-      label: "Day",
-      value: data.day,
-      classes: "govuk-input--width-2"
+      value: "france",
+      text: "8 March 2021 (first tier decision)"
     },
     {
-      name: "date",
-      label: "Month",
-      value: data.month,
-      classes: "govuk-input--width-2"
+      value: "12 December 2021 (mandatory reconsideration)",
+      text: "12 December 2021 (mandatory reconsideration)"
+    },
+    
+    
+    {
+      divider: "or"
     },
     {
-      name: "date",
-      label: "Year",
-      value: data.year,
-      classes: "govuk-input--width-4"
+      value: "none",
+      text: "No, I have all the information I need",
+      behaviour: "exclusive"
     }
   ]
-}) }}
+}) }}  
+ 
 
-{{ govukRadios({
-  name: "Had this decision been appealed? ",
-  fieldset: {
-    legend: {
-      text: "Has this decision been appealed?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  value: data.appealedpreviousdecision,
-  items: [
-    {
-      value: "Yes",
-      text: "Yes"
-    },
-    {
-      value: "No",
-      text: "No"
-    }
-  ]
-}) }}
+ 
 
   
   <button class="govuk-button" data-module="govuk-button" onclick="saveData()">

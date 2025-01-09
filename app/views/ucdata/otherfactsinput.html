@@ -34,28 +34,62 @@
 <form novalidation method="post">
 
 
+<h1 class="govuk-heading-l">Add additonal facts to the case</h1>
+  {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
-{{ govukRadios({
-  name: "Is the appellant on Adult Disability Payment?",
+  {{ govukTextarea({
+    name: "moreDetail",
+    id: "more-detail",
+    label: {
+      text: "Enter a description of the fact",
+      classes: "govuk-label--m",
+      isPageHeading: true
+    }
+    
+  }) }}
+
+{{ govukDateInput({
+  id: "date",
   fieldset: {
     legend: {
-      text: "Do you want to record any other facts?",
+      text: "Date of fact",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
+      classes: "govuk-fieldset__legend--m"
     }
   },
-  value: data.adp,
+  hint: {
+    text: "For example, 31 3 1980"
+  },
   items: [
     {
-      value: "Yes",
-      text: "Yes"
+      name: "date",
+      label: "Day",
+      value: data.day.fact,
+      classes: "govuk-input--width-2"
     },
     {
-      value: "No",
-      text: "No"
+      name: "date",
+      label: "Month",
+      value: data.month.fact,
+      classes: "govuk-input--width-2"
+    },
+    {
+      name: "date",
+      label: "Year",
+      value: data.year.fact,
+      classes: "govuk-input--width-4"
     }
   ]
 }) }}
+
+
+
+
+
+  
+<button type="button" class="govuk-body button--text govuk-!-margin-top-2 js-add-another-button">Add another fact</button> <br>
+
+
 
 
 

@@ -1,0 +1,160 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form novalidation method="post">
+      <h2 class="govuk-heading-l">About the first tier decision made on 27 May 2024</h2>
+
+
+
+<h1 class="govuk-heading-s">Physical activity points</h1>
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Moving around
+    </dt>
+    <dd class="govuk-summary-list__value">
+     3
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Reaching
+    </dt>
+    <dd class="govuk-summary-list__value">
+      3
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Total
+    </dt>
+    <dd class="govuk-summary-list__value">
+      6
+    </dd>
+  </div>
+  
+</dl>
+
+<h1 class="govuk-heading-s">Mental, cognitive and intellectual activity points
+
+
+</h1>
+<dl class="govuk-summary-list">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Total
+    </dt>
+    <dd class="govuk-summary-list__value">
+      0
+    </dd>
+  </div>
+  
+</dl>
+
+
+
+
+
+
+   
+              {{ govukRadios({
+                classes: "govuk-radios",
+                idPrefrix:"[timeline][outcomedecision]",
+                name: "[timeline][outcomedecision]",
+                fieldset: {
+                  legend: {
+                    text: "Was the notification sent on the date of decision?",
+                    text: "Was the notification sent on the date of decision?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                values: data.timline.outcomedecision,
+                items: [
+                  {
+                    value: "Yes",
+                    text: "Yes"
+                  },
+                  {
+                    value: "No",
+                    text: "No"
+                  }
+                ]
+              }) }}
+
+              {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+      text: "Was a Decision Assurance Call",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "england",
+      text: "Made and answered"
+    },
+    {
+      value: "scotland",
+      text: "Made but not answered"
+    },
+    
+
+    {
+      divider: "or"
+    },
+    {
+      value: "abroad",
+      text: "Not made, or no mention of the DAC on record"
+    }
+  ]
+}) }}
+
+             
+                
+                 
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+      
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}

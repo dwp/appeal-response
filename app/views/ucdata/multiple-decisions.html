@@ -33,52 +33,30 @@
 
 <form novalidation method="post">
   
+  <h1 class="govuk-heading-l">Which mandatory reconsideration decision is being appealed?</h1>
   
+  <p class="govuk-body">The appellant first applied for Universal credit on 4 May 2024. <br> <br>
 
-
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-
-{% set emailHtml %}
-<h1 class="govuk-heading-s">Enter date of the hearing</h1>
-{{ govukDateInput({
-  id: "contact-by-email",
-  name: "contactByEmail",
-  type: "Yes",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-two-third",
-  label: {
-    text: "Enter date of the hearing"
-  }
-}) }}
-{% endset -%}
-
-
+    Mandatory reconsideration decisions have been made on multiple dates.</p>
+    
 {{ govukRadios({
-  name: "contact",
+  name: "decisionunderappeal",
   fieldset: {
     legend: {
-      text: "Has the appeal for the previous decision made on the 8th March 2022 been heard?",
+      text: "",
       isPageHeading: true,
       classes: "govuk-fieldset__legend--l"
     }
   },
-  
+  value: data.decisionunderappeal,
   items: [
     {
-      value: "email",
-      text: "Yes",
-      conditional: {
-        html: emailHtml
-      }
+      value: "5 June 2024",
+      text: "5 June 2024"
     },
     {
-      value: "phone",
-      text: "No",
-      conditional: {
-        html: phoneHtml
-      }
+      value: "4  October 2024",
+      text: "4  October 2024"
     }
   ]
 }) }}
@@ -99,11 +77,5 @@
 {% endblock %}
 
 {% block pageScripts %}
-<script type="text/javascript">
-  function saveData(){
-    sessionStorage.setItem("taskProgressRepDetails","2");
-    document.getElementById("form").submit();
-  }
 
-</script>
 {% endblock %}

@@ -34,27 +34,14 @@
 <form novalidation method="post">
 
 
-<h1 class="govuk-heading-l">Add additonal facts to the case</h1>
-  {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
-
-  {{ govukTextarea({
-    name: "moreDetail",
-    id: "more-detail",
-    label: {
-      text: "Enter a description of the fact",
-      classes: "govuk-label--m",
-      isPageHeading: true
-    }
-    
-  }) }}
 
 {{ govukDateInput({
   id: "date",
   fieldset: {
     legend: {
-      text: "Date of fact",
+      text: "Date of Written Statement of Reasons",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
+      classes: "govuk-fieldset__legend--l"
     }
   },
   hint: {
@@ -64,78 +51,29 @@
     {
       name: "date",
       label: "Day",
-      value: data.day,
+      value: data.day.wsor,
       classes: "govuk-input--width-2"
     },
     {
       name: "date",
       label: "Month",
-      value: data.month,
+      value: data.month.wsor,
       classes: "govuk-input--width-2"
     },
     {
       name: "date",
       label: "Year",
-      value: data.year,
+      value: data.year.wsor,
       classes: "govuk-input--width-4"
     }
   ]
 }) }}
 
 
-{{ govukTextarea({
-  name: "moreDetail",
-  id: "more-detail",
-  label: {
-    text: "Enter a description of the fact",
-    classes: "govuk-label--m",
-    isPageHeading: true
-  }
-  
-}) }}
 
-{{ govukDateInput({
-id: "date",
-fieldset: {
-  legend: {
-    text: "Date of fact",
-    isPageHeading: true,
-    classes: "govuk-fieldset__legend--m"
-  }
-},
-hint: {
-  text: "For example, 31 3 1980"
-},
-items: [
-  {
-    name: "date",
-    label: "Day",
-    value: data.day,
-    classes: "govuk-input--width-2"
-  },
-  {
-    name: "date",
-    label: "Month",
-    value: data.month,
-    classes: "govuk-input--width-2"
-  },
-  {
-    name: "date",
-    label: "Year",
-    value: data.year,
-    classes: "govuk-input--width-4"
-  }
-]
-}) }}
+<a href="#" class="govuk-link">Enter another date</a>
 
-
-  
-<button type="button" class="govuk-body button--text govuk-!-margin-top-2 js-add-another-button">Add another fact</button> <br>
-
-
-
-
-
+<br> <br> <br>
 
 
 <button class="govuk-button" data-module="govuk-button" onclick="saveData()">

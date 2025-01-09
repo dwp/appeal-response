@@ -1,0 +1,151 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+{% if errorMessage %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        {% if (errorMessage) %}
+        <li>
+          <a href="#">{{errorMessage}}</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <form novalidation method="post">
+
+    
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+    
+    {% set emailHtml %}
+    <h1 class="govuk-heading-s">Enter date signed</h1>
+    {{ govukDateInput({
+      id: "contact-by-email",
+      name: "contactByEmail",
+      type: "email",
+      autocomplete: "email",
+      spellcheck: false,
+      classes: "govuk-!-width-two-third",
+      label: {
+        text: "Enter date signed"
+      }
+    }) }}
+    {% endset -%}
+    
+    {% set phoneHtml %}
+    <h1 class="govuk-heading-s">Enter date returned</h1>
+    {{ govukDateInput({
+      id: "contact-by-phone",
+      name: "contactByPhone",
+      type: "tel",
+      autocomplete: "tel",
+      classes: "govuk-!-width-two-third",
+      label: {
+        text: "Enter date returned"
+      }
+    }) }}
+    {% endset -%}
+    
+    {% set textHtml %}
+    <h1 class="govuk-heading-s">Enter date issued</h1>
+    {{ govukDateInput({
+      id: "contact-by-text",
+      name: "contactByText",
+      type: "tel",
+      autocomplete: "tel",
+      classes: "govuk-!-width-two-third",
+      label: {
+        text: "Enter date returned"
+      }
+    }) }}
+    {% endset -%}
+    
+    {{ govukRadios({
+      name: "contact",
+      fieldset: {
+        legend: {
+          text: "Can you access information from the UC50 for this decision?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        text: "Select one option"
+      },
+      items: [
+        {
+          value: "Yes",
+          text: "Yes",
+          conditional: {
+            html: emailHtml
+          }
+        },
+        {
+          value: "No hcp",
+          text: "No, but it was available to the Health Care Professional",
+          conditional: {
+            html: phoneHtml
+          }
+        },
+        {
+          value: "no uc",
+          text: "No, because the UC50 was not returned",
+          conditional: {
+            html: textHtml
+          }
+        }
+      ]
+    }) }}
+
+
+
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    
+    </form>
+{% endblock %}
+
+{% block pageScripts %}
+ 
+{% endblock %}

@@ -2153,7 +2153,7 @@ router.post('/timeline/date-of-claim', (req, res) => {
 })
 
 router.post('/timeline/00-decision-type', (req, res) => {
-  res.redirect('/timeline/date-of-claim')
+  res.redirect('/ucdata/date-of-claim')
 })
 
 router.post('/timeline/od-decision-under-appeal', (req, res) => {
@@ -3225,3 +3225,113 @@ router.post('/timeline/otheritems', (req, res) => {
   res.redirect('/timeline/case-details')
 })
 
+
+
+//UCdata 
+
+router.post('/index', (req, res) => {
+  res.redirect('/hmcts-reference')
+})
+
+
+
+router.post('/ucdata/date-of-claim', (req, res) => {
+  const {data} = req.session;
+  if(data.ucdata === 'scenario1') {
+    res.redirect('/ucdata/multiple-decisions')
+  } else {
+    res.redirect('/ucdata/single-decision')  
+  }  
+})
+
+
+router.post('/ucdata/single-decision', (req, res) => {
+  res.redirect('/ucdata/mr-decision')
+})
+
+router.post('/ucdata/multiple-decisions', (req, res) => {
+  res.redirect('/ucdata/mr-decision')
+})
+
+
+router.post('/ucdata/mr-decision', (req, res) => {
+  const {data} = req.session;
+  if(data.ucdata === 'scenario1') {
+    res.redirect('/ucdata/multiple-decisions-od')
+  } else {
+    res.redirect('/ucdata/od-decision')  
+  }  
+})
+
+
+
+router.post('/ucdata/multiple-decisions-od', (req, res) => {
+  res.redirect('/ucdata/od-decision')
+})
+
+router.post('/ucdata/od-decision', (req, res) => {
+  res.redirect('/ucdata/health-declarations')
+})
+
+router.post('/ucdata/health-declarations', (req, res) => {
+  res.redirect('/ucdata/fitnotes')
+})
+
+router.post('/ucdata/fitnotes', (req, res) => {
+  res.redirect('/ucdata/uc50access')
+})
+
+router.post('/ucdata/uc50access', (req, res) => {
+  res.redirect('/ucdata/uc50')
+})
+
+router.post('/ucdata/uc50', (req, res) => {
+  res.redirect('/ucdata/health-assessment')
+})
+
+router.post('/ucdata/health-assessment', (req, res) => {
+  const {data} = req.session;
+  if(data.ucdata === 'scenario1') {
+    res.redirect('/ucdata/previous-decisions')
+  } else {
+    res.redirect('/ucdata/WSOR')  
+  }  
+})
+
+
+
+router.post('/ucdata/previous-decisions', (req, res) => {
+  res.redirect('/ucdata/previous-decisions-detail')
+})
+
+router.post('/ucdata/previous-decisions-detail', (req, res) => {
+  res.redirect('/ucdata/WSOR')
+})
+
+
+
+router.post('/ucdata/wsor', (req, res) => {
+  const {data} = req.session;
+  if(data.wsor === 'Yes') {
+    res.redirect('/ucdata/WSOR-detail')
+  } else {
+    res.redirect('/ucdata/otherfacts')  
+  }  
+})
+
+router.post('/ucdata/WSOR-detail', (req, res) => {
+  res.redirect('/ucdata/otherfacts')
+})
+
+router.post('/ucdata/otherfacts', (req, res) => {
+  const {data} = req.session;
+  if(data.otherfacts === 'Yes') {
+    res.redirect('/ucdata/otherfactsinput')
+  } else {
+    res.redirect('/timeline/case-details')  
+  }  
+})
+
+router.post('/ucdata/otherfactsinput', (req, res) => {
+  res.redirect('/timeline/case-details')
+})

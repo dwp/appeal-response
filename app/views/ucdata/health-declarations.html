@@ -34,34 +34,40 @@
 <form novalidation method="post">
   
   
-   <h1 class="govuk-heading-l">Health declaration</h1> 
+   <h1 class="govuk-heading-l">Health declarations</h1> 
   
   
-   <p class="govuk-body"> Appellant declared these health conditions when they first applied for Universal Credit: 
+   <p class="govuk-body"> Conditions declared in the appellant's first application for Universal Credit on 4 May 2024:
   </p>
 
   <ul class="govuk-list govuk-list--bullet">
     <li>
-      "Backpain" 
+      Backpain 
     </li>
     <li>
-      "Fracture"
+      Fracture
     </li>
     <li>
-      "Varicose veins"
+      Varicose veins
     </li>
   </ul>
 
+  {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
-<h1 class="govuk-heading-s">Select which reported health condition changes you want to include in your response: </h1>
+{{ govukInsetText({
+  text: "Conditions declared are written exactly as the appellant recorded them."
+}) }}
+
+
+<h1 class="govuk-heading-s">Select other health declarations to include: </h1>
 
 <table class="govuk-table" data-module="moj-multi-select" data-multi-select-checkbox="#select-all" data-multi-select-idprefix="mountains-">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th class="govuk-table__header" scope="col" id="select-all"></th>
       <th class="govuk-table__header" scope="col">Date</th>
-      <th class="govuk-table__header" scope="col">Conditions</th>
-      <th class="govuk-table__header" scope="col">Ability to work</th>
+      <th class="govuk-table__header" scope="col">Conditions declared</th>
+      <th class="govuk-table__header" scope="col">Was ability to work restricted?</th>
      
     </tr>
   </thead>
@@ -75,8 +81,8 @@
           </label>
         </div>
       </td>
-      <td class="govuk-table__cell">12th March 2023</td>
-      <td class="govuk-table__cell">"Backpain", "Kneepain", "Fracture", "Depression"</td>
+      <td class="govuk-table__cell">12 March 2023</td>
+      <td class="govuk-table__cell">Backpain, Kneepain, Fracture, Depression</td>
       <td class="govuk-table__cell">Restricted ability</td>
   
     </tr>
@@ -90,8 +96,8 @@
         </div>
       </td>
       </td>
-      <td class="govuk-table__cell">1st March 2023</td>
-      <td class="govuk-table__cell">"Backpain", "Kneepain", "Fracture", "migranes"</td>
+      <td class="govuk-table__cell">1 March 2023</td>
+      <td class="govuk-table__cell">Backpain, Kneepain, Fracture, migranes</td>
       <td class="govuk-table__cell">Restricted ability</td>
 
     </tr>
@@ -104,8 +110,8 @@
           </label>
         </div>
       </td>
-      <td class="govuk-table__cell">2nd Feburary 2023</td>
-      <td class="govuk-table__cell">"Backpain", "Kneepain", "Fracture"</td>
+      <td class="govuk-table__cell">2 Feburary 2023</td>
+      <td class="govuk-table__cell">Backpain, Kneepain, Fracture</td>
       <td class="govuk-table__cell">Restricted ability</td>
 
     </tr>
@@ -118,8 +124,8 @@
           </label>
         </div>
       </td>
-      <td class="govuk-table__cell">2nd Feburary 2023</td>
-      <td class="govuk-table__cell">"Backpain", "Kneepain", "Fracture"</td>
+      <td class="govuk-table__cell">1 Feburary 2023</td>
+      <td class="govuk-table__cell">Backpain, Kneepain, Fracture</td>
       <td class="govuk-table__cell">Didn't restrict ability</td>
  
     

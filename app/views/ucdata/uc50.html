@@ -16,9 +16,18 @@
 {{header.header(serviceName,'Jane Doe')}}
 {% endblock %}
 
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+
+
 {% block content %}
 
-<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
   <div class="govuk-grid-row">
     <form novalidation method="post">
     <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-7">
@@ -159,6 +168,28 @@
           </fieldset>
         </div>
 
+
+        {{ govukRadios({
+          name: "",
+          fieldset: {
+            legend: {
+              text: "Did they say they had a problem eating or drinking? ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          value: data.eatingordrinking,
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
         
       <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
         Continue

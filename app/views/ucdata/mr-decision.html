@@ -1,0 +1,161 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form novalidation method="post">
+      <h2 class="govuk-heading-l">About the mandatory reconsideration decision made on 4 October 2024</h2>
+
+
+
+<h1 class="govuk-heading-s">Physical activity points</h1>
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Moving around
+    </dt>
+    <dd class="govuk-summary-list__value">
+     3
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Reaching
+    </dt>
+    <dd class="govuk-summary-list__value">
+      3
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Total
+    </dt>
+    <dd class="govuk-summary-list__value">
+      6
+    </dd>
+  </div>
+  
+</dl>
+
+<h1 class="govuk-heading-s">Mental, cognitive and intellectual activity points
+
+
+</h1>
+<dl class="govuk-summary-list">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Total
+    </dt>
+    <dd class="govuk-summary-list__value">
+      0
+    </dd>
+  </div>
+  
+</dl>
+
+{{ govukDateInput({
+  id: "date",
+  fieldset: {
+    legend: {
+      text: "When was this mandatory reconsideration requested? (Optional)",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "For example, 31 3 1980"
+  },
+  items: [
+    {
+      name: "date",
+      label: "Day",
+      value: data.day.mr,
+      classes: "govuk-input--width-2"
+    },
+    {
+      name: "date",
+      label: "Month",
+      value: data.month.mr,
+      classes: "govuk-input--width-2"
+    },
+    {
+      name: "date",
+      label: "Year",
+      value: data.year.mr,
+      classes: "govuk-input--width-4"
+    }
+  ]
+}) }}
+
+
+
+
+
+   
+              {{ govukRadios({
+                classes: "govuk-radios",
+                idPrefrix:"[timeline][outcomedecision]",
+                name: "[timeline][outcomedecision]",
+                fieldset: {
+                  legend: {
+                    text: "Was the mandatory reconsideration notice sent on the date of decision?",
+                    text: "Was the mandatory reconsideration notice sent on the date of decision?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                values: data.timline.outcomedecision,
+                items: [
+                  {
+                    value: "Yes",
+                    text: "Yes"
+                  },
+                  {
+                    value: "No",
+                    text: "No"
+                  }
+                ]
+              }) }}
+
+             
+                
+                 
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+      
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}
