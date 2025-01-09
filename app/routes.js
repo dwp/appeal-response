@@ -3294,7 +3294,7 @@ router.post('/ucdata/health-assessment', (req, res) => {
   if(data.ucdata === 'scenario1') {
     res.redirect('/ucdata/previous-decisions')
   } else {
-    res.redirect('/ucdata/WSOR')  
+    res.redirect('/ucdata/wsor')  
   }  
 })
 
