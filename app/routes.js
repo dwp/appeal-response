@@ -3233,6 +3233,11 @@ router.post('/index', (req, res) => {
   res.redirect('/hmcts-reference')
 })
 
+router.post('/', (req, res) => {
+  res.redirect('/hmcts-reference')
+})
+
+
 
 
 router.post('/ucdata/date-of-claim', (req, res) => {
