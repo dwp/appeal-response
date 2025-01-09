@@ -3305,7 +3305,7 @@ router.post('/ucdata/previous-decisions', (req, res) => {
 })
 
 router.post('/ucdata/previous-decisions-detail', (req, res) => {
-  res.redirect('/ucdata/WSOR')
+  res.redirect('/ucdata/wsor')
 })
 
 
