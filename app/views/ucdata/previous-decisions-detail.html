@@ -70,7 +70,8 @@
 }) }}
 
 {{ govukRadios({
-  name: "Had this decision been appealed? ",
+  idPrefrix:"appealed",
+  name: "appealed",
   fieldset: {
     legend: {
       text: "Has this decision been appealed?",
@@ -78,7 +79,7 @@
       classes: "govuk-fieldset__legend--m"
     }
   },
-  value: data.appealedpreviousdecision,
+  value: data.appealed,
   items: [
     {
       value: "Yes",

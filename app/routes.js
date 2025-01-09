@@ -3249,6 +3249,20 @@ router.post('/ucdata/date-of-claim', (req, res) => {
   }  
 })
 
+router.post('/ucdata/previous-decisions-detail', (req, res) => {
+  const {data} = req.session;
+  if(data.appealed === 'Yes') {
+    res.redirect('/ucdata/previous-decisions-appeal')
+  } else {
+    res.redirect('/ucdata/wsor')  
+  }  
+})
+
+router.post('/ucdata/previous-decisions-appeal', (req, res) => {
+  res.redirect('/ucdata/wsor')
+})
+
+
 
 router.post('/ucdata/single-decision', (req, res) => {
   res.redirect('/ucdata/mr-decision')
@@ -3309,9 +3323,7 @@ router.post('/ucdata/previous-decisions', (req, res) => {
   res.redirect('/ucdata/previous-decisions-detail')
 })
 
-router.post('/ucdata/previous-decisions-detail', (req, res) => {
-  res.redirect('/ucdata/wsor')
-})
+
 
 
 
