@@ -3297,7 +3297,7 @@ router.post('/ucdata/health-declarations', (req, res) => {
 })
 
 router.post('/ucdata/fitnotes', (req, res) => {
-  res.redirect('/ucdata/uc50access')
+  res.redirect('/ucdata/medicalevidence')
 })
 
 router.post('/ucdata/uc50access', (req, res) => {
@@ -3351,4 +3351,18 @@ router.post('/ucdata/otherfacts', (req, res) => {
 
 router.post('/ucdata/otherfactsinput', (req, res) => {
   res.redirect('/timeline/case-details')
+})
+
+
+router.post('/ucdata/medicalevidence', (req, res) => {
+  const {data} = req.session;
+  if(data.medicalevidence === 'Yes') {
+    res.redirect('/ucdata/medical-evidence-input')
+  } else {
+    res.redirect('/ucdata/uc50access')  
+  }  
+})
+
+router.post('/ucdata/medical-evidence-input', (req, res) => {
+  res.redirect('/ucdata/uc50access')
 })

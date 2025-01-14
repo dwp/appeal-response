@@ -190,7 +190,7 @@
           text: "Award state date"
         },
         value: {
-          text: "8th April 2023"
+          text: "14 November 2019"
         },
         actions: {
           items: [
@@ -207,7 +207,7 @@
           text: "Award components"
         },
         value: {
-          html: "Daily living component: Enhanced rate"
+          html: "Mobility component: Lower rate"
         },
         actions: {
           items: [
@@ -237,13 +237,13 @@
            text: "Date of claim"
          },
          value: {
-           text: "1st January 2023"
+           text: "18 January 2018"
          },
          actions: {
            items: [
              {
                href: "#",
-               text: "",
+               text: "Change",
                visuallyHiddenText: "name"
              }
            ]
@@ -251,10 +251,10 @@
        },
        {
          key: {
-           text: "Original Decision"
+           text: "mandatory reconsideration "
          },
          value: {
-           text: "11th Feburary 2023"
+           text: "18 November 2024"
          },
          actions: {
            items: [
@@ -268,10 +268,85 @@
        },
        {
          key: {
-           text: "Mandatory reconsideration"
+           text: "first tier decision"
          },
          value: {
-           html: "5th June 2023"
+           html: "28 August 2024 "
+         },
+         actions: {
+           items: [
+             {
+               href: "#",
+               text: "Change",
+               visuallyHiddenText: "address"
+             }
+           ]
+         }
+       }
+       
+       
+     ]
+   }) }}
+
+   <br>
+
+   <h1 class="govuk-heading-m"> mandatory reconsideration</h1>
+
+   {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Decision date"
+        },
+        value: {
+          text: "18 November 2024"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "name"
+            }
+          ]
+        }
+      }
+        
+      
+      
+    ]
+  }) }}
+
+   
+
+  <h1 class="govuk-heading-s">Physical activity points</h1>
+
+   {{ govukSummaryList({
+     rows: [
+       
+       {
+         key: {
+           text: "Moving around"
+         },
+         value: {
+           text: "3"
+         },
+         actions: {
+           items: [
+             {
+               href: "#",
+               text: "",
+               visuallyHiddenText: "date of birth"
+             }
+           ]
+         }
+       },
+       {
+         key: {
+           text: "Standing and sitting"
+         },
+         value: {
+           html: "3"
          },
          actions: {
            items: [
@@ -282,56 +357,155 @@
              }
            ]
          }
-       }
+       }, 
+
+       {
+        key: {
+          text: "Total"
+        },
+        value: {
+          html: "6"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "",
+              visuallyHiddenText: "address"
+            }
+          ]
+        }
+      }
        
        
      ]
    }) }}
 
-   <br>
+   <h1 class="govuk-heading-s">Mental, cognitive and intellectual activity points</h1>
 
-   <h1 class="govuk-heading-m">Previous decisions </h1>
-   
    {{ govukSummaryList({
-    classes: "common-reason-for-appeal", 
+     rows: [
+       
     
+    
+
+       {
+        key: {
+          text: "Total"
+        },
+        value: {
+          html: "6"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "",
+              visuallyHiddenText: "address"
+            }
+          ]
+        }
+      }
+       
+       
+     ]
+   }) }}
+
+   {{ govukSummaryList({
     rows: [
-    {
-      key: {
-        text: "8th March 2020 (first tier decision)"
-      },
       
+   
+   
+
+      {
+       key: {
+         text: "Date requested"
+       },
+       value: {
+         html: "28 October 2024 "
+       },
+       actions: {
+         items: [
+           {
+             href: "",
+             text: "Change",
+             visuallyHiddenText: "address"
+           }
+         ]
+       }
+     }, 
+
+     {
+      key: {
+        text: "Notice sent"
+      },
+      value: {
+        html: "18 November 2024 "
+      },
       actions: {
         items: [
           {
-            href: "#",
-            text: "Remove",
-            visuallyHiddenText: "contact details"
+            href: "",
+            text: "Change",
+            visuallyHiddenText: "address"
           }
-          
         ]
       }
     }
-  
-    
-  ]
+      
+      
+    ]
   }) }}
+
+
+   <br>
+
+   <h1 class="govuk-heading-m"> First tier decision</h1>
+
+   {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Decision date"
+        },
+        value: {
+          text: "28 August 2024"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "name"
+            }
+          ]
+        }
+      }
+        
+      
+      
+    ]
+  }) }}
+
+   
+
+  <h1 class="govuk-heading-s">Physical activity points</h1>
 
    {{ govukSummaryList({
      rows: [
        
        {
          key: {
-           text: "Date of health assessment"
+           text: "Moving around"
          },
          value: {
-           text: "20th March 2022"
+           text: "3"
          },
          actions: {
            items: [
              {
                href: "#",
-               text: "Change",
+               text: "",
                visuallyHiddenText: "date of birth"
              }
            ]
@@ -339,27 +513,119 @@
        },
        {
          key: {
-           text: "Date of appeal"
+           text: "Standing and sitting"
          },
          value: {
-           html: "14th May 2022"
+           html: "3"
          },
          actions: {
            items: [
              {
                href: "#",
-               text: "Change",
+               text: "",
                visuallyHiddenText: "address"
              }
            ]
          }
-       }
+       }, 
+
+       {
+        key: {
+          text: "Total"
+        },
+        value: {
+          html: "6"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "",
+              visuallyHiddenText: "address"
+            }
+          ]
+        }
+      }
        
        
      ]
    }) }}
 
-   <br>
+   <h1 class="govuk-heading-s">Mental, cognitive and intellectual activity points</h1>
+
+   {{ govukSummaryList({
+     rows: [
+       
+    
+    
+
+       {
+        key: {
+          text: "Total"
+        },
+        value: {
+          html: "6"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "",
+              visuallyHiddenText: "address"
+            }
+          ]
+        }
+      }
+       
+       
+     ]
+   }) }}
+
+   {{ govukSummaryList({
+    rows: [
+      
+   
+   
+
+      {
+       key: {
+         text: "Notification sent"
+       },
+       value: {
+         html: "28 August 2024 "
+       },
+       actions: {
+         items: [
+           {
+             href: "",
+             text: "Change",
+             visuallyHiddenText: "address"
+           }
+         ]
+       }
+     }, 
+
+     {
+      key: {
+        text: "Decision Assurance Call"
+      },
+      value: {
+        html: "Not made"
+      },
+      actions: {
+        items: [
+          {
+            href: "",
+            text: "Change",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
+    }
+      
+      
+    ]
+  }) }}
 
    <h1 class="govuk-heading-m">Health declaration </h1> 
 
@@ -375,9 +641,8 @@
       value: { 
         
         html: '<ul class="govuk-list govuk-list--bullet">
-          <li>"Back pain"</li>
-          <li>"Fracture"</li>
-          <li>"Varicose veins"</li>
+          <li>Backpain</li>
+          
         </ul>'
 
     },
@@ -432,7 +697,7 @@
       },
     
       value: {
-        text: "12th March 2023"
+        text: "15 April 2024"
       },
       actions: {
         items: [
@@ -452,12 +717,7 @@
     
       value: { 
         
-        html: '<ul class="govuk-list govuk-list--bullet">
-          <li>"Back pain"</li>
-          <li>"Fracture"</li>
-          <li>"Varicose veins"</li>
-          <li>"depression"</li>
-        </ul>'
+        html: 'Sciatica, Slipped disc, Anxiety'
 
     },
       actions: {
@@ -503,7 +763,7 @@
       },
     
       value: {
-        text: "1st March 2023"
+        text: "14 Feb 2024"
       },
       actions: {
         items: [
@@ -524,12 +784,7 @@
     
       value: { 
         
-        html: '<ul class="govuk-list govuk-list--bullet">
-          <li>"Back pain"</li>
-          <li>"Fracture"</li>
-          <li>"Varicose veins"</li>
-          <li>"Migranes"</li>
-        </ul>'
+        html: 'Backpain, Sciatica, Anxiety , Broken foot  '
 
     },
       actions: {
@@ -575,7 +830,7 @@
       },
     
       value: {
-        text: "2nd Feburary 2023"
+        text: "10 Jan 2024"
       },
       actions: {
         items: [
@@ -596,11 +851,7 @@
     
       value: { 
         
-        html: '<ul class="govuk-list govuk-list--bullet">
-          <li>"Back pain"</li>
-          <li>"Fracture"</li>
-          <li>"Varicose veins"</li>
-        </ul>'
+        html: 'Back pain , Sciatica, Anxiety  '
 
     },
       
@@ -639,6 +890,172 @@
     
   ]
 }) }}
+
+<br>
+
+
+{{ govukSummaryList({
+  classes: "common-reason-for-appeal", 
+  
+  rows: [
+  
+  
+  
+  {
+    key: {
+
+      classes: "govuk-body govuk-!-font-size-24",
+      text: "Medical evidence"
+    },
+    
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Add",
+          visuallyHiddenText: "contact details"
+        }
+        
+      ]
+    }
+  }
+
+  
+]
+}) }}
+
+{{ govukSummaryList({
+  rows: [
+  {
+    key: {
+      text: "Evidence type"
+    },
+  
+    value: {
+      text: "Fit note"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "name"
+        }
+      ]
+    }
+  },  
+  {
+      key: {
+        text: "Reported date"
+      },
+    
+      value: {
+        text: "14 April 2024"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+
+
+    
+  ]
+}) }}
+
+{{ govukSummaryList({
+  rows: [
+  {
+    key: {
+      text: "Evidence type"
+    },
+  
+    value: {
+      text: "Fit note"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "name"
+        }
+      ]
+    }
+  },  
+  {
+      key: {
+        text: "Reported date"
+      },
+    
+      value: {
+        text: "12 February 2024 "
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+
+
+    
+  ]
+}) }}
+
+{{ govukSummaryList({
+  rows: [
+  {
+    key: {
+      text: "Evidence type"
+    },
+  
+    value: {
+      text: "Fit note"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Remove",
+          visuallyHiddenText: "name"
+        }
+      ]
+    }
+  },  
+  {
+      key: {
+        text: "Reported date"
+      },
+    
+      value: {
+        text: "9 January 2024"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+
+
+    
+  ]
+}) }}
+
 
 <br>
 
@@ -723,73 +1140,300 @@
   ]
 }) }}
 
-{{ govukSummaryList({
-  classes: "common-reason-for-appeal", 
-  
-  rows: [
-  {
-    key: {
 
-      classes: "govuk-body govuk-!-font-size-24",
-      text: "Fit notes"
-    },
-    
-    actions: {
-      items: [
-        {
-          href: "#",
-          text: "Add",
-          visuallyHiddenText: "contact details"
+<br>
+
+<h1 class="govuk-heading-m"> Health assessment outcome</h1>
+
+   
+
+   
+
+  <h1 class="govuk-heading-s">Physical activity points</h1>
+
+   {{ govukSummaryList({
+     rows: [
+       
+       {
+         key: {
+           text: "Moving around"
+         },
+         value: {
+           text: "3"
+         },
+         actions: {
+           items: [
+             {
+               href: "#",
+               text: "",
+               visuallyHiddenText: "date of birth"
+             }
+           ]
+         }
+       },
+       {
+         key: {
+           text: "Standing and sitting"
+         },
+         value: {
+           html: "3"
+         },
+         actions: {
+           items: [
+             {
+               href: "#",
+               text: "",
+               visuallyHiddenText: "address"
+             }
+           ]
+         }
+       }, 
+
+       {
+        key: {
+          text: "Total"
+        },
+        value: {
+          html: "6"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "",
+              visuallyHiddenText: "address"
+            }
+          ]
         }
-        
-      ]
+      }
+       
+       
+     ]
+   }) }}
+
+   <h1 class="govuk-heading-s">Mental, cognitive and intellectual activity points</h1>
+
+   {{ govukSummaryList({
+     rows: [
+       
+    
+    
+
+       {
+        key: {
+          text: "Total"
+        },
+        value: {
+          html: "6"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "",
+              visuallyHiddenText: "address"
+            }
+          ]
+        }
+      }
+       
+       
+     ]
+   }) }}
+
+   {{ govukSummaryList({
+    rows: [
+      
+   
+   
+
+      {
+       key: {
+         text: "Assessment date"
+       },
+       value: {
+         html: "22 July 2024  "
+       },
+       actions: {
+         items: [
+           {
+             href: "",
+             text: "Change",
+             visuallyHiddenText: "address"
+           }
+         ]
+       }
+     }, 
+
+     {
+      key: {
+        text: "Type of assessment"
+      },
+      value: {
+        html: "Telephone"
+      },
+      actions: {
+        items: [
+          {
+            href: "",
+            text: "Change",
+            visuallyHiddenText: "address"
+          }
+        ]
+      }
     }
-  }
+      
+      
+    ]
+  }) }}
 
-  
-]
-}) }}
+  <br> 
 
-{{ govukSummaryList({
-  rows: [
+  {{ govukSummaryList({
+    classes: "common-reason-for-appeal", 
+    
+    rows: [
+    
+    
+    
     {
       key: {
-        text: "Reported date"
+  
+        classes: "govuk-body govuk-!-font-size-24",
+        text: "Previous decision"
       },
-    
-      value: {
-        text: "14th September 2023"
-      },
+      
       actions: {
         items: [
           {
             href: "#",
             text: "Remove",
-            visuallyHiddenText: "name"
+            visuallyHiddenText: "contact details"
           }
+          
         ]
       }
     }
-
-    
-
+  
     
   ]
-}) }}
-<br>
+  }) }}
 
-<h1 class="govuk-heading-m">Other facts</h1>
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "
+          Mandatory reconsideration"
+        },
+        value: {
+          text: "
+          10 March 2023"
+        },
+        actions: {
+          items: [
+            {
+              href: "Item URL",
+              text: "",
+              visuallyHiddenText: "Item label"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "First tier decision"
+        },
+        value: {
+          text: "1 March 2023"
+        },
+        actions: {
+          items: [
+            {
+              href: "Item URL",
+              text: "",
+              visuallyHiddenText: "Item label"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Date of health assessment"
+        },
+        value: {
+          text: "6 May 2022"
+        },
+        actions: {
+          items: [
+            {
+              href: "Item URL",
+              text: "",
+              visuallyHiddenText: "Item label"
+            }
+          ]
+        }
+      }, 
+
+      {
+        key: {
+          text: "Appeal heard"
+        },
+        value: {
+          text: "10 December 2022"
+        },
+        actions: {
+          items: [
+            {
+              href: "Item URL",
+              text: "",
+              visuallyHiddenText: "Item label"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {{ govukSummaryList({
+    classes: "common-reason-for-appeal", 
+    
+    rows: [
+    
+    
+    
+    {
+      key: {
+  
+        classes: "govuk-body govuk-!-font-size-24",
+        text: "Other facts"
+      },
+      
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Add",
+            visuallyHiddenText: "contact details"
+          }
+          
+        ]
+      }
+    }
+  
+    
+  ]
+  }) }}
 
 {{ govukSummaryList({
   rows: [
     {
       key: {
-        text: "
-        GP report (UC113)"
+        text: "Description"
       },
       value: {
-        text: "
-        2nd April 2023"
+        text: "The appellant declared on their UC journal that they had broken their foot and due to the nature of the injury sustained were kept in hospital for 1 night so that a surgical procedure could be performed on 10 February, they were discharged later that day following surgery.
+        "
       },
       actions: {
         items: [
@@ -803,27 +1447,10 @@
     },
     {
       key: {
-        text: "Written Statement of Reasons"
+        text: "Date"
       },
       value: {
-        text: "1st January 2023"
-      },
-      actions: {
-        items: [
-          {
-            href: "Item URL",
-            text: "Change",
-            visuallyHiddenText: "Item label"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Adult disability payment"
-      },
-      value: {
-        text: "Awarded 20th April 2020"
+        text: "11 February 2024 "
       },
       actions: {
         items: [
@@ -835,6 +1462,7 @@
         ]
       }
     }
+    
   ]
 }) }}
 
