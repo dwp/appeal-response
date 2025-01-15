@@ -31,7 +31,7 @@
 
 
 
-<form novalidation method="post">
+<form novalidation method="post" id="appealdateform">
   
   
    <h1 class="govuk-heading-l">Appeal dates</h1> 
@@ -124,7 +124,7 @@
 <script type="text/javascript">
   function saveData(){
     sessionStorage.setItem("taskAppealdates","2");
-    document.getElementById("form").submit();
+    document.getElementById("appealdateform").submit();
   }
 
 </script>
