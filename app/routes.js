@@ -2747,6 +2747,7 @@ router.post('/timeline/focV2/index', (req, res) => {
 })
 
 router.post('/timeline/appealDates', (req, res) => {
+  console.log(req.body);
   res.redirect('/timeline/01-task-list-new-d')
 })
 

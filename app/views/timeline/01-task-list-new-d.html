@@ -84,7 +84,13 @@
                     Appeal dates 
                   </a>
                 </span>
-                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="appealdate">Not started</strong>
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="appealdate">
+                  {% if data.dateReceivedByHMCTSDate and data.dateReceivedByHMCTSMonth and data.dateReceivedByHMCTSYear %}
+                    Completed
+                  {% else %}
+                    Not started
+                  {% endif %}
+                </strong>
               </li> 
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">

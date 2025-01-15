@@ -39,6 +39,7 @@
 
  {{ govukDateInput({
   id: "date",
+  name: "dateReceivedByHMCTS",
   fieldset: {
     legend: {
       text: "Appeal received by HMCTS",
@@ -51,21 +52,21 @@
   },
   items: [
     {
-      name: "date",
+      name: "dateReceivedByHMCTSDate",
       label: "Day",
-      value: data.day,
+      value: data.dateReceivedByHMCTSMonth,
       classes: "govuk-input--width-2"
     },
     {
-      name: "date",
+      name: "dateReceivedByHMCTSMonth",
       label: "Month",
-      value: data.month,
+      value: data.dateReceivedByHMCTSMonth,
       classes: "govuk-input--width-2"
     },
     {
-      name: "date",
+      name: "dateReceivedByHMCTSYear",
       label: "Year",
-      value: data.year,
+      value: data.dateReceivedByHMCTSYear,
       classes: "govuk-input--width-4"
     }
   ]
@@ -73,6 +74,7 @@
 
  {{ govukDateInput({
   id: "date",
+  name: "dateReceivedByDWP",
   fieldset: {
     legend: {
       text: "Appeal received by DWP",
@@ -85,21 +87,21 @@
   },
   items: [
     {
-      name: "date",
+      name: "dateReceivedByDWPDate",
       label: "Day",
-      value: data.day,
+      value: data.dateReceivedByDWPDate,
       classes: "govuk-input--width-2"
     },
     {
-      name: "date",
+      name: "dateReceivedByDWPMonth",
       label: "Month",
-      value: data.month,
+      value: data.dateReceivedByDWPMonth,
       classes: "govuk-input--width-2"
     },
     {
-      name: "date",
+      name: "dateReceivedByDWPYear",
       label: "Year",
-      value: data.year,
+      value: data.dateReceivedByDWPYear,
       classes: "govuk-input--width-4"
     }
   ]
@@ -122,7 +124,7 @@
 
 {% block pageScripts %}
 <script type="text/javascript">
-  function saveData(){
+  function saveData(){    
     sessionStorage.setItem("taskAppealdates","2");
     document.getElementById("appealdateform").submit();
   }
