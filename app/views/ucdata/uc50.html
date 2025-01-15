@@ -46,17 +46,32 @@
           <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
            <h1 class="govuk-heading-s">Physical</h1>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="op1" name="physical" type="checkbox" value="Moving around and using steps"
                  >
                 <label class="govuk-label govuk-checkboxes__label" for="op1">
-                  Mobilising
+                  Moving around
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op1" name="physical" type="checkbox" value="Moving around and using steps"
+                 >
+                <label class="govuk-label govuk-checkboxes__label" for="op1">
+                  Using steps
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="op2" name="physical" type="checkbox" value="Standing and sitting" >
                 <label class="govuk-label govuk-checkboxes__label" for="op2">
                   Standing and sitting
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="op2" name="physical" type="checkbox" value="Standing and sitting" >
+                <label class="govuk-label govuk-checkboxes__label" for="op2">
+                  Transferring between seats
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
@@ -170,7 +185,7 @@
 
 
         {{ govukRadios({
-          name: "",
+          name: "eatingordrinking",
           fieldset: {
             legend: {
               text: "Did they say they had a problem eating or drinking? ",
