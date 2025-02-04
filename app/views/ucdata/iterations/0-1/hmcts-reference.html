@@ -1,0 +1,61 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="cHeader govuk-!-margin-bottom-7">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="event-name">
+              Enter an HMCTS reference number
+            </label>
+          </h1>
+          <input class="govuk-input govuk-input--width-20" id="event-name" name="event-name" type="text">
+        </div>
+          {{ govukButton({
+            text: "Continue",
+            href: "02-find-appellant.html"
+          }) }}
+    </div>
+    <div id="draftSection">
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      <h3 class="govuk-heading-s">Your draft response</h3>
+      <p>
+        <a href="./timeline/01-task-list-new.html">Jane Doe (1111 2222 3333 4444)</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  window.addEventListener('load', (event) => {
+
+    if(sessionStorage.getItem("draftExists")=="1") {
+      document.getElementById("draftSection").style.display = "none";
+    }
+    else{
+      document.getElementById("draftSection").style.display = "none";
+    }
+
+  });
+</script>
+{% endblock %}
+
+

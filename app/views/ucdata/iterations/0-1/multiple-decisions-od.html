@@ -1,0 +1,88 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form novalidation method="post">
+  
+  <h1 class="govuk-heading-l">When was the first tier decision made?</h1>
+  
+  <p class="govuk-body">The appellant first applied for Universal credit on 18 January 2018. <br> <br>
+
+    They are appealing a mandatory reconsideration decision made on 18 November 2024.</p>
+    
+{{ govukRadios({
+  name: "decisionunderappeal",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  value: data.decisionunderappeal,
+  items: [
+    {
+      value: "28 August 2024",
+      text: "28 August 2024"
+    },
+    {
+      value: "1 March 2023",
+      text: "1 March 2023"
+    }, 
+
+    {
+      value: "7 June 2018",
+      text: "7 June 2018"
+    }
+  ]
+}) }}
+
+  
+  <!-- <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button> -->
+  <a href="od-decision.html" class="govuk-button" id="addButton">
+    Continue
+  </a>
+
+  
+  </form>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+
+{% endblock %}
