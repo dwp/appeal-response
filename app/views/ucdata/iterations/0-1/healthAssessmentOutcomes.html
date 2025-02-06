@@ -1,0 +1,93 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form novalidation method="post">
+
+
+<h1 class="govuk-heading-l">Health assessment outcome</h1>
+
+       {{ govukRadios({
+        name: "[timeline][healthassessmentoutcome]",
+        fieldset: {
+          legend: {
+            text: "Did the appellant have sufficient resctriction of capability?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        value: data.healthassessmentoutcome,
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+       }) }}, 
+
+       {{ govukRadios({
+        name: "[timeline][hcptreatedas]",
+        fieldset: {
+          legend: {
+            text: "Did the appellant meet a 'treated as' provision?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        value: data.hcptreatedas,
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+       }) }}
+
+      
+      
+      </form>
+      <a href="02-task-list-new.html" class="govuk-button" data-module="govuk-button">
+        Continue
+      </a>
+      </div>
+      </div>
+      
+      {% endblock %}
