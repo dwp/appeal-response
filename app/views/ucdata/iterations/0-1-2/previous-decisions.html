@@ -1,0 +1,100 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form novalidation method="post">
+  
+  
+  {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+<h1 class="govuk-heading-l">Do you want to include information about a previous decision?</h1>
+
+
+
+ <p class="govuk-body"> Mandatory reconsideration 10 March 2023.  </p>
+
+ <p class="govuk-body"> First tier decision 1 March 2023.  </p>
+
+
+
+
+{{ govukRadios({
+  name: "previousdecision",
+  fieldset: {
+    legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  value: data.previousdecision,
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+ 
+
+ 
+
+  
+  <!-- <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button> -->
+
+  <a href="previous-decisions-detail.html" class="govuk-button" id="addButton">
+    Continue
+  </a> 
+  
+  </form>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressRepDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}

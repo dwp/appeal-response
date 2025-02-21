@@ -1,0 +1,292 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Tasks to complete – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+<section class="dwp-quick-reference dwp-quick-reference--alternative govuk-!-margin-bottom-9" aria-label="Case information">
+  <dl class="dwp-quick-reference__block">
+  <dt class="dwp-quick-reference__label govuk-visually-hidden">Name:</dt>
+  <dd class="dwp-quick-reference__primary">Jane Doe</dd>
+  <dt class="dwp-quick-reference__label dwp-quick-reference__label--primary">National Insurance number:</dt>
+  <dd class="dwp-quick-reference__secondary">QQ 12 34 56 X</dd>
+  </dl>
+  </section>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          Tasks to complete
+        </h1>
+        <ol class="app-task-list">
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number"></span>Case details
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="02-appellant-details" class="govuk-link govuk-link--no-visited-state" aria-describedby="eligibility-status">
+                    Case details
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--green app-task-list__tag" id="taskAppellantDetails">Completed</strong>
+              </li>
+              <!-- <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="02-appellant-details" class="govuk-link govuk-link--no-visited-state" aria-describedby="eligibility-status">
+                    Appeal dates
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--green app-task-list__tag" id="taskAppellantDetails">completed</strong>
+              </li> -->
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="add-representative.html" class="govuk-link govuk-link--no-visited-state" aria-describedby="eligibility-status">
+                    Representative details
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--green app-task-list__tag" id="taskAppellantDetails">Completed</strong>
+              </li>
+            </ul> 
+          </li> 
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number"></span> Facts of the case
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="02-appellant-details" class="govuk-link govuk-link--no-visited-state" aria-describedby="eligibility-status">
+                    Date of first claim
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--green app-task-list__tag" id="taskAppellantDetails">completed</strong>
+              </li>
+              <li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="decision-1.html" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                    Decision details
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskFOC">not started</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="decision-1.html" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                    Previous decision details
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="taskFOC">optional</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="decision-1.html" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                    Health details
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="points">not started</strong>
+              </li>
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="decision-1.html" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                    Other facts  
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="points">optional</strong>
+              </li> 
+            </ul></li>
+
+           
+
+          
+
+           <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number"></span> Reasons for the appeal and responses
+            </h2>
+            <ul class="app-task-list__items">
+             
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="./section52V2/activities" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                    Record activities and evidence 
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="points">Not started</strong>
+              </li>
+              
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="./Otherissues/other-reasons-for-appeal" aria-describedby="company-information-status" class="govuk-link govuk-link--no-visited-state" >
+                    Respond to other reasons for the appeal
+                  </a>
+                </span>
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="reasons">Not started</strong>
+              </li>
+              
+            </ul>
+
+            </ul> 
+            <li>
+
+
+          <li>
+            <h2 class="app-task-list__section">
+              <span class="app-task-list__section-number"></span> Create response
+            </h2>
+            <ul class="app-task-list__items">
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="11-check-answers" class="govuk-link govuk-link--no-visited-state" aria-describedby="company-information-status" id="cya-link"> 
+                    Check answers and create response
+                  </a>
+                  <span id="cya-nolink"> Check answers and create response</span>
+                </span>
+                <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="cya-no-link-status">Cannot start yet</strong>
+
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <!--
+          <div class="govuk-inset-text">
+            You can edit the repsonse after it has been created.
+          </div>
+          <a href="#" class="govuk-button">Create response</a>
+        -->
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Timeline of events</h1>
+      <div class="dwp-timeline">
+      <ol class="dwp-timeline__items">
+      <li class="dwp-timeline__item">
+        <p class="dwp-timeline__datetime">03 March 2023 at 1:00am</p>
+        <h2 class="dwp-timeline__heading">first claim</h2>
+        <p class="dwp-timeline__by-line">by System</p>
+      </li>
+      <li class="dwp-timeline__item">
+        <p class="dwp-timeline__datetime">1 June 2024 at 7:14am</p>
+        <h2 class="dwp-timeline__heading">Representative details added</h2>
+        <p class="dwp-timeline__by-line">by John Goldsmith</p>
+      </li>
+      <li class="dwp-timeline__item">
+        <p class="dwp-timeline__datetime">15 May 2024 at 4:01pm</p>
+        <h2 class="dwp-timeline__heading">Previous decision details added</h2>
+        <p class="dwp-timeline__by-line">by John Goldsmith</p>
+        <a href="#" class="dwp-timeline__link">View details<span class="govuk-visually-hidden"> of the event on 15 May 2024 at 4:01pm</span></a>
+      </li>
+      <li class="dwp-timeline__item">
+        <p class="dwp-timeline__datetime">26 April 2024 at 12:42pm</p>
+        <h2 class="dwp-timeline__heading">Decision details added</h2>
+        <p class="dwp-timeline__by-line">by John Goldsmith</p>
+      </li>
+      <li class="dwp-timeline__item">
+        <p class="dwp-timeline__datetime">21 April 2024 at 1:12pm</p>
+        <h2 class="dwp-timeline__heading">UC50 data added</h2>
+        <p class="dwp-timeline__by-line">by Jane Doe</p>
+        <a href="#" class="dwp-timeline__link">View details<span class="govuk-visually-hidden"> of the event on 21 April 2024 at 1:12pm</span></a>
+      </li>
+      <li class="dwp-timeline__item">
+        <p class="dwp-timeline__datetime">21 April 2024 at 10:15am</p>
+        <h2 class="dwp-timeline__heading">Health assessment completed</h2>
+        <p class="dwp-timeline__by-line">by Jane Doe</p>
+        <a href="#" class="dwp-timeline__link">View details<span class="govuk-visually-hidden"> of the event on 21 April 2024 at 10:15am</span></a>
+      </li>
+      <li class="dwp-timeline__item">
+        <p class="dwp-timeline__datetime">16 April 2024 at 9:00am</p>
+        <h2 class="dwp-timeline__heading">Health condition or disability </h2>
+        <p class="dwp-timeline__by-line">by Jane Doe</p>
+      </li>
+      </ol>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    window.addEventListener('load', (event) => {
+
+      sessionStorage.setItem("draftExists","1");
+      sessionStorage.setItem("appellantAddress","72 Guild Street <br>London <br>SE23 6FH");
+
+      if(sessionStorage.getItem("taskProgressAppellantDetails")=="2") {
+          document.getElementById("taskAppellantDetails").innerHTML = "Completed";
+          document.getElementById("taskAppellantDetails").className = "govuk-tag app-task-list__tag";
+        
+      }
+      
+//points
+//Flags - 
+      if(sessionStorage.getItem("taskProgressPoints")=="2") {
+          document.getElementById("points").innerHTML = "Completed"; //'complete - changed the label name'
+          document.getElementById("points").className = "govuk-tag app-task-list__tag"; //pulling in GDS style label- check design system
+        
+      }
+
+      if(sessionStorage.getItem("taskProgressReasons")=="2") {
+          document.getElementById("reasons").innerHTML = "Completed"; //'complete - changed the label name'
+          document.getElementById("reasons").className = "govuk-tag app-task-list__tag"; //pulling in GDS style label- check design system
+        
+      }
+
+
+     // if(sessionStorage.getItem("taskProgressRepDetails")=="2") {
+      //    document.getElementById("taskRepDetails").innerHTML = "Completed";
+      //    document.getElementById("taskRepDetails").className = "govuk-tag app-task-list__tag"; 
+     // }
+      if(sessionStorage.getItem("taskProgressFOC")=="2") {
+          document.getElementById("taskFOC").innerHTML = "Completed";
+          document.getElementById("taskFOC").className = "govuk-tag app-task-list__tag";
+      }
+      else if(sessionStorage.getItem("taskProgressFOC")=="1") {
+          document.getElementById("taskFOC").innerHTML = "In progress";
+          document.getElementById("taskFOC").className = "govuk-tag govuk-tag--blue app-task-list__tag";
+      }
+
+      if(sessionStorage.getItem("taskProgressRisk")=="2") {
+          document.getElementById("taskRisk").innerHTML = "Completed";
+          document.getElementById("taskRisk").className = "govuk-tag app-task-list__tag"; 
+      }
+
+      
+
+     
+      // when adding stuff to task list, add here... :) 
+
+      //if(sessionStorage.getItem("taskProgressPoints")=="2" && sessionStorage.getItem("taskProgressAppellantDetails")=="2" && sessionStorage.getItem("taskProgressRepDetails")=="2" && sessionStorage.getItem("taskProgressFOC")=="2" ) 
+      
+      if(sessionStorage.getItem("taskProgressReasons")=="2"  ) 
+      { 
+        document.getElementById("cya-link").style.display="block"; 
+        document.getElementById("cya-nolink").style.display="none"; 
+        document.getElementById("cya-no-link-status").style.display= "none";
+        console.log("everything is complete");
+      }
+      else {
+        document.getElementById("cya-link").style.display="none"; 
+        document.getElementById("cya-nolink").style.display="block"; 
+        document.getElementById("cya-no-link-status").style.display= "block";
+        console.log("NOT everything is complete");
+      }
+      
+
+    });
+  </script>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form novalidation method="post">
+  
+  
+   <h1 class="govuk-heading-l">Health declarations</h1> 
+  
+  
+   <p class="govuk-body"> Conditions declared in the appellant's first application for Universal Credit on 18 January 2018:
+  </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+      Backpain 
+    </li>
+    
+  </ul>
+
+
+  <p class="govuk-body "> These conditions restricted the appellant's ability to work.
+  </p>
+
+
+
+  {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+<!--{{ govukInsetText({
+  text: "Conditions declared are written exactly as the appellant recorded them."
+}) }} -->
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h2 class="govuk-fieldset__heading">
+        Has valid medical evidence for any of the selected medical conditions been provided?
+      </h2>
+      
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+  
+  <!-- <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button> -->
+  <a href="medical-evidence.html" class="govuk-button" data-module="govuk-button" >
+    Continue
+  </a>
+
+
+  
+  </form>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressRepDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}

@@ -1,0 +1,85 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <form novalidation method="post">
+        <h1 class="govuk-heading-l">Does the appellant have a  representative?</h1>
+        
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="Select a template">
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="lcw" name="decisionType" type="radio" value="LCW" aria-describedby="Select this template with health conditions not declared at IODC">
+                <label class="govuk-label govuk-radios__label" for="lcw">
+                 Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="lcwra" name="decisionType" type="radio" value="LCWRA" aria-describedby="Select this template with health conditions declared at IODC but had no impact on work">
+                <label class="govuk-label govuk-radios__label" for="lcwra">
+                  No
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+        <div class="govuk-button-group">
+          <a href="add-representative.html" class="govuk-button" id="addButton">
+            Continue
+          </a>
+        </div>
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  // window.addEventListener('load', (event) => {
+  //   const radioButtons = document.querySelectorAll('input[name="decisonType"]');
+  //   for(const radioButton of radioButtons){
+  //     if(radioButton.value == sessionStorage.getItem("decisonType")){
+  //       radioButton.checked = true;
+  //     }
+  //   }
+  // });
+
+  // function saveData(){
+  //   const radioButtons = document.querySelectorAll('input[name="decisonType"]');
+  //   for(const radioButton of radioButtons){
+  //     if(radioButton.checked){
+  //       sessionStorage.setItem("decisonType",radioButton.value);
+  //     }
+  //   }
+  //   window.location.href = "date-of-claim";
+  // }
+</script>
+{% endblock %}

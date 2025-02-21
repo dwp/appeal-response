@@ -1,0 +1,74 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form novalidation method="post">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+
+          <h1 class="govuk-heading-l">✨ UC data new journey ✨</h1>
+
+          <p class="govuk-body">This page is just for us review designs, won't be in the service :) </p>
+      
+           {{ govukRadios({
+            idPrefrix:"ucdata",
+            name: "ucdata",
+            fieldset: {
+              legend: {
+                text: " ",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            value: data.ucdata,
+            items: [
+              {
+                value: "scenario1",
+                text: "Scenario 1: Multiple decisions from API"
+              },
+              {
+                value: "scenario2",
+                text: "Scenario 2: Single decision from API"
+              }
+            ]
+           }) }}
+
+           <br>
+
+           <br>
+
+           {{ govukButton({
+            text: "Continue"
+          }) }}
+          
+          </form>
+
+          <h1>start</h1>
+          <p class="govuk-body">
+            Jump to <a href="0-1/hmcts-reference" class="govuk-link">start</a>.
+          </p>
+      {% endblock %}
+      
+      {% block pageScripts %}
+       
+      {% endblock %}
+      
+
+
+
+

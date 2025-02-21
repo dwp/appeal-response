@@ -1,0 +1,264 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+
+
+<form novalidation method="post">
+  
+  
+   <h1 class="govuk-heading-l">Select relevant health declarations</h1>
+
+
+
+  {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+<!--{{ govukInsetText({
+  text: "Conditions declared are written exactly as the appellant recorded them."
+}) }} -->
+
+
+<table class="govuk-table" data-module="moj-multi-select" data-multi-select-checkbox="#select-all" data-multi-select-idprefix="mountains-">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col" id="select-all"></th>
+      <th class="govuk-table__header" scope="col">Date</th>
+      <th class="govuk-table__header" scope="col">Conditions declared</th>
+      <th class="govuk-table__header" scope="col">Was ability to work restricted?</th>
+     
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row govuk-table__row--selected">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+          <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+            <span class="govuk-visually-hidden">Select Aconcagua</span>
+          </label>
+        </div>
+      </td>
+      <td class="govuk-table__cell">15 April 2024 </td>
+      <td class="govuk-table__cell">Sciatica, Slipped disc, Anxiety</td>
+      <td class="govuk-table__cell">Yes</td>
+  
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="govuk-checkboxes__input" id="mountain-denali" value="denali">
+          <label class="govuk-label govuk-checkboxes__label" for="mountain-denali">
+            <span class="govuk-visually-hidden">Select Denali</span>
+          </label>
+        </div>
+      </td>
+      </td>
+      <td class="govuk-table__cell">14 February 2024 </td>
+      <td class="govuk-table__cell">Backpain, Sciatica, Anxiety , Broken foot</td>
+      <td class="govuk-table__cell">Yes</td>
+
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="govuk-checkboxes__input" id="mountain-elbrus" value="elbrus">
+          <label class="govuk-label govuk-checkboxes__label" for="mountain-elbrus">
+            <span class="govuk-visually-hidden">Select Elbrus</span>
+          </label>
+        </div>
+      </td>
+      <td class="govuk-table__cell">10 January 2024  </td>
+      <td class="govuk-table__cell">Backpain , Sciatica, Anxiety</td>
+      <td class="govuk-table__cell">Yes</td>
+
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="govuk-checkboxes__input" id="mountain-everest" value="everest">
+          <label class="govuk-label govuk-checkboxes__label" for="mountain-everest">
+            <span class="govuk-visually-hidden">Select Everest</span>
+          </label>
+        </div>
+      </td>
+      <td class="govuk-table__cell">18 September 2023  </td>
+      <td class="govuk-table__cell">Depression   </td>
+      <td class="govuk-table__cell">Yes</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="govuk-checkboxes__input" id="mountain-everest" value="everest">
+          <label class="govuk-label govuk-checkboxes__label" for="mountain-everest">
+            <span class="govuk-visually-hidden">Select Everest</span>
+          </label>
+        </div>
+      </td>
+      <td class="govuk-table__cell">18 August 2023  </td>
+      <td class="govuk-table__cell">Broken leg, Arthritis   </td>
+      <td class="govuk-table__cell">No</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="govuk-checkboxes__input" id="mountain-everest" value="everest">
+          <label class="govuk-label govuk-checkboxes__label" for="mountain-everest">
+            <span class="govuk-visually-hidden">Select Everest</span>
+          </label>
+        </div>
+      </td>
+      <td class="govuk-table__cell">6 July 2023  </td>
+      <td class="govuk-table__cell"> Broken leg, Broken arm, Arthritis   </td>
+      <td class="govuk-table__cell">No</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="govuk-checkboxes__input" id="mountain-everest" value="everest">
+          <label class="govuk-label govuk-checkboxes__label" for="mountain-everest">
+            <span class="govuk-visually-hidden">Select Everest</span>
+          </label>
+        </div>
+      </td>
+      <td class="govuk-table__cell">14 March 2023  </td>
+      <td class="govuk-table__cell">Broken arm, Arthritis  </td>
+      <td class="govuk-table__cell">No</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="govuk-checkboxes__input" id="mountain-everest" value="everest">
+          <label class="govuk-label govuk-checkboxes__label" for="mountain-everest">
+            <span class="govuk-visually-hidden">Select Everest</span>
+          </label>
+        </div>
+      </td>
+      <td class="govuk-table__cell">2 March 2022   </td>
+      <td class="govuk-table__cell">Backpain  </td>
+      <td class="govuk-table__cell">Yes</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="govuk-checkboxes__input" id="mountain-everest" value="everest">
+          <label class="govuk-label govuk-checkboxes__label" for="mountain-everest">
+            <span class="govuk-visually-hidden">Select Everest</span>
+          </label>
+        </div>
+      </td>
+      <td class="govuk-table__cell">23 August 2021    </td>
+      <td class="govuk-table__cell">Backpain, Sciatica  </td>
+      <td class="govuk-table__cell">No</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="govuk-checkboxes__input" id="mountain-everest" value="everest">
+          <label class="govuk-label govuk-checkboxes__label" for="mountain-everest">
+            <span class="govuk-visually-hidden">Select Everest</span>
+          </label>
+        </div>
+      </td>
+      <td class="govuk-table__cell">13 May 2019     </td>
+      <td class="govuk-table__cell">Backpain, carpal tunnel syndrome </td>
+      <td class="govuk-table__cell">No</td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="govuk-checkboxes__input" id="mountain-everest" value="everest">
+          <label class="govuk-label govuk-checkboxes__label" for="mountain-everest">
+            <span class="govuk-visually-hidden">Select Everest</span>
+          </label>
+        </div>
+      </td>
+      <td class="govuk-table__cell">19 April 2018     </td>
+      <td class="govuk-table__cell">Backpain </td>
+      <td class="govuk-table__cell">Yes</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h2 class="govuk-fieldset__heading">
+        Has valid medical evidence for any of the selected medical conditions been provided?
+      </h1>
+      
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+  
+  <!-- <button class="govuk-button" data-module="govuk-button" onclick="saveData()">
+    Continue
+  </button> -->
+  <a href="medical-evidence-2.html" class="govuk-button" data-module="govuk-button" >
+    Continue
+  </a>
+
+
+  
+  </form>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressRepDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}

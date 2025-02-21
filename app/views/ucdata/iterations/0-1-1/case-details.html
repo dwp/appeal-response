@@ -1,0 +1,705 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prep  <q>xzxz`dsa
+    
+  </q>are an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+
+<br><br>
+{% block beforeContent %}
+
+
+{% from "horizontal-navigation/macro.njk" import dwpHorizontalNavigation %}
+
+
+  
+  {% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Case details and history </h1> 
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+Appelant details            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  National Insurance number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  QQ 12 34 45 Q
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Lead tenant)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Jane doe
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> nationality (Lead tenant)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of birth
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   12 June 1979
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Lead tenant)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <div id="addressContainer">
+                    72 Guild Street,<br>
+                    London <br>
+                    SE23 6FH
+                  </div>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Lead tenant)</span></a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Benefit details
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Health benefits
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Personal Independence Payment
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Award state date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  14 November 2019
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Award components
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Mobility component: Lower rate
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Case details
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of claim
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  18 January 2018
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> whether details are known (Person 3)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date recieved by HMCTS
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  01 February 2018
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> relationship to lead tenant (Person 3)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date recieved by DWP
+                </dt>
+                <dd class="govuk-summary-list__value">
+                 02 March 2018
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> age (Person 3)</span></a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              mandatory reconsideration
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Decision date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  18 November 2024
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> whether details are known (Person 3)</span></a>
+                </dd>
+              </div>
+              <div>Points</div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Moving around
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  6
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Standing and sitting
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  6
+                </dd>
+              
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Total
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  12
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+              <div>Mental, cognitive and intellectual activity points</div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Total
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  6
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date requested
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  28 October 2024
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Notice sent
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  18 November 2024
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              First tier decision
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Decision date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  18 November 2024
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> whether details are known (Person 3)</span></a>
+                </dd>
+              </div>
+              <div>Points</div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Moving around
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  6
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Standing and sitting
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  6
+                </dd>
+              
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Total
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  12
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+              <div>Mental, cognitive and intellectual activity points</div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Total
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  6
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Notification sent
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  28 August 2024
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Decision Assurance Call
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Not made
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Health declaration
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Conditions at date of claim
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Backpane
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> whether details are known (Person 3)</span></a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <h2>Changes to health or disability</h2>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              15 April 2024
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> of University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Conditions
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Sciatica, Slipped disc, Anxiety
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Ability to work
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Yes
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              14 Feb 2024
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> of University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Conditions
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Backpain, Sciatica, Anxiety , Broken foot
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Ability to work
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Yes
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              10 Jan 2024
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> of University of Bristol (University of Bristol)</span></a>
+              </li>
+              
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Conditions
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Backpain , Sciatica, Anxiety
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Ability to work
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Yes
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Capability for work questionnaire (UC50)
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date signed
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  14th April 2023
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> whether details are known (Person 3)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Physical activities
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Moving around
+Using steps
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> whether details are known (Person 3)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Mental, cognitive and intellectual activities
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <ul>
+                    <li>Learning how to do tasks
+                      </li>
+                      <li>Awareness of hazards or danger</li>
+                  </ul>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> whether details are known (Person 3)</span></a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Health assessment outcome
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Decision date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  18 November 2024
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> whether details are known (Person 3)</span></a>
+                </dd>
+              </div>
+              <div>Points</div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Moving around
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  6
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Standing and sitting
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  6
+                </dd>
+              
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Total
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  12
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+              <div>Mental, cognitive and intellectual activity points</div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Total
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  6
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date requested
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  28 October 2024
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Notice sent
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  18 November 2024
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> working situation (Person 3)</span></a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Previous decision
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> of University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Mandatory reconsideration
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  10 March 2023
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  First tier decision
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  1 March 2023
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of health assessment
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  6 May 2022
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Appeal heard
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  10 December 2023
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Other facts
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Add new<span class="govuk-visually-hidden"> of University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Description
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  The appellant declared on their UC journal that they had broken their foot and due to the nature of the injury sustained were kept in hospital for 1 night so that a surgical procedure could be performed on 10 February, they were discharged later that day following surgery.
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> whether details are known (Person 3)</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  11 February 2024
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> whether details are known (Person 3)</span></a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        
+        <a href="03-task-list-new.html" class="govuk-button" id="addButton">
+          Continue
+        </a> 
+
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  function saveData(){
+    sessionStorage.setItem("taskProgressRepDetails","2");
+    document.getElementById("form").submit();
+  }
+
+</script>
+{% endblock %}
