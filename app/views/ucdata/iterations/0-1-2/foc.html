@@ -1,0 +1,367 @@
+
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Facts of the case – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName)}}
+{% endblock %}
+
+{% block content %}
+{% if data.error %}
+  <div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#form">Select if you would like to add another fact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+{% endif %}
+<a href="../01-task-list-new" class="govuk-back-link">Back to tasks</a>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+</div>
+
+<div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-left-3">
+      Build the case history
+    </h1>
+    <p>This history will be used to build different parts of the appeal response.</p>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <p class="">
+      <a href="#" class="govuk-link govuk-link--no-visited-state" onclick="toggleAll()" id="toggler">Expand all</a>
+    </p>
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+          <tr class="govuk-table__row
+
+          
+            fact
+          
+
+          
+            rowHighlight
+          
+          " id="9595ae9c-c86f-454a-903a-b72b6a2d61ae" style="transition: 10s; background: rgb(255, 255, 255);">
+            <td class="govuk-table__cell govuk-!-font-weight-regular ">
+              <span id="icon-9595ae9c-c86f-454a-903a-b72b6a2d61ae" class="icon govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>
+              <span class="govuk-!-margin-left-1">16 November 2023</span>
+            </td>
+            <td class="govuk-table__cell" style="width:60% !important;">
+              <span class="govuk-body govuk-!-font-weight-bold">Personal independence payment</span>
+        
+                <div class="listOfDetails">
+                  
+                    <div class="details-9595ae9c-c86f-454a-903a-b72b6a2d61ae detail" style="display: none;">
+                      
+                      <p class="govuk-body govuk-!-font-weight-bold">
+                        
+                          <br>
+                        
+
+                        
+                          
+                            <span class="govuk-body">Yes</span>
+                          
+                                                      
+                      </p>
+                    </div>
+                  
+                </div>
+              
+            </td>
+            <td class="govuk-table__cell govuk-!-text-align-right">
+              <a class="govuk-body govuk-link govuk-link--no-visited-state" href="/edit?id=9595ae9c-c86f-454a-903a-b72b6a2d61ae">Edit</a>
+            </td>
+          </tr>
+        
+          <tr class="govuk-table__row
+
+          
+            fact
+          
+
+          
+          " id="a1f7f99b-84a3-4d22-a383-0e2e075d256fs" style="transition: 10s; background: rgb(255, 255, 255);">
+            <td class="govuk-table__cell govuk-!-font-weight-regular ">
+              <span id="icon-a1f7f99b-84a3-4d22-a383-0e2e075d256fs" class="icon govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>
+              <span class="govuk-!-margin-left-1">01 January 2025</span>
+            </td>
+            <td class="govuk-table__cell" style="width:60% !important;">
+              <span class="govuk-body govuk-!-font-weight-bold">Date of claim</span>
+                                  
+              
+                <div class="listOfDetails">
+                  
+                    <div class="details-a1f7f99b-84a3-4d22-a383-0e2e075d256fs detail" style="display:none;">
+                      
+                      <p class="govuk-body govuk-!-font-weight-bold">
+                          Health conditions declared <br>
+                            <span class="govuk-body">Yes</span>                           
+                      </p>
+                      <p class="govuk-body govuk-!-font-weight-bold">
+                        Health conditions <br>
+                          <span class="govuk-body"><ul>
+                            <li>back pain</li>
+                          </ul></span>                           
+                    </p>
+                    <p class="govuk-body govuk-!-font-weight-bold">
+                      Ability to work restricted <br>
+                        <span class="govuk-body">Yes</span>                           
+                  </p>
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    Medical evidence provided <br>
+                      <span class="govuk-body">Yes</span>                           
+                </p>
+                    </div>
+                  
+                </div>
+              
+            </td>
+            <td class="govuk-table__cell govuk-!-text-align-right">
+              <a class="govuk-body govuk-link govuk-link--no-visited-state" href="/edit?id=a1f7f99b-84a3-4d22-a383-0e2e075d256f">Edit</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row
+
+          
+          fact
+        
+
+        
+        " id="a1f7f99b-84a3-4d22-a383-0e2e075d256f" style="transition: 10s; background: rgb(255, 255, 255);">
+          <td class="govuk-table__cell govuk-!-font-weight-regular ">
+            <span id="icon-a1f7f99b-84a3-4d22-a383-0e2e075d256f" class="icon govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>
+            <span class="govuk-!-margin-left-1">01 February 2025</span>
+          </td>
+          <td class="govuk-table__cell" style="width:60% !important;">
+            <span class="govuk-body govuk-!-font-weight-bold">Change to health or disability</span>
+                                
+            
+              <div class="listOfDetails">
+                
+                  <div class="details-a1f7f99b-84a3-4d22-a383-0e2e075d256f detail" style="display:none;">
+                    
+              
+                  <p class="govuk-body govuk-!-font-weight-bold">
+                    Health conditions declared on that date  <br>
+                      <span class="govuk-body"><ul>
+                        <li>Back pain</li>
+                        <li>Arthritis</li>
+                        <li>Sciatica</li>
+                      </ul></span>                           
+                </p>
+                <p class="govuk-body govuk-!-font-weight-bold">
+                  Restricted appellant's ability to work <br>
+                    <span class="govuk-body">Yes</span>                           
+              </p>
+              <p class="govuk-body govuk-!-font-weight-bold">
+                Medical evidence provided <br>
+                  <span class="govuk-body">Yes</span>                           
+            </p>
+                  </div>
+                
+              </div>
+            
+          </td>
+          <td class="govuk-table__cell govuk-!-text-align-right">
+            <a class="govuk-body govuk-link govuk-link--no-visited-state" href="/edit?id=a1f7f99b-84a3-4d22-a383-0e2e075d256f">Edit</a>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+
+
+    <div class="govuk-grid-column-one-third">
+      <div class="addPanel">
+        <h4 class="govuk-heading-m">Add an item</h4>
+        <ul class="govuk-list">
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-2">Always add</h4>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="originalClaim?target=index">Date of claim</a>
+            {% if data.noOfEvents.originalClaim > 0%}
+              ({{data.noOfEvents.originalClaim}} added)
+            {% endif %}
+            (1 added)
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="uc50Access">Capability for work questionnaire (UC50)</a>
+            {% if data.noOfEvents.uc50 > 0%}
+              ({{data.noOfEvents.uc50}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="assessment?target=index">Health assessment</a>
+            {% if data.noOfEvents.assessment > 0%}
+              ({{data.noOfEvents.assessment}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="outcomeDecisionV2">Original decision</a>
+            {% if data.noOfEvents.outcomeDecision > 0%}
+              ({{data.noOfEvents.outcomeDecision}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="mr">Mandatory reconsideration</a>
+            {% if data.noOfEvents.mr > 0%}
+              ({{data.noOfEvents.mr}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="appealDates.html">Appeal dates</a>
+            {% if data.noOfEvents.appeals > 0%}
+              ({{data.noOfEvents.appeals}} added)
+            {% endif %}
+          </li>
+
+          <h4 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-margin-top-6">Add if needed</h4>
+
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="date-of-change">Change to health or disability</a>
+            {% if data.noOfEvents.changeHealthDisability > 0%}
+              ({{data.noOfEvents.changeHealthDisability}} added)
+            {% endif %}
+            (1 added)
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="uc113?target=index">GP report (UC113)</a>
+            {% if data.noOfEvents.uc113 > 0%}
+              ({{data.noOfEvents.uc113}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="decision?target=index">Previous decision</a>
+           
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="other?target=index">Adult Disability Payment</a>
+            {% if data.noOfEvents.other > 0%}
+              ({{data.noOfEvents.other}} added)
+            {% endif %}
+          </li>
+          <li class="govuk-!-margin-bottom-2">
+            <a class="govuk-link govuk-link--no-visited-state" href="other?target=index">Other fact</a>
+            {% if data.noOfEvents.other > 0%}
+              ({{data.noOfEvents.other}} added)
+            {% endif %}
+          </li>
+          <!--
+            <li class="govuk-!-margin-bottom-2">
+              <a class="govuk-link govuk-link--no-visited-state" href="dualClaim?target=index">ESA claim (dual claim)</a>
+              {% if data.noOfEvents.dualClaim > 0%}
+                ({{data.noOfEvents.dualClaim}} added)
+              {% endif %}
+            </li>
+          -->
+        </ul>
+        <div class="narrowCTA1">
+          <div class="govuk-checkboxes__item govuk-!-margin-bottom-5 govuk-!-margin-top-9">
+            <input class="govuk-checkboxes__input" id="FOCconfirmation" name="FOCconfirmation" type="checkbox" value="FOCconfirm" {{ checked('FOCconfirmation','FOCconfirm') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="confirmation">
+              I have added all the facts I need
+            </label>
+          </div>
+          <button class="govuk-button" href="#" onclick="saveData()">Continue</button><br>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+    $("tr").css("transition", "10s");
+    $("tr").css("background", "#fff");
+    location.hash = "{{data.lastAdded}}";
+  });
+
+  function saveData(){
+    if (document.getElementById('FOCconfirmation').checked) {
+      sessionStorage.setItem("taskProgressFOC","2");
+    } else {
+      sessionStorage.setItem("taskProgressFOC","1");
+    }
+    window.location.href = "../01-task-list-new";
+  }
+
+  function toggleAll(){
+    var panels = document.getElementsByClassName('detail');
+    var toggleLink = document.getElementById('toggler');
+    var icons = document.getElementsByClassName('icon');
+    var targetState = "";
+    var j=0;
+
+    if (toggleLink.text == "Expand all"){
+      targetState = "block";
+      toggleLink.text = "Collapse all";
+      for (var j = 0; j < icons.length; j++) {
+        icons[j].classList.remove("govuk-accordion-nav__chevron--down");
+        icons[j].classList.add("govuk-accordion-nav__chevron--up");
+      }
+    }
+    else {
+      targetState = "none";
+      toggleLink.text = "Expand all";
+      for (var j = 0; j < icons.length; j++) {
+        icons[j].classList.remove("govuk-accordion-nav__chevron--up");
+        icons[j].classList.add("govuk-accordion-nav__chevron--down");
+      }
+    }
+
+    for(j=0; j < panels.length; j++){
+      panels[j].style.display = targetState;
+    }
+  }
+
+  var acc = document.getElementsByClassName("fact");
+  var i,j;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      /* Toggle between hiding and showing the active panels */
+      var icon = document.getElementById('icon-'+this.id);
+      var panels = document.getElementsByClassName('details-'+this.id);
+      console.log(panels.length);
+      for(j=0;j < panels.length;j++){
+        if (panels[j].style.display === "block") {
+          panels[j].style.display = "none";
+          icon.classList.remove("govuk-accordion-nav__chevron--up");
+          icon.classList.add("govuk-accordion-nav__chevron--down");
+        } else {
+          panels[j].style.display = "block";
+          icon.classList.remove("govuk-accordion-nav__chevron--down");
+          icon.classList.add("govuk-accordion-nav__chevron--up");
+        }
+      }
+    });
+  }
+</script>
+{% endblock %}
