@@ -1,0 +1,108 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro-user.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Appeal history – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+{% block beforeContent %}
+  {{govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })}}
+  {% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form novalidation method="post">
+      <h1 class="govuk-heading-l">Outcome of original decision</h2>
+
+
+      <h2 class="govuk-heading-s">Total descriptor points awarded by decision maker</h1>
+      
+
+      {{ govukInput({
+        label: {
+          text: "Physical"
+        },
+        classes: "govuk-input--width-2",
+        id: "width-2",
+        name: "width2"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Mental, cognitive and intellectual"
+        },
+        classes: "govuk-input--width-2",
+        id: "width-2",
+        name: "width2"
+      }) }}
+
+
+
+   
+
+              {{ govukRadios({
+                classes: "govuk-radios--small",
+                name: "",
+                fieldset: {
+                  legend: {
+                    text: "Select a work group to be output in template:",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+                value: data.decisioncall,
+                items: [
+                  {
+                    value: "Intensive Work Search Group",
+                    text: "Intensive Work Search Group "
+                  },
+                  {
+                    value: "No Work Related Requirements Group",
+                    text: "No Work Related Requirements Group"
+                  },
+                  {
+                    value: "Work Preparation Group",
+                    text: "Work Preparation Group"
+                  },
+                  {
+                    value: "Working Enough Group",
+                    text: "Working Enough Group"
+                  },
+                  {
+                    value: "Light Touch Group",
+                    text: "Light Touch Group"
+                  }
+                ]
+              }) }}
+
+                
+                 
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+      
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}
