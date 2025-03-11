@@ -30,15 +30,16 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form novalidation method="post">
+      <h1 class="govuk-heading-l">Relect work group</h2>
 
       {{ govukRadios({
         classes: "govuk-radios--small govuk-!-margin-bottom-6",
         name: "",
         fieldset: {
           legend: {
-            text: "Record work group",
+            text: "Select a work group to be output in template:",
             isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
+            classes: "govuk-fieldset__legend--s"
           }
         },
         value: data.decisioncall,
@@ -77,15 +78,11 @@
 
    
 
-      {{ govukTextarea({
-        classes: "govuk-!-margin-top-6",
-        name: "moreDetail",
-        id: "more-detail",
-        label: {
-          text: "Why is the appellant in this work group? (optional)",
-          classes: "govuk-label--s"
-        }
-      }) }}
+      <!-- {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+      {{ govukInsetText({
+        text: "We can give the user more infomation here about what to do next."
+      }) }} -->
           
 
       {{ govukButton({

@@ -1,0 +1,46 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro-user.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Sorry, there is a problem with the service</h1>
+      <p class="govuk-body">[error code / reason].</p>
+      <!-- <p class="govuk-body">We saved your answers. They will be available for 30 days.</p> -->
+      <p class="govuk-body">
+        [Action to take]  <a class="govuk-link" href="#">email/contact address</a> .
+      </p>
+    </div>
+  </div>
+{% endblock %}
+  
+
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}

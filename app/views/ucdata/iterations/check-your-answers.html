@@ -1,0 +1,610 @@
+{% extends "dwp-layout.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% import "includes/templates/header/macro-user.html" as header%}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/public/stylesheets/custom.css" media="all" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pageTitle %}
+  Home – Prepare an appeal response
+{% endblock %}
+
+{% block header %}
+{{header.header(serviceName,'Jane Doe')}}
+{% endblock %}
+
+{% block content %}
+
+{% set activities %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.activities %}
+      <li>
+        {{item}} 
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
+
+    {% set activitiespoints %}
+
+    <ul class="govuk-list  ">
+      {% for item in data.timeline.activities %}
+      <li>
+        {{item}} 
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
+
+    {% set points %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.activities %}
+      <li>
+         {{data.activitypoints[item]}}
+      </li>
+
+      {%endfor%}
+      
+    
+    </ul> 
+    {% endset %} 
+
+    {% set telephone %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.commonreasons.telephonereasons %}
+      <li>
+        {{item}} <br/><br />
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
+
+    {% set reasons %}
+
+    <ul class="govuk-list ">
+      {% for item in data.timeline.commonreasons.notice %}
+      <li>
+        {{item}} <br/><br />
+      </li>
+
+      {%endfor%}
+    
+    </ul> 
+    {% endset %} 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<a href="01-task-list-new" class="govuk-back-link">Back to tasks</a>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+        <h3 class="govuk-heading-m">Appeal details</h3>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Decision type
+              </dt>
+              <dd class="govuk-summary-list__value">
+                No limited capability for work (LCW)
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-visually-hidden" href="00-decision-type?target=cya">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+          <h2 class="govuk-heading-m">Appellant details</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                National Insurance number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                QQ 12 34 45 Q
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                
+                <a href="#">
+                  Change
+                  <span class="govuk-visually-hidden"> name</span>
+                </a>
+                
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Jane Doe
+              </dd>
+
+             <dd class="govuk-summary-list__actions">
+                <!-- <a href="02-appellant-details?target=cya">
+                  Change
+                  <span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd> -->
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date of birth
+              </dt>
+              <dd class="govuk-summary-list__value">
+                4 June 1972
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <!--
+                <a href="#">
+                  Change
+                  <span class="govuk-visually-hidden"> name</span>
+                </a>
+                -->
+              </dd>
+            </div>
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value" >
+                <div id="addressContainer">
+                  72 Guild Street,<br>
+                  London <br>
+                  SE23 6FH
+                </div>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-visually-hidden" href="02-appellant-address-change.html">
+                  Change
+                  <span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+          <!-- for prototype scenario fake FACTS-->
+         <!-- 
+          <h2 class="govuk-heading-m">Facts of the case</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <th scope="row" class="govuk-table__header govuk-summary-list__key">
+            </th>
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date
+              </dt>
+              <dd class="govuk-summary-list__key">
+                Event
+              </dd>
+              <dd class="govuk-summary-list__key">
+                
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                5 January 2023
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body govuk-!-font-weight-bold">Date of claim
+                <br>
+                <br>
+                Did the appellant declare any health conditions?
+                  <br>
+                  <span class="govuk-body govuk-!-font-weight-regular">Yes</span>
+                  <br>
+                  <br>
+                  Health conditions
+                  <span class="govuk-body govuk-!-font-weight-regular">Anxiety, Arthritis</span>
+                  <br>
+                  <br>
+                    Did they provide valid medical evidence?
+                    <br>
+                    <span class="govuk-body govuk-!-font-weight-regular">Yes</span>
+
+                    </p>
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a href="02-appellant-details?target=cya">
+                  Change
+                  <span class="govuk-visually-hidden"> name</span>
+                </a>
+              </dd>
+            </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              14 Feburary 2023
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body govuk-!-font-weight-bold">Health assessment
+              <br>
+              <br>
+              Type of assessment
+                <br>
+                <span class="govuk-body govuk-!-font-weight-regular">Telephone</span>
+                <br>
+                <br>
+                Health conditions identified by the healthcase professional (HCP)
+                <span class="govuk-body govuk-!-font-weight-regular">Anxiety, Arthritis</span>
+                
+                  </p>
+            </dd>
+
+            <dd class="govuk-summary-list__actions">
+              <a href="02-appellant-details?target=cya">
+                Change
+                <span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            24 February 2023
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body govuk-!-font-weight-bold">Original decision
+            <br>
+            <br>
+            Descriptor points awarded by the decision maker for mental, cognitive and intellectual function
+              <br>
+              <span class="govuk-body govuk-!-font-weight-regular">0</span>
+              <br>
+              <br>
+              Descriptor points awarded by the decision maker for physical activities
+              <br>
+              <span class="govuk-body govuk-!-font-weight-regular">0</span>
+              </p>
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a href="02-appellant-details?target=cya">
+              Change
+              <span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+      
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          24 February 2023
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body govuk-!-font-weight-bold">Original decision notification
+          
+              </p>
+        </dd>
+
+        <dd class="govuk-summary-list__actions">
+          <a href="02-appellant-details?target=cya">
+            Change
+            <span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          18 March 2023
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body govuk-!-font-weight-bold">MR requested by appellant
+          
+              </p>
+        </dd>
+
+        <dd class="govuk-summary-list__actions">
+          <a href="02-appellant-details?target=cya">
+            Change
+            <span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          12 April 2023
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body govuk-!-font-weight-bold">MR decision made
+            <p class="govuk-body govuk-!-font-weight-bold">Yes
+              </p>
+        </dd>
+
+        <dd class="govuk-summary-list__actions">
+          <a href="02-appellant-details?target=cya">
+            Change
+            <span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          2 May 2023
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body govuk-!-font-weight-bold">Appeal received by DWP
+              </p>
+        </dd>
+
+        <dd class="govuk-summary-list__actions">
+          <a href="02-appellant-details?target=cya">
+            Change
+            <span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          2 May 2023
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body govuk-!-font-weight-bold">Appeal received by HMCTS
+              </p>
+        </dd>
+
+        <dd class="govuk-summary-list__actions">
+          <a href="02-appellant-details?target=cya">
+            Change
+            <span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      
+            </dl> -->
+  
+   <!-- CYA that actually works-->         
+            <h2 class="govuk-heading-m">Facts of the case</h2>
+
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header app-custom-class ">Date</th>
+                  <th scope="col" class="govuk-table__header app-custom-class">Event</th>
+                  <th scope="col" class="govuk-table__header app-custom-class"></th>
+                </tr>
+              </thead>      
+              <tbody class="govuk-table__body">
+                {% for event in data.events %}
+                  <tr class="govuk-table__row fact" id={{event.id}}>
+                    <th scope="row" class="govuk-table__header govuk-summary-list__key">
+                      <span class="govuk-!-margin-left-1">{{ event.date }}</span>
+                    </th>
+                    <td class="govuk-table__cell ">
+                      <span class="govuk-body govuk-!-font-weight-bold">{{ event.title }}</span>
+                      {% if event.details %}
+                        <div class="listOfDetails">
+                          {% for key,value in event.details %}
+                            <div class="details-{{event.id}} detail" >
+                              {% if event.type == "changeHealthDisability" and key == "newHealthConditions" %}
+                              <p class="govuk-body govuk-!-font-weight-bold">
+                                Existing conditions                                                                
+                              </p>
+                              <p>
+                                Kidney failure<br>
+                                Carpal tunnel syndrome<br>
+                                                               
+                              </p>
+                              {% endif %}
+                              <p class="govuk-body govuk-!-font-weight-bold">
+                                {% if key == 'mentalPoints' %}
+                                  Descriptor points awarded by the decision maker for mental, cognitive and intellectual function <br>
+                                {% elif key == 'physicalPoints'%}
+                                  Descriptor points awarded by the decision maker for physical activities <br>
+                                {% elif key == 'OCConditions' %}
+                                  Health conditions<br>
+                                {% elif key == 'conditionsExists' %}
+                                  Did the appellant declare any health conditions?<br>
+                                {% elif key == 'COCEvidence' or key == 'OCEvidence' %}
+                                  Did they provide valid medical evidence?<br>
+                                {% elif key == 'COCConditions' %}
+                                  Health conditions declared on that date<br>
+                                {% elif key == 'assessmentType' %}
+                                  Type of assessment<br>
+                                {% elif key == 'asessmentConditions' %}
+                                  Health conditions identified by the healthcare professional (HCP)<br>
+                                {% elif key == 'uc50DateType' %}
+                                  The date on UC50<br>
+                                {% elif key == 'eatingorDrinkingUC50' %}
+                                  Eating or drinking<br>
+                                {% elif key == 'uc50Exists' %}
+                                  Are the details of the UC50 available?<br>
+                                {% elif key == 'uc50Physical' %}
+                                  Physical functions the appellant have difficulty with<br>
+                                {% elif key == 'uc50Mental' %}
+                                Mental, cognitive and intellectual capabilities the appellant have difficulty with<br>
+                                {% elif key == 'newHealthConditions' %}
+                                  New health condition<br>
+                                {% endif %}
+                              </p>
+
+                                {% if event.type == "other"%}
+                                  <span class="govuk-body">{{value}}</span>
+                                {% else %}
+                                  {% if (key == 'uc50Physical' or key == 'uc50Mental') %}
+                                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-0">
+                                      {% for item in value %}
+                                        <li class="govuk-body" >{{item}}</li>
+                                      {% endfor %}
+                                    </ul>
+                                  {% else %}                                    
+                                    <span class="govuk-body">{{value}}</span>
+                                  {% endif %}
+                                {% endif %}
+                              
+                            </div>
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+                    </td>
+                    <td class="govuk-table__cell govuk-!-width-one-quarter govuk-!-text-align-right">
+                      <a class="govuk-body govuk-link govuk-link--no-visited-state" href="/edit?id={{event.id}}&cya=true">Change</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+           
+            </table>
+          
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Record evidence for activities</h1>
+            <dl class="govuk-summary-list">  
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Record evidence</dt>
+                    <dd class="govuk-summary-list__value">Yes</dd>
+                    <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/timeline/section52V2b/record-evidence">Change
+                    </a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Activity groups</dt>
+                    <dd class="govuk-summary-list__value">Upper limb <br />Lower limb</dd>
+                    <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/timeline/section52V2b/record-evidence">Change
+                    </a>
+                    </dd>
+                </div>                 
+            </dl>
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-9">Record work group</h1>
+              <dl class="govuk-summary-list">  
+                  <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Work group</dt>
+                      <dd class="govuk-summary-list__value">Work Preparation Group</dd>
+                      <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="/timeline/section52V2b/record-evidence">Change
+                      </a>
+                      </dd>
+                  </div>               
+              </dl>
+              <dl class="govuk-summary-list">  
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Why was the appellant placed in this work group</dt>
+                    <dd class="govuk-summary-list__value">A sentence or two, explaining why the appellant is in the particular work group.</dd>
+                    <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/timeline/section52V2b/record-evidence">Change
+                    </a>
+                    </dd>
+                </div>               
+            </dl>
+
+
+            {% for activity in allActivities %}
+                {% set evidenceRow = [] %}
+                {% if evidences | length > 0 %}
+                    {% for name, evidence in evidences %}            
+                        {% if name === activity %}
+                            {% for row in evidence %}
+                            {% set evidenceRow = (evidenceRow.push( 
+                                [
+                                    {
+                                        text: row.document,
+                                        classes: 'govuk-!-font-weight-regular'
+                                    },
+                                    {
+                                        text:  row.page
+                                    },
+                                    {
+                                        text:  row.evidence
+                                    },
+                                    {
+                                        html: '<a href="/timeline/section52V2b/add-evidence?id=' + row.id + '&group=' + name + '">Change</a>'
+                                    }    
+                                ]
+                            ), evidenceRow) %}
+                            {% endfor %}                
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                        
+                {% if (evidenceRow | length > 0) %}
+                    {% set finalEvidenceRow = evidenceRow %}
+                {% else %}            
+                    {% set finalEvidenceRow = [[{text: 'No evidence entered so far', classes: 'govuk-!-font-weight-regular'}, {text: ''}, {text: ''}, {text: ''}]] %}
+                {% endif %}
+                                 
+                {{ govukTable({
+                    caption: activity,
+                    captionClasses: "govuk-table__caption--m govuk-!-margin-top-5",
+                    firstCellIsHeader: true,
+                    head: [
+                    {
+                        text: "Document"
+                    },
+                    {
+                        text: "Page"
+                    },
+                    {
+                        text: "Evidence"
+                    },
+                    {
+                        text: ""
+                    },
+                    {
+                        text: ""
+                    }
+                    ],
+                    rows: finalEvidenceRow
+                }) }}                
+            {% endfor %}
+              
+
+
+
+      <div class="govuk-inset-text">
+        The response is created in a Word document that you will be able to edit.
+      </div>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+
+      <div class="govuk-button-group">
+        <a class="govuk-button" data-module="govuk-button" href="12-success">
+          Create response
+        </a>
+
+      </div>
+   
+      <p><a href="01-task-list-new">Back to tasks</a></p>
+
+      <div class="govuk-link">
+        <p><a href="/index.html">Cancel this response</a></p>
+      </div>
+
+    </div>
+  </div>
+  </div>
+  </div>
+  
+
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+
+  window.addEventListener('load', (event) => {
+  });
+
+
+  function saveData(){
+    window.location.href = "01-task-list-new";
+  }
+</script>
+{% endblock %}
