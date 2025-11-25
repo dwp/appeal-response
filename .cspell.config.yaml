@@ -5,7 +5,7 @@ $schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell
 
 version: "0.2"
 
-name: appeal-response-prototype
+name: appeal-response
 
 failFast: true
 noConfigSearch: true
