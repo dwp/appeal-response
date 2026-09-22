@@ -94,9 +94,9 @@ module.exports = router
 // Strip off markdown extensions if present and redirect
 var redirectMarkdown = function (requestedPage, res) {
   if (requestedPage.slice(-3).toLowerCase() === '.md') {
-    res.redirect(requestedPage.slice(0, -3))
+    res.redirect(url);
   }
   if (requestedPage.slice(-9).toLowerCase() === '.markdown') {
-    res.redirect(requestedPage.slice(0, -9))
+    res.redirect(url);
   }
 }
